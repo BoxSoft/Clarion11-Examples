@@ -1,0 +1,57 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{81519CC7-2892-4E99-A8EA-5A8959615B24}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>IM_Trig</AssemblyName>
+    <OutputName>IM_Trig</OutputName>
+    <DefineConstants>_ABCDllMode_=&gt;0%3b_ABCLinkMode_=&gt;1%3b</DefineConstants>
+    <Model>Lib</Model>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <vid>off</vid>
+    <check_stack>False</check_stack>
+    <check_index>False</check_index>
+  </PropertyGroup>
+  <ItemGroup>
+    <FileDriver Include="ASCII" />
+    <FileDriver Include="MEMORY" />
+    <FileDriver Include="TOPSPEED" />
+    <Compile Include="IM_Trig.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IM_Trig001.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IM_Trig002.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IM_Trig003.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IM_Trig004.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IM_TrigM0.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IM_TRIG_BC.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IM_Trig_BC0.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Library Include="IM_Trig.exe.manifest" />
+  </ItemGroup>
+  <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
+</Project>

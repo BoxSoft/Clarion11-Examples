@@ -1,0 +1,82 @@
+[LIBRARY]
+VERSION(4000)
+DESCRIPTION('Demo of C5 Reportwriter features')
+ENDUSER('off')
+OPTION(0)
+
+[REPORTS]
+Report1 REPORT,FONT('Arial',10),PRE(Report1),THOUS,AT(1000,1662,6500,7338),MARGINS(1000,1331,1000,1000)
+          HEADER,FONT('Times New Roman',11,0,4796),AT(1000,1331,,331)
+            STRING('FirstName'),AT(51,0)
+            STRING('LastName'),AT(1565,0)
+            STRING('Telephone'),AT(3079,0)
+            LINE,LINEWIDTH(15),AT(0,168,6500,0)
+          END
+_REPORT_  BREAK
+_TOTALS_    BREAK
+Detail1       DETAIL,FONT('Arial',8,0),AT(0,0,,1031)
+                STRING(@s20),USE(stu:FirstName),AT(51,0)
+                STRING(@s20),USE(stu:LastName),AT(1565,0)
+                STRING(@s12),USE(stu:Telephone),AT(3079,0)
+              END
+            END
+          END
+          FOOTER,AT(1000,9000,,1000)
+            STRING(@n5),PAGENO,AT(813,396,323)
+            STRING('Page:'),AT(396,396)
+          END
+        END
+Report2 REPORT,FONT('Arial',10),PRE(Report2),THOUS,AT(1000,1000,6500,9000)
+_REPORT_  BREAK
+_TOTALS_    BREAK
+Detail1       DETAIL,FONT('Arial',8,0),AT(0,0,,1265)
+                STRING('FirstName:'),AT(0,0)
+                STRING(@s20),USE(stu:FirstName),AT(619,0)
+                STRING('LastName:'),AT(0,253)
+                STRING(@s20),USE(stu:LastName),AT(619,253)
+                STRING('Address:'),AT(0,506)
+                STRING(@s20),USE(stu:Address),AT(619,506)
+                STRING('Address2:'),AT(0,759)
+                STRING(@s20),USE(stu:Address2),AT(619,759)
+              END
+            END
+          END
+        END
+
+[FILES]
+students FILE,PRE(stu),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE,NAME('students.tps')
+KeyStudentNumber KEY(stu:Number),NOCASE,OPT
+MajorKey  KEY(stu:Major,stu:LastName,stu:FirstName),DUP,NOCASE,OPT
+KeyLastName KEY(stu:LastName),DUP,NOCASE
+KeyGradYear KEY(-stu:GradYear,stu:LastName,stu:FirstName),DUP,NOCASE,OPT
+Photo     MEMO(64000),BINARY
+__Record  RECORD
+Number      LONG,PICTURE(@n-14),PROMPT('Number:'),HEADER('Number')
+FirstName   STRING(20),PICTURE(@s20),PROMPT('FirstName:'),HEADER('FirstName')
+LastName    STRING(20),PICTURE(@s20),PROMPT('LastName:'),HEADER('LastName')
+Address     STRING(20),PICTURE(@s20),PROMPT('Address:'),HEADER('Address')
+Address2    STRING(20),PICTURE(@s20),PROMPT('Address2:'),HEADER('Address2')
+City        STRING(20),PICTURE(@s20),PROMPT('City:'),HEADER('City')
+State       STRING(2),PICTURE(@s2),PROMPT('State:'),HEADER('State')
+Zip         LONG,PICTURE(@n-14),PROMPT('Zip:'),HEADER('Zip')
+Telephone   STRING(12),PICTURE(@s12),PROMPT('Telephone:'),HEADER('Telephone')
+Major       LONG,PICTURE(@n-14),PROMPT('Major:'),HEADER('Major')
+GradYear    LONG,PICTURE(@n-14),PROMPT('GradYear:'),HEADER('GradYear')
+          END
+        END
+
+[RELATIONS]
+
+[REPORTVIEWS]
+Report1 VIEW(students),ORDER('UPPER(stu:LastName)'),KEY(stu:KeyLastName)
+        END
+Report2 VIEW(students),ORDER('UPPER(stu:LastName)'),KEY(stu:KeyLastName)
+        END
+
+[SOURCES]
+        DICTIONARY,VERSION('1.0'),DATE(71876),TIME(4920200),NAME('rwdemo.dct')
+
+[SEARCHPATHS]
+
+[EXTERNALS]
+

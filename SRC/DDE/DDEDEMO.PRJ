@@ -1,0 +1,9 @@
+-- 
+#noedit
+#system win32
+#model clarion lib
+#set RELEASE = on
+#pragma debug(vid=>off)
+#pragma optimize(cpu=>386)
+#compile "ddedemo.clw"
+#link "ddedemo.exe"

@@ -1,0 +1,9 @@
+-- 
+#noedit
+#system win32
+#model clarion dll
+#set RELEASE = on
+#pragma debug(vid=>off)
+#pragma optimize(cpu=>386)
+#compile "ddesvr.clw"
+#link "ddesvr.exe"

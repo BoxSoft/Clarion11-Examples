@@ -1,0 +1,49 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{35C2E541-17EF-454B-91D6-9C96F64E9997}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>nntpdemo</AssemblyName>
+    <OutputName>nntpdemo</OutputName>
+    <DefineConstants>_ABCDllMode_=&gt;0%3b_ABCLinkMode_=&gt;1%3b_APIDllMode_=&gt;0%3b_APILinkMode_=&gt;1%3b_MAIDllMode_=&gt;0%3b_MAILinkMode_=&gt;1%3b_WinsockDllMode_=&gt;0%3b_WinsockLinkMode_=&gt;1%3b</DefineConstants>
+    <Model>Lib</Model>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <vid>off</vid>
+    <check_stack>False</check_stack>
+    <check_index>False</check_index>
+  </PropertyGroup>
+  <ItemGroup>
+    <FileDriver Include="DOS" />
+    <Library Include="nntpdemo.exe.manifest" />
+    <Compile Include="nntpdemo.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="nntpdemo001.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="nntpdemo002.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="nntpdemo003.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="NNTPDEMO_BC.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="nntpdemo_BC0.CLW">
+      <Generated>true</Generated>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
+</Project>

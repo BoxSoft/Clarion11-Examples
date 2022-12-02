@@ -1,0 +1,1209 @@
+<?xml version="1.0"?>
+<ReportLibrary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LibraryItems>
+    <ReportLibraryItem>
+      <Report>/// &lt;XRTypeInfo&gt;
+///   &lt;AssemblyFullName&gt;DevExpress.XtraReports.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=4aca31c24e330653&lt;/AssemblyFullName&gt;
+///   &lt;AssemblyLocation&gt;C:\Clarion9\bin\DevExpress.XtraReports.v9.1.dll&lt;/AssemblyLocation&gt;
+///   &lt;TypeName&gt;DevExpress.XtraReports.UI.XtraReport&lt;/TypeName&gt;
+///   &lt;Localization&gt;en-US&lt;/Localization&gt;
+///   &lt;References&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\Softvelocity.RWClasses.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\SoftVelocity.Clarion.Runtime.Procedures.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Windows.Forms\2.0.0.0__b77a5c561934e089\System.Windows.Forms.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System\2.0.0.0__b77a5c561934e089\System.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Configuration\2.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Xml\2.0.0.0__b77a5c561934e089\System.Xml.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Data.SqlXml\2.0.0.0__b77a5c561934e089\System.Data.SqlXml.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Security\2.0.0.0__b03f5f7f11d50a3a\System.Security.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Drawing\2.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\Accessibility\2.0.0.0__b03f5f7f11d50a3a\Accessibility.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Runtime.Serialization.Formatters.Soap\2.0.0.0__b03f5f7f11d50a3a\System.Runtime.Serialization.Formatters.Soap.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Deployment\2.0.0.0__b03f5f7f11d50a3a\System.Deployment.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\SoftVelocity.Clarion.FileIO.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\SoftVelocity.Clarion.Runtime.Classes.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_32\System.Data\2.0.0.0__b77a5c561934e089\System.Data.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\Microsoft.VisualC\8.0.0.0__b03f5f7f11d50a3a\Microsoft.VisualC.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_32\System.Transactions\2.0.0.0__b77a5c561934e089\System.Transactions.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_32\System.EnterpriseServices\2.0.0.0__b03f5f7f11d50a3a\System.EnterpriseServices.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.DirectoryServices\2.0.0.0__b03f5f7f11d50a3a\System.DirectoryServices.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Runtime.Remoting\2.0.0.0__b77a5c561934e089\System.Runtime.Remoting.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_32\System.Web\2.0.0.0__b03f5f7f11d50a3a\System.Web.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Design\2.0.0.0__b03f5f7f11d50a3a\System.Design.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Drawing.Design\2.0.0.0__b03f5f7f11d50a3a\System.Drawing.Design.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_32\System.Data.OracleClient\2.0.0.0__b77a5c561934e089\System.Data.OracleClient.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Web.RegularExpressions\2.0.0.0__b03f5f7f11d50a3a\System.Web.RegularExpressions.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.DirectoryServices.Protocols\2.0.0.0__b03f5f7f11d50a3a\System.DirectoryServices.Protocols.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.ServiceProcess\2.0.0.0__b03f5f7f11d50a3a\System.ServiceProcess.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Configuration.Install\2.0.0.0__b03f5f7f11d50a3a\System.Configuration.Install.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\AddIns\BackendBindings\ClarionBinding\Common\DataDictionary.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\ICSharpCode.Core.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\log4net.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\SoftVelocity.Ide.Core.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\AddIns\BackendBindings\ClarionBinding\Common\SoftVelocity.DataDictionary.Design.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\Aga.Controls.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\ICSharpCode.SharpDevelop.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\SmartPropertyGrid.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\Skybound.VisualTips.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\WeifenLuo.WinFormsUI.Docking.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\Microsoft.Build.Framework\2.0.0.0__b03f5f7f11d50a3a\Microsoft.Build.Framework.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\ICSharpCode.TextEditor.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\ICSharpCode.SharpDevelop.Dom.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\ICSharpCode.NRefactory.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\Mono.Cecil.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\ICSharpCode.SharpDevelop.Widgets.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\Microsoft.Build.Engine\2.0.0.0__b03f5f7f11d50a3a\Microsoft.Build.Engine.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\SeriousBit.Licensing.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Management\2.0.0.0__b03f5f7f11d50a3a\System.Management.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\Microsoft.JScript\8.0.0.0__b03f5f7f11d50a3a\Microsoft.JScript.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\Microsoft.Vsa\8.0.0.0__b03f5f7f11d50a3a\Microsoft.Vsa.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\ClarionDL.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\clarion.asl.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\AddIns\BackendBindings\ClarionBinding\Common\DataDictionaryFile.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\Clarion.Core.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\clarion.dct.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\Clarion.Options.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\AddIns\BackendBindings\ClarionBinding\Common\DataDictionaryEditor.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\AddIns\BackendBindings\ClarionBinding\Common\CommonSources.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\AddIns\BackendBindings\ClarionBinding\Common\ClarionNetReport.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\AddIns\BackendBindings\ClarionBinding\Common\Controls\CommonControl.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\AddIns\BackendBindings\ClarionBinding\Common\CommonProperties.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\AddIns\BackendBindings\ClarionBinding\Common\ClarionParser.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\SoftVelocity.Clarion.CompilerMessages.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\AddIns\BackendBindings\ClarionBinding\Common\ClarionNetWindow.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\clarion.prj.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\clarion.tplhelp.dll" /&gt;
+///     &lt;Reference Path="C:\Clarion9\bin\AddIns\BackendBindings\ClarionBinding\Common\Browser.dll" /&gt;
+///   &lt;/References&gt;
+/// &lt;/XRTypeInfo&gt;
+namespace XtraReportSerialization {
+    
+    public class xtraReport1 : DevExpress.XtraReports.UI.XtraReport {
+        private DevExpress.XtraReports.UI.DetailBand detailBand1;
+        private DevExpress.XtraReports.UI.XRPictureBox pictureBox1;
+        private DevExpress.XtraReports.UI.XRLabel label12;
+        private DevExpress.XtraReports.UI.XRLabel label11;
+        private DevExpress.XtraReports.UI.XRLine line1;
+        private DevExpress.XtraReports.UI.XRLabel label8;
+        private DevExpress.XtraReports.UI.XRLabel label5;
+        private DevExpress.XtraReports.UI.XRLabel label4;
+        private DevExpress.XtraReports.UI.XRLabel label3;
+        private DevExpress.XtraReports.UI.XRLabel label2;
+        private DevExpress.XtraReports.UI.XRLabel label1;
+        private DevExpress.XtraReports.UI.PageFooterBand pageFooterBand1;
+        private DevExpress.XtraReports.UI.XRLine line2;
+        private DevExpress.XtraReports.UI.XRPageInfo pageInfo2;
+        private DevExpress.XtraReports.UI.XRPageInfo pageInfo1;
+        private DevExpress.XtraReports.UI.ReportHeaderBand reportHeaderBand1;
+        private DevExpress.XtraReports.UI.XRLabel label6;
+        private DevExpress.XtraReports.UI.XRLabel label9;
+        private DevExpress.XtraReports.UI.PageHeaderBand PageHeader;
+        private DevExpress.XtraReports.UI.XRLabel label10;
+        private Clarion.Data.DynFileAdapter TableTableAdapter;
+        private System.Data.DataSet dataSet1;
+        private DevExpress.XtraReports.UI.XRControlStyle Title;
+        private DevExpress.XtraReports.UI.XRControlStyle FieldCaption;
+        private DevExpress.XtraReports.UI.XRControlStyle PageInfo;
+        private DevExpress.XtraReports.UI.XRControlStyle DataField;
+        private System.Resources.ResourceManager _resources;
+        public xtraReport1() {
+            this.InitializeComponent();
+        }
+        private System.Resources.ResourceManager resources {
+            get {
+                if (_resources == null) {
+                    string resourceString = "zsrvvgEAAACRAAAAbFN5c3RlbS5SZXNvdXJjZXMuUmVzb3VyY2VSZWFkZXIsIG1zY29ybGliLCBWZXJza" +
+                        "W9uPTIuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4O" +
+                        "SNTeXN0ZW0uUmVzb3VyY2VzLlJ1bnRpbWVSZXNvdXJjZVNldAIAAAACAAAAAAAAAFBBRFBBRFC7QGePu" +
+                        "IM0pAAAAABLAAAAVgEAAEZUAGEAYgBsAGUAVABhAGIAbABlAEEAZABhAHAAdABlAHIALgBYAG0AbABWA" +
+                        "GkAZQB3AEQAZQBzAGMAcgBpAHAAdABvAHIAAAAAAEJwAGkAYwB0AHUAcgBlAEIAbwB4ADEALgBTAGMAc" +
+                        "gBpAHAAdABzAC4ATwBuAEIAZQBmAG8AcgBlAFAAcgBpAG4AdAB2DAAAAfMYPD94bWwgdmVyc2lvbj0iM" +
+                        "S4wIiBlbmNvZGluZz0idXRmLTE2Ij8+DQo8UldWaWV3RGVzY3JpcHRvciB4bWxuczp4c2k9Imh0dHA6L" +
+                        "y93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4bWxuczp4c2Q9Imh0dHA6Ly93d3cud" +
+                        "zMub3JnLzIwMDEvWE1MU2NoZW1hIj4NCiAgPEZpbGU+UFJPRFVDVFM8L0ZpbGU+DQogIDxKb2lucyAvP" +
+                        "g0KICA8RGljdE5hbWU+QzpcQ2xhcmlvbjlcRXhhbXBsZXNcUmVwb3J0V3JpdGVyXFJFUFhMIFJlcG9yd" +
+                        "HNcUHJvZHVjdHNcUHJvZHVjdHMuZGN0PC9EaWN0TmFtZT4NCiAgPE1vZGlmaWVkPjIwMTMtMDYtMjVUM" +
+                        "Tc6MTk6MDAuMDAxPC9Nb2RpZmllZD4NCiAgPEZpbGVEZXNjcmlwdG9ycz4NCiAgICA8c3RyaW5nPiZsd" +
+                        "DtGaWxlIGxhYmVsPSJQUk9EVUNUUyIgdmVyc2lvbj0iMSIgY29tcGF0aWJsZT0iMSIgZHJpdmVyPSJUT" +
+                        "1BTUEVFRCIgbmFtZT0iUFJPRFVDVFMuVFBTIiBwcmVmaXg9IlBSTyIgYmluZGFiZT0idHJ1ZSIgdGhyZ" +
+                        "WFkPSJ0cnVlIiZndDsNCiAgJmx0O0tleSBsYWJlbD0iS2V5UHJvZHVjdE51bWJlciIgdmVyc2lvbj0iM" +
+                        "SIgY29tcGF0aWJsZT0iMSIgdHlwZT0iS2V5IiBwcmltYXJ5PSJ0cnVlIiBub2Nhc2U9InRydWUiIG9wd" +
+                        "D0idHJ1ZSImZ3Q7DQogICAgJmx0O0ZpZWxkIGxhYmVsPSJQcm9kdWN0TnVtYmVyIiBhc2NlbmRpbmc9I" +
+                        "nRydWUiIC8mZ3Q7DQogICZsdDsvS2V5Jmd0Ow0KICAmbHQ7S2V5IGxhYmVsPSJLZXlQcm9kdWN0U2t1I" +
+                        "iB2ZXJzaW9uPSIxIiBjb21wYXRpYmxlPSIxIiB0eXBlPSJLZXkiIG5vY2FzZT0idHJ1ZSIgb3B0PSJ0c" +
+                        "nVlIiZndDsNCiAgICAmbHQ7RmllbGQgbGFiZWw9IlByb2R1Y3RTS1UiIGFzY2VuZGluZz0idHJ1ZSIgL" +
+                        "yZndDsNCiAgJmx0Oy9LZXkmZ3Q7DQogICZsdDtLZXkgbGFiZWw9IktleURlc2NyaXB0aW9uIiB2ZXJza" +
+                        "W9uPSIxIiBjb21wYXRpYmxlPSIxIiB0eXBlPSJLZXkiIGR1cGxpY2F0ZXM9InRydWUiIG5vY2FzZT0id" +
+                        "HJ1ZSIgb3B0PSJ0cnVlIiZndDsNCiAgICAmbHQ7RmllbGQgbGFiZWw9IkRlc2NyaXB0aW9uIiBhc2Nlb" +
+                        "mRpbmc9InRydWUiIC8mZ3Q7DQogICZsdDsvS2V5Jmd0Ow0KICAmbHQ7RmllbGQgbGFiZWw9IlByb2R1Y" +
+                        "3ROdW1iZXIiIHZlcnNpb249IjEiIGNvbXBhdGlibGU9IjEiIHR5cGU9IkxPTkciIC8mZ3Q7DQogICZsd" +
+                        "DtGaWVsZCBsYWJlbD0iUHJvZHVjdFNLVSIgdmVyc2lvbj0iMSIgY29tcGF0aWJsZT0iMSIgdHlwZT0iU" +
+                        "1RSSU5HIiBzaXplPSIxMCIgLyZndDsNCiAgJmx0O0ZpZWxkIGxhYmVsPSJEZXNjcmlwdGlvbiIgdmVyc" +
+                        "2lvbj0iMSIgY29tcGF0aWJsZT0iMSIgdHlwZT0iU1RSSU5HIiBzaXplPSIzNSIgLyZndDsNCiAgJmx0O" +
+                        "0ZpZWxkIGxhYmVsPSJQcmljZSIgdmVyc2lvbj0iMSIgY29tcGF0aWJsZT0iMSIgdHlwZT0iREVDSU1BT" +
+                        "CIgc2l6ZT0iNyIgcGxhY2VzPSIyIiAvJmd0Ow0KICAmbHQ7RmllbGQgbGFiZWw9IlF1YW50aXR5SW5Td" +
+                        "G9jayIgdmVyc2lvbj0iMSIgY29tcGF0aWJsZT0iMSIgdHlwZT0iREVDSU1BTCIgc2l6ZT0iNyIgcGxhY" +
+                        "2VzPSIyIiAvJmd0Ow0KICAmbHQ7RmllbGQgbGFiZWw9IlJlT3JkZXJRdWFudGl0eSIgdmVyc2lvbj0iM" +
+                        "SIgY29tcGF0aWJsZT0iMSIgdHlwZT0iREVDSU1BTCIgc2l6ZT0iNyIgcGxhY2VzPSIyIiAvJmd0Ow0KI" +
+                        "CAmbHQ7RmllbGQgbGFiZWw9IkNvc3QiIHZlcnNpb249IjEiIGNvbXBhdGlibGU9IjEiIHR5cGU9IkRFQ" +
+                        "0lNQUwiIHNpemU9IjciIHBsYWNlcz0iMiIgLyZndDsNCiAgJmx0O0ZpZWxkIGxhYmVsPSJQaWN0dXJlR" +
+                        "mlsZSIgdmVyc2lvbj0iMSIgY29tcGF0aWJsZT0iMSIgdHlwZT0iU1RSSU5HIiBzaXplPSI2NCIgLyZnd" +
+                        "DsNCiZsdDsvRmlsZSZndDs8L3N0cmluZz4NCiAgPC9GaWxlRGVzY3JpcHRvcnM+DQogIDxEZXNjckZpb" +
+                        "GVOYW1lcz4NCiAgICA8c3RyaW5nPlBST0RVQ1RTPC9zdHJpbmc+DQogIDwvRGVzY3JGaWxlTmFtZXM+D" +
+                        "QogIDxGaWxlUGF0aHM+DQogICAgPFJXUGF0aD4NCiAgICAgIDxNYXNrPlBST0RVQ1RTPC9NYXNrPg0KI" +
+                        "CAgICAgPFBhdGg+QzpcQ2xhcmlvbjlcRXhhbXBsZXNcUmVwb3J0V3JpdGVyXFJFUFhMIFJlcG9ydHNcU" +
+                        "HJvZHVjdHNcUFJPRFVDVFMuVFBTPC9QYXRoPg0KICAgICAgPElzUmVsYXRpdmU+ZmFsc2U8L0lzUmVsY" +
+                        "XRpdmU+DQogICAgPC9SV1BhdGg+DQogIDwvRmlsZVBhdGhzPg0KICA8QWRkUGF0aHMgLz4NCiAgPFBpY" +
+                        "3R1cmVzPg0KICAgIDxSV1BpY3R1cmVJbmZvPg0KICAgICAgPEZpZWxkTmFtZT5QUk86UHJvZHVjdE51b" +
+                        "WJlcjwvRmllbGROYW1lPg0KICAgICAgPFBpY3R1cmU+QG4tMTQ8L1BpY3R1cmU+DQogICAgPC9SV1BpY" +
+                        "3R1cmVJbmZvPg0KICAgIDxSV1BpY3R1cmVJbmZvPg0KICAgICAgPEZpZWxkTmFtZT5QUk86UHJvZHVjd" +
+                        "FNLVTwvRmllbGROYW1lPg0KICAgICAgPFBpY3R1cmU+QHMxMDwvUGljdHVyZT4NCiAgICA8L1JXUGljd" +
+                        "HVyZUluZm8+DQogICAgPFJXUGljdHVyZUluZm8+DQogICAgICA8RmllbGROYW1lPlBSTzpEZXNjcmlwd" +
+                        "GlvbjwvRmllbGROYW1lPg0KICAgICAgPFBpY3R1cmU+QHMzNTwvUGljdHVyZT4NCiAgICA8L1JXUGljd" +
+                        "HVyZUluZm8+DQogICAgPFJXUGljdHVyZUluZm8+DQogICAgICA8RmllbGROYW1lPlBSTzpQcmljZTwvR" +
+                        "mllbGROYW1lPg0KICAgICAgPFBpY3R1cmU+QG4tMTAuMjwvUGljdHVyZT4NCiAgICA8L1JXUGljdHVyZ" +
+                        "UluZm8+DQogICAgPFJXUGljdHVyZUluZm8+DQogICAgICA8RmllbGROYW1lPlBSTzpRdWFudGl0eUluU" +
+                        "3RvY2s8L0ZpZWxkTmFtZT4NCiAgICAgIDxQaWN0dXJlPkBuLTEwLjI8L1BpY3R1cmU+DQogICAgPC9SV" +
+                        "1BpY3R1cmVJbmZvPg0KICAgIDxSV1BpY3R1cmVJbmZvPg0KICAgICAgPEZpZWxkTmFtZT5QUk86UmVPc" +
+                        "mRlclF1YW50aXR5PC9GaWVsZE5hbWU+DQogICAgICA8UGljdHVyZT5Abi0xMC4yPC9QaWN0dXJlPg0KI" +
+                        "CAgIDwvUldQaWN0dXJlSW5mbz4NCiAgICA8UldQaWN0dXJlSW5mbz4NCiAgICAgIDxGaWVsZE5hbWU+U" +
+                        "FJPOkNvc3Q8L0ZpZWxkTmFtZT4NCiAgICAgIDxQaWN0dXJlPkBuLTEwLjI8L1BpY3R1cmU+DQogICAgP" +
+                        "C9SV1BpY3R1cmVJbmZvPg0KICAgIDxSV1BpY3R1cmVJbmZvPg0KICAgICAgPEZpZWxkTmFtZT5QUk86U" +
+                        "GljdHVyZUZpbGU8L0ZpZWxkTmFtZT4NCiAgICAgIDxQaWN0dXJlPkBzNjQ8L1BpY3R1cmU+DQogICAgP" +
+                        "C9SV1BpY3R1cmVJbmZvPg0KICA8L1BpY3R1cmVzPg0KPC9SV1ZpZXdEZXNjcmlwdG9yPgG4Ak9uQmVmb" +
+                        "3JlUHJpbnQgICAgICAgICAgICAgICAgUFJPQ0VEVVJFKFN5c3RlbS5PYmplY3Qgc2VuZGVyLCBTeXN0Z" +
+                        "W0uRHJhd2luZy5QcmludGluZy5QcmludEV2ZW50QXJncyBlKSxQUklWQVRFDQogICAgICAgIElOTElOR" +
+                        "Q0KICAgICAgICBDT0RFDQogICAgIFBpY3R1cmVCb3gxLkltYWdlID0gSW1hZ2UuRnJvbUZpbGUoJ0M6X" +
+                        "ENsYXJpb245XEV4YW1wbGVzXFJlcG9ydFdyaXRlclxSRVBYTCBSZXBvcnRzXFByb2R1Y3RzXCcmU2VsZ" +
+                        "i5HZXRDdXJyZW50Q29sdW1uVmFsdWUoJ1BSTzpQSUNUVVJFRklMRScpLlRvU3RyaW5nKCkpDQogICAgI" +
+                        "CAgIEVORA==";
+                    this._resources = new DevExpress.XtraReports.Serialization.XRResourceManager(resourceString);
+                }
+                return this._resources;
+            }
+        }
+        private void InitializeComponent() {
+            this.detailBand1 = new DevExpress.XtraReports.UI.DetailBand();
+            this.pageFooterBand1 = new DevExpress.XtraReports.UI.PageFooterBand();
+            this.reportHeaderBand1 = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
+            this.pictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
+            this.label12 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label11 = new DevExpress.XtraReports.UI.XRLabel();
+            this.line1 = new DevExpress.XtraReports.UI.XRLine();
+            this.label8 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label5 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label4 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label3 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label2 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label1 = new DevExpress.XtraReports.UI.XRLabel();
+            this.line2 = new DevExpress.XtraReports.UI.XRLine();
+            this.pageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
+            this.pageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
+            this.label6 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label9 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label10 = new DevExpress.XtraReports.UI.XRLabel();
+            this.TableTableAdapter = new Clarion.Data.DynFileAdapter();
+            this.dataSet1 = new XtraReportSerialization.dataSet1();
+            this.Title = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.FieldCaption = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+            // 
+            // detailBand1
+            // 
+            this.detailBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+                        this.pictureBox1,
+                        this.label12,
+                        this.label11,
+                        this.line1,
+                        this.label8,
+                        this.label5,
+                        this.label4,
+                        this.label3,
+                        this.label2,
+                        this.label1});
+            this.detailBand1.Height = 120;
+            this.detailBand1.Name = "detailBand1";
+            this.detailBand1.SortFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
+                        new DevExpress.XtraReports.UI.GroupField("PRO:PRODUCTSKU", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
+            // 
+            // pageFooterBand1
+            // 
+            this.pageFooterBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+                        this.line2,
+                        this.pageInfo2,
+                        this.pageInfo1});
+            this.pageFooterBand1.Height = 44;
+            this.pageFooterBand1.Name = "pageFooterBand1";
+            // 
+            // reportHeaderBand1
+            // 
+            this.reportHeaderBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+                        this.label6,
+                        this.label9});
+            this.reportHeaderBand1.Height = 67;
+            this.reportHeaderBand1.Name = "reportHeaderBand1";
+            // 
+            // PageHeader
+            // 
+            this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+                        this.label10});
+            this.PageHeader.Height = 35;
+            this.PageHeader.Name = "PageHeader";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(433, 17);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Scripts.OnBeforePrint = resources.GetString("pictureBox1.Scripts.OnBeforePrint");
+            this.pictureBox1.Size = new System.Drawing.Size(100, 92);
+            this.pictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
+            // 
+            // label12
+            // 
+            this.label12.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Table.PRO:PRICE", "@n-10.2")});
+            this.label12.Location = new System.Drawing.Point(142, 67);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(50, 18);
+            this.label12.StyleName = "DataField";
+            // 
+            // label11
+            // 
+            this.label11.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Table.PRO:DESCRIPTION", "@s35")});
+            this.label11.Location = new System.Drawing.Point(142, 42);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(259, 18);
+            this.label11.StyleName = "DataField";
+            // 
+            // line1
+            // 
+            this.line1.Location = new System.Drawing.Point(6, 3);
+            this.line1.Name = "line1";
+            this.line1.Size = new System.Drawing.Size(638, 2);
+            // 
+            // label8
+            // 
+            this.label8.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Table.PRO:PICTUREFILE", "@s64")});
+            this.label8.Location = new System.Drawing.Point(142, 92);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(176, 18);
+            this.label8.StyleName = "DataField";
+            // 
+            // label5
+            // 
+            this.label5.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Table.PRO:PRODUCTSKU", "@s10")});
+            this.label5.Location = new System.Drawing.Point(142, 17);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(126, 18);
+            this.label5.StyleName = "DataField";
+            // 
+            // label4
+            // 
+            this.label4.Location = new System.Drawing.Point(6, 90);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(127, 18);
+            this.label4.StyleName = "FieldCaption";
+            this.label4.Text = "PictureFileName:";
+            // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(6, 66);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(127, 18);
+            this.label3.StyleName = "FieldCaption";
+            this.label3.Text = "Price:";
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(6, 42);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(127, 18);
+            this.label2.StyleName = "FieldCaption";
+            this.label2.Text = "Description:";
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(6, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(127, 18);
+            this.label1.StyleName = "FieldCaption";
+            this.label1.Text = "ProductSKU:";
+            // 
+            // line2
+            // 
+            this.line2.Location = new System.Drawing.Point(8, 8);
+            this.line2.Name = "line2";
+            this.line2.Size = new System.Drawing.Size(638, 2);
+            // 
+            // pageInfo2
+            // 
+            this.pageInfo2.Format = "Page {0} of {1}";
+            this.pageInfo2.Location = new System.Drawing.Point(333, 17);
+            this.pageInfo2.Name = "pageInfo2";
+            this.pageInfo2.Size = new System.Drawing.Size(313, 23);
+            this.pageInfo2.StyleName = "PageInfo";
+            this.pageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            // 
+            // pageInfo1
+            // 
+            this.pageInfo1.Location = new System.Drawing.Point(8, 17);
+            this.pageInfo1.Name = "pageInfo1";
+            this.pageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
+            this.pageInfo1.Size = new System.Drawing.Size(313, 23);
+            this.pageInfo1.StyleName = "PageInfo";
+            // 
+            // label6
+            // 
+            this.label6.CanGrow = false;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.label6.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label6.Location = new System.Drawing.Point(8, 42);
+            this.label6.Name = "label6";
+            this.label6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.label6.Size = new System.Drawing.Size(633, 25);
+            this.label6.StylePriority.UseFont = false;
+            this.label6.StylePriority.UseForeColor = false;
+            this.label6.StylePriority.UseTextAlignment = false;
+            this.label6.Text = "NOTE:   Please edit the FullPath to Image Files in the Script for the PictureBox " +
+                "control";
+            this.label6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            this.label6.Visible = false;
+            this.label6.WordWrap = false;
+            // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 13F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
+                            | System.Drawing.FontStyle.Underline))));
+            this.label9.Location = new System.Drawing.Point(6, 6);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(638, 27);
+            this.label9.StyleName = "Title";
+            this.label9.StylePriority.UseFont = false;
+            this.label9.StylePriority.UseTextAlignment = false;
+            this.label9.Text = " Script for Assigning ImageName Stored in Table For Disk Images To PictureBox";
+            this.label9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
+            // label10
+            // 
+            this.label10.Font = new System.Drawing.Font("Times New Roman", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.label10.Location = new System.Drawing.Point(8, 0);
+            this.label10.Name = "label10";
+            this.label10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.label10.Size = new System.Drawing.Size(638, 25);
+            this.label10.StylePriority.UseFont = false;
+            this.label10.StylePriority.UseTextAlignment = false;
+            this.label10.Text = "Products Report";
+            this.label10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
+            // TableTableAdapter
+            // 
+            this.TableTableAdapter.ConcurrencyCheck = false;
+            this.TableTableAdapter.DeleteCommand = null;
+            this.TableTableAdapter.Filter = "";
+            this.TableTableAdapter.InsertCommand = null;
+            this.TableTableAdapter.NoMemo = false;
+            this.TableTableAdapter.Order = "";
+            this.TableTableAdapter.SelectCommand = null;
+            this.TableTableAdapter.TableMappings.AddRange(new System.Data.Common.DataTableMapping[] {
+                        new System.Data.Common.DataTableMapping("Table", "Table", new System.Data.Common.DataColumnMapping[0])});
+            this.TableTableAdapter.UpdateCommand = null;
+            this.TableTableAdapter.XmlViewDescriptor = resources.GetString("TableTableAdapter.XmlViewDescriptor");
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "dataSet1";
+            // 
+            // Title
+            // 
+            this.Title.BackColor = System.Drawing.Color.White;
+            this.Title.BorderColor = System.Drawing.SystemColors.ControlText;
+            this.Title.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.Title.BorderWidth = 1;
+            this.Title.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
+            this.Title.ForeColor = System.Drawing.Color.Maroon;
+            this.Title.Name = "Title";
+            // 
+            // FieldCaption
+            // 
+            this.FieldCaption.BackColor = System.Drawing.Color.White;
+            this.FieldCaption.BorderColor = System.Drawing.SystemColors.ControlText;
+            this.FieldCaption.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.FieldCaption.BorderWidth = 1;
+            this.FieldCaption.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.FieldCaption.ForeColor = System.Drawing.Color.Maroon;
+            this.FieldCaption.Name = "FieldCaption";
+            // 
+            // PageInfo
+            // 
+            this.PageInfo.BackColor = System.Drawing.Color.White;
+            this.PageInfo.BorderColor = System.Drawing.SystemColors.ControlText;
+            this.PageInfo.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.PageInfo.BorderWidth = 1;
+            this.PageInfo.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
+            this.PageInfo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.PageInfo.Name = "PageInfo";
+            // 
+            // DataField
+            // 
+            this.DataField.BackColor = System.Drawing.Color.White;
+            this.DataField.BorderColor = System.Drawing.SystemColors.ControlText;
+            this.DataField.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.DataField.BorderWidth = 1;
+            this.DataField.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.DataField.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.DataField.Name = "DataField";
+            // 
+            // xtraReport1
+            // 
+            this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
+                        this.detailBand1,
+                        this.pageFooterBand1,
+                        this.reportHeaderBand1,
+                        this.PageHeader});
+            this.DataAdapter = this.TableTableAdapter;
+            this.DataSource = this.dataSet1;
+            this.Name = "xtraReport1";
+            this.PageHeight = 1100;
+            this.PageWidth = 850;
+            this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
+                        this.Title,
+                        this.FieldCaption,
+                        this.PageInfo,
+                        this.DataField});
+            this.Version = "9.1";
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
+        }
+    }
+}
+namespace XtraReportSerialization {
+    
+    /// &lt;summary&gt;
+    ///Represents a strongly typed in-memory cache of data.
+    ///&lt;/summary&gt;
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+    [global::System.Serializable()]
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
+    [global::System.Xml.Serialization.XmlRootAttribute("dataSet1")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
+    public partial class dataSet1 : global::System.Data.DataSet {
+        private _TableDataTable table_Table;
+        private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public dataSet1() {
+            this.BeginInit();
+            this.InitClass();
+            global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
+            base.Tables.CollectionChanged += schemaChangedHandler;
+            base.Relations.CollectionChanged += schemaChangedHandler;
+            this.EndInit();
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected dataSet1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                base(info, context, false) {
+            if ((this.IsBinarySerialized(info, context) == true)) {
+                this.InitVars(false);
+                global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler1 = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
+                this.Tables.CollectionChanged += schemaChangedHandler1;
+                this.Relations.CollectionChanged += schemaChangedHandler1;
+                return;
+            }
+            string strSchema = ((string)(info.GetValue("XmlSchema", typeof(string))));
+            if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
+                global::System.Data.DataSet ds = new global::System.Data.DataSet();
+                ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
+                if ((ds.Tables["Table"] != null)) {
+                    base.Tables.Add(new _TableDataTable(ds.Tables["Table"]));
+                }
+                this.DataSetName = ds.DataSetName;
+                this.Prefix = ds.Prefix;
+                this.Namespace = ds.Namespace;
+                this.Locale = ds.Locale;
+                this.CaseSensitive = ds.CaseSensitive;
+                this.EnforceConstraints = ds.EnforceConstraints;
+                this.Merge(ds, false, global::System.Data.MissingSchemaAction.Add);
+                this.InitVars();
+            }
+            else {
+                this.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
+            }
+            this.GetSerializationData(info, context);
+            global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
+            base.Tables.CollectionChanged += schemaChangedHandler;
+            this.Relations.CollectionChanged += schemaChangedHandler;
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public _TableDataTable _Table {
+            get {
+                return this.table_Table;
+            }
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.BrowsableAttribute(true)]
+        [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
+        public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
+            get {
+                return this._schemaSerializationMode;
+            }
+            set {
+                this._schemaSerializationMode = value;
+            }
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public new global::System.Data.DataTableCollection Tables {
+            get {
+                return base.Tables;
+            }
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public new global::System.Data.DataRelationCollection Relations {
+            get {
+                return base.Relations;
+            }
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected override void InitializeDerivedDataSet() {
+            this.BeginInit();
+            this.InitClass();
+            this.EndInit();
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public override global::System.Data.DataSet Clone() {
+            dataSet1 cln = ((dataSet1)(base.Clone()));
+            cln.InitVars();
+            cln.SchemaSerializationMode = this.SchemaSerializationMode;
+            return cln;
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected override bool ShouldSerializeTables() {
+            return false;
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected override bool ShouldSerializeRelations() {
+            return false;
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected override void ReadXmlSerializable(global::System.Xml.XmlReader reader) {
+            if ((this.DetermineSchemaSerializationMode(reader) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
+                this.Reset();
+                global::System.Data.DataSet ds = new global::System.Data.DataSet();
+                ds.ReadXml(reader);
+                if ((ds.Tables["Table"] != null)) {
+                    base.Tables.Add(new _TableDataTable(ds.Tables["Table"]));
+                }
+                this.DataSetName = ds.DataSetName;
+                this.Prefix = ds.Prefix;
+                this.Namespace = ds.Namespace;
+                this.Locale = ds.Locale;
+                this.CaseSensitive = ds.CaseSensitive;
+                this.EnforceConstraints = ds.EnforceConstraints;
+                this.Merge(ds, false, global::System.Data.MissingSchemaAction.Add);
+                this.InitVars();
+            }
+            else {
+                this.ReadXml(reader);
+                this.InitVars();
+            }
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected override global::System.Xml.Schema.XmlSchema GetSchemaSerializable() {
+            global::System.IO.MemoryStream stream = new global::System.IO.MemoryStream();
+            this.WriteXmlSchema(new global::System.Xml.XmlTextWriter(stream, null));
+            stream.Position = 0;
+            return global::System.Xml.Schema.XmlSchema.Read(new global::System.Xml.XmlTextReader(stream), null);
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal void InitVars() {
+            this.InitVars(true);
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal void InitVars(bool initTable) {
+            this.table_Table = ((_TableDataTable)(base.Tables["Table"]));
+            if ((initTable == true)) {
+                if ((this.table_Table != null)) {
+                    this.table_Table.InitVars();
+                }
+            }
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitClass() {
+            this.DataSetName = "dataSet1";
+            this.Prefix = "";
+            this.EnforceConstraints = true;
+            this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
+            this.table_Table = new _TableDataTable();
+            base.Tables.Add(this.table_Table);
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerialize_Table() {
+            return false;
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
+            if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
+                this.InitVars();
+            }
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+            dataSet1 ds = new dataSet1();
+            global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+            global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+            global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
+            any.Namespace = ds.Namespace;
+            sequence.Items.Add(any);
+            type.Particle = sequence;
+            global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+            if (xs.Contains(dsSchema.TargetNamespace)) {
+                global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                try {
+                    global::System.Xml.Schema.XmlSchema schema = null;
+                    dsSchema.Write(s1);
+                    for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                        schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                        s2.SetLength(0);
+                        schema.Write(s2);
+                        if ((s1.Length == s2.Length)) {
+                            s1.Position = 0;
+                            s2.Position = 0;
+                            for (; ((s1.Position != s1.Length) 
+                                        &amp;&amp; (s1.ReadByte() == s2.ReadByte())); ) {
+                                ;
+                            }
+                            if ((s1.Position == s1.Length)) {
+                                return type;
+                            }
+                        }
+                    }
+                }
+                finally {
+                    if ((s1 != null)) {
+                        s1.Close();
+                    }
+                    if ((s2 != null)) {
+                        s2.Close();
+                    }
+                }
+            }
+            xs.Add(dsSchema);
+            return type;
+        }
+        public delegate void _TableRowChangeEventHandler(object sender, _TableRowChangeEvent e);
+        /// &lt;summary&gt;
+        ///Represents the strongly named DataTable class.
+        ///&lt;/summary&gt;
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class _TableDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable {
+            private global::System.Data.DataColumn column_PRO_PRODUCTNUMBER;
+            private global::System.Data.DataColumn column_PRO_PRODUCTSKU;
+            private global::System.Data.DataColumn column_PRO_DESCRIPTION;
+            private global::System.Data.DataColumn column_PRO_PRICE;
+            private global::System.Data.DataColumn column_PRO_QUANTITYINSTOCK;
+            private global::System.Data.DataColumn column_PRO_REORDERQUANTITY;
+            private global::System.Data.DataColumn column_PRO_COST;
+            private global::System.Data.DataColumn column_PRO_PICTUREFILE;
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public _TableDataTable() {
+                this.TableName = "Table";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal _TableDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected _TableDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _PRO_PRODUCTNUMBERColumn {
+                get {
+                    return this.column_PRO_PRODUCTNUMBER;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _PRO_PRODUCTSKUColumn {
+                get {
+                    return this.column_PRO_PRODUCTSKU;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _PRO_DESCRIPTIONColumn {
+                get {
+                    return this.column_PRO_DESCRIPTION;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _PRO_PRICEColumn {
+                get {
+                    return this.column_PRO_PRICE;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _PRO_QUANTITYINSTOCKColumn {
+                get {
+                    return this.column_PRO_QUANTITYINSTOCK;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _PRO_REORDERQUANTITYColumn {
+                get {
+                    return this.column_PRO_REORDERQUANTITY;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _PRO_COSTColumn {
+                get {
+                    return this.column_PRO_COST;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _PRO_PICTUREFILEColumn {
+                get {
+                    return this.column_PRO_PICTUREFILE;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public _TableRow this[int index] {
+                get {
+                    return ((_TableRow)(this.Rows[index]));
+                }
+            }
+            public event _TableRowChangeEventHandler _TableRowChanging;
+            public event _TableRowChangeEventHandler _TableRowChanged;
+            public event _TableRowChangeEventHandler _TableRowDeleting;
+            public event _TableRowChangeEventHandler _TableRowDeleted;
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Add_TableRow(_TableRow row) {
+                this.Rows.Add(row);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public _TableRow Add_TableRow(int _PRO_PRODUCTNUMBER, string _PRO_PRODUCTSKU, string _PRO_DESCRIPTION, decimal _PRO_PRICE, decimal _PRO_QUANTITYINSTOCK, decimal _PRO_REORDERQUANTITY, decimal _PRO_COST, string _PRO_PICTUREFILE) {
+                _TableRow row_TableRow = ((_TableRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        _PRO_PRODUCTNUMBER,
+                        _PRO_PRODUCTSKU,
+                        _PRO_DESCRIPTION,
+                        _PRO_PRICE,
+                        _PRO_QUANTITYINSTOCK,
+                        _PRO_REORDERQUANTITY,
+                        _PRO_COST,
+                        _PRO_PICTUREFILE};
+                row_TableRow.ItemArray = columnValuesArray;
+                this.Rows.Add(row_TableRow);
+                return row_TableRow;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public virtual global::System.Collections.IEnumerator GetEnumerator() {
+                return this.Rows.GetEnumerator();
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                _TableDataTable cln = ((_TableDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new _TableDataTable();
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.column_PRO_PRODUCTNUMBER = base.Columns["PRO:PRODUCTNUMBER"];
+                this.column_PRO_PRODUCTSKU = base.Columns["PRO:PRODUCTSKU"];
+                this.column_PRO_DESCRIPTION = base.Columns["PRO:DESCRIPTION"];
+                this.column_PRO_PRICE = base.Columns["PRO:PRICE"];
+                this.column_PRO_QUANTITYINSTOCK = base.Columns["PRO:QUANTITYINSTOCK"];
+                this.column_PRO_REORDERQUANTITY = base.Columns["PRO:REORDERQUANTITY"];
+                this.column_PRO_COST = base.Columns["PRO:COST"];
+                this.column_PRO_PICTUREFILE = base.Columns["PRO:PICTUREFILE"];
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.column_PRO_PRODUCTNUMBER = new global::System.Data.DataColumn("PRO:PRODUCTNUMBER", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column_PRO_PRODUCTNUMBER);
+                this.column_PRO_PRODUCTSKU = new global::System.Data.DataColumn("PRO:PRODUCTSKU", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column_PRO_PRODUCTSKU);
+                this.column_PRO_DESCRIPTION = new global::System.Data.DataColumn("PRO:DESCRIPTION", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column_PRO_DESCRIPTION);
+                this.column_PRO_PRICE = new global::System.Data.DataColumn("PRO:PRICE", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column_PRO_PRICE);
+                this.column_PRO_QUANTITYINSTOCK = new global::System.Data.DataColumn("PRO:QUANTITYINSTOCK", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column_PRO_QUANTITYINSTOCK);
+                this.column_PRO_REORDERQUANTITY = new global::System.Data.DataColumn("PRO:REORDERQUANTITY", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column_PRO_REORDERQUANTITY);
+                this.column_PRO_COST = new global::System.Data.DataColumn("PRO:COST", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column_PRO_COST);
+                this.column_PRO_PICTUREFILE = new global::System.Data.DataColumn("PRO:PICTUREFILE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column_PRO_PICTUREFILE);
+                this.column_PRO_PRODUCTSKU.MaxLength = 10;
+                this.column_PRO_DESCRIPTION.MaxLength = 35;
+                this.column_PRO_PICTUREFILE.MaxLength = 64;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public _TableRow New_TableRow() {
+                return ((_TableRow)(this.NewRow()));
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new _TableRow(builder);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(_TableRow);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this._TableRowChanged != null)) {
+                    this._TableRowChanged(this, new _TableRowChangeEvent(((_TableRow)(e.Row)), e.Action));
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this._TableRowChanging != null)) {
+                    this._TableRowChanging(this, new _TableRowChangeEvent(((_TableRow)(e.Row)), e.Action));
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this._TableRowDeleted != null)) {
+                    this._TableRowDeleted(this, new _TableRowChangeEvent(((_TableRow)(e.Row)), e.Action));
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this._TableRowDeleting != null)) {
+                    this._TableRowDeleting(this, new _TableRowChangeEvent(((_TableRow)(e.Row)), e.Action));
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Remove_TableRow(_TableRow row) {
+                this.Rows.Remove(row);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dataSet1 ds = new dataSet1();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "_TableDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            &amp;&amp; (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        /// &lt;summary&gt;
+        ///Represents strongly named DataRow class.
+        ///&lt;/summary&gt;
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class _TableRow : global::System.Data.DataRow {
+            private _TableDataTable table_Table;
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal _TableRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.table_Table = ((_TableDataTable)(this.Table));
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int _PRO_PRODUCTNUMBER {
+                get {
+                    try {
+                        return ((int)(this[this.table_Table._PRO_PRODUCTNUMBERColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PRO:PRODUCTNUMBER\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table_Table._PRO_PRODUCTNUMBERColumn] = value;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string _PRO_PRODUCTSKU {
+                get {
+                    try {
+                        return ((string)(this[this.table_Table._PRO_PRODUCTSKUColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PRO:PRODUCTSKU\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table_Table._PRO_PRODUCTSKUColumn] = value;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string _PRO_DESCRIPTION {
+                get {
+                    try {
+                        return ((string)(this[this.table_Table._PRO_DESCRIPTIONColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PRO:DESCRIPTION\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table_Table._PRO_DESCRIPTIONColumn] = value;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal _PRO_PRICE {
+                get {
+                    try {
+                        return ((decimal)(this[this.table_Table._PRO_PRICEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PRO:PRICE\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table_Table._PRO_PRICEColumn] = value;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal _PRO_QUANTITYINSTOCK {
+                get {
+                    try {
+                        return ((decimal)(this[this.table_Table._PRO_QUANTITYINSTOCKColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PRO:QUANTITYINSTOCK\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table_Table._PRO_QUANTITYINSTOCKColumn] = value;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal _PRO_REORDERQUANTITY {
+                get {
+                    try {
+                        return ((decimal)(this[this.table_Table._PRO_REORDERQUANTITYColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PRO:REORDERQUANTITY\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table_Table._PRO_REORDERQUANTITYColumn] = value;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal _PRO_COST {
+                get {
+                    try {
+                        return ((decimal)(this[this.table_Table._PRO_COSTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PRO:COST\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table_Table._PRO_COSTColumn] = value;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string _PRO_PICTUREFILE {
+                get {
+                    try {
+                        return ((string)(this[this.table_Table._PRO_PICTUREFILEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PRO:PICTUREFILE\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table_Table._PRO_PICTUREFILEColumn] = value;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_PRO_PRODUCTNUMBERNull() {
+                return this.IsNull(this.table_Table._PRO_PRODUCTNUMBERColumn);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_PRO_PRODUCTNUMBERNull() {
+                this[this.table_Table._PRO_PRODUCTNUMBERColumn] = global::System.Convert.DBNull;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_PRO_PRODUCTSKUNull() {
+                return this.IsNull(this.table_Table._PRO_PRODUCTSKUColumn);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_PRO_PRODUCTSKUNull() {
+                this[this.table_Table._PRO_PRODUCTSKUColumn] = global::System.Convert.DBNull;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_PRO_DESCRIPTIONNull() {
+                return this.IsNull(this.table_Table._PRO_DESCRIPTIONColumn);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_PRO_DESCRIPTIONNull() {
+                this[this.table_Table._PRO_DESCRIPTIONColumn] = global::System.Convert.DBNull;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_PRO_PRICENull() {
+                return this.IsNull(this.table_Table._PRO_PRICEColumn);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_PRO_PRICENull() {
+                this[this.table_Table._PRO_PRICEColumn] = global::System.Convert.DBNull;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_PRO_QUANTITYINSTOCKNull() {
+                return this.IsNull(this.table_Table._PRO_QUANTITYINSTOCKColumn);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_PRO_QUANTITYINSTOCKNull() {
+                this[this.table_Table._PRO_QUANTITYINSTOCKColumn] = global::System.Convert.DBNull;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_PRO_REORDERQUANTITYNull() {
+                return this.IsNull(this.table_Table._PRO_REORDERQUANTITYColumn);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_PRO_REORDERQUANTITYNull() {
+                this[this.table_Table._PRO_REORDERQUANTITYColumn] = global::System.Convert.DBNull;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_PRO_COSTNull() {
+                return this.IsNull(this.table_Table._PRO_COSTColumn);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_PRO_COSTNull() {
+                this[this.table_Table._PRO_COSTColumn] = global::System.Convert.DBNull;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_PRO_PICTUREFILENull() {
+                return this.IsNull(this.table_Table._PRO_PICTUREFILEColumn);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_PRO_PICTUREFILENull() {
+                this[this.table_Table._PRO_PICTUREFILEColumn] = global::System.Convert.DBNull;
+            }
+        }
+        /// &lt;summary&gt;
+        ///Row event argument class
+        ///&lt;/summary&gt;
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class _TableRowChangeEvent : global::System.EventArgs {
+            private _TableRow eventRow;
+            private global::System.Data.DataRowAction eventAction;
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public _TableRowChangeEvent(_TableRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public _TableRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+    }
+}
+</Report>
+      <Description />
+      <LastModificationDate>0001-01-01T00:00:00</LastModificationDate>
+      <Name>ProductsReport</Name>
+    </ReportLibraryItem>
+  </LibraryItems>
+  <Externals />
+</ReportLibrary>

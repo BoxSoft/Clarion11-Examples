@@ -1,0 +1,300 @@
+[LIBRARY]
+VERSION(4001)
+ENDUSER('off')
+OPTION(0)
+
+[REPORTS]
+StudentPhoneList REPORT,FONT('Arial',10),PRE(StudentPhoneList),THOUS,AT(1000,1662,6500,7170),MARGINS(1000,1331,1000,1584) !Student Phone List (sorted by Student Number)
+          HEADER,FONT('Times New Roman',11,0,4796),AT(1000,1331,,331)
+            STRING('Number'),AT(50,0)
+            STRING(' Name'),AT(1032,0)
+            STRING('Telephone'),AT(4058,0)
+            LINE,LINEWIDTH(15),AT(0,168,6500,0)
+          END
+_REPORT_  BREAK
+            HEADER,ALONE,ABSOLUTE,AT(1000,1331,,9416)
+              TEXT('Student Phone List'),FONT('Times New Roman',20,0,4796),CENTER,RESIZE,AT(2166,3000,2166,3000)
+            END
+_TOTALS_    BREAK
+Detail1       DETAIL,FONT('Arial',8,0),AT(0,0,,253)
+                STRING(@P###-##-####P),USE(STU:Number),AT(50,0)
+                STRING(@s12),USE(STU:Telephone),AT(4058,0)
+                LINE,LINEWIDTH(10),AT(0,199,6500,0)
+                STRING(@s40),USE(FullName),AT(1035,0)
+              END
+            END
+          END
+          FOOTER,FONT('Times New Roman',9,0,4796),AT(1000,8832,,584)
+            STRING('Page '),AT(5833,292)
+            STRING(@n5),PAGENO,AT(6114,292)
+          END
+FullName FORMULA(@s40),VALUE('CLIP( STU:LastName ) & '', '' & STU:FirstName') !LastName, FirstName
+        END
+StudentPhoneListByName REPORT,FONT('Arial',10),PRE(StudentPhoneList),THOUS,AT(1000,1662,6500,7170),MARGINS(1000,1331,1000,1584) !Student Phone List (sorted by Name)
+          HEADER,FONT('Times New Roman',11,0,4796),AT(1000,1331,,331)
+            STRING('Number'),AT(50,0)
+            STRING(' Name'),AT(1032,0)
+            STRING('Telephone'),AT(4058,0)
+            LINE,LINEWIDTH(15),AT(0,168,6500,0)
+          END
+_REPORT_  BREAK
+            HEADER,ALONE,ABSOLUTE,AT(1000,1331,,9416)
+              TEXT('Student Phone List'),FONT('Times New Roman',20,0,4796),CENTER,RESIZE,AT(2166,3000,2166,3000)
+            END
+_TOTALS_    BREAK
+Detail1       DETAIL,FONT('Arial',8,0),AT(0,0,,253)
+                STRING(@P###-##-####P),USE(STU:Number),AT(50,0)
+                STRING(@s12),USE(STU:Telephone),AT(4058,0)
+                LINE,LINEWIDTH(10),AT(0,199,6500,0)
+                STRING(@s40),USE(FullName),AT(1035,0)
+              END
+            END
+          END
+          FOOTER,FONT('Times New Roman',9,0,4796),AT(1000,8832,,584)
+            STRING('Page '),AT(5833,292)
+            STRING(@n5),PAGENO,AT(6114,292)
+          END
+FullName FORMULA(@s40),VALUE('CLIP( STU:LastName ) & '', '' & STU:FirstName') !LastName, FirstName
+        END
+MailingLabels REPORT,FONT('Arial',10),PRE(MailingLabels),THOUS,AT(63,500,8374,10000),MARGINS(63,500,63,500) !Labels for Seminar Announcement
+_REPORT_  BREAK
+_TOTALS_    BREAK
+Detail1       DETAIL,FIXED,FONT('Arial',8,0),AT(125,0,2625,1000)
+                STRING(@s20),SKIP,USE(STU:Address),AT(239,333)
+                STRING(@s20),SKIP,USE(STU:Address2),AT(239,514)
+                STRING(@s40),USE(FullName),AT(239,152,1562)
+                STRING(@s50),USE(CityStateZip),AT(239,696,1427)
+              END
+            END
+          END
+FullName FORMULA(@s40),VALUE('CLIP( STU:FirstName ) & '' '' & STU:LastName') !LastName, FirstName
+CityStateZip FORMULA(@s50),VALUE('CLIP( STU:City ) & '', '' & CLIP( STU:State ) & '' '' & STU:Zip') !City State & Zip
+        END
+EnrollCensus REPORT,FONT('Arial',10),PRE(EnrollCensus),THOUS,AT(1000,1000,6500,7832),MARGINS(1000,1000,1000,1584) !Census of Students Enrolled
+_REPORT_  BREAK
+            HEADER,ALONE,ABSOLUTE,AT(1000,1000,,9416)
+              TEXT('Enrollment Report'),FONT('Times New Roman',20,0,4796),CENTER,RESIZE,AT(2166,3000,2166,3000)
+            END
+_TOTALS_    BREAK
+_BREAK1       BREAK(COU:Description)
+                HEADER,COLOR(12632256),FONT('Arial',10,0,700),PAGEBEFORE(-1),AT(0,0,,834)
+                  STRING(@S30),FONT(,20),USE(COU:Description),AT(8,0)
+                  TEXT,RESIZE,USE(COU:CompleteDescription),AT(1558,413,4942,417)
+                END
+_BREAK2         BREAK(CLA:ClassNumber)
+                  HEADER,FONT('Arial',10,0,700),AT(0,0,,1565)
+                    GROUP('Class'),BOXED,AT(313,176,1438,948)
+                    END
+                    GROUP('Teacher'),BOXED,AT(4906,197,1469,948)
+                    END
+                    STRING(@P##-#####P),USE(CLA:ClassNumber),AT(583,374)
+                    STRING(@p###-##-####p),USE(CLA:TeacherNumber),AT(4979,895)
+                    STRING(@n4),USE(CLA:RoomNumber),AT(583,614)
+                    STRING(@s20),USE(CLA:ScheduledTime),AT(583,864,906)
+                    STRING('Student Number'),AT(1050,1252)
+                    STRING('Midterm Exam'),AT(2323,1252)
+                    STRING('Final Exam'),AT(3481,1252)
+                    STRING('Term Paper'),AT(4431,1252)
+                    STRING(@S20),USE(Tea:LastName),AT(4979,437,1209)
+                    STRING(@S20),USE(Tea:FirstName),AT(4979,666,1209)
+                    STRING('Final Grade'),AT(5427,1252)
+                    LINE,LINEWIDTH(15),AT(1000,1420,5500,0)
+                  END
+Detail1           DETAIL,FONT('Arial',8,0),AT(0,0,,253),IF('NOT EMPTY( ''Enrollment'' )')
+                    STRING(@p###-##-####p),USE(ENR:StudentNumber),AT(1050,0,1073)
+                    STRING(@n3),USE(ENR:MidtermExam),AT(2323,0,958)
+                    STRING(@n3),USE(ENR:FinalExam),AT(3481,0,750)
+                    STRING(@n3),USE(ENR:TermPaper),AT(4431,0,781)
+                    LINE,LINEWIDTH(10),AT(42,184,6458,0)
+                    STRING(@S20),USE(STU:LastName),AT(63,0,947)
+                    STRING(@s30),RIGHT,USE(FinalGrade),AT(5306,0,1146)
+                  END
+                  FOOTER,WITHPRIOR(1),AT(0,0,,386)
+                    STRING(@n5),USE(Cnt_StudentNumber_2),AT(135,119)
+                    STRING('Students Enrolled'),AT(671,119)
+                  END
+                END
+                FOOTER,WITHPRIOR(1),AT(0,0,,396)
+                  STRING(@n5),USE(Cnt_StudentNumber),AT(115,97)
+                  STRING('Students Enrolled'),AT(656,108)
+                END
+              END
+            END
+          END
+          FOOTER,FONT('Times New Roman',9,0,4796),AT(1000,8832,,584)
+            STRING('Page '),AT(5833,292)
+            STRING(@n5),PAGENO,AT(6114,292)
+          END
+Cnt_StudentNumber TOTAL(@n5),RESET(_BREAK1),CNT,USE(ENR:StudentNumber) !Count of ENR:StudentNumber
+Cnt_StudentNumber_2 TOTAL(@n5),RESET(_BREAK2),CNT,USE(ENR:StudentNumber) !Count of ENR:StudentNumber
+FinalGrade FORMULA,VALUE('ENR:MidtermExam *0.25 + ENR:FinalExam *0.25 + ENR:TermPaper *0.50') !25% MidTerm + FinalExam + 50% TermPaper
+        END
+
+[FILES]
+STUDENTS FILE,PRE(STU),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE
+KeyStudentNumber KEY(STU:Number),NOCASE,OPT
+MajorKey  KEY(STU:Major,STU:LastName,STU:FirstName),DUP,NOCASE,OPT
+KeyLastName KEY(STU:LastName),DUP,NOCASE
+KeyGradYear KEY(-STU:GradYear,STU:LastName,STU:FirstName),DUP,NOCASE,OPT
+Photo     MEMO(64000),BINARY
+__Record  RECORD
+Number      LONG,PICTURE(@P###-##-####P)
+FirstName   STRING(20),PICTURE(@S20)
+LastName    STRING(20),PICTURE(@S20)
+Address     STRING(20),PICTURE(@S20)
+Address2    STRING(20),PICTURE(@s20)
+City        STRING(20),PICTURE(@S20)
+State       STRING(2),PICTURE(@S2)
+Zip         LONG,PICTURE(@n05)
+Telephone   STRING(12),PICTURE(@s12)
+Major       LONG,PICTURE(@n4)
+GradYear    LONG,PICTURE(@n4)
+          END
+        END
+Teachers FILE,PRE(Tea),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE
+KeyTeacherNumber KEY(Tea:Number),NOCASE,OPT
+KeyLastName KEY(Tea:LastName),DUP,NOCASE
+KeyDepartment KEY(Tea:Department),DUP,NOCASE,OPT
+__Record  RECORD
+Number      LONG,PICTURE(@P###-##-####P)
+FirstName   STRING(20),PICTURE(@S20)
+LastName    STRING(20),PICTURE(@S20)
+Address     STRING(20),PICTURE(@S20)
+City        STRING(20),PICTURE(@S20)
+State       STRING(2),PICTURE(@S2)
+Zip         LONG,PICTURE(@n05)
+Telephone   STRING(12),PICTURE(@s12)
+Department  LONG,PICTURE(@n4)
+          END
+        END
+Classes FILE,PRE(CLA),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE
+KeySequenceNumber KEY(CLA:ClassNumber),NOCASE,OPT
+KeyCourseNumber KEY(CLA:CourseNumber,CLA:ClassNumber),DUP,NOCASE
+KeyTeacherNumber KEY(CLA:TeacherNumber),DUP,NOCASE
+__Record  RECORD
+ClassNumber LONG,PICTURE(@P##-#####P)
+CourseNumber LONG,PICTURE(@n4)
+TeacherNumber LONG,PICTURE(@p###-##-####p)
+RoomNumber  LONG,PICTURE(@n4)
+ScheduledTime STRING(20),PICTURE(@s20)
+          END
+        END
+Enrollment FILE,PRE(ENR),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE
+StuSeq    KEY(ENR:StudentNumber),DUP,NOCASE,OPT
+SeqStu    KEY(ENR:ClassNumber),DUP,NOCASE,OPT
+__Record  RECORD
+StudentNumber LONG,PICTURE(@p###-##-####p)
+ClassNumber LONG,PICTURE(@p##-#####p)
+MidtermExam SHORT,PICTURE(@n3)
+FinalExam   SHORT,PICTURE(@n3)
+TermPaper   SHORT,PICTURE(@n3)
+          END
+        END
+Courses FILE,PRE(COU),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE
+KeyNumber KEY(COU:Number),NOCASE,OPT
+KeyDescription KEY(COU:Description),DUP,NOCASE
+CompleteDescription MEMO(1000)
+__Record  RECORD
+Number      LONG,PICTURE(@n4)
+Description STRING(40),PICTURE(@S30)
+          END
+        END
+Majors  FILE,PRE(MAJ),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE,NAME('majors.tps')
+KeyNumber KEY(MAJ:Number),NOCASE,OPT
+KeyDescription KEY(MAJ:Description),NOCASE,OPT
+__Record  RECORD
+Number      LONG,PICTURE(@n4)
+Description STRING(20),PICTURE(@S20)
+          END
+        END
+
+[RELATIONS]
+        RELATION,MANY:ONE
+Teachers  FILE(Tea:KeyDepartment)
+Majors    RELATED_FILE(MAJ:KeyNumber)
+          FILE_TO_RELATED_KEY
+            FIELD(Tea:Department,MAJ:Number)
+          END
+          RELATED_FILE_TO_KEY
+            FIELD(MAJ:Number,Tea:Department)
+          END
+        END
+        RELATION,ONE:MANY
+Courses   FILE(COU:KeyNumber)
+Classes   RELATED_FILE(CLA:KeyCourseNumber)
+          FILE_TO_RELATED_KEY
+            FIELD(COU:Number,CLA:CourseNumber)
+            FIELD(NOLINK,CLA:ClassNumber)
+          END
+          RELATED_FILE_TO_KEY
+            FIELD(CLA:CourseNumber,COU:Number)
+          END
+        END
+        RELATION,MANY:ONE
+Enrollment FILE(ENR:StuSeq)
+STUDENTS  RELATED_FILE(STU:KeyStudentNumber)
+          FILE_TO_RELATED_KEY
+            FIELD(ENR:StudentNumber,STU:Number)
+          END
+          RELATED_FILE_TO_KEY
+            FIELD(STU:Number,ENR:StudentNumber)
+          END
+        END
+        RELATION,ONE:MANY
+Classes   FILE(CLA:KeySequenceNumber)
+Enrollment RELATED_FILE(ENR:SeqStu)
+          FILE_TO_RELATED_KEY
+            FIELD(CLA:ClassNumber,ENR:ClassNumber)
+          END
+          RELATED_FILE_TO_KEY
+            FIELD(ENR:ClassNumber,CLA:ClassNumber)
+          END
+        END
+        RELATION,ONE:MANY
+Teachers  FILE(Tea:KeyTeacherNumber)
+Classes   RELATED_FILE(CLA:KeyTeacherNumber)
+          FILE_TO_RELATED_KEY
+            FIELD(Tea:Number,CLA:TeacherNumber)
+          END
+          RELATED_FILE_TO_KEY
+            FIELD(CLA:TeacherNumber,Tea:Number)
+          END
+        END
+        RELATION,MANY:ONE
+STUDENTS  FILE(STU:MajorKey)
+Majors    RELATED_FILE(MAJ:KeyNumber)
+          FILE_TO_RELATED_KEY
+            FIELD(STU:Major,MAJ:Number)
+          END
+          RELATED_FILE_TO_KEY
+            FIELD(MAJ:Number,STU:Major)
+            FIELD(NOLINK,STU:LastName)
+            FIELD(NOLINK,STU:FirstName)
+          END
+        END
+
+[REPORTVIEWS]
+StudentPhoneList VIEW(STUDENTS),ORDER('STU:Number'),KEY(STU:KeyStudentNumber)
+        END
+StudentPhoneListByName VIEW(STUDENTS),ORDER('UPPER(STU:LastName)'),KEY(STU:KeyLastName)
+        END
+MailingLabels VIEW(STUDENTS),ORDER('STU:Zip')
+        END
+EnrollCensus VIEW(Courses),ORDER('UPPER(COU:Description),COU:Number,CLA:ClassNumber'),KEY(COU:KEYDESCRIPTION)
+          JOIN(CLA:KeyCourseNumber,COU:Number),CHILD
+            JOIN(ENR:SeqStu,CLA:ClassNumber),CHILD
+              JOIN(STU:KeyStudentNumber,ENR:StudentNumber)
+              END
+            END
+            JOIN(Tea:KeyTeacherNumber,CLA:TeacherNumber)
+            END
+          END
+        END
+
+[SOURCES]
+        DICTIONARY,VERSION('1.0 r3'),DATE(71401),TIME(5899500),NAME('C:\CW20\RWTUTOR\COLLEGE.TXD')
+
+[SEARCHPATHS]
+
+[EXTERNALS]
+

@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+# Clarion 2.1.0.2447
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "Dlltutor", "Dlltutor.cwproj", "{7603FDFC-41EF-4DE0-81B7-E28E5CD6ED09}"
+EndProject
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "allfiles", "allfiles.cwproj", "{52A55E51-8DAD-4E40-8F8A-BCA80FFD9083}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{{2150E333-8FDC-42A3-9474-1A3956D46DE8}}"
+	ProjectSection(SolutionItems) = postProject
+		allfiles.app = allfiles.app
+		updates.app = updates.app
+		reports.app = reports.app
+		Dlltutor.app = Dlltutor.app
+	EndProjectSection
+EndProject
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "updates", "updates.cwproj", "{2CAA2702-1B9D-46D4-8F71-CF64D47C99AB}"
+EndProject
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "reports", "reports.cwproj", "{0180B62F-9B65-4081-9923-986E99DC0F66}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7603FDFC-41EF-4DE0-81B7-E28E5CD6ED09}.Debug|Win32.Build.0 = Debug|Win32
+		{7603FDFC-41EF-4DE0-81B7-E28E5CD6ED09}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7603FDFC-41EF-4DE0-81B7-E28E5CD6ED09}.Release|Win32.Build.0 = Release|Win32
+		{7603FDFC-41EF-4DE0-81B7-E28E5CD6ED09}.Release|Win32.ActiveCfg = Release|Win32
+		{52A55E51-8DAD-4E40-8F8A-BCA80FFD9083}.Debug|Win32.Build.0 = Debug|Win32
+		{52A55E51-8DAD-4E40-8F8A-BCA80FFD9083}.Debug|Win32.ActiveCfg = Debug|Win32
+		{52A55E51-8DAD-4E40-8F8A-BCA80FFD9083}.Release|Win32.Build.0 = Release|Win32
+		{52A55E51-8DAD-4E40-8F8A-BCA80FFD9083}.Release|Win32.ActiveCfg = Release|Win32
+		{2CAA2702-1B9D-46D4-8F71-CF64D47C99AB}.Debug|Win32.Build.0 = Debug|Win32
+		{2CAA2702-1B9D-46D4-8F71-CF64D47C99AB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2CAA2702-1B9D-46D4-8F71-CF64D47C99AB}.Release|Win32.Build.0 = Release|Win32
+		{2CAA2702-1B9D-46D4-8F71-CF64D47C99AB}.Release|Win32.ActiveCfg = Release|Win32
+		{0180B62F-9B65-4081-9923-986E99DC0F66}.Debug|Win32.Build.0 = Debug|Win32
+		{0180B62F-9B65-4081-9923-986E99DC0F66}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0180B62F-9B65-4081-9923-986E99DC0F66}.Release|Win32.Build.0 = Release|Win32
+		{0180B62F-9B65-4081-9923-986E99DC0F66}.Release|Win32.ActiveCfg = Release|Win32
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,63 @@
+;* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+; Help Project File for SCHOOL 
+;
+;  You may edit this file.
+;
+
+[OPTIONS]
+; The CONTENTS= tells the help Engine which topic contains the contents 
+
+; Title is Displayed in the Title Bar of WINHELP.EXE
+TITLE=TopSpeed University
+
+; The BUILD= setting allows complex Help systems which require
+; different versions to use the same source.  
+BUILD=WINDOWS
+
+; The Warning Level is used by the Help Compiler (HC.EXE)
+; WARNING=1  - Only the most severe warnings are reported
+; WARNING=2  - Intermediate Level of warnings
+; WARNING=3  - Most stringent error reporting
+WARNING=3
+
+; The Compress option is used by the Help Compiler to make 
+; smaller, faster loading .HLP files.  However, using compression
+; increases Compile times.
+; COMPRESS=YES, ON, OFF, NO, TRUE or FALSE
+
+
+OLDKEYPHRASE=FALSE
+OPTCDROM=FALSE
+REPORT=FALSE
+COMPRESS=FALSE
+CONTENTS=CONTENTS
+
+[BUILDTAGS]
+; The Build Tags section specifies to the Help Compiler the names
+; of all the valid build tags used in this Help project.  The [BUILDTAGS]
+; section is optional.
+WINDOWS
+
+
+[CONFIG]
+; The config section allows you to define some macros which will be
+; executed when the help system is first executed.
+;
+; The next line gives you browse buttons:
+;
+BrowseButtons()
+
+ 
+
+[FILES]
+; The files section is where you specify to the Help Compiler which
+; Rich Text Format (.RTF) (your help source) files will be used in the
+; Help system.  
+SCHOOL.RTF
+
+[WINDOWS]
+; Windows Help can display help in one of 5 secondary windows.
+; Before using a secondary window, the window must be defined
+; in this section:
+
+main=,(48,49,923,923),0,,(255,0,255)

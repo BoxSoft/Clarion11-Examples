@@ -1,0 +1,82 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{DBAD3F07-7473-4BD8-817C-83985B78B2EE}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>IMDDExample</AssemblyName>
+    <OutputName>IMDDExample</OutputName>
+    <DefineConstants>_ABCDllMode_=&gt;0%3b_ABCLinkMode_=&gt;1%3b</DefineConstants>
+    <Model>Dll</Model>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <vid>off</vid>
+    <check_stack>False</check_stack>
+    <check_index>False</check_index>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="IMDDExample.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IMDDExample001.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IMDDExample002.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IMDDExample003.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IMDDExample004.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IMDDExample005.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IMDDExample006.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IMDDExample007.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IMDDExample008.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IMDDExample009.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IMDDExample010.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IMDDExample011.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IMDDExample012.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IMDDExampleM0.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IMDDEXAMPLE_BC.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IMDDExample_BC0.CLW">
+      <Generated>true</Generated>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <FileDriver Include="MEMORY" />
+    <FileDriver Include="TOPSPEED" />
+    <Library Include="IMDDExample.exe.manifest" />
+  </ItemGroup>
+  <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
+</Project>

@@ -1,0 +1,52 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{57E375DF-8307-4DFC-85F4-8E2D4338C66F}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>smtpdemo</AssemblyName>
+    <OutputName>SMTPDEMO</OutputName>
+    <DefineConstants>_ABCDllMode_=&gt;0%3b_ABCLinkMode_=&gt;1%3b_APIDllMode_=&gt;0%3b_APILinkMode_=&gt;1%3b_MAIDllMode_=&gt;0%3b_MAILinkMode_=&gt;1%3b_WinsockDllMode_=&gt;0%3b_WinsockLinkMode_=&gt;1%3b</DefineConstants>
+    <Model>Lib</Model>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <vid>off</vid>
+    <check_stack>False</check_stack>
+    <check_index>False</check_index>
+  </PropertyGroup>
+  <ItemGroup>
+    <FileDriver Include="DOS" />
+    <Library Include="smtpdemo.exe.manifest" />
+    <Compile Include="smtpdemo.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="smtpdemo001.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="smtpdemo002.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="smtpdemo003.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="smtpdemo004.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SMTPDEMO_BC.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="smtpdemo_BC0.CLW">
+      <Generated>true</Generated>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
+</Project>

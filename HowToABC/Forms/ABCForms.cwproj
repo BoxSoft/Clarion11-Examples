@@ -1,0 +1,69 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{D1F54090-D859-4E6C-A322-1B05EE339A84}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>ABCForms</AssemblyName>
+    <OutputName>ABCForms</OutputName>
+    <DefineConstants>_ABCDllMode_=&gt;0%3b_ABCLinkMode_=&gt;1%3b</DefineConstants>
+    <Model>Dll</Model>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <vid>off</vid>
+    <check_stack>False</check_stack>
+    <check_index>False</check_index>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="ABCForms.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="ABCForms001.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="ABCForms002.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="ABCForms003.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="ABCForms004.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="ABCForms005.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="ABCForms006.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="ABCForms007.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="ABCFORMS_BC.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="ABCForms_BC0.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="EFOCUS.CLW">
+      <Generated>true</Generated>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="ABCForms.exe.manifest" />
+    <Library Include="BRuleNo.ico" />
+    <Library Include="BRuleOk.ico" />
+    <Library Include="BRules.ico" />
+    <FileDriver Include="TOPSPEED" />
+  </ItemGroup>
+  <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
+</Project>

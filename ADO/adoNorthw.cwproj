@@ -1,0 +1,74 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{A1B93350-9D13-4DDB-BBEB-4F801808545D}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>adoNorthw</AssemblyName>
+    <OutputName>adoNorthw</OutputName>
+    <DefineConstants>_ABCDllMode_=&gt;1%3b_ABCLinkMode_=&gt;0%3b_SVDllMode_=&gt;1%3b_SVLinkMode_=&gt;0%3b_MSSQLDateTime_=&gt;1%3b_ORACLEDateTime_=&gt;0%3b</DefineConstants>
+    <Model>Dll</Model>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <vid>off</vid>
+    <check_stack>False</check_stack>
+    <check_index>False</check_index>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="adodata.cwproj">
+      <Project>{731031C9-1CCF-473E-958E-03CA4AA3D0B4}</Project>
+      <Name>adodata</Name>
+      <Generated>True</Generated>
+    </ProjectReference>
+    <Library Include="adoNorthw.exe.manifest" />
+    <Compile Include="adoNorthw.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="adoNorthw001.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="adoNorthw002.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="adoNorthw003.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="adoNorthw004.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="adoNorthw005.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="adoNorthw006.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="adoNorthw007.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="adoNorthw008.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="adoNorthw009.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="adoNorthw010.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="adoNorthw011.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="adoNorthw013.clw">
+      <Generated>true</Generated>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
+</Project>

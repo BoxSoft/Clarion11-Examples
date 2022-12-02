@@ -1,0 +1,2081 @@
+[APPLICATION]
+VERSION 34
+TODO ABC ToDo
+PROCEDURE Main
+[COMMON]
+FROM ABC
+MODIFIED '2015/01/30' '15:34:01'
+[PROMPTS]
+%ClassItem UNIQUE DEFAULT  ('Default', 'ErrorManager', 'ErrorStatusManager', 'FileManager:', |
+  'FileManager:Messages', 'FuzzyMatcher', 'INIManager', 'RelationManager:', 'RelationManager:Messages', |
+  'Translator')
+%DefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 7
+WHEN  ('ErrorManager') ('ErrorClass')
+WHEN  ('ErrorStatusManager') ('ErrorStatusClass')
+WHEN  ('FileManager:Messages') ('FileManager')
+WHEN  ('FuzzyMatcher') ('FuzzyClass')
+WHEN  ('INIManager') ('INIClass')
+WHEN  ('RelationManager:Messages') ('RelationManager')
+WHEN  ('Translator') ('TranslatorClass')
+
+%ActualDefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 7
+WHEN  ('ErrorManager') ('')
+WHEN  ('ErrorStatusManager') ('')
+WHEN  ('FileManager:Messages') ('')
+WHEN  ('FuzzyMatcher') ('')
+WHEN  ('INIManager') ('')
+WHEN  ('RelationManager:Messages') ('')
+WHEN  ('Translator') ('')
+
+%ClassLines DEPEND %ClassItem MULTI DEFAULT TIMES 0
+
+%ProgramAuthor DEFAULT  ('')
+%ProgramIcon DEFAULT  ('')
+%MessageDescription LONG  (1)
+%GlobalExternal LONG  (0)
+%ExternalSource DEFAULT  ('Dynamic Link Library (DLL)')
+%GenerateEmbedComments LONG  (0)
+%INIType DEFAULT  ('NVD_INI')
+%INIFile DEFAULT  ('Program Name.INI')
+%ININame DEFAULT  ('')
+%INIProgramIniLocation DEFAULT  ('APPDIR')
+%INICSIDLDirectory DEFAULT  ('SV:CSIDL_PERSONAL')
+%CSIDLCompanyDir DEFAULT  ('')
+%CSIDLProductDir DEFAULT  ('')
+%CSIDLCreate LONG  (0)
+%INIInAppDirectory LONG  (1)
+%REGRoot DEFAULT  ('REG_CLASSES_ROOT')
+%DisableINISaveWindow LONG  (0)
+%PreserveVars MULTI LONG  (1, 2, 3)
+%PreserveVar DEPEND %PreserveVars DEFAULT TIMES 3
+WHEN  (1) ('GLO:Server_Ip')
+WHEN  (2) ('GLO:Server_Port')
+WHEN  (3) ('GLO:Server_Name')
+
+%EnableRunTimeTranslator LONG  (0)
+%FuzzyMatchingEnabled LONG  (0)
+%IgnoreCase LONG  (1)
+%WordOnly LONG  (0)
+%ButtonMarginsCompatibility LONG  (0)
+%UseDefaultXPManifest LONG  (0)
+%GenerateXPManifest LONG  (1)
+%LinkGenerateXPManifest LONG  (0)
+%AddVistaXPManifest LONG  (1)
+%VistaManifestExecutionLevel DEFAULT  ('asInvoker')
+%VistaManifestUIAccess LONG  (0)
+%NoThemedControlsDependency LONG  (0)
+%VistaManifestDependentAssembly MULTI LONG  ()
+%VistaManifestDependentAssemblyName DEPEND %VistaManifestDependentAssembly DEFAULT TIMES 0
+
+%VistaManifestDependentAssemblyVersion DEPEND %VistaManifestDependentAssembly DEFAULT TIMES 0
+
+%VistaManifestDependentAssemblyType DEPEND %VistaManifestDependentAssembly DEFAULT TIMES 0
+
+%VistaManifestDependentAssemblyPublicKeyToken DEPEND %VistaManifestDependentAssembly DEFAULT TIMES 0
+
+%VistaManifestDependentAssemblyLanguage DEPEND %VistaManifestDependentAssembly DEFAULT TIMES 0
+
+%VistaManifestDependentAssemblyProcessorArchitecture DEPEND %VistaManifestDependentAssembly LONG TIMES 0
+
+%W7ManifestVista LONG  (1)
+%W7ManifestW7 LONG  (1)
+%W7ManifestW8 LONG  (1)
+%W7ManifestW81 LONG  (1)
+%ForceMakeTransparentXPManifest LONG  (0)
+%ForceMakeColorXPManifest LONG  (0)
+%ForceSHEETNoTheme LONG  (0)
+%ExtUIXPMenuEnableGlobal LONG  (0)
+%ExtUIXPMenuColorTypeGlobal DEFAULT  ('OFF')
+%ExtUIXPMenuDisableImageBar LONG  (1)
+%ExtUIXPMenuEnableRuntime LONG  (0)
+%ExtUIXPMenuRuntimeVar DEFAULT  ('')
+%ExtUIXPMenuColorLeftGlobal LONG  (15920364)
+%ExtUIXPMenuColorRightGlobal LONG  (12560039)
+%ExtUIXPMenuColorSelectionBarLeftGlobal LONG  (15920364)
+%ExtUIXPMenuColorSelectionBarRightGlobal LONG  (15920364)
+%ExtUIXPMenuSelVertical LONG  (1)
+%ExtUIXPMenuColorSelectionBorderGlobal LONG  (15920364)
+%ExtUIXPMenuColorHotLeftGlobal LONG  (15920364)
+%ExtUIXPMenuColorHotRightGlobal LONG  (15920364)
+%ExtUIXPMenuColorSelectedLeftGlobal LONG  (15920364)
+%ExtUIXPMenuColorSelectedRightGlobal LONG  (15920364)
+%ExtUIXPMenuColorNormalBarLeftGlobal LONG  (15920364)
+%ExtUIXPMenuColorNormalBarRightGlobal LONG  (15920364)
+%ExtUIXPMenuColorItemBackgroundGlobal LONG  (-2147483644)
+%ExtUIXPMenuColorNormalText LONG  (0)
+%ExtUIXPMenuColorSelectedText LONG  (0)
+%ExtUIXPMenuColorHotText LONG  (0)
+%ExtUIXPMenuFlat LONG  (1)
+%ExtUIXPMenuShowImageBar LONG  (0)
+%ExtUIXPMenuSeparator3D LONG  (1)
+%ExtUIXPMenuSeparatorFull LONG  (0)
+%ExtUIXPMenuVerticalLine LONG  (1)
+%ExtUIMDITabGlobal DEFAULT  ('DISABLE')
+%ExtUIMDITabStyleGlobal DEFAULT  ('Default')
+%ExtUITabStyleGlobal DEFAULT  ('Squared')
+%WindowEnableEnhanceFocus LONG  (0)
+%SelectedText LONG  (1)
+%SelectedRadio LONG  (1)
+%SelectedSpin LONG  (1)
+%SelectedCheck LONG  (1)
+%SelectedDropList LONG  (1)
+%SelectedList LONG  (1)
+%SelectedDisplayChangeColor LONG  (1)
+%SelectedColor LONG  (65535)
+%SelectedStyle LONG  (1)
+%SelectedRequired LONG  (0)
+%SelectedRequiredColor LONG  (65535)
+%SelectedDisplayBox LONG  (1)
+%SelectedDisplayBoxFillColor LONG  (65535)
+%SelectedDisplayBoxBorderColor LONG  (0)
+%SelectedDisplayBoxBorderSize DEFAULT  ('2')
+%SelectedRequiredBox LONG  (0)
+%SelectedRequiredDisplayBoxFillColor LONG  (255)
+%SelectedRequiredDisplayBoxBorderColor LONG  (0)
+%SelectedCaret LONG  (1)
+%SelectedCaretColor LONG  (8421504)
+%SelectedCaretCharacter DEFAULT  ('»')
+%SelectedCaretCharacterSeparation DEFAULT  ('8')
+%ExcludeSelectedDropList LONG  (0)
+%EnableOSK DEFAULT  ('OFF')
+%GlobalUseEnterInsteadTab LONG  (0)
+%GlobalUseEnterInsteadTabExclude MULTI DEFAULT  ()
+%GlobalUseEnterInsteadTabEnable DEFAULT  ('Enable')
+%GlobalUseEnterInsteadTabEnableValue DEFAULT  ('True')
+%GlobalInterLine DEFAULT  ('0')
+%GlobalEnableAutoSizeColumn LONG  (0)
+%GlobalEnableListFormatManager LONG  (0)
+%GlobalUserFieldListFormatManager DEFAULT  ('1')
+%TableOrigin DEFAULT  ('Application')
+%FileEquate DEFAULT  ('LFM_CFile')
+%ConfigFilePRE DEFAULT  ('CFG')
+%ConfigFileOEM LONG  (0)
+%ConfigFileTHREAD LONG  (1)
+%ConfigFileENCRYPT LONG  (0)
+%ConfigFilePASSWORD DEFAULT  ('')
+%FormatNameSize DEFAULT  ('30')
+%FormatBufferSize DEFAULT  ('5120')
+%VariableBufferSize DEFAULT  ('2048')
+%ConfigFilePath DEFAULT  ('')
+%UseConfigFileName DEFAULT  ('Default')
+%ConfigFileNAME DEFAULT  ('Formats.FDB')
+%ColonCounter DEFAULT  ('')
+%WrongSymbol DEFAULT  ('')
+%DictionaryTableOrigin FILE  ()
+%GlobalLFMSortOrderMenuText DEFAULT  ('SortOrder')
+%GlobalEnableRebase LONG  (0)
+%RBDMethod DEFAULT  ('Specify manually')
+%RBDImageBase DEFAULT  ('10000000')
+%DefaultGenerate LONG  (0)
+%DefaultRILogout LONG  (1)
+%LockRecoverTime DEFAULT  ('10')
+%DefaultThreaded DEFAULT  ('Use File Setting')
+%DefaultCreate DEFAULT  ('Use File Setting')
+%DefaultExternal DEFAULT  ('None External')
+%DefaultLocalExternal LONG  (0)
+%DefaultExternalSource DEFAULT  ('')
+%DefaultExternalAPP LONG  (0)
+%DefaultExport LONG  (0)
+%DefaultOpenMode DEFAULT  ('Share')
+%DefaultUserAccess DEFAULT  ('Read/Write')
+%DefaultOtherAccess DEFAULT  ('Deny None')
+%DefaultLazyOpen LONG  (1)
+%GeneratePropDataPath LONG  (0)
+%PropDataPathLocation DEFAULT  ('CSIDLLIKEINI')
+%DataPathCSIDLDirectory DEFAULT  ('SV:CSIDL_PERSONAL')
+%DataPathCSIDLCompanyDir DEFAULT  ('')
+%DataPathCSIDLProductDir DEFAULT  ('')
+%DataPathCSIDLCreate LONG  (0)
+%DataPathOtherDirectory DEFAULT  ('')
+%DataPathOtherDirectoryCreate LONG  (0)
+%OverrideGenerate DEPEND %File LONG TIMES 0
+
+%OverrideRILogout DEPEND %File DEFAULT TIMES 1
+WHEN  ('') ('Use Default')
+
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 7
+WHEN  ('ErrorManager') ('YES')
+WHEN  ('ErrorStatusManager') ('YES')
+WHEN  ('FileManager:Messages') ('YES')
+WHEN  ('FuzzyMatcher') ('YES')
+WHEN  ('INIManager') ('YES')
+WHEN  ('RelationManager:Messages') ('YES')
+WHEN  ('Translator') ('YES')
+
+%ThisObjectName DEPEND %ClassItem DEFAULT TIMES 7
+WHEN  ('ErrorManager') ('GlobalErrors')
+WHEN  ('ErrorStatusManager') ('GlobalErrorsStatus')
+WHEN  ('FileManager:Messages') ('Hide:Access:Messages')
+WHEN  ('FuzzyMatcher') ('FuzzyMatcher')
+WHEN  ('INIManager') ('INIMgr')
+WHEN  ('RelationManager:Messages') ('Hide:Relate:Messages')
+WHEN  ('Translator') ('Translator')
+
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 7
+WHEN  ('ErrorManager') (1)
+WHEN  ('ErrorStatusManager') (1)
+WHEN  ('FileManager:Messages') (1)
+WHEN  ('FuzzyMatcher') (1)
+WHEN  ('INIManager') (1)
+WHEN  ('RelationManager:Messages') (1)
+WHEN  ('Translator') (1)
+
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 7
+WHEN  ('ErrorManager') (1)
+WHEN  ('ErrorStatusManager') (1)
+WHEN  ('FileManager:Messages') (1)
+WHEN  ('FuzzyMatcher') (1)
+WHEN  ('INIManager') (1)
+WHEN  ('RelationManager:Messages') (1)
+WHEN  ('Translator') (1)
+
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 7
+WHEN  ('ErrorManager') ('')
+WHEN  ('ErrorStatusManager') ('')
+WHEN  ('FileManager:Messages') ('ADOBlob')
+WHEN  ('FuzzyMatcher') ('')
+WHEN  ('INIManager') ('')
+WHEN  ('RelationManager:Messages') ('ADOBlob')
+WHEN  ('Translator') ('')
+
+%ExtBaseClass DEPEND %ClassItem DEFAULT TIMES 0
+
+%BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
+
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 7
+WHEN  ('ErrorManager') (0)
+WHEN  ('ErrorStatusManager') (0)
+WHEN  ('FileManager:Messages') (0)
+WHEN  ('FuzzyMatcher') (0)
+WHEN  ('INIManager') (0)
+WHEN  ('RelationManager:Messages') (0)
+WHEN  ('Translator') (0)
+
+%NewMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewMethodName DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewMethodPrototype DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 4
+WHEN  ('ErrorManager')TIMES 0
+WHEN  ('FuzzyMatcher')TIMES 0
+WHEN  ('INIManager')TIMES 0
+WHEN  ('RelationManager:Messages')TIMES 0
+
+%NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataIsRef DEPEND %NewClassPropertyItems LONG TIMES 0
+
+%NewClassDataSize DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim1 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim2 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim3 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim4 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%ClassMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassMethodName DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassMethodPrototype DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 4
+WHEN  ('ErrorManager')TIMES 0
+WHEN  ('FuzzyMatcher')TIMES 0
+WHEN  ('INIManager')TIMES 0
+WHEN  ('RelationManager:Messages')TIMES 0
+
+%ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataIsRef DEPEND %ClassPropertyItems LONG TIMES 0
+
+%ClassDataSize DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim1 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim2 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim3 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim4 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%OverrideThreaded DEPEND %File DEFAULT TIMES 1
+WHEN  ('') ('Use Default')
+
+%OverrideCreate DEPEND %File DEFAULT TIMES 1
+WHEN  ('') ('Use Default')
+
+%OverrideExternal DEPEND %File DEFAULT TIMES 1
+WHEN  ('') ('Use Default')
+
+%OverrideLocalExternal DEPEND %File LONG TIMES 0
+
+%OverrideExternalSource DEPEND %File DEFAULT TIMES 0
+
+%OverrideExternalAPP DEPEND %File LONG TIMES 0
+
+%OverrideExport DEPEND %File LONG TIMES 0
+
+%FileDeclarationMode DEPEND %File DEFAULT TIMES 1
+WHEN  ('') ('Use User Options')
+
+%FileDeclarationType DEPEND %File LONG TIMES 1
+WHEN  ('') (0)
+
+%FileDeclarationThread DEPEND %File LONG TIMES 1
+WHEN  ('') (0)
+
+%FileDeclarationBindable DEPEND %File LONG TIMES 1
+WHEN  ('') (1)
+
+%FileDeclarationName DEPEND %File DEFAULT TIMES 0
+
+%FileDeclarationOver DEPEND %File DEFAULT TIMES 0
+
+%OverrideOpenMode DEPEND %File DEFAULT TIMES 1
+WHEN  ('') ('Use Default')
+
+%OverrideUserAccess DEPEND %File DEFAULT TIMES 1
+WHEN  ('') ('Use Default')
+
+%OverrideOtherAccess DEPEND %File DEFAULT TIMES 1
+WHEN  ('') ('Use Default')
+
+%OverrideLazyOpen DEPEND %File DEFAULT TIMES 1
+WHEN  ('') ('Use Default')
+
+%StandardExternalModule DEPEND %Module LONG TIMES 3
+WHEN  ('') (1)
+WHEN  ('QuickChat.clw') (1)
+WHEN  ('QuickChatMain.clw') (1)
+
+%NoGenerateGlobals LONG  (0)
+%WindowManagerType DEFAULT  ('WindowManager')
+%ResetOnGainFocus LONG  (0)
+%AutoToolbar LONG  (1)
+%AutoRefresh LONG  (1)
+%ImageClass DEFAULT  ('ImageManager')
+%ErrorStatusManagerType DEFAULT  ('ErrorStatusClass')
+%ErrorManagerType DEFAULT  ('ErrorClass')
+%DefaultErrorCategory DEFAULT  ('ABC')
+%AllowSelectCopy LONG  (0)
+%StoreErrorHistory LONG  (0)
+%LimitStoredHistory LONG  (0)
+%ErrorHistoryThreshold DEFAULT  ('300')
+%HistoryViewTrigger DEFAULT  ('Level:Fatal')
+%PopupClass DEFAULT  ('PopupClass')
+%SelectFileClass DEFAULT  ('SelectFileClass')
+%ResizerType DEFAULT  ('WindowResizeClass')
+%ResizerDeFaultFindParents LONG  (1)
+%ResizerDefaultOptimizeMoves LONG  (1)
+%ResizerDefaultOptimizeRedraws LONG  (1)
+%INIClass DEFAULT  ('INIClass')
+%RunTimeTranslatorType DEFAULT  ('TranslatorClass')
+%ExtractionFilename DEFAULT  ('')
+%TranslationGroups MULTI LONG  ()
+%TranslationFile DEPEND %TranslationGroups DEFAULT TIMES 0
+
+%TranslationGroup DEPEND %TranslationGroups DEFAULT TIMES 0
+
+%CalendarManagerType DEFAULT  ('CalendarClass')
+%GlobalChangeColor LONG  (0)
+%GlobalColorSunday LONG  (255)
+%GlobalColorSaturday LONG  (255)
+%GlobalColorHoliday LONG  (32768)
+%GlobalColorOther LONG  (0)
+%GlobalSelectOnClose DEFAULT  ('Select')
+%GlobalUseABCClasess LONG  (1)
+%FileManagerType DEFAULT  ('FileManager')
+%ViewManagerType DEFAULT  ('ViewManager')
+%RelationManagerType DEFAULT  ('RelationManager')
+%BrowserType DEFAULT  ('BrowseClass')
+%ActiveInvisible LONG  (0)
+%AllowUnfilled LONG  (0)
+%RetainRow LONG  (1)
+%FileDropManagerType DEFAULT  ('FileDropClass')
+%FileDropComboManagerType DEFAULT  ('FileDropComboClass')
+%FormVCRManagerType DEFAULT  ('FormVCRClass')
+%BrowseEIPManagerType DEFAULT  ('BrowseEIPManager')
+%EditInPlaceInterface DEFAULT  ('Detailed')
+%EditInPlaceType DEFAULT  ('EditEntryClass')
+%EditInPlaceEntryType DEFAULT  ('EditEntryClass')
+%EditInPlaceTextType DEFAULT  ('EditTextClass')
+%EditInPlaceCheckType DEFAULT  ('EditCheckClass')
+%EditInPlaceSpinType DEFAULT  ('EditSpinClass')
+%EditInPlaceDropListType DEFAULT  ('EditDropListClass')
+%EditInPlaceDropComboType DEFAULT  ('EditDropComboClass')
+%EditInPlaceColorType DEFAULT  ('EditColorClass')
+%EditInPlaceFileType DEFAULT  ('EditFileClass')
+%EditInPlaceFontType DEFAULT  ('EditFontClass')
+%EditInPlaceMultiSelectType DEFAULT  ('EditMultiSelectClass')
+%EditInPlaceCalendarType DEFAULT  ('EditCalendarClass')
+%EditInPlaceLookupType DEFAULT  ('EditLookupClass')
+%EditInPlaceOtherType DEFAULT  ('EditEntryClass')
+%QBEFormType DEFAULT  ('QueryFormClass')
+%QBEFormVisualType DEFAULT  ('QueryFormVisual')
+%QBEListType DEFAULT  ('QueryListClass')
+%QBEListVisualType DEFAULT  ('QueryListVisual')
+%StepManagerType DEFAULT  ('StepClass')
+%StepManagerLongType DEFAULT  ('StepLongClass')
+%StepManagerRealType DEFAULT  ('StepRealClass')
+%StepManagerStringType DEFAULT  ('StepStringClass')
+%StepManagerCustomType DEFAULT  ('StepCustomClass')
+%StepLocatorType DEFAULT  ('StepLocatorClass')
+%EntryLocatorType DEFAULT  ('EntryLocatorClass')
+%IncrementalLocatorType DEFAULT  ('IncrementalLocatorClass')
+%FilteredLocatorType DEFAULT  ('FilterLocatorClass')
+%FuzzyMatcherClass DEFAULT  ('FuzzyClass')
+%GridClass DEFAULT  ('GridClass')
+%SidebarClass DEFAULT  ('SidebarClass')
+%ProcessType DEFAULT  ('ProcessClass')
+%PrintPreviewType DEFAULT  ('PrintPreviewClass')
+%ReportManagerType DEFAULT  ('ReportManager')
+%ReportTargetSelectorManagerType DEFAULT  ('ReportTargetSelectorClass')
+%BreakManagerType DEFAULT  ('BreakManagerClass')
+%AsciiViewerClass DEFAULT  ('AsciiViewerClass')
+%AsciiSearchClass DEFAULT  ('AsciiSearchClass')
+%AsciiPrintClass DEFAULT  ('AsciiPrintClass')
+%AsciiFileManagerType DEFAULT  ('AsciiFileClass')
+%ToolbarClass DEFAULT  ('ToolbarClass')
+%ToolbarListBoxType DEFAULT  ('ToolbarListboxClass')
+%ToolbarRelTreeType DEFAULT  ('ToolbarReltreeClass')
+%ToolbarUpdateClassType DEFAULT  ('ToolbarUpdateClass')
+%ToolbarFormVCRType DEFAULT  ('ToolbarFormVCRClass')
+%OverrideAbcSettings LONG  (0)
+%AbcSourceLocation DEFAULT  ('LINK')
+%AbcLibraryName DEFAULT  ('')
+%AppTemplateFamily DEFAULT  ('ABC')
+%CWTemplateVersion DEFAULT  ('v10.0')
+%ABCVersion DEFAULT  ('10000')
+%CustomGlobalIncludeList MULTI LONG  (1, 2)
+%CustomGlobalIncludeFile DEPEND %CustomGlobalIncludeList DEFAULT TIMES 2
+WHEN  (1) ('QuickSock.INC')
+WHEN  (2) ('JSon.INC')
+
+[ADDITION]
+NAME SVQuickAppConnectSupport SVQuickAppConnectGlobal
+[INSTANCE]
+INSTANCE 1
+[PROMPTS]
+%GlobalDisable LONG  (0)
+[PERSIST]
+%SaveCreateLocalMap DEFAULT  ('1')
+%GenerationCompleted DEPEND %Module DEFAULT TIMES 2
+WHEN  ('QuickChat.clw') ('1')
+WHEN  ('QuickChatMain.clw') ('1')
+
+%LastTarget32 DEFAULT  ('1')
+%LastProgramExtension DEFAULT  ('EXE')
+%LastApplicationDebug DEFAULT  ('')
+%LastApplicationLocalLibrary DEFAULT  ('1')
+[PROJECT]
+#system win32 exe
+#model clarion lib
+#compile "QuickChat.clw" -- GENERATED
+#compile "QuickChatMain.clw" -- GENERATED
+#link "QuickChat.EXE"
+[PROGRAM]
+[COMMON]
+FROM ABC ABC
+MODIFIED '2015/03/17' '12:14:32'
+[DATA]
+[SCREENCONTROLS]
+! PROMPT('Message From:'),USE(?GLO:Client_Name:Prompt)
+! ENTRY(@s20),USE(GLO:Client_Name)
+[REPORTCONTROLS]
+! STRING(@s20),USE(GLO:Client_Name)
+GLO:Client_Name          CSTRING(21)
+!!> GUID('e10e710d-c691-44d8-a2a4-0deec17f0b32'),PROMPT('Message From:'),HEADER('Message From'),PICTURE(@s20),TYPEMODE(INS),FREEZE,DERIVEDFROM('Mes:MessageFrom')
+[SCREENCONTROLS]
+! PROMPT('GLO : Client Pwd:'),USE(?GLO:Client_Pwd:Prompt)
+! ENTRY(@s16),USE(GLO:Client_Pwd)
+[REPORTCONTROLS]
+! STRING(@s16),USE(GLO:Client_Pwd)
+GLO:Client_Pwd           CSTRING(17)
+!!> GUID('454f691c-d4d3-4e7c-ae1b-1039844ddf3a'),PROMPT('GLO : Client Pwd:'),HEADER('GLO : Client Pwd'),PICTURE(@s16),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('Message From:'),USE(?GLO:Server_Name:Prompt)
+! ENTRY(@s20),USE(GLO:Server_Name)
+[REPORTCONTROLS]
+! STRING(@s20),USE(GLO:Server_Name)
+GLO:Server_Name          CSTRING(21)
+!!> GUID('b97a359d-35ec-425e-9f04-5ccaaf2225fb'),PROMPT('Message From:'),HEADER('Message From'),PICTURE(@s20),TYPEMODE(INS),FREEZE,DERIVEDFROM('Mes:MessageFrom')
+[SCREENCONTROLS]
+! PROMPT('Server Port:'),USE(?GLO:Server_Port:Prompt)
+! ENTRY(@K<<<#K),USE(GLO:Server_Port),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@K<<<#K),USE(GLO:Server_Port),RIGHT(1)
+GLO:Server_Port          LONG
+!!> GUID('04ef064a-6426-40f3-8def-f670925d008b'),PROMPT('Server Port:'),HEADER('Server Port'),PICTURE(@K<<<#K),TYPEMODE(INS),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Server Ip:'),USE(?GLO:Server_Ip:Prompt)
+! ENTRY(@K<<#.<<#.<<#.<<#K),USE(GLO:Server_Ip)
+[REPORTCONTROLS]
+! STRING(@K<<#.<<#.<<#.<<#K),USE(GLO:Server_Ip)
+GLO:Server_Ip            CSTRING(17)
+!!> GUID('9644a485-0a8a-439a-b509-4228c52eefe1'),PROMPT('Server Ip:'),HEADER('Server Ip'),PICTURE(@K<<#.<<#.<<#.<<#K),TYPEMODE(INS)
+[END]
+[MODULE]
+NAME 'QuickChatMain.clw'
+[COMMON]
+FROM ABC GENERATED
+[PROCEDURE]
+NAME Main
+[COMMON]
+DESCRIPTION 'Window'
+FROM ABC Window
+CATEGORY 'Window'
+MODIFIED '2015/03/17' '12:48:11'
+[DATA]
+[SCREENCONTROLS]
+! PROMPT('Message Out:'),USE(?LOC:MessageOut:Prompt)
+! TEXT,USE(LOC:MessageOut)
+[REPORTCONTROLS]
+! STRING(@s255),USE(LOC:MessageOut)
+LOC:MessageOut           CSTRING(501)
+!!> GUID('9622e23a-8815-4283-b13d-c93f52375507'),PROMPT('Message Out:'),HEADER('Message Out'),PICTURE(@s255),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('Notification Code:'),USE(?LOC:NotificationCode:Prompt)
+! ENTRY(@n3),USE(LOC:NotificationCode),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n3),USE(LOC:NotificationCode),RIGHT(1)
+LOC:NotificationCode     LONG
+!!> GUID('deca5dad-4a6f-4fca-87f8-2e10c5e764c2'),PROMPT('Notification Code:'),HEADER('LOC : Notification Code'),PICTURE(@n3),TYPEMODE(INS),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('LOC : To User Name:'),USE(?LOC:ToUserName:Prompt)
+! ENTRY(@s20),USE(LOC:ToUserName)
+[REPORTCONTROLS]
+! STRING(@s20),USE(LOC:ToUserName)
+LOC:ToUserName           CSTRING(21)
+!!> GUID('0ab92bc2-3dba-47f1-bff5-47227fe72166'),PROMPT('LOC : To User Name:'),HEADER('LOC : To User Name'),PICTURE(@s20),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('Error:'),USE(?LOC:Error:Prompt)
+! STRING(@n-14),USE(LOC:Error),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(LOC:Error),RIGHT(1)
+LOC:Error                LONG
+!!> GUID('a7fa8f35-8fe6-48b7-9903-cd6a169dc4d9'),PROMPT('Error:'),HEADER('LOC : Error'),PICTURE(@n-14),TYPEMODE(INS),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('LOC : Group Of Data:'),USE(?LOC:GroupOfData:Prompt)
+! ENTRY(@s20),USE(LOC:GroupOfData)
+[REPORTCONTROLS]
+! STRING(@s20),USE(LOC:GroupOfData)
+LOC:GroupOfData          GROUP,PRE()
+!!> GUID('6516a49b-e567-49fa-bd22-074fa0a93cfa'),PROMPT('LOC : Group Of Data:'),HEADER('LOC : Group Of Data'),PICTURE(@s20),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('Client Address:'),USE(?ClientAddress:Prompt)
+! ENTRY(@s250),USE(ClientAddress)
+[REPORTCONTROLS]
+! STRING(@s250),USE(ClientAddress)
+ClientAddress              STRING(250)
+!!> GUID('a6027880-3459-418b-bea5-dfed27c9717a'),PROMPT('Client Address:'),HEADER('Client Address'),PICTURE(@s250),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('Client Name:'),USE(?ClientName:Prompt)
+! ENTRY(@s20),USE(ClientName)
+[REPORTCONTROLS]
+! STRING(@s20),USE(ClientName)
+ClientName                 STRING(20)
+!!> GUID('c6851681-d4cb-43fc-9e36-354143a31b74'),PROMPT('Client Name:'),HEADER('Client Name'),PICTURE(@s20),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('Client Id:'),USE(?ClientId:Prompt)
+! ENTRY(@n-14),USE(ClientId),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(ClientId),RIGHT(1)
+ClientId                   LONG
+!!> GUID('e645d4fc-f797-4c26-bbe2-9cc5ee5b2876'),PROMPT('Client Id:'),HEADER('Client Id'),PICTURE(@n-14),TYPEMODE(INS),JUSTIFY(RIGHT,1)
+                         END
+!!> GUID('5916cb45-aeea-4e99-aef8-8f2322de4206')
+[SCREENCONTROLS]
+! PROMPT('l QU sers:'),USE(?lQUsers:Prompt)
+! ENTRY(@s20),USE(lQUsers)
+[REPORTCONTROLS]
+! STRING(@s20),USE(lQUsers)
+lQUsers                  QUEUE,PRE()
+!!> GUID('7016f394-a476-4308-aabb-0c710d5aa0d6'),PROMPT('l QU sers:'),HEADER('l QU sers'),PICTURE(@s20),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('User Name:'),USE(?UserName:Prompt)
+! ENTRY(@s20),USE(UserName)
+[REPORTCONTROLS]
+! STRING(@s20),USE(UserName)
+UserName                   CSTRING(21)
+!!> GUID('4919975f-fd6c-45c4-962c-7f17988fa6fb'),PROMPT('User Name:'),HEADER('User Name'),PICTURE(@s20),TYPEMODE(INS)
+                         END
+!!> GUID('b0ad0e03-7709-4f58-8fbb-054ac302279b')
+[SCREENCONTROLS]
+! PROMPT('l QM essage:'),USE(?lQMessage:Prompt)
+! ENTRY(@s20),USE(lQMessage)
+[REPORTCONTROLS]
+! STRING(@s20),USE(lQMessage)
+lQMessage                QUEUE,PRE(LQM)
+!!> GUID('6ac1cdd5-abae-43a7-9aa4-fbb5435666c2'),PROMPT('l QM essage:'),HEADER('l QM essage'),PICTURE(@s20),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('Message From:'),USE(?LQM:MessageFrom:Prompt)
+! ENTRY(@s100),USE(LQM:MessageFrom)
+[REPORTCONTROLS]
+! STRING(@s100),USE(LQM:MessageFrom)
+MessageFrom                CSTRING(101)
+!!> GUID('afb7a477-5d57-4478-8b0e-d673c58c374e'),PROMPT('Message From:'),HEADER('Message From'),PICTURE(@s100),TYPEMODE(INS),FREEZE
+[SCREENCONTROLS]
+! PROMPT('Message Text:'),USE(?LQM:MessageText:Prompt)
+! ENTRY(@s255),USE(LQM:MessageText)
+[REPORTCONTROLS]
+! STRING(@s255),USE(LQM:MessageText)
+MessageText                CSTRING(256)
+!!> GUID('45dcce03-2dd2-4290-b2de-63c6ea9cf97c'),PROMPT('Message Text:'),HEADER('Message'),PICTURE(@s255),TYPEMODE(INS)
+[SCREENCONTROLS]
+! PROMPT('Message Date:'),USE(?LQM:MessageDate:Prompt)
+! ENTRY(@d1),USE(LQM:MessageDate),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@d1),USE(LQM:MessageDate),RIGHT(1)
+MessageDate                LONG
+!!> GUID('ee9b819e-0a92-44d9-a356-6ca4bff471f4'),PROMPT('Message Date:'),HEADER('Message Date'),PICTURE(@d1),TYPEMODE(INS),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Message Time:'),USE(?LQM:MessageTime:Prompt)
+! ENTRY(@t1),USE(LQM:MessageTime),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@t1),USE(LQM:MessageTime),RIGHT(1)
+MessageTime                LONG
+!!> GUID('80eef446-9f89-44e0-8e52-15c724dd4691'),PROMPT('Message Time:'),HEADER('Message Time'),PICTURE(@t1),TYPEMODE(INS),JUSTIFY(RIGHT,1)
+                         END
+!!> GUID('2d76ca1e-80f8-45d2-82ac-948699160ebf')
+[PROMPTS]
+%ButtonAction DEPEND %Control DEFAULT TIMES 14
+WHEN  ('?BUTTONClear') ('No Special Action')
+WHEN  ('?BUTTONSendQueue') ('No Special Action')
+WHEN  ('?BrodcastNotifyButton') ('No Special Action')
+WHEN  ('?BrodcastShutdownButton') ('No Special Action')
+WHEN  ('?Close') ('No Special Action')
+WHEN  ('?NotifyButton') ('No Special Action')
+WHEN  ('?ResetServerInfoButton') ('No Special Action')
+WHEN  ('?SHEET1') ('No Special Action')
+WHEN  ('?SendButton') ('No Special Action')
+WHEN  ('?StartClientButton') ('No Special Action')
+WHEN  ('?StartServerButton') ('No Special Action')
+WHEN  ('?StopClientButton') ('No Special Action')
+WHEN  ('?StopServerButton') ('No Special Action')
+WHEN  ('?TABServer') ('No Special Action')
+
+%ButtonRunName DEPEND %Control DEFAULT TIMES 0
+
+%ButtonRunParameters DEPEND %Control DEFAULT TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control DEFAULT TIMES 14
+WHEN  ('?BUTTONClear') ('25000')
+WHEN  ('?BUTTONSendQueue') ('25000')
+WHEN  ('?BrodcastNotifyButton') ('25000')
+WHEN  ('?BrodcastShutdownButton') ('25000')
+WHEN  ('?Close') ('25000')
+WHEN  ('?NotifyButton') ('25000')
+WHEN  ('?ResetServerInfoButton') ('25000')
+WHEN  ('?SHEET1') ('25000')
+WHEN  ('?SendButton') ('25000')
+WHEN  ('?StartClientButton') ('25000')
+WHEN  ('?StartServerButton') ('25000')
+WHEN  ('?StopClientButton') ('25000')
+WHEN  ('?StopServerButton') ('25000')
+WHEN  ('?TABServer') ('25000')
+
+%ButtonParameters DEPEND %Control DEFAULT TIMES 0
+
+%ButtonRequest DEPEND %Control DEFAULT TIMES 14
+WHEN  ('?BUTTONClear') ('None')
+WHEN  ('?BUTTONSendQueue') ('None')
+WHEN  ('?BrodcastNotifyButton') ('None')
+WHEN  ('?BrodcastShutdownButton') ('None')
+WHEN  ('?Close') ('None')
+WHEN  ('?NotifyButton') ('None')
+WHEN  ('?ResetServerInfoButton') ('None')
+WHEN  ('?SHEET1') ('None')
+WHEN  ('?SendButton') ('None')
+WHEN  ('?StartClientButton') ('None')
+WHEN  ('?StartServerButton') ('None')
+WHEN  ('?StopClientButton') ('None')
+WHEN  ('?StopServerButton') ('None')
+WHEN  ('?TABServer') ('None')
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+
+%ClassItem UNIQUE DEFAULT  ('Default', 'WindowToolbar')
+%DefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('WindowManager')
+WHEN  ('WindowToolbar') ('ToolbarClass')
+
+%ActualDefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('')
+WHEN  ('WindowToolbar') ('')
+
+%ClassLines DEPEND %ClassItem MULTI DEFAULT TIMES 0
+
+%ReturnValue FIELD  ()
+%ProcedureOneInstance LONG  (0)
+%WindowOperationMode DEFAULT  ('Use WINDOW setting')
+%INISaveWindow LONG  (1)
+%ProcedureDisableEnhanceFocus LONG  (0)
+%ProcedureUseEnterInsteadTabOverride LONG  (0)
+%WindowUseEnterInsteadTab LONG  (1)
+%ProcedureUseEnterInsteadTabExcludeListCombo LONG  (0)
+%ProcedureUseEnterInsteadTabEnableNextTabStop LONG  (0)
+%ProcedureUseEnterInsteadTabExcludeG LONG  (1)
+%WindowUseEnterInsteadTabExclude MULTI DEFAULT  ()
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('NO')
+WHEN  ('WindowToolbar') ('NO')
+
+%ThisObjectName DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('ThisWindow')
+WHEN  ('WindowToolbar') ('Toolbar')
+
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 2
+WHEN  ('Default') (1)
+WHEN  ('WindowToolbar') (1)
+
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 2
+WHEN  ('Default') (1)
+WHEN  ('WindowToolbar') (1)
+
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('')
+WHEN  ('WindowToolbar') ('')
+
+%ExtBaseClass DEPEND %ClassItem DEFAULT TIMES 0
+
+%BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
+
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 2
+WHEN  ('Default') (0)
+WHEN  ('WindowToolbar') (0)
+
+%NewMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewMethodName DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewMethodPrototype DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 2
+WHEN  ('Default')TIMES 0
+WHEN  ('WindowToolbar')TIMES 0
+
+%NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataIsRef DEPEND %NewClassPropertyItems LONG TIMES 0
+
+%NewClassDataSize DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim1 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim2 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim3 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim4 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%ClassMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassMethodName DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassMethodPrototype DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 2
+WHEN  ('Default')TIMES 0
+WHEN  ('WindowToolbar')TIMES 0
+
+%ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataIsRef DEPEND %ClassPropertyItems LONG TIMES 0
+
+%ClassDataSize DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim1 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim2 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim3 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim4 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%WindowStyles MULTI LONG  ()
+%WindowStyleFontName DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontNameVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontNameIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleFontSize DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontSizeVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontSizeIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleFontStyle DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontStyleVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontStyleIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleFontColor DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontCharSet DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleForegroundNormal DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleForegroundNormalVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleForegroundNormalIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleBackgroundNormal DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleBackgroundNormalVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleBackgroundNormalIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleForegroundSelected DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleForegroundSelectedVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleForegroundSelectedIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleBackgroundSelected DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleBackgroundSelectedVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleBackgroundSelectedIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStylePicture DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStylePictureVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStylePictureIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleOtherListboxes MULTI DEFAULT  ()
+%ProcedureAutoBindFields MULTI LONG  ()
+%ProcedureAutoBindField DEPEND %ProcedureAutoBindFields DEFAULT TIMES 0
+
+%ProcedureAutoBindFieldTPL DEPEND %ProcedureAutoBindFields DEFAULT TIMES 0
+
+%ProcedureAutoBindProcedures MULTI LONG  ()
+%ProcedureAutoBindProcedure DEPEND %ProcedureAutoBindProcedures DEFAULT TIMES 0
+
+%ProcedureAutoBindProcedureTPL DEPEND %ProcedureAutoBindProcedures DEFAULT TIMES 0
+
+%ProcedureAutoBindFieldsIgnored MULTI LONG  ()
+%ProcedureAutoBindFieldIgnored DEPEND %ProcedureAutoBindFieldsIgnored DEFAULT TIMES 0
+
+%ProcedureAutoBindProceduresIgnored MULTI LONG  ()
+%ProcedureAutoBindProcedureIgnored DEPEND %ProcedureAutoBindProceduresIgnored DEFAULT TIMES 0
+
+%ProcedureAutoBindValidToAddField LONG  (0)
+%ProcedureUserBindFields MULTI LONG  ()
+%ProcedureUserBindField DEPEND %ProcedureUserBindFields FIELD TIMES 0
+
+%ProcedureAutoBindFieldIgnore DEPEND %ProcedureAutoBindFields LONG TIMES 0
+
+%ProcedureUserBindProcedures MULTI LONG  ()
+%ProcedureUserBindProcedure DEPEND %ProcedureUserBindProcedures PROCEDURE TIMES 0
+
+%ProcedureAutoBindProcedureIgnore DEPEND %ProcedureAutoBindProcedures LONG TIMES 0
+
+%ProcedureUserBindExpressions MULTI LONG  ()
+%ProcedureUserBindExpressionName DEPEND %ProcedureUserBindExpressions DEFAULT TIMES 0
+
+%ProcedureUserBindExpression DEPEND %ProcedureUserBindExpressions DEFAULT TIMES 0
+
+%ExtUITabIcon DEPEND %Control DEFAULT TIMES 0
+
+%ExtUITabStyleOverrideGlobal DEPEND %Control LONG TIMES 1
+WHEN  ('?SHEET1') (0)
+
+%ExtUITabStyle DEPEND %Control DEFAULT TIMES 3
+WHEN  ('?BUTTONSendQueue') ('Default')
+WHEN  ('?SHEET1') ('Default')
+WHEN  ('?TABServer') ('Default')
+
+%FieldGradientColorType DEPEND %Control DEFAULT TIMES 3
+WHEN  ('?BUTTONSendQueue') ('Off')
+WHEN  ('?SHEET1') ('Off')
+WHEN  ('?TABServer') ('Off')
+
+%FieldGradientColorTypeVariable DEPEND %Control DEFAULT TIMES 3
+WHEN  ('?BUTTONSendQueue') ('')
+WHEN  ('?SHEET1') ('')
+WHEN  ('?TABServer') ('')
+
+%FieldGradientColorTypeIsVariable DEPEND %Control LONG TIMES 3
+WHEN  ('?BUTTONSendQueue') (0)
+WHEN  ('?SHEET1') (0)
+WHEN  ('?TABServer') (0)
+
+%FieldGradientColorFrom DEPEND %Control LONG TIMES 3
+WHEN  ('?BUTTONSendQueue') (-1)
+WHEN  ('?SHEET1') (-1)
+WHEN  ('?TABServer') (-1)
+
+%FieldGradientColorFromVariable DEPEND %Control DEFAULT TIMES 0
+
+%FieldGradientColorFromIsVariable DEPEND %Control LONG TIMES 3
+WHEN  ('?BUTTONSendQueue') (0)
+WHEN  ('?SHEET1') (0)
+WHEN  ('?TABServer') (0)
+
+%FieldGradientColorTo DEPEND %Control LONG TIMES 3
+WHEN  ('?BUTTONSendQueue') (-1)
+WHEN  ('?SHEET1') (-1)
+WHEN  ('?TABServer') (-1)
+
+%FieldGradientColorToVariable DEPEND %Control DEFAULT TIMES 0
+
+%FieldGradientColorToIsVariable DEPEND %Control LONG TIMES 3
+WHEN  ('?BUTTONSendQueue') (0)
+WHEN  ('?SHEET1') (0)
+WHEN  ('?TABServer') (0)
+
+%ButtonReturnValueAssignment DEPEND %Control FIELD TIMES 0
+
+%ButtonReturnValueReferenceAssign DEPEND %Control LONG TIMES 0
+
+%ButtonThreadParameters DEPEND %Control DEFAULT TIMES 0
+
+%ButtonThreadReturnValueAssignment DEPEND %Control FIELD TIMES 0
+
+%PreLookupProcedureParameters DEPEND %Control DEFAULT TIMES 0
+
+%PostLookupProcedureParameters DEPEND %Control DEFAULT TIMES 0
+
+%PostLookupDuringValidate DEPEND %Control LONG TIMES 9
+WHEN  ('?BUTTONSendQueue') (1)
+WHEN  ('?GLO:Client_Name') (1)
+WHEN  ('?GLO:Client_Pwd') (1)
+WHEN  ('?GLO:Server_Ip:2') (1)
+WHEN  ('?GLO:Server_Name') (1)
+WHEN  ('?GLO:Server_Port:2') (1)
+WHEN  ('?LOC:NotificationCode') (1)
+WHEN  ('?SHEET1') (1)
+WHEN  ('?TABServer') (1)
+
+%LookupAssign DEPEND %Control MULTI LONG TIMES 0
+
+%MoreTarget DEPEND %LookupAssign FIELD TIMES 0
+
+%MoreField DEPEND %LookupAssign DEFAULT TIMES 0
+
+%CheckedAssigns DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedAssignVariable DEPEND %CheckedAssigns FIELD TIMES 0
+
+%CheckedAssignValue DEPEND %CheckedAssigns DEFAULT TIMES 0
+
+%CheckedHides DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedControl DEPEND %CheckedHides DEFAULT TIMES 0
+
+%CheckedControlAction DEPEND %CheckedHides DEFAULT TIMES 3
+WHEN  ('?BUTTONSendQueue')TIMES 0
+WHEN  ('?SHEET1')TIMES 0
+WHEN  ('?TABServer')TIMES 0
+
+%CheckedEnables DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedControl1 DEPEND %CheckedEnables DEFAULT TIMES 0
+
+%CheckedControl1Action DEPEND %CheckedEnables DEFAULT TIMES 3
+WHEN  ('?BUTTONSendQueue')TIMES 0
+WHEN  ('?SHEET1')TIMES 0
+WHEN  ('?TABServer')TIMES 0
+
+%UncheckedAssigns DEPEND %Control MULTI LONG TIMES 0
+
+%UncheckedAssignVariable DEPEND %UncheckedAssigns FIELD TIMES 0
+
+%UncheckedAssignValue DEPEND %UncheckedAssigns DEFAULT TIMES 0
+
+%UnCheckedHides DEPEND %Control MULTI LONG TIMES 0
+
+%UnCheckedControl DEPEND %UnCheckedHides DEFAULT TIMES 0
+
+%UnCheckedControlAction DEPEND %UnCheckedHides DEFAULT TIMES 3
+WHEN  ('?BUTTONSendQueue')TIMES 0
+WHEN  ('?SHEET1')TIMES 0
+WHEN  ('?TABServer')TIMES 0
+
+%UnCheckedEnables DEPEND %Control MULTI LONG TIMES 0
+
+%UnCheckedControl1 DEPEND %UnCheckedEnables DEFAULT TIMES 0
+
+%UnCheckedControl1Action DEPEND %UnCheckedEnables DEFAULT TIMES 3
+WHEN  ('?BUTTONSendQueue')TIMES 0
+WHEN  ('?SHEET1')TIMES 0
+WHEN  ('?TABServer')TIMES 0
+
+%CheckedDisables DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedDisableControl DEPEND %CheckedDisables DEFAULT TIMES 0
+
+%CheckedDisableControlAction DEPEND %CheckedDisables DEFAULT TIMES 3
+WHEN  ('?BUTTONSendQueue')TIMES 0
+WHEN  ('?SHEET1')TIMES 0
+WHEN  ('?TABServer')TIMES 0
+
+%UnCheckedDisables DEPEND %Control MULTI LONG TIMES 0
+
+%UnCheckedDisableControl DEPEND %UnCheckedDisables DEFAULT TIMES 0
+
+%UnCheckedDisableControlAction DEPEND %UnCheckedDisables DEFAULT TIMES 3
+WHEN  ('?BUTTONSendQueue')TIMES 0
+WHEN  ('?SHEET1')TIMES 0
+WHEN  ('?TABServer')TIMES 0
+
+[EMBED]
+EMBED %ProcedureRoutines
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 3600
+PROPERTY:END
+UpdateControlsWhenConnectionFail ROUTINE
+          !It fails, enable connection
+          ?StartClientButton{PROP:Disable} = false
+          ?StopClientButton{PROP:Disable} = true
+          ?ServerInfGroup{PROP:Disable} = false
+          ?ClientInfoGROUP{PROP:Disable}=false
+          
+
+          ?StartServerButton{PROP:Disable} = false
+          ?SendButton{PROP:Disable} = true
+          ?BrodcastNotifyButton{PROP:Disable} = true
+          ?BrodcastShutdownButton{PROP:Disable} = true
+          ?NotifyButton{PROP:Disable} = true
+          
+          0{PROP:Text} = 'Chat (Not Connected)'
+[END]
+EMBED %ControlEventHandling
+[INSTANCES]
+WHEN '?StartServerButton'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[GROUP]
+PRIORITY 4500
+INSTANCE 11
+[END]
+[END]
+WHEN '?StartClientButton'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[GROUP]
+PRIORITY 5000
+INSTANCE 10
+[END]
+[END]
+WHEN '?StopServerButton'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[GROUP]
+PRIORITY 5000
+INSTANCE 13
+[END]
+[END]
+WHEN '?StopClientButton'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[GROUP]
+PRIORITY 5000
+INSTANCE 12
+[END]
+[END]
+WHEN '?ResetServerInfoButton'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5000
+PROPERTY:END
+GLO:Server_Ip=''
+[GROUP]
+PRIORITY 5000
+INSTANCE 1
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5000
+PROPERTY:END
+DISPLAY()
+[END]
+[END]
+WHEN '?SendButton'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[GROUP]
+PRIORITY 5000
+INSTANCE 9
+[END]
+[END]
+WHEN '?BrodcastNotifyButton'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[GROUP]
+PRIORITY 5000
+INSTANCE 5
+[END]
+[END]
+WHEN '?NotifyButton'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[GROUP]
+PRIORITY 5000
+INSTANCE 8
+[END]
+[END]
+WHEN '?BrodcastShutdownButton'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[GROUP]
+PRIORITY 5000
+INSTANCE 6
+[END]
+[END]
+WHEN '?BUTTONSendQueue'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[GROUP]
+PRIORITY 5000
+INSTANCE 7
+[END]
+[END]
+WHEN '?BUTTONClear'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+FREE(lQMessage)
+DISPLAY()
+[END]
+[END]
+[END]
+EMBED %WindowManagerMethodCodeSection
+[INSTANCES]
+WHEN 'Init'
+[INSTANCES]
+WHEN '(),BYTE'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 8030
+PROPERTY:END
+0{PROP:Text} = 'Chat (Not Connected)'
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 8030
+PROPERTY:END
+Do UpdateControlsWhenConnectionFail
+[END]
+[END]
+[END]
+EMBED %SVQuickAppConnectServerStartServerError
+[INSTANCES]
+WHEN '3'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+MESSAGE('The Server Failed to Start|Error:'&LOC:Error)
+?StartServerButton{PROP:Disable} = False
+?StopServerButton{PROP:Disable} = TRUE
+?ResetServerInfoButton{PROP:Disable} = FALSE
+?ServerInfGroup{PROP:Disable} = FALSE
+    
+!Enable client
+?StartClientButton{PROP:Disable} = FALSE
+?StopClientButton{PROP:Disable} = TRUE
+?ClientInfoGROUP{PROP:Disable}= FALSE
+
+?SendButton{PROP:Disable} = TRUE
+?BrodcastNotifyButton{PROP:Disable} = TRUE
+?BrodcastShutdownButton{PROP:Disable} = TRUE
+?NotifyButton{PROP:Disable} = TRUE
+   
+0{PROP:Text} = 'Chat (Not Connected)'      
+[END]
+[END]
+EMBED %SVQuickAppConnectServerStartServerOk
+[INSTANCES]
+WHEN '3'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5000
+PROPERTY:END
+?StartServerButton{PROP:Disable} = TRUE
+?StopServerButton{PROP:Disable} = FALSE
+?ResetServerInfoButton{PROP:Disable} = TRUE
+?ServerInfGroup{PROP:Disable} = TRUE
+           
+!Disable to Client too
+?StartClientButton{PROP:Disable} = TRUE
+?StopClientButton{PROP:Disable} = TRUE
+           
+?ClientInfoGROUP{PROP:Disable}= TRUE
+           
+?SendButton{PROP:Disable} = FALSE
+?BrodcastNotifyButton{PROP:Disable} = FALSE
+?BrodcastShutdownButton{PROP:Disable} = FALSE
+?NotifyButton{PROP:Disable} = FALSE
+          
+0{PROP:Text} = 'Chat Server ('&GLO:Server_Name&')'
+SELECT(?TABClient)      
+[END]
+[END]
+EMBED %SVQuickAppConnectServerStartServerAlready
+[INSTANCES]
+WHEN '3'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5000
+PROPERTY:END
+MESSAGE('The Server is already running')    
+[END]
+[END]
+EMBED %SVQuickAppConnectServerStopServerAfter
+[INSTANCES]
+WHEN '3'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+CLEAR(lQMessage)
+CLEAR(lQUsers)         
+
+?StartServerButton{PROP:Disable} = FALSE
+?StopServerButton{PROP:Disable} = TRUE
+?ResetServerInfoButton{PROP:Disable} = FALSE
+?ServerInfGroup{PROP:Disable} = FALSE
+
+!Enable client
+?StartClientButton{PROP:Disable} = FALSE
+?StopClientButton{PROP:Disable} = TRUE
+?ClientInfoGROUP{PROP:Disable} = FALSE
+
+?SendButton{PROP:Disable} = TRUE
+?BrodcastNotifyButton{PROP:Disable} = TRUE
+?BrodcastShutdownButton{PROP:Disable} = TRUE
+?NotifyButton{PROP:Disable} = TRUE
+
+0{PROP:Text} = 'Chat (Not Connected)'
+[END]
+[END]
+EMBED %SVQuickAppConnectServerStopServerNot
+[INSTANCES]
+WHEN '3'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5000
+PROPERTY:END
+MESSAGE('The Server is unreachable')    
+[END]
+[END]
+EMBED %SVQuickAppConnectClientConnectOk
+[INSTANCES]
+WHEN '3'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+!Disable re-connection
+?StartClientButton{PROP:Disable} = TRUE
+?StopClientButton{PROP:Disable} = FALSE
+?ClientInfoGROUP{PROP:Disable}= TRUE
+?ServerInfGroup{PROP:Disable} = TRUE
+
+!server disable
+?StartServerButton{PROP:Disable} = TRUE
+
+?SendButton{PROP:Disable} = FALSE
+?BrodcastNotifyButton{PROP:Disable} = FALSE
+?BrodcastShutdownButton{PROP:Disable} = FALSE
+?NotifyButton{PROP:Disable} = FALSE
+
+0{PROP:Text} = 'Chat Client ('& GLO:Client_Name &')'
+[END]
+[END]
+EMBED %SVQuickAppConnectClientConnectLoginOk
+[INSTANCES]
+WHEN '3'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+SELECT(?TABClient)
+[END]
+[END]
+EMBED %SVQuickAppConnectClientConnectLoginFail
+[INSTANCES]
+WHEN '3'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+Do UpdateControlsWhenConnectionFail
+MESSAGE('The Login attempt failed.')
+[END]
+[END]
+EMBED %SVQuickAppConnectClientConnectFail
+[INSTANCES]
+WHEN '3'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+Do UpdateControlsWhenConnectionFail
+MESSAGE('The attempt to connect to the Server failed')
+[END]
+[END]
+EMBED %SVQuickAppConnectClientDisconnectOk
+[INSTANCES]
+WHEN '3'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+CLEAR(lQMessage)
+CLEAR(lQUsers)
+FREE(lQUsers)
+!It fails, enable connection
+?StartClientButton{PROP:Disable} = FALSE
+?StopClientButton{PROP:Disable} = TRUE
+?ServerInfGroup{PROP:Disable} = TRUE
+?ClientInfoGROUP{PROP:Disable}= FALSE
+
+?SendButton{PROP:Disable} = TRUE
+?BrodcastNotifyButton{PROP:Disable} = TRUE
+?BrodcastShutdownButton{PROP:Disable} = TRUE
+
+?StartServerButton{PROP:Disable} = FALSE
+0{PROP:Text} = 'Chat (Not Connected)'
+[END]
+[END]
+EMBED %QuickAppConnectMethodCodeSection
+[INSTANCES]
+WHEN '3'
+[INSTANCES]
+WHEN 'Event_BroadcastNotification'
+[INSTANCES]
+WHEN '(STRING pFromUserName,LONG pNotificationCode,STRING pMsgText)'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4500
+PROPERTY:END
+lQMessage.MessageFrom = 'Notification From: '&pFromUserName &' sent to ALL'
+lQMessage.MessageText = 'Code('&pNotificationCode&') '&pMsgText
+lQMessage.MessageDate = TODAY()
+lQMessage.MessageTime = CLOCK()
+ADD(lQMessage)
+
+[END]
+[END]
+WHEN 'Event_BroadcastShutdown'
+[INSTANCES]
+WHEN '(STRING pFromUserName,LONG pNotificationCode,STRING pMsgText)'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5001
+PROPERTY:END
+MESSAGE('The user '&pFromUserName&' is requesting to shutdown the App|Code:('&pNotificationCode&')|'&pMsgText,'Shutdown Request')
+[END]
+[END]
+WHEN 'Event_LoginOnServer'
+[INSTANCES]
+WHEN '(STRING pUserName,STRING pUserPassword,*BYTE pCancelOperation)'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4500
+PROPERTY:END
+!Verify that the pUserName and pUserPassword are correct
+IF UPPER(pUserName) = 'GUEST' !Do not allow a GUEST user
+   pCancelOperation = true
+END
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5001
+PROPERTY:END
+IF pCancelOperation
+!   MESSAGE('the login was cancelled by the server')    
+ELSE
+ !  MESSAGE('A user has logged in using |User Name: '&pUserName&'|Password: '&pUserPassword,'Login Received')    
+END
+
+[END]
+[END]
+WHEN 'Event_Message'
+[INSTANCES]
+WHEN '(STRING pFromUserName,STRING pToUserName,STRING pMsgText)'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4500
+PROPERTY:END
+lQMessage.MessageFrom = 'From: '&pFromUserName &' to '&pToUserName
+lQMessage.MessageText = pMsgText
+lQMessage.MessageDate = TODAY()
+lQMessage.MessageTime = CLOCK()
+ADD(lQMessage)
+
+[END]
+[END]
+WHEN 'Event_Notification'
+[INSTANCES]
+WHEN '(STRING pFromUserName,STRING pToUserName,LONG pNotificationCode,STRING pMsgText)'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4500
+PROPERTY:END
+IF pNotificationCode = 999  !We use a user-defined notification code to know that we sent a GROUP
+   LOC:NotificationCode = 999
+   SELF.FromJSON(pMsgText,LOC:GroupOfData) !This will parse the JSON String and put the data in the GROUP
+   lQMessage.MessageFrom = 'ClientInfo From '&pFromUserName &' to '&pToUserName
+   lQMessage.MessageText = 'Id='&LOC:GroupOfData.ClientId&', Name='&LOC:GroupOfData.ClientName&', Address='&CLIP(LOC:GroupOfData.ClientAddress)
+   lQMessage.MessageDate = TODAY()
+   lQMessage.MessageTime = CLOCK()
+   ADD(lQMessage)
+ELSE
+   !It is a regular notification
+   lQMessage.MessageFrom = 'Notification From '&pFromUserName &' to '&pToUserName
+   lQMessage.MessageText = '('&pNotificationCode&') '&pMsgText
+   lQMessage.MessageDate = TODAY()
+   lQMessage.MessageTime = CLOCK()
+   ADD(lQMessage)   
+END
+[END]
+[END]
+WHEN 'Event_NotifyCleanConnected'
+[INSTANCES]
+WHEN '()'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4500
+PROPERTY:END
+CLEAR(lQUsers)
+FREE(lQUsers)
+DISPLAY()
+
+[END]
+[END]
+WHEN 'Event_NotifyConnected'
+[INSTANCES]
+WHEN '(STRING pUserName)'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4500
+PROPERTY:END
+CLEAR(lQUsers)  
+lQUsers.UserName = pUserName
+ADD(lQUsers)    
+DISPLAY()
+[END]
+[END]
+WHEN 'Event_NotifyDisconnected'
+[INSTANCES]
+WHEN '(STRING pUserName)'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4500
+PROPERTY:END
+CLEAR(lQUsers)
+lQUsers.UserName = pUserName
+GET(lQUsers,lQUsers.UserName)
+IF NOT ERRORCODE()
+   DELETE(lQUsers)
+END    
+DISPLAY()
+[END]
+[END]
+WHEN 'Event_ServerResponse'
+[INSTANCES]
+WHEN '(LONG pOriginalCommand,LONG pRetVal,STRING pRetMsg)'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5001
+PROPERTY:END
+CASE pOriginalCommand
+OF QuickSocketCmd:Login
+   IF pRetVal<>0
+      Do UpdateControlsWhenConnectionFail
+      !ELSE
+       !   MESSAGE('Login ok: '&pRetMsg)
+    END
+OF QuickSocketCmd:SendMessage
+OF QuickSocketCmd:SendData
+OF QuickSocketCmd:SendNotify
+OF QuickSocketCmd:BroadcastNotify
+OF QuickSocketCmd:BroadcastShutdown
+OF QuickSocketCmd:NotifyConnected
+OF QuickSocketCmd:NotifyDisconnected
+OF QuickSocketCmd:CmdAnswer  
+END
+[END]
+[END]
+[END]
+[END]
+EMBED %SVQuickAppConnectActionOk
+[INSTANCES]
+WHEN '5'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+!Add the message to the Local QUEUE
+lQMessage.MessageFrom = 'To All '
+lQMessage.MessageText = '('&LOC:NotificationCode&') '&LOC:MessageOut
+lQMessage.MessageDate = TODAY()
+lQMessage.MessageTime = CLOCK()
+ADD(lQMessage)
+LOC:MessageOut = ''
+DISPLAY()
+[END]
+WHEN '9'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5301
+PROPERTY:END
+lQMessage.MessageFrom = 'To: '&LOC:ToUserName
+lQMessage.MessageText = LOC:MessageOut
+lQMessage.MessageDate = TODAY()
+lQMessage.MessageTime = CLOCK()
+ADD(lQMessage)
+LOC:MessageOut = ''
+DISPLAY()
+[END]
+WHEN '6'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5000
+PROPERTY:END
+!Add the Shutdown message to the local QUEUE
+lQMessage.MessageFrom = 'To All Shutdown'
+lQMessage.MessageText = '('&LOC:NotificationCode&') '&LOC:MessageOut
+lQMessage.MessageDate = TODAY()
+lQMessage.MessageTime = CLOCK()
+ADD(lQMessage)
+LOC:MessageOut = ''
+DISPLAY()
+[END]
+WHEN '7'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5000
+PROPERTY:END
+!Add the Group Information to the QUEUE
+lQMessage.MessageFrom = 'ClientInfo To: '&LOC:ToUserName
+lQMessage.MessageText = 'Id='&LOC:GroupOfData.ClientId&', Name='&LOC:GroupOfData.ClientName&', Address='&CLIP(LOC:GroupOfData.ClientAddress)
+
+lQMessage.MessageDate = TODAY()
+lQMessage.MessageTime = CLOCK()
+ADD(lQMessage)       
+DISPLAY()
+[END]
+WHEN '8'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5000
+PROPERTY:END
+!Add the information to the local QUEUE
+lQMessage.MessageFrom = 'To: '&LOC:ToUserName
+lQMessage.MessageText = 'Code('&LOC:NotificationCode&') '&LOC:MessageOut
+lQMessage.MessageDate = TODAY()
+lQMessage.MessageTime = CLOCK()
+ADD(lQMessage)
+LOC:MessageOut = ''
+DISPLAY()
+[END]
+[END]
+EMBED %SVQuickAppConnectActionData
+[INSTANCES]
+WHEN '7'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5000
+PROPERTY:END
+       !Set the group information to be sent
+       LOC:NotificationCode = 999 !We use a user-defined notification code
+       LOC:GroupOfData.ClientId     = 101
+       LOC:GroupOfData.ClientName   = 'Arnold Baker'
+       LOC:GroupOfData.ClientAddress= '101 Main St.,NY,USA'      
+[END]
+[END]
+EMBED %WindowEventHandling
+[INSTANCES]
+WHEN 'OpenWindow'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5000
+PROPERTY:END
+  GLO:Client_Name = 'Guest' & RANDOM(1,200000)      
+  DISPLAY()
+[END]
+[END]
+[END]
+[ADDITION]
+NAME SVQuickAppConnectSupport SVQuickAppConnect
+[INSTANCE]
+INSTANCE 3
+[PROMPTS]
+%QuickAppConnectClassObjectName DEFAULT  ('')
+%LocalDisable LONG  (0)
+%PromptLocalDisable LONG  (0)
+%SupportServer LONG  (1)
+%SupportClient LONG  (1)
+%LocalServerIP FIELD  (GLO:Server_Ip)
+%LocalServerPort FIELD  (GLO:Server_Port)
+%LocalServerName FIELD  (GLO:Server_Name)
+%LocalServerClientAsServer LONG  (1)
+%LocalServerIPCli FIELD  (GLO:Server_Ip)
+%LocalServerPortCli FIELD  (GLO:Server_Port)
+%LocalServerNameCli FIELD  (GLO:Server_Name)
+%LocalClientName FIELD  (GLO:Client_Name)
+%LocalClientPwd DEFAULT  ('GLO:Client_Pwd')
+%QuickAppConnectObjectName DEFAULT  ('QuickAppConnect')
+%ClassItem UNIQUE DEFAULT  ('Default')
+%DefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('QuickAppConnectClass')
+
+%ActualDefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('')
+
+%ClassLines DEPEND %ClassItem MULTI DEFAULT TIMES 0
+
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('NO')
+
+%ThisObjectName DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('QuickAppConnect')
+
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (1)
+
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (1)
+
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('')
+
+%ExtBaseClass DEPEND %ClassItem DEFAULT TIMES 0
+
+%BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
+
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (0)
+
+%NewMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewMethodName DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewMethodPrototype DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 1
+WHEN  ('Default')TIMES 0
+
+%NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataIsRef DEPEND %NewClassPropertyItems LONG TIMES 0
+
+%NewClassDataSize DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim1 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim2 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim3 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim4 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%ClassMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassMethodName DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassMethodPrototype DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 1
+WHEN  ('Default')TIMES 0
+
+%ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataIsRef DEPEND %ClassPropertyItems LONG TIMES 0
+
+%ClassDataSize DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim1 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim2 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim3 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim4 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%LocalEnable LONG  (1)
+%InitializeServerVariables LONG  (1)
+%ErrorVar FIELD  (LOC:Error)
+%ExecuteCodeError DEFAULT  ('MESSAGE(''Error:''&LOC:Error,''AppConnect Error'')')
+%ExecuteCodeSucceeded DEFAULT  ('')
+%ExecuteCodeNotConnected DEFAULT  ('MESSAGE(''The Client is not connected'',''AppConnect Error'')')
+[ADDITION]
+NAME SVQuickAppConnectSupport SVQuickAppConnectServer
+[INSTANCE]
+INSTANCE 11
+PARENT 3
+[PROMPTS]
+%ConnectionAction DEFAULT  ('Start')
+[INSTANCE]
+INSTANCE 13
+PARENT 3
+[PROMPTS]
+%ConnectionAction DEFAULT  ('Stop')
+[INSTANCE]
+INSTANCE 1
+PARENT 3
+[PROMPTS]
+%ConnectionAction DEFAULT  ('Initialize Information')
+[ADDITION]
+NAME SVQuickAppConnectSupport SVQuickAppConnectClient
+[INSTANCE]
+INSTANCE 10
+PARENT 3
+[PROMPTS]
+%ConnectionAction DEFAULT  ('Connect')
+[INSTANCE]
+INSTANCE 12
+PARENT 3
+[PROMPTS]
+%ConnectionAction DEFAULT  ('Disconnect')
+[ADDITION]
+NAME SVQuickAppConnectSupport SVQuickAppConnectClientAction
+[INSTANCE]
+INSTANCE 5
+PARENT 3
+[PROMPTS]
+%ChatAction DEFAULT  ('BroadcastNotification')
+%MessageContent FIELD  (LOC:MessageOut)
+%NotificationCode FIELD  (LOC:NotificationCode)
+%UseRecipient FIELD  ()
+%ErrorVar FIELD  (LOC:Error)
+%DisableGlobalCodeError LONG  (0)
+%DisableGlobalCodeNotConnected LONG  (0)
+%DisableGlobalCodeActionSucceeded LONG  (1)
+[INSTANCE]
+INSTANCE 6
+PARENT 3
+[PROMPTS]
+%ChatAction DEFAULT  ('Shutdown')
+%MessageContent FIELD  (LOC:MessageOut)
+%NotificationCode FIELD  (LOC:NotificationCode)
+%UseRecipient FIELD  ()
+%ErrorVar FIELD  (LOC:Error)
+%DisableGlobalCodeError LONG  (0)
+%DisableGlobalCodeNotConnected LONG  (0)
+%DisableGlobalCodeActionSucceeded LONG  (1)
+[INSTANCE]
+INSTANCE 7
+PARENT 3
+[PROMPTS]
+%ChatAction DEFAULT  ('Notify')
+%MessageContent FIELD  (LOC:GroupOfData)
+%NotificationCode FIELD  (LOC:NotificationCode)
+%UseRecipient FIELD  (LOC:ToUserName)
+%ErrorVar FIELD  (LOC:Error)
+%DisableGlobalCodeError LONG  (0)
+%DisableGlobalCodeNotConnected LONG  (0)
+%DisableGlobalCodeActionSucceeded LONG  (1)
+[INSTANCE]
+INSTANCE 8
+PARENT 3
+[PROMPTS]
+%ChatAction DEFAULT  ('Notify')
+%MessageContent FIELD  (LOC:MessageOut)
+%NotificationCode FIELD  (LOC:NotificationCode)
+%UseRecipient FIELD  (LOC:ToUserName)
+%ErrorVar FIELD  (LOC:Error)
+%DisableGlobalCodeError LONG  (0)
+%DisableGlobalCodeNotConnected LONG  (0)
+%DisableGlobalCodeActionSucceeded LONG  (1)
+[INSTANCE]
+INSTANCE 9
+PARENT 3
+[PROMPTS]
+%ChatAction DEFAULT  ('Message')
+%MessageContent FIELD  (LOC:MessageOut)
+%NotificationCode FIELD  ()
+%UseRecipient FIELD  (LOC:ToUserName)
+%DisableGlobalCodeError LONG  (0)
+%DisableGlobalCodeNotConnected LONG  (0)
+%DisableGlobalCodeActionSucceeded LONG  (1)
+[ADDITION]
+NAME ABC CancelButton
+[INSTANCE]
+INSTANCE 2
+[ADDITION]
+NAME ABC WindowResize
+[FIELDPROMPT]
+%ResizeAnchorTop DEPEND %Control LONG TIMES 0
+
+%ResizeAnchorLeft DEPEND %Control LONG TIMES 0
+
+%ResizeAnchorRight DEPEND %Control LONG TIMES 0
+
+%ResizeAnchorBottom DEPEND %Control LONG TIMES 0
+
+%ResizeAnchorGrowTop DEPEND %Control LONG TIMES 0
+
+%ResizeAnchorGrowLeft DEPEND %Control LONG TIMES 0
+
+%ResizeAnchorGrowRight DEPEND %Control LONG TIMES 0
+
+%ResizeAnchorGrowBottom DEPEND %Control LONG TIMES 0
+
+[INSTANCE]
+INSTANCE 4
+[PROMPTS]
+%UseAppStrategy DEFAULT  ('1')
+%AppStrategy DEFAULT  ('Surface')
+%RestrictMinSize LONG  (1)
+%WindowMinWidth DEFAULT  ('0')
+%WindowMaxWidth DEFAULT  ('0')
+%ClassItem UNIQUE DEFAULT  ('Default')
+%DefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('WindowResizeClass')
+
+%ActualDefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('')
+
+%ClassLines DEPEND %ClassItem MULTI DEFAULT TIMES 0
+
+%WindowMinHeight DEFAULT  ('')
+%RestrictMaxSize LONG  (0)
+%WindowMaxHeight DEFAULT  ('')
+%AutoFindParents DEFAULT  ('Default')
+%DeferMoves DEFAULT  ('Default')
+%OverrideControls MULTI LONG  ()
+%OverrideControl DEPEND %OverrideControls DEFAULT TIMES 0
+
+%DisableResize DEPEND %OverrideControls LONG TIMES 0
+
+%HorizResize DEPEND %OverrideControls DEFAULT TIMES 0
+
+%VertResize DEPEND %OverrideControls DEFAULT TIMES 0
+
+%HorizPositional DEPEND %OverrideControls DEFAULT TIMES 0
+
+%VertPositional DEPEND %OverrideControls DEFAULT TIMES 0
+
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('NO')
+
+%ThisObjectName DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('Resizer')
+
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (1)
+
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (1)
+
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('')
+
+%ExtBaseClass DEPEND %ClassItem DEFAULT TIMES 0
+
+%BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
+
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (0)
+
+%NewMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewMethodName DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewMethodPrototype DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 1
+WHEN  ('Default')TIMES 0
+
+%NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataIsRef DEPEND %NewClassPropertyItems LONG TIMES 0
+
+%NewClassDataSize DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim1 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim2 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim3 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim4 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%ClassMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassMethodName DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassMethodPrototype DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 1
+WHEN  ('Default')TIMES 0
+
+%ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataIsRef DEPEND %ClassPropertyItems LONG TIMES 0
+
+%ClassDataSize DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim1 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim2 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim3 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim4 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+[WINDOW]
+QuickWindow WINDOW('Chat'),AT(,,230,240),FONT('Segoe UI Semibold',10,,FONT:bold,CHARSET:ANSI), |
+          RESIZE,CENTER,ICON(ICON:Clarion),GRAY,IMM,HLP('Main'),SYSTEM
+          BUTTON('&Close'),AT(179,225,49,14),USE(?Close),LEFT,ICON('WACANCEL.ICO'),FLAT,MSG('Cancel Operation'), |
+            TIP('Cancel Operation'),#ORIG(?Cancel),#SEQ(2),#ORDINAL(1)
+          SHEET,AT(5,5,224,212),USE(?SHEET1),#ORDINAL(2)
+            TAB('Server'),USE(?TABServer),#ORDINAL(3)
+              GROUP('Server Information'),AT(10,23,212,57),USE(?ServerInfGroup),BOXED,TRN, |
+                #ORDINAL(4)
+                PROMPT('Server Ip:'),AT(16,36,67,11),USE(?GLO:Server_Ip:Prompt:2),RIGHT,TRN, |
+                  #ORDINAL(5)
+                ENTRY(@S50),AT(90,37,69,10),USE(GLO:Server_Ip,,?GLO:Server_Ip:2),#ORDINAL(6)
+                ENTRY(@P<<<#P),AT(90,50,26,10),USE(GLO:Server_Port,,?GLO:Server_Port:2),LEFT(1), |
+                  #ORDINAL(7)
+                PROMPT('Server Port:'),AT(16,50,67,11),USE(?GLO:Server_Port:Prompt:2),RIGHT, |
+                  TRN,#ORDINAL(8)
+                PROMPT('Server Name:'),AT(16,62,67,11),USE(?GLO:Server_Name:Prompt),RIGHT, |
+                  TRN,#ORDINAL(9)
+                ENTRY(@s20),AT(90,63,122,10),USE(GLO:Server_Name),#ORDINAL(10)
+                BUTTON('Reset'),AT(176,37,,9),USE(?ResetServerInfoButton),#ORDINAL(11)
+              END
+              BUTTON('Start Server'),AT(42,86),USE(?StartServerButton),#ORDINAL(12)
+              BUTTON('Start Client'),AT(44,158),USE(?StartClientButton),LEFT,#ORDINAL(13)
+              BUTTON('Stop Client'),AT(117,158,46),USE(?StopClientButton),DISABLE,#ORDINAL(14)
+              BUTTON('Stop Server'),AT(117,86,48),USE(?StopServerButton),DISABLE,#ORDINAL(15)
+              GROUP('Client Information'),AT(10,110,212,42),USE(?ClientInfoGROUP),BOXED,TRN, |
+                #ORDINAL(16)
+                PROMPT('Client Name:'),AT(14,122,67,11),USE(?GLO:Client_Name:Prompt),RIGHT, |
+                  TRN,#ORDINAL(17)
+                ENTRY(@s20),AT(84,121,116,10),USE(GLO:Client_Name),#ORDINAL(18)
+                PROMPT('Client Password:'),AT(14,136,67,11),USE(?GLO:Client_Pwd:Prompt),RIGHT, |
+                  TRN,#ORDINAL(19)
+                ENTRY(@s16),AT(84,137,116,10),USE(GLO:Client_Pwd),#ORDINAL(20)
+              END
+            END
+            TAB('Chat'),USE(?TABClient),#ORDINAL(21)
+              TEXT,AT(69,145,151,11),USE(LOC:MessageOut),#ORDINAL(22)
+              PROMPT('Message Out:'),AT(19,147,47),USE(?LOC:MessageOut:Prompt),RIGHT,TRN,#ORDINAL(23)
+              LIST,AT(69,128,109,12),USE(LOC:ToUserName),DROP(10),FORMAT('80L(2)|M@s20@'), |
+                FROM(lQUsers),#FIELDS(UserName),#ORDINAL(24)
+              BUTTON('&Send'),AT(69,176,64,12),USE(?SendButton),LEFT,ICON('WAOK.ICO'),FLAT, |
+                #ORDINAL(25)
+              LIST,AT(10,22,210,100),USE(?MessageList),VSCROLL,FLAT,FORMAT('[80L(2)|M@s' & |
+                '100@/1020L(2)|M@s255@]|'),FROM(lQMessage),#FIELDS(LQM:MessageFrom,LQM:MessageText), |
+                #ORDINAL(26)
+              PROMPT('Message To:'),AT(19,130,47),USE(?LOC:MessageOut:Prompt:2),RIGHT,TRN, |
+                #ORDINAL(27)
+              PROMPT('Notification Code:'),AT(10,163),USE(?LOC:NotificationCode:Prompt),RIGHT, |
+                TRN,#ORDINAL(28)
+              ENTRY(@n3),AT(69,162,26,10),USE(LOC:NotificationCode),RIGHT(1),#ORDINAL(29)
+              BUTTON('Notify'),AT(141,177,79,11),USE(?NotifyButton),FLAT,#ORDINAL(30)
+              BUTTON('Broadcast Notify'),AT(69,194,64,11),USE(?BrodcastNotifyButton),FLAT, |
+                #ORDINAL(31)
+              BUTTON('Broadcast Shutdown'),AT(141,194,79,11),USE(?BrodcastShutdownButton), |
+                FLAT,#ORDINAL(32)
+              BUTTON('Send data in a GROUP'),AT(141,159,79),USE(?BUTTONSendQueue),#ORDINAL(33)
+              BUTTON('Clear'),AT(10,177,50,28),USE(?BUTTONClear),#ORDINAL(34)
+            END
+          END
+        END
+
+[END]

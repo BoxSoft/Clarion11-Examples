@@ -1,0 +1,74 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{95890C60-AB03-4A1A-8273-775D3134D6BB}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>Transfer_Example</AssemblyName>
+    <OutputName>Transfer_Example</OutputName>
+    <DefineConstants>IPDRV=&gt;1%3b_ABCDllMode_=&gt;0%3b_ABCLinkMode_=&gt;1</DefineConstants>
+    <Model>Dll</Model>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <vid>off</vid>
+    <check_stack>False</check_stack>
+    <check_index>False</check_index>
+  </PropertyGroup>
+  <ItemGroup>
+    <FileDriver Include="DOS" />
+    <FileDriver Include="IPDRV" />
+    <Compile Include="Transfer_Example.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="Transfer_Example003.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="Transfer_Example005.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="Transfer_Example006.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="Transfer_Example007.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="Transfer_Example008.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="Transfer_Example009.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="TRANSFER_EXAMPLE_BC.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="Transfer_Example_BC0.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Library Include="Transfer_Example.EXE.manifest" />
+    <None Include="IPDS_LIBEAY32.DLL">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Generated>True</Generated>
+      <ProjectGenerated>True</ProjectGenerated>
+    </None>
+    <None Include="IPDS_SSLEAY32.DLL">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Generated>True</Generated>
+      <ProjectGenerated>True</ProjectGenerated>
+    </None>
+    <None Include="OSSLWRAP.DLL">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Generated>True</Generated>
+      <ProjectGenerated>True</ProjectGenerated>
+    </None>
+  </ItemGroup>
+  <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
+</Project>

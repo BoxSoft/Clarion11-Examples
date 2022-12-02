@@ -1,0 +1,111 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{1BB88B12-11AC-47FB-B81F-E979B7B6CF83}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>clreps</AssemblyName>
+    <OutputName>clreps</OutputName>
+    <DefineConstants>_ABCDllMode_=&gt;0%3b_ABCLinkMode_=&gt;1%3b</DefineConstants>
+    <Model>Dll</Model>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <vid>off</vid>
+    <check_stack>False</check_stack>
+    <check_index>False</check_index>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="clreps.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clreps001.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clreps002.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clreps003.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clreps004.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clreps005.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clreps006.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clreps007.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clreps008.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clreps009.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clreps010.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clreps011.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clreps012.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clreps013.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clreps014.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clreps015.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clreps016.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clreps017.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clreps018.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clreps019.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clrep_RD.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clrep_RU.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clrep_SF.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="ResCode.Clw">
+      <Generated>true</Generated>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="ClaRunExt.LIB" />
+    <Library Include="clreps.exe.manifest" />
+    <Library Include="SCANCEL.ICO" />
+    <Library Include="SCH-ORD.ICO" />
+    <Library Include="SDOWN.ICO" />
+    <Library Include="SOK.ICO" />
+    <Library Include="SUP.ICO" />
+    <FileDriver Include="TOPSPEED" />
+  </ItemGroup>
+  <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
+</Project>

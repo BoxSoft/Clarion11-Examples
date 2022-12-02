@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+# Clarion 2.1.0.2447
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "CacheTPSABC", "CacheTPSABC.cwproj", "{BCD07AFA-3953-41AF-8F5C-63E0E022C189}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{{2150E333-8FDC-42A3-9474-1A3956D46DE8}}"
+	ProjectSection(SolutionItems) = postProject
+		CacheTPSABC.app = CacheTPSABC.app
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BCD07AFA-3953-41AF-8F5C-63E0E022C189}.Debug|Win32.Build.0 = Debug|Win32
+		{BCD07AFA-3953-41AF-8F5C-63E0E022C189}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BCD07AFA-3953-41AF-8F5C-63E0E022C189}.Release|Win32.Build.0 = Release|Win32
+		{BCD07AFA-3953-41AF-8F5C-63E0E022C189}.Release|Win32.ActiveCfg = Release|Win32
+	EndGlobalSection
+EndGlobal

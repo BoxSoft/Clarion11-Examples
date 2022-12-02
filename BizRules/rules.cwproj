@@ -1,0 +1,78 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{C5003C68-E629-4017-BDD0-CA6A82150114}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>rules</AssemblyName>
+    <OutputName>Rules</OutputName>
+    <DefineConstants>_ABCDllMode_=&gt;1%3b_ABCLinkMode_=&gt;0</DefineConstants>
+    <Model>Dll</Model>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <vid>off</vid>
+    <check_stack>False</check_stack>
+    <check_index>False</check_index>
+  </PropertyGroup>
+  <ItemGroup>
+    <FileDriver Include="TOPSPEED" />
+    <Compile Include="EFOCUS.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="rules.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="rules001.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="rules002.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="rules003.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="rules004.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="rules005.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="rules006.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="rules007.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="rules008.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="rules009.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="rules010.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="rules012.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <ProjectReference Include="DBrules.cwproj">
+      <Project>{965B835B-8353-47D4-BA3B-011F5E7A084B}</Project>
+      <Name>DBrules</Name>
+      <Generated>True</Generated>
+    </ProjectReference>
+    <Library Include="BRuleNo.ico" />
+    <Library Include="BRuleOk.ico" />
+    <Library Include="BRules.ico" />
+    <Library Include="rules.exe.manifest" />
+  </ItemGroup>
+  <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
+</Project>

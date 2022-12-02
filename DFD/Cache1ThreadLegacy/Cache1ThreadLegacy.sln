@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+# Clarion 2.1.0.2447
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "Cache1ThreadLegacy", "Cache1ThreadLegacy.cwproj", "{AD96F950-55F5-4C25-81CC-A170E2D647B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{{2150E333-8FDC-42A3-9474-1A3956D46DE8}}"
+	ProjectSection(SolutionItems) = postProject
+		Cache1ThreadLegacy.app = Cache1ThreadLegacy.app
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD96F950-55F5-4C25-81CC-A170E2D647B8}.Debug|Win32.Build.0 = Debug|Win32
+		{AD96F950-55F5-4C25-81CC-A170E2D647B8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{AD96F950-55F5-4C25-81CC-A170E2D647B8}.Release|Win32.Build.0 = Release|Win32
+		{AD96F950-55F5-4C25-81CC-A170E2D647B8}.Release|Win32.ActiveCfg = Release|Win32
+	EndGlobalSection
+EndGlobal

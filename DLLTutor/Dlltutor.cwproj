@@ -1,0 +1,53 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{7603FDFC-41EF-4DE0-81B7-E28E5CD6ED09}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>Dlltutor</AssemblyName>
+    <OutputName>DLLTutor</OutputName>
+    <DefineConstants>_ABCDllMode_=&gt;1%3b_ABCLinkMode_=&gt;0</DefineConstants>
+    <Model>Dll</Model>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <vid>off</vid>
+    <check_stack>False</check_stack>
+    <check_index>False</check_index>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Dlltutor.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="Dlltutor001.clw">
+      <Generated>true</Generated>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="allfiles.cwproj">
+      <Project>{52A55E51-8DAD-4E40-8F8A-BCA80FFD9083}</Project>
+      <Name>allfiles</Name>
+      <Generated>True</Generated>
+    </ProjectReference>
+    <ProjectReference Include="reports.cwproj">
+      <Project>{0180B62F-9B65-4081-9923-986E99DC0F66}</Project>
+      <Name>reports</Name>
+      <Generated>True</Generated>
+    </ProjectReference>
+    <ProjectReference Include="updates.cwproj">
+      <Project>{2CAA2702-1B9D-46D4-8F71-CF64D47C99AB}</Project>
+      <Name>updates</Name>
+      <Generated>True</Generated>
+    </ProjectReference>
+    <Library Include="Dlltutor.exe.manifest" />
+  </ItemGroup>
+  <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
+</Project>

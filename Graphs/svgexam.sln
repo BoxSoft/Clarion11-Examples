@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+# Clarion 2.1.0.2447
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "svgexam", "svgexam.cwproj", "{84AE0981-D84F-4271-B725-F50ACC2933F0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{{2150E333-8FDC-42A3-9474-1A3956D46DE8}}"
+	ProjectSection(SolutionItems) = postProject
+		svgexam.app = svgexam.app
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{84AE0981-D84F-4271-B725-F50ACC2933F0}.Debug|Win32.Build.0 = Debug|Win32
+		{84AE0981-D84F-4271-B725-F50ACC2933F0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{84AE0981-D84F-4271-B725-F50ACC2933F0}.Release|Win32.Build.0 = Release|Win32
+		{84AE0981-D84F-4271-B725-F50ACC2933F0}.Release|Win32.ActiveCfg = Release|Win32
+	EndGlobalSection
+EndGlobal

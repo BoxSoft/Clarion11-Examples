@@ -1,0 +1,111 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{6713B082-28E3-419E-B429-081608E1B7F5}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>invoice</AssemblyName>
+    <OutputName>invoice</OutputName>
+    <DefineConstants>_ABCDllMode_=&gt;0%3b_ABCLinkMode_=&gt;1</DefineConstants>
+    <Model>Dll</Model>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <vid>off</vid>
+    <check_stack>False</check_stack>
+    <check_index>False</check_index>
+  </PropertyGroup>
+  <ItemGroup>
+    <Library Include="C%25V%25prlb%25X%25.lib" />
+    <Library Include="File.ico" />
+    <Library Include="Folder.ico" />
+    <Library Include="invoice.exe.manifest" />
+    <Library Include="Invoice.ico" />
+    <Library Include="order.ico" />
+    <Library Include="QkLoad.ico" />
+    <Library Include="QkQBE.ico" />
+    <Library Include="star1.ico" />
+    <FileDriver Include="TOPSPEED" />
+    <Compile Include="invoice.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invoice001.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invoice002.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invoice003.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invoice004.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invoice005.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invoice006.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invoice007.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invoice008.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invoice009.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invoice010.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invoice011.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invoice012.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invoice013.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invoice014.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invoice015.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invoice016.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invoice017.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invoice018.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invoice019.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invoice020.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invoice021.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="INVOICE_BC.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invoice_BC0.CLW">
+      <Generated>true</Generated>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
+</Project>

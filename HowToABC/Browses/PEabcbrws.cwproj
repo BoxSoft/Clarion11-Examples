@@ -1,0 +1,252 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{46FDF63F-E689-4977-AAB4-0AE0CEFEBBD1}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>PEabcbrws</AssemblyName>
+    <OutputName>PEabcbrws</OutputName>
+    <DefineConstants>_ABCDllMode_=&gt;0%3b_ABCLinkMode_=&gt;1%3b_svDllMode_=&gt;0%3b_svLinkMode_=&gt;1%3b_MSSQLDateTime_=&gt;1%3b_ORACLEDateTime_=&gt;0%3b</DefineConstants>
+    <Model>Dll</Model>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <vid>off</vid>
+    <check_stack>False</check_stack>
+    <check_index>False</check_index>
+  </PropertyGroup>
+  <ItemGroup>
+    <FileDriver Include="ASCII" />
+    <FileDriver Include="DOS" />
+    <FileDriver Include="TOPSPEED" />
+    <Library Include="12.ico" />
+    <Library Include="2.ico" />
+    <Library Include="4.ico" />
+    <Library Include="47.ico" />
+    <Library Include="5.ico" />
+    <Library Include="Check.ico" />
+    <Library Include="CheckOff.ICO" />
+    <Library Include="CheckOffDim.ICO" />
+    <Library Include="CheckOn.ICO" />
+    <Library Include="CheckOnDim.ICO" />
+    <Library Include="file.ico" />
+    <Library Include="folder.ico" />
+    <Library Include="invoice.ico" />
+    <Library Include="PEabcbrws.exe.manifest" />
+    <Library Include="QkLoad.ico" />
+    <Library Include="QkQBE.ico" />
+    <Library Include="Star1.ico" />
+    <Library Include="uncheck.ico" />
+    <Compile Include="EFOCUS.CLW" />
+    <Compile Include="PEabcbrws.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws001.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws002.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws003.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws004.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws005.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws006.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws007.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws008.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws009.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws010.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws011.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws012.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws013.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws014.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws015.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws016.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws017.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws018.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws019.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws020.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws021.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws022.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws023.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws024.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws025.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws026.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws027.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws028.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws029.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws030.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws031.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws032.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws034.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws035.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws036.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws037.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws038.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws039.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws040.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws041.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws042.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws043.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws044.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws045.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws046.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws047.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws048.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws049.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws050.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws051.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws052.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws053.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws054.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws055.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws056.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws057.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws058.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws059.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws060.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws061.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws062.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws063.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws064.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws065.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEABCBRWS_BC.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="PEabcbrws_BC0.CLW">
+      <Generated>true</Generated>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
+</Project>

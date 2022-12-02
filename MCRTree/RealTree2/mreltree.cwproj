@@ -1,0 +1,109 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{A98659D4-EA15-4C17-9C52-DDF6C42A48FB}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>mreltree</AssemblyName>
+    <OutputName>mreltree</OutputName>
+    <DefineConstants>
+    </DefineConstants>
+    <Model>Dll</Model>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <vid>off</vid>
+    <check_stack>False</check_stack>
+    <check_index>False</check_index>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="mreltree.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="mreltree001.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="mreltree002.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="mreltree003.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="mreltree004.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="mreltree005.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="mreltree006.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="mreltree007.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="mreltree008.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="mreltree009.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="mreltree010.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="mreltree011.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="mreltree012.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="mreltree013.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="mreltree014.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="mreltree015.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="mreltree016.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="mrelt_RD.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="mrelt_RU.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="mrelt_SF.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="ResCode.Clw">
+      <Generated>true</Generated>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <FileDriver Include="TOPSPEED" />
+    <Library Include="acces_close.ico" />
+    <Library Include="acces_open.ico" />
+    <Library Include="button.ico" />
+    <Library Include="cellular.ico" />
+    <Library Include="description.ico" />
+    <Library Include="mreltree.EXE.manifest" />
+    <Library Include="notebook.ico" />
+    <Library Include="open_folder2.ico" />
+    <Library Include="payment.ico" />
+    <Library Include="provider.ico" />
+    <Library Include="purchaser.ico" />
+    <Library Include="supplier.ico" />
+    <Library Include="write-off-cost.ico" />
+  </ItemGroup>
+  <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
+</Project>

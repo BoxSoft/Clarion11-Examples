@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+# Clarion 2.1.0.2447
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "CacheTPSLegacy", "CacheTPSLegacy.cwproj", "{8C695173-97FA-4B66-A916-D1B22BA6D7E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{{2150E333-8FDC-42A3-9474-1A3956D46DE8}}"
+	ProjectSection(SolutionItems) = postProject
+		CacheTPSLegacy.app = CacheTPSLegacy.app
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C695173-97FA-4B66-A916-D1B22BA6D7E6}.Debug|Win32.Build.0 = Debug|Win32
+		{8C695173-97FA-4B66-A916-D1B22BA6D7E6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8C695173-97FA-4B66-A916-D1B22BA6D7E6}.Release|Win32.Build.0 = Release|Win32
+		{8C695173-97FA-4B66-A916-D1B22BA6D7E6}.Release|Win32.ActiveCfg = Release|Win32
+	EndGlobalSection
+EndGlobal

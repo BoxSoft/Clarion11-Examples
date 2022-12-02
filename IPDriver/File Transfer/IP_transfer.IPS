@@ -1,0 +1,8 @@
+[PROCEDURE]
+SayHello
+Sum
+[VARIABLES]
+ExportedString
+[DATAMANAGER]
+IP_transfer.DLL
+[FILES]

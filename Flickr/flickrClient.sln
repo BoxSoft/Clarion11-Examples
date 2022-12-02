@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+# Clarion 2.1.0.2447
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "flickrClient", "flickrClient.cwproj", "{547A0CBA-6E7D-4477-A5D8-E66F7D6ED048}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{547A0CBA-6E7D-4477-A5D8-E66F7D6ED047}.Debug|Win32.Build.0 = Debug|Win32
+		{547A0CBA-6E7D-4477-A5D8-E66F7D6ED047}.Debug|Win32.ActiveCfg = Debug|Win32
+		{547A0CBA-6E7D-4477-A5D8-E66F7D6ED047}.Release|Win32.Build.0 = Release|Win32
+		{547A0CBA-6E7D-4477-A5D8-E66F7D6ED047}.Release|Win32.ActiveCfg = Release|Win32
+		{547A0CBA-6E7D-4477-A5D8-E66F7D6ED048}.Debug|Win32.Build.0 = Debug|Win32
+		{547A0CBA-6E7D-4477-A5D8-E66F7D6ED048}.Debug|Win32.ActiveCfg = Debug|Win32
+		{547A0CBA-6E7D-4477-A5D8-E66F7D6ED048}.Release|Win32.Build.0 = Release|Win32
+		{547A0CBA-6E7D-4477-A5D8-E66F7D6ED048}.Release|Win32.ActiveCfg = Release|Win32
+	EndGlobalSection
+EndGlobal

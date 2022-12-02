@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+# Clarion 2.1.0.2447
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "country", "country.cwproj", "{3535E5CA-4472-420A-B992-5B81734BB190}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{{2150E333-8FDC-42A3-9474-1A3956D46DE8}}"
+	ProjectSection(SolutionItems) = postProject
+		country.app = country.app
+		DataDLL.app = DataDLL.app
+		ProcsDLL.app = ProcsDLL.app
+		IP_country.app = IP_country.app
+	EndProjectSection
+EndProject
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "DataDLL", "DataDLL.cwproj", "{9120FFB3-8748-4AFD-8D4B-DBCF3ED6463A}"
+EndProject
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "ProcsDLL", "ProcsDLL.cwproj", "{9064EC04-94EF-4908-B4B0-1428C6E04237}"
+EndProject
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "IP_country", "IP_country.cwproj", "{1F24FF5E-EECB-46D7-88DA-0B9D3D42D4C9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3535E5CA-4472-420A-B992-5B81734BB190}.Debug|Win32.Build.0 = Debug|Win32
+		{3535E5CA-4472-420A-B992-5B81734BB190}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3535E5CA-4472-420A-B992-5B81734BB190}.Release|Win32.Build.0 = Release|Win32
+		{3535E5CA-4472-420A-B992-5B81734BB190}.Release|Win32.ActiveCfg = Release|Win32
+		{9120FFB3-8748-4AFD-8D4B-DBCF3ED6463A}.Debug|Win32.Build.0 = Debug|Win32
+		{9120FFB3-8748-4AFD-8D4B-DBCF3ED6463A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9120FFB3-8748-4AFD-8D4B-DBCF3ED6463A}.Release|Win32.Build.0 = Release|Win32
+		{9120FFB3-8748-4AFD-8D4B-DBCF3ED6463A}.Release|Win32.ActiveCfg = Release|Win32
+		{9064EC04-94EF-4908-B4B0-1428C6E04237}.Debug|Win32.Build.0 = Debug|Win32
+		{9064EC04-94EF-4908-B4B0-1428C6E04237}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9064EC04-94EF-4908-B4B0-1428C6E04237}.Release|Win32.Build.0 = Release|Win32
+		{9064EC04-94EF-4908-B4B0-1428C6E04237}.Release|Win32.ActiveCfg = Release|Win32
+		{1F24FF5E-EECB-46D7-88DA-0B9D3D42D4C9}.Debug|Win32.Build.0 = Debug|Win32
+		{1F24FF5E-EECB-46D7-88DA-0B9D3D42D4C9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1F24FF5E-EECB-46D7-88DA-0B9D3D42D4C9}.Release|Win32.Build.0 = Release|Win32
+		{1F24FF5E-EECB-46D7-88DA-0B9D3D42D4C9}.Release|Win32.ActiveCfg = Release|Win32
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,2521 @@
+<?xml version="1.0"?>
+<ReportLibrary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LibraryItems>
+    <ReportLibraryItem>
+      <Report>/// &lt;XRTypeInfo&gt;
+///   &lt;AssemblyFullName&gt;DevExpress.XtraReports.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=4aca31c24e330653&lt;/AssemblyFullName&gt;
+///   &lt;AssemblyLocation&gt;C:\Program Files\Clarion9EE\bin\DevExpress.XtraReports.v9.1.dll&lt;/AssemblyLocation&gt;
+///   &lt;TypeName&gt;DevExpress.XtraReports.UI.XtraReport&lt;/TypeName&gt;
+///   &lt;Localization&gt;en-US&lt;/Localization&gt;
+///   &lt;References&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\Softvelocity.RWClasses.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\SoftVelocity.Clarion.Runtime.Procedures.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Windows.Forms\2.0.0.0__b77a5c561934e089\System.Windows.Forms.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System\2.0.0.0__b77a5c561934e089\System.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Configuration\2.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Xml\2.0.0.0__b77a5c561934e089\System.Xml.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Data.SqlXml\2.0.0.0__b77a5c561934e089\System.Data.SqlXml.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Security\2.0.0.0__b03f5f7f11d50a3a\System.Security.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Drawing\2.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\Accessibility\2.0.0.0__b03f5f7f11d50a3a\Accessibility.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Runtime.Serialization.Formatters.Soap\2.0.0.0__b03f5f7f11d50a3a\System.Runtime.Serialization.Formatters.Soap.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Deployment\2.0.0.0__b03f5f7f11d50a3a\System.Deployment.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\SoftVelocity.Clarion.FileIO.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\SoftVelocity.Clarion.Runtime.Classes.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_32\System.Data\2.0.0.0__b77a5c561934e089\System.Data.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\Microsoft.VisualC\8.0.0.0__b03f5f7f11d50a3a\Microsoft.VisualC.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_32\System.Transactions\2.0.0.0__b77a5c561934e089\System.Transactions.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_32\System.EnterpriseServices\2.0.0.0__b03f5f7f11d50a3a\System.EnterpriseServices.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.DirectoryServices\2.0.0.0__b03f5f7f11d50a3a\System.DirectoryServices.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Runtime.Remoting\2.0.0.0__b77a5c561934e089\System.Runtime.Remoting.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_32\System.Web\2.0.0.0__b03f5f7f11d50a3a\System.Web.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Design\2.0.0.0__b03f5f7f11d50a3a\System.Design.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Drawing.Design\2.0.0.0__b03f5f7f11d50a3a\System.Drawing.Design.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_32\System.Data.OracleClient\2.0.0.0__b77a5c561934e089\System.Data.OracleClient.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Web.RegularExpressions\2.0.0.0__b03f5f7f11d50a3a\System.Web.RegularExpressions.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.DirectoryServices.Protocols\2.0.0.0__b03f5f7f11d50a3a\System.DirectoryServices.Protocols.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.ServiceProcess\2.0.0.0__b03f5f7f11d50a3a\System.ServiceProcess.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Configuration.Install\2.0.0.0__b03f5f7f11d50a3a\System.Configuration.Install.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\AddIns\BackendBindings\ClarionBinding\Common\DataDictionary.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\ICSharpCode.Core.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\log4net.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\SoftVelocity.Ide.Core.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\AddIns\BackendBindings\ClarionBinding\Common\SoftVelocity.DataDictionary.Design.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\Aga.Controls.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\ICSharpCode.SharpDevelop.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\SmartPropertyGrid.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\Skybound.VisualTips.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\WeifenLuo.WinFormsUI.Docking.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\Microsoft.Build.Framework\2.0.0.0__b03f5f7f11d50a3a\Microsoft.Build.Framework.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\ICSharpCode.TextEditor.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\ICSharpCode.SharpDevelop.Dom.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\ICSharpCode.NRefactory.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\Mono.Cecil.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\ICSharpCode.SharpDevelop.Widgets.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\Microsoft.Build.Engine\2.0.0.0__b03f5f7f11d50a3a\Microsoft.Build.Engine.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\SeriousBit.Licensing.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\System.Management\2.0.0.0__b03f5f7f11d50a3a\System.Management.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\Microsoft.JScript\8.0.0.0__b03f5f7f11d50a3a\Microsoft.JScript.dll" /&gt;
+///     &lt;Reference Path="C:\Windows\assembly\GAC_MSIL\Microsoft.Vsa\8.0.0.0__b03f5f7f11d50a3a\Microsoft.Vsa.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\ClarionDL.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\clarion.asl.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\AddIns\BackendBindings\ClarionBinding\Common\DataDictionaryFile.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\Clarion.Core.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\clarion.dct.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\Clarion.Options.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\AddIns\BackendBindings\ClarionBinding\Common\DataDictionaryEditor.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\AddIns\BackendBindings\ClarionBinding\Common\CommonSources.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\AddIns\BackendBindings\ClarionBinding\Common\ClarionNetReport.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\AddIns\BackendBindings\ClarionBinding\Common\Controls\CommonControl.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\AddIns\BackendBindings\ClarionBinding\Common\CommonProperties.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\AddIns\BackendBindings\ClarionBinding\Common\ClarionParser.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\SoftVelocity.Clarion.CompilerMessages.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\AddIns\BackendBindings\ClarionBinding\Common\ClarionNetWindow.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\clarion.prj.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\clarion.tplhelp.dll" /&gt;
+///     &lt;Reference Path="C:\Program Files\Clarion9EE\bin\AddIns\BackendBindings\ClarionBinding\Common\Browser.dll" /&gt;
+///   &lt;/References&gt;
+/// &lt;/XRTypeInfo&gt;
+namespace XtraReportSerialization {
+    
+    public class xtraReport1 : DevExpress.XtraReports.UI.XtraReport {
+        private DevExpress.XtraReports.UI.DetailBand detailBand1;
+        private DevExpress.XtraReports.UI.XRLabel label3;
+        private DevExpress.XtraReports.UI.XRLine line1;
+        private DevExpress.XtraReports.UI.XRLabel label14;
+        private DevExpress.XtraReports.UI.XRLabel label13;
+        private DevExpress.XtraReports.UI.XRLabel label12;
+        private DevExpress.XtraReports.UI.XRLabel label11;
+        private DevExpress.XtraReports.UI.XRLabel label8;
+        private DevExpress.XtraReports.UI.XRLabel label7;
+        private DevExpress.XtraReports.UI.XRLabel label6;
+        private DevExpress.XtraReports.UI.XRLabel label5;
+        private DevExpress.XtraReports.UI.XRLabel label4;
+        private DevExpress.XtraReports.UI.XRLabel label2;
+        private DevExpress.XtraReports.UI.XRLabel label1;
+        private DevExpress.XtraReports.UI.PageFooterBand pageFooterBand1;
+        private DevExpress.XtraReports.UI.XRPageInfo pageInfo2;
+        private DevExpress.XtraReports.UI.XRPageInfo pageInfo1;
+        private DevExpress.XtraReports.UI.ReportHeaderBand reportHeaderBand1;
+        private DevExpress.XtraReports.UI.XRLabel label15;
+        private Clarion.Data.DynFileAdapter TableTableAdapter;
+        private System.Data.DataSet dataSet1;
+        private DevExpress.XtraReports.UI.XRControlStyle Title;
+        private DevExpress.XtraReports.UI.XRControlStyle FieldCaption;
+        private DevExpress.XtraReports.UI.XRControlStyle PageInfo;
+        private DevExpress.XtraReports.UI.XRControlStyle DataField;
+        private DevExpress.XtraReports.UI.CalculatedField FullName;
+        private System.Resources.ResourceManager _resources;
+        public xtraReport1() {
+            this.InitializeComponent();
+        }
+        private System.Resources.ResourceManager resources {
+            get {
+                if (_resources == null) {
+                    string resourceString = "zsrvvgEAAACRAAAAbFN5c3RlbS5SZXNvdXJjZXMuUmVzb3VyY2VSZWFkZXIsIG1zY29ybGliLCBWZXJza" +
+                        "W9uPTIuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4O" +
+                        "SNTeXN0ZW0uUmVzb3VyY2VzLlJ1bnRpbWVSZXNvdXJjZVNldAIAAAABAAAAAAAAAFBBRFBBRFC7QGePA" +
+                        "AAAAAcBAABGVABhAGIAbABlAFQAYQBiAGwAZQBBAGQAYQBwAHQAZQByAC4AWABtAGwAVgBpAGUAdwBEA" +
+                        "GUAcwBjAHIAaQBwAHQAbwByAAAAAAABliA8P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29kaW5nPSJ1dGYtM" +
+                        "TYiPz4NCjxSV1ZpZXdEZXNjcmlwdG9yIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YT" +
+                        "UxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlb" +
+                        "WEiPg0KICA8RmlsZT5TdHVkZW50czwvRmlsZT4NCiAgPEpvaW5zIC8+DQogIDxNb2RpZmllZD4yMDA5L" +
+                        "TA5LTE1VDE1OjQ4OjU4LjAwMTwvTW9kaWZpZWQ+DQogIDxGaWxlRGVzY3JpcHRvcnM+DQogICAgPHN0c" +
+                        "mluZz4mbHQ7RmlsZSBsYWJlbD0iU3R1ZGVudHMiIHZlcnNpb249IjEiIGNvbXBhdGlibGU9IjEiIGRya" +
+                        "XZlcj0iVE9QU1BFRUQiIHByZWZpeD0iU1RVIiBjcmVhdGU9InRydWUiIHRocmVhZD0idHJ1ZSImZ3Q7C" +
+                        "iAgJmx0O0tleSBsYWJlbD0iS2V5U3R1ZGVudE51bWJlciIgdmVyc2lvbj0iMSIgY29tcGF0aWJsZT0iM" +
+                        "SIgdHlwZT0iS2V5IiBwcmltYXJ5PSJ0cnVlIiBub2Nhc2U9InRydWUiIG9wdD0idHJ1ZSImZ3Q7CiAgI" +
+                        "CAmbHQ7RmllbGQgbGFiZWw9Ik51bWJlciIgYXNjZW5kaW5nPSJ0cnVlIiAvJmd0OwogICZsdDsvS2V5J" +
+                        "md0OwogICZsdDtLZXkgbGFiZWw9Ik1ham9yS2V5IiB2ZXJzaW9uPSIxIiBjb21wYXRpYmxlPSIxIiB0e" +
+                        "XBlPSJLZXkiIGR1cGxpY2F0ZXM9InRydWUiIG5vY2FzZT0idHJ1ZSIgb3B0PSJ0cnVlIiZndDsKICAgI" +
+                        "CZsdDtGaWVsZCBsYWJlbD0iTWFqb3IiIGFzY2VuZGluZz0idHJ1ZSIgLyZndDsKICAgICZsdDtGaWVsZ" +
+                        "CBsYWJlbD0iTGFzdE5hbWUiIGFzY2VuZGluZz0idHJ1ZSIgLyZndDsKICAgICZsdDtGaWVsZCBsYWJlb" +
+                        "D0iRmlyc3ROYW1lIiBhc2NlbmRpbmc9InRydWUiIC8mZ3Q7CiAgJmx0Oy9LZXkmZ3Q7CiAgJmx0O0tle" +
+                        "SBsYWJlbD0iS2V5TGFzdE5hbWUiIHZlcnNpb249IjEiIGNvbXBhdGlibGU9IjEiIHR5cGU9IktleSIgZ" +
+                        "HVwbGljYXRlcz0idHJ1ZSIgbm9jYXNlPSJ0cnVlIiZndDsKICAgICZsdDtGaWVsZCBsYWJlbD0iTGFzd" +
+                        "E5hbWUiIGFzY2VuZGluZz0idHJ1ZSIgLyZndDsKICAmbHQ7L0tleSZndDsKICAmbHQ7S2V5IGxhYmVsP" +
+                        "SJLZXlHcmFkWWVhciIgdmVyc2lvbj0iMSIgY29tcGF0aWJsZT0iMSIgdHlwZT0iS2V5IiBkdXBsaWNhd" +
+                        "GVzPSJ0cnVlIiBub2Nhc2U9InRydWUiIG9wdD0idHJ1ZSImZ3Q7CiAgICAmbHQ7RmllbGQgbGFiZWw9I" +
+                        "kdyYWRZZWFyIiAvJmd0OwogICAgJmx0O0ZpZWxkIGxhYmVsPSJMYXN0TmFtZSIgYXNjZW5kaW5nPSJ0c" +
+                        "nVlIiAvJmd0OwogICAgJmx0O0ZpZWxkIGxhYmVsPSJGaXJzdE5hbWUiIGFzY2VuZGluZz0idHJ1ZSIgL" +
+                        "yZndDsKICAmbHQ7L0tleSZndDsKICAmbHQ7S2V5IGxhYmVsPSJEeW5vS2V5IiB2ZXJzaW9uPSIxIiBjb" +
+                        "21wYXRpYmxlPSIxIiB0eXBlPSJEeW5hbWljSW5kZXgiIGR1cGxpY2F0ZXM9InRydWUiIG5vY2FzZT0id" +
+                        "HJ1ZSIgLyZndDsKICAmbHQ7TWVtbyBsYWJlbD0iUGhvdG9ncmFwaCIgdmVyc2lvbj0iMSIgY29tcGF0a" +
+                        "WJsZT0iMSIgYmxvYj0idHJ1ZSIgLyZndDsKICAmbHQ7RmllbGQgbGFiZWw9Ik51bWJlciIgdmVyc2lvb" +
+                        "j0iMSIgY29tcGF0aWJsZT0iMSIgdHlwZT0iTE9ORyIgLyZndDsKICAmbHQ7RmllbGQgbGFiZWw9IkZpc" +
+                        "nN0TmFtZSIgdmVyc2lvbj0iMSIgY29tcGF0aWJsZT0iMSIgdHlwZT0iU1RSSU5HIiBzaXplPSIyMCIgL" +
+                        "yZndDsKICAmbHQ7RmllbGQgbGFiZWw9Ikxhc3ROYW1lIiB2ZXJzaW9uPSIxIiBjb21wYXRpYmxlPSIxI" +
+                        "iB0eXBlPSJTVFJJTkciIHNpemU9IjIwIiAvJmd0OwogICZsdDtGaWVsZCBsYWJlbD0iQWRkcmVzcyIgd" +
+                        "mVyc2lvbj0iMSIgY29tcGF0aWJsZT0iMSIgdHlwZT0iU1RSSU5HIiBzaXplPSIyMCIgLyZndDsKICAmb" +
+                        "HQ7RmllbGQgbGFiZWw9IkFkZHJlc3MyIiB2ZXJzaW9uPSIxIiBjb21wYXRpYmxlPSIxIiB0eXBlPSJTV" +
+                        "FJJTkciIHNpemU9IjIwIiAvJmd0OwogICZsdDtGaWVsZCBsYWJlbD0iQ2l0eSIgdmVyc2lvbj0iMSIgY" +
+                        "29tcGF0aWJsZT0iMSIgdHlwZT0iU1RSSU5HIiBzaXplPSIyMCIgLyZndDsKICAmbHQ7RmllbGQgbGFiZ" +
+                        "Ww9IlN0YXRlIiB2ZXJzaW9uPSIxIiBjb21wYXRpYmxlPSIxIiB0eXBlPSJTVFJJTkciIHNpemU9IjIiI" +
+                        "C8mZ3Q7CiAgJmx0O0ZpZWxkIGxhYmVsPSJaaXAiIHZlcnNpb249IjEiIGNvbXBhdGlibGU9IjEiIHR5c" +
+                        "GU9IkxPTkciIC8mZ3Q7CiAgJmx0O0ZpZWxkIGxhYmVsPSJUZWxlcGhvbmUiIHZlcnNpb249IjEiIGNvb" +
+                        "XBhdGlibGU9IjEiIHR5cGU9IlNUUklORyIgc2l6ZT0iMTIiIC8mZ3Q7CiAgJmx0O0ZpZWxkIGxhYmVsP" +
+                        "SJNYWpvciIgdmVyc2lvbj0iMSIgY29tcGF0aWJsZT0iMSIgdHlwZT0iTE9ORyIgLyZndDsKICAmbHQ7R" +
+                        "mllbGQgbGFiZWw9IkdyYWRZZWFyIiB2ZXJzaW9uPSIxIiBjb21wYXRpYmxlPSIxIiB0eXBlPSJMT05HI" +
+                        "iAvJmd0OwombHQ7L0ZpbGUmZ3Q7PC9zdHJpbmc+DQogIDwvRmlsZURlc2NyaXB0b3JzPg0KICA8RGVzY" +
+                        "3JGaWxlTmFtZXM+DQogICAgPHN0cmluZz5TdHVkZW50czwvc3RyaW5nPg0KICA8L0Rlc2NyRmlsZU5hb" +
+                        "WVzPg0KICA8RmlsZVBhdGhzPg0KICAgIDxSV1BhdGg+DQogICAgICA8TWFzaz5TdHVkZW50czwvTWFza" +
+                        "z4NCiAgICAgIDxQYXRoPlNDSE9PTC5EQ1Q8L1BhdGg+DQogICAgICA8SXNSZWxhdGl2ZT50cnVlPC9Jc" +
+                        "1JlbGF0aXZlPg0KICAgIDwvUldQYXRoPg0KICA8L0ZpbGVQYXRocz4NCiAgPEFkZFBhdGhzIC8+DQogI" +
+                        "DxQaWN0dXJlcz4NCiAgICA8UldQaWN0dXJlSW5mbz4NCiAgICAgIDxGaWVsZE5hbWU+U1RVOlBob3RvZ" +
+                        "3JhcGg8L0ZpZWxkTmFtZT4NCiAgICAgIDxQaWN0dXJlPkBzMjA8L1BpY3R1cmU+DQogICAgPC9SV1BpY" +
+                        "3R1cmVJbmZvPg0KICAgIDxSV1BpY3R1cmVJbmZvPg0KICAgICAgPEZpZWxkTmFtZT5TVFU6TnVtYmVyP" +
+                        "C9GaWVsZE5hbWU+DQogICAgICA8UGljdHVyZT5AUCMjIy0jIy0jIyMjUDwvUGljdHVyZT4NCiAgICA8L" +
+                        "1JXUGljdHVyZUluZm8+DQogICAgPFJXUGljdHVyZUluZm8+DQogICAgICA8RmllbGROYW1lPlNUVTpGa" +
+                        "XJzdE5hbWU8L0ZpZWxkTmFtZT4NCiAgICAgIDxQaWN0dXJlPkBTMjA8L1BpY3R1cmU+DQogICAgPC9SV" +
+                        "1BpY3R1cmVJbmZvPg0KICAgIDxSV1BpY3R1cmVJbmZvPg0KICAgICAgPEZpZWxkTmFtZT5TVFU6TGFzd" +
+                        "E5hbWU8L0ZpZWxkTmFtZT4NCiAgICAgIDxQaWN0dXJlPkBTMjA8L1BpY3R1cmU+DQogICAgPC9SV1BpY" +
+                        "3R1cmVJbmZvPg0KICAgIDxSV1BpY3R1cmVJbmZvPg0KICAgICAgPEZpZWxkTmFtZT5TVFU6QWRkcmVzc" +
+                        "zwvRmllbGROYW1lPg0KICAgICAgPFBpY3R1cmU+QFMyMDwvUGljdHVyZT4NCiAgICA8L1JXUGljdHVyZ" +
+                        "UluZm8+DQogICAgPFJXUGljdHVyZUluZm8+DQogICAgICA8RmllbGROYW1lPlNUVTpBZGRyZXNzMjwvR" +
+                        "mllbGROYW1lPg0KICAgICAgPFBpY3R1cmU+QHMyMDwvUGljdHVyZT4NCiAgICA8L1JXUGljdHVyZUluZ" +
+                        "m8+DQogICAgPFJXUGljdHVyZUluZm8+DQogICAgICA8RmllbGROYW1lPlNUVTpDaXR5PC9GaWVsZE5hb" +
+                        "WU+DQogICAgICA8UGljdHVyZT5AUzIwPC9QaWN0dXJlPg0KICAgIDwvUldQaWN0dXJlSW5mbz4NCiAgI" +
+                        "CA8UldQaWN0dXJlSW5mbz4NCiAgICAgIDxGaWVsZE5hbWU+U1RVOlN0YXRlPC9GaWVsZE5hbWU+DQogI" +
+                        "CAgICA8UGljdHVyZT5AUzI8L1BpY3R1cmU+DQogICAgPC9SV1BpY3R1cmVJbmZvPg0KICAgIDxSV1BpY" +
+                        "3R1cmVJbmZvPg0KICAgICAgPEZpZWxkTmFtZT5TVFU6WmlwPC9GaWVsZE5hbWU+DQogICAgICA8UGljd" +
+                        "HVyZT5AbjA1PC9QaWN0dXJlPg0KICAgIDwvUldQaWN0dXJlSW5mbz4NCiAgICA8UldQaWN0dXJlSW5mb" +
+                        "z4NCiAgICAgIDxGaWVsZE5hbWU+U1RVOlRlbGVwaG9uZTwvRmllbGROYW1lPg0KICAgICAgPFBpY3R1c" +
+                        "mU+QHMxMjwvUGljdHVyZT4NCiAgICA8L1JXUGljdHVyZUluZm8+DQogICAgPFJXUGljdHVyZUluZm8+D" +
+                        "QogICAgICA8RmllbGROYW1lPlNUVTpNYWpvcjwvRmllbGROYW1lPg0KICAgICAgPFBpY3R1cmU+QG40P" +
+                        "C9QaWN0dXJlPg0KICAgIDwvUldQaWN0dXJlSW5mbz4NCiAgICA8UldQaWN0dXJlSW5mbz4NCiAgICAgI" +
+                        "DxGaWVsZE5hbWU+U1RVOkdyYWRZZWFyPC9GaWVsZE5hbWU+DQogICAgICA8UGljdHVyZT5AbjQ8L1BpY" +
+                        "3R1cmU+DQogICAgPC9SV1BpY3R1cmVJbmZvPg0KICA8L1BpY3R1cmVzPg0KPC9SV1ZpZXdEZXNjcmlwd" +
+                        "G9yPg==";
+                    this._resources = new DevExpress.XtraReports.Serialization.XRResourceManager(resourceString);
+                }
+                return this._resources;
+            }
+        }
+        private void InitializeComponent() {
+            this.detailBand1 = new DevExpress.XtraReports.UI.DetailBand();
+            this.pageFooterBand1 = new DevExpress.XtraReports.UI.PageFooterBand();
+            this.reportHeaderBand1 = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.label3 = new DevExpress.XtraReports.UI.XRLabel();
+            this.line1 = new DevExpress.XtraReports.UI.XRLine();
+            this.label14 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label13 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label12 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label11 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label8 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label7 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label6 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label5 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label4 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label2 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label1 = new DevExpress.XtraReports.UI.XRLabel();
+            this.pageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
+            this.pageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
+            this.label15 = new DevExpress.XtraReports.UI.XRLabel();
+            this.TableTableAdapter = new Clarion.Data.DynFileAdapter();
+            this.dataSet1 = new XtraReportSerialization.dataSet1();
+            this.Title = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.FieldCaption = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.FullName = new DevExpress.XtraReports.UI.CalculatedField();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+            // 
+            // detailBand1
+            // 
+            this.detailBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+                        this.label3,
+                        this.line1,
+                        this.label14,
+                        this.label13,
+                        this.label12,
+                        this.label11,
+                        this.label8,
+                        this.label7,
+                        this.label6,
+                        this.label5,
+                        this.label4,
+                        this.label2,
+                        this.label1});
+            this.detailBand1.Height = 172;
+            this.detailBand1.KeepTogether = true;
+            this.detailBand1.Name = "detailBand1";
+            this.detailBand1.PrintOnEmptyDataSource = false;
+            // 
+            // pageFooterBand1
+            // 
+            this.pageFooterBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+                        this.pageInfo2,
+                        this.pageInfo1});
+            this.pageFooterBand1.Height = 29;
+            this.pageFooterBand1.Name = "pageFooterBand1";
+            // 
+            // reportHeaderBand1
+            // 
+            this.reportHeaderBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+                        this.label15});
+            this.reportHeaderBand1.Height = 61;
+            this.reportHeaderBand1.Name = "reportHeaderBand1";
+            // 
+            // label3
+            // 
+            this.label3.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "FullName", "")});
+            this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(175, 33);
+            this.label3.Name = "label3";
+            this.label3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.label3.Size = new System.Drawing.Size(358, 25);
+            this.label3.StylePriority.UseFont = false;
+            this.label3.Text = "label3";
+            // 
+            // line1
+            // 
+            this.line1.Location = new System.Drawing.Point(6, 3);
+            this.line1.Name = "line1";
+            this.line1.Size = new System.Drawing.Size(638, 2);
+            // 
+            // label14
+            // 
+            this.label14.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Table.STU:TELEPHONE", "@s12")});
+            this.label14.Location = new System.Drawing.Point(175, 142);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(470, 18);
+            this.label14.StyleName = "DataField";
+            // 
+            // label13
+            // 
+            this.label13.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Table.STU:STATE", "@S2")});
+            this.label13.Location = new System.Drawing.Point(175, 117);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(470, 18);
+            this.label13.StyleName = "DataField";
+            // 
+            // label12
+            // 
+            this.label12.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Table.STU:CITY", "@S20")});
+            this.label12.Location = new System.Drawing.Point(175, 92);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(470, 18);
+            this.label12.StyleName = "DataField";
+            // 
+            // label11
+            // 
+            this.label11.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Table.STU:ADDRESS", "@S20")});
+            this.label11.Location = new System.Drawing.Point(175, 67);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(470, 18);
+            this.label11.StyleName = "DataField";
+            // 
+            // label8
+            // 
+            this.label8.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Table.STU:NUMBER", "@P###-##-####P")});
+            this.label8.Location = new System.Drawing.Point(174, 9);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(470, 18);
+            this.label8.StyleName = "DataField";
+            // 
+            // label7
+            // 
+            this.label7.Location = new System.Drawing.Point(7, 142);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(162, 18);
+            this.label7.StyleName = "FieldCaption";
+            this.label7.Text = "TELEPHONE";
+            // 
+            // label6
+            // 
+            this.label6.Location = new System.Drawing.Point(7, 117);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(162, 18);
+            this.label6.StyleName = "FieldCaption";
+            this.label6.Text = "STATE";
+            // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(7, 92);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(162, 18);
+            this.label5.StyleName = "FieldCaption";
+            this.label5.Text = "CITY";
+            // 
+            // label4
+            // 
+            this.label4.Location = new System.Drawing.Point(8, 67);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(162, 18);
+            this.label4.StyleName = "FieldCaption";
+            this.label4.Text = "ADDRESS";
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(6, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(162, 18);
+            this.label2.StyleName = "FieldCaption";
+            this.label2.Text = "FULL NAME";
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(6, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(162, 18);
+            this.label1.StyleName = "FieldCaption";
+            this.label1.Text = "NUMBER";
+            // 
+            // pageInfo2
+            // 
+            this.pageInfo2.Format = "Page {0} of {1}";
+            this.pageInfo2.Location = new System.Drawing.Point(331, 6);
+            this.pageInfo2.Name = "pageInfo2";
+            this.pageInfo2.Size = new System.Drawing.Size(313, 23);
+            this.pageInfo2.StyleName = "PageInfo";
+            this.pageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            // 
+            // pageInfo1
+            // 
+            this.pageInfo1.Location = new System.Drawing.Point(6, 6);
+            this.pageInfo1.Name = "pageInfo1";
+            this.pageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
+            this.pageInfo1.Size = new System.Drawing.Size(313, 23);
+            this.pageInfo1.StyleName = "PageInfo";
+            // 
+            // label15
+            // 
+            this.label15.Location = new System.Drawing.Point(6, 6);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(638, 43);
+            this.label15.StyleName = "Title";
+            this.label15.Text = "Student Directory";
+            // 
+            // TableTableAdapter
+            // 
+            this.TableTableAdapter.ConcurrencyCheck = false;
+            this.TableTableAdapter.DeleteCommand = null;
+            this.TableTableAdapter.Filter = "";
+            this.TableTableAdapter.InsertCommand = null;
+            this.TableTableAdapter.NoMemo = false;
+            this.TableTableAdapter.Order = "";
+            this.TableTableAdapter.SelectCommand = null;
+            this.TableTableAdapter.TableMappings.AddRange(new System.Data.Common.DataTableMapping[] {
+                        new System.Data.Common.DataTableMapping("Table", "Table", new System.Data.Common.DataColumnMapping[0])});
+            this.TableTableAdapter.UpdateCommand = null;
+            this.TableTableAdapter.XmlViewDescriptor = resources.GetString("TableTableAdapter.XmlViewDescriptor");
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "dataSet1";
+            // 
+            // Title
+            // 
+            this.Title.BackColor = System.Drawing.Color.White;
+            this.Title.BorderColor = System.Drawing.SystemColors.ControlText;
+            this.Title.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.Title.BorderWidth = 1;
+            this.Title.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold);
+            this.Title.ForeColor = System.Drawing.Color.Teal;
+            this.Title.Name = "Title";
+            // 
+            // FieldCaption
+            // 
+            this.FieldCaption.BackColor = System.Drawing.Color.White;
+            this.FieldCaption.BorderColor = System.Drawing.SystemColors.ControlText;
+            this.FieldCaption.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.FieldCaption.BorderWidth = 1;
+            this.FieldCaption.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.FieldCaption.ForeColor = System.Drawing.Color.Black;
+            this.FieldCaption.Name = "FieldCaption";
+            // 
+            // PageInfo
+            // 
+            this.PageInfo.BackColor = System.Drawing.Color.White;
+            this.PageInfo.BorderColor = System.Drawing.SystemColors.ControlText;
+            this.PageInfo.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.PageInfo.BorderWidth = 1;
+            this.PageInfo.Font = new System.Drawing.Font("Arial", 9F);
+            this.PageInfo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.PageInfo.Name = "PageInfo";
+            // 
+            // DataField
+            // 
+            this.DataField.BackColor = System.Drawing.Color.White;
+            this.DataField.BorderColor = System.Drawing.SystemColors.ControlText;
+            this.DataField.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.DataField.BorderWidth = 1;
+            this.DataField.Font = new System.Drawing.Font("Arial", 10F);
+            this.DataField.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.DataField.Name = "DataField";
+            // 
+            // FullName
+            // 
+            this.FullName.DataSource = this.dataSet1;
+            this.FullName.Expression = "CLIP(STU:LASTNAME) &amp; \', \' &amp; STU:FIRSTNAME";
+            this.FullName.Name = "FullName";
+            // 
+            // xtraReport1
+            // 
+            this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
+                        this.detailBand1,
+                        this.pageFooterBand1,
+                        this.reportHeaderBand1});
+            this.CalculatedFields.AddRange(new DevExpress.XtraReports.UI.CalculatedField[] {
+                        this.FullName});
+            this.DataAdapter = this.TableTableAdapter;
+            this.DataSource = this.dataSet1;
+            this.Name = "xtraReport1";
+            this.PageHeight = 1100;
+            this.PageWidth = 850;
+            this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
+                        this.Title,
+                        this.FieldCaption,
+                        this.PageInfo,
+                        this.DataField});
+            this.Version = "9.1";
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
+        }
+    }
+}
+namespace XtraReportSerialization {
+    
+    /// &lt;summary&gt;
+    ///Represents a strongly typed in-memory cache of data.
+    ///&lt;/summary&gt;
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+    [global::System.Serializable()]
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
+    [global::System.Xml.Serialization.XmlRootAttribute("dataSet1")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
+    public partial class dataSet1 : global::System.Data.DataSet {
+        private _TableDataTable table_Table;
+        private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public dataSet1() {
+            this.BeginInit();
+            this.InitClass();
+            global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
+            base.Tables.CollectionChanged += schemaChangedHandler;
+            base.Relations.CollectionChanged += schemaChangedHandler;
+            this.EndInit();
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected dataSet1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                base(info, context, false) {
+            if ((this.IsBinarySerialized(info, context) == true)) {
+                this.InitVars(false);
+                global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler1 = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
+                this.Tables.CollectionChanged += schemaChangedHandler1;
+                this.Relations.CollectionChanged += schemaChangedHandler1;
+                return;
+            }
+            string strSchema = ((string)(info.GetValue("XmlSchema", typeof(string))));
+            if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
+                global::System.Data.DataSet ds = new global::System.Data.DataSet();
+                ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
+                if ((ds.Tables["Table"] != null)) {
+                    base.Tables.Add(new _TableDataTable(ds.Tables["Table"]));
+                }
+                this.DataSetName = ds.DataSetName;
+                this.Prefix = ds.Prefix;
+                this.Namespace = ds.Namespace;
+                this.Locale = ds.Locale;
+                this.CaseSensitive = ds.CaseSensitive;
+                this.EnforceConstraints = ds.EnforceConstraints;
+                this.Merge(ds, false, global::System.Data.MissingSchemaAction.Add);
+                this.InitVars();
+            }
+            else {
+                this.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
+            }
+            this.GetSerializationData(info, context);
+            global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
+            base.Tables.CollectionChanged += schemaChangedHandler;
+            this.Relations.CollectionChanged += schemaChangedHandler;
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public _TableDataTable _Table {
+            get {
+                return this.table_Table;
+            }
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.BrowsableAttribute(true)]
+        [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
+        public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
+            get {
+                return this._schemaSerializationMode;
+            }
+            set {
+                this._schemaSerializationMode = value;
+            }
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public new global::System.Data.DataTableCollection Tables {
+            get {
+                return base.Tables;
+            }
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public new global::System.Data.DataRelationCollection Relations {
+            get {
+                return base.Relations;
+            }
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected override void InitializeDerivedDataSet() {
+            this.BeginInit();
+            this.InitClass();
+            this.EndInit();
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public override global::System.Data.DataSet Clone() {
+            dataSet1 cln = ((dataSet1)(base.Clone()));
+            cln.InitVars();
+            cln.SchemaSerializationMode = this.SchemaSerializationMode;
+            return cln;
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected override bool ShouldSerializeTables() {
+            return false;
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected override bool ShouldSerializeRelations() {
+            return false;
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected override void ReadXmlSerializable(global::System.Xml.XmlReader reader) {
+            if ((this.DetermineSchemaSerializationMode(reader) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
+                this.Reset();
+                global::System.Data.DataSet ds = new global::System.Data.DataSet();
+                ds.ReadXml(reader);
+                if ((ds.Tables["Table"] != null)) {
+                    base.Tables.Add(new _TableDataTable(ds.Tables["Table"]));
+                }
+                this.DataSetName = ds.DataSetName;
+                this.Prefix = ds.Prefix;
+                this.Namespace = ds.Namespace;
+                this.Locale = ds.Locale;
+                this.CaseSensitive = ds.CaseSensitive;
+                this.EnforceConstraints = ds.EnforceConstraints;
+                this.Merge(ds, false, global::System.Data.MissingSchemaAction.Add);
+                this.InitVars();
+            }
+            else {
+                this.ReadXml(reader);
+                this.InitVars();
+            }
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected override global::System.Xml.Schema.XmlSchema GetSchemaSerializable() {
+            global::System.IO.MemoryStream stream = new global::System.IO.MemoryStream();
+            this.WriteXmlSchema(new global::System.Xml.XmlTextWriter(stream, null));
+            stream.Position = 0;
+            return global::System.Xml.Schema.XmlSchema.Read(new global::System.Xml.XmlTextReader(stream), null);
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal void InitVars() {
+            this.InitVars(true);
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal void InitVars(bool initTable) {
+            this.table_Table = ((_TableDataTable)(base.Tables["Table"]));
+            if ((initTable == true)) {
+                if ((this.table_Table != null)) {
+                    this.table_Table.InitVars();
+                }
+            }
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitClass() {
+            this.DataSetName = "dataSet1";
+            this.Prefix = "";
+            this.EnforceConstraints = true;
+            this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
+            this.table_Table = new _TableDataTable();
+            base.Tables.Add(this.table_Table);
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerialize_Table() {
+            return false;
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
+            if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
+                this.InitVars();
+            }
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+            dataSet1 ds = new dataSet1();
+            global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+            global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+            global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
+            any.Namespace = ds.Namespace;
+            sequence.Items.Add(any);
+            type.Particle = sequence;
+            global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+            if (xs.Contains(dsSchema.TargetNamespace)) {
+                global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                try {
+                    global::System.Xml.Schema.XmlSchema schema = null;
+                    dsSchema.Write(s1);
+                    for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                        schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                        s2.SetLength(0);
+                        schema.Write(s2);
+                        if ((s1.Length == s2.Length)) {
+                            s1.Position = 0;
+                            s2.Position = 0;
+                            for (; ((s1.Position != s1.Length) 
+                                        &amp;&amp; (s1.ReadByte() == s2.ReadByte())); ) {
+                                ;
+                            }
+                            if ((s1.Position == s1.Length)) {
+                                return type;
+                            }
+                        }
+                    }
+                }
+                finally {
+                    if ((s1 != null)) {
+                        s1.Close();
+                    }
+                    if ((s2 != null)) {
+                        s2.Close();
+                    }
+                }
+            }
+            xs.Add(dsSchema);
+            return type;
+        }
+        public delegate void _TableRowChangeEventHandler(object sender, _TableRowChangeEvent e);
+        /// &lt;summary&gt;
+        ///Represents the strongly named DataTable class.
+        ///&lt;/summary&gt;
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class _TableDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable {
+            private global::System.Data.DataColumn column_STU_NUMBER;
+            private global::System.Data.DataColumn column_STU_FIRSTNAME;
+            private global::System.Data.DataColumn column_STU_LASTNAME;
+            private global::System.Data.DataColumn column_STU_ADDRESS;
+            private global::System.Data.DataColumn column_STU_ADDRESS2;
+            private global::System.Data.DataColumn column_STU_CITY;
+            private global::System.Data.DataColumn column_STU_STATE;
+            private global::System.Data.DataColumn column_STU_ZIP;
+            private global::System.Data.DataColumn column_STU_TELEPHONE;
+            private global::System.Data.DataColumn column_STU_MAJOR;
+            private global::System.Data.DataColumn column_STU_GRADYEAR;
+            private global::System.Data.DataColumn column_STU_PHOTOGRAPH;
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public _TableDataTable() {
+                this.TableName = "Table";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal _TableDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected _TableDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _STU_NUMBERColumn {
+                get {
+                    return this.column_STU_NUMBER;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _STU_FIRSTNAMEColumn {
+                get {
+                    return this.column_STU_FIRSTNAME;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _STU_LASTNAMEColumn {
+                get {
+                    return this.column_STU_LASTNAME;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _STU_ADDRESSColumn {
+                get {
+                    return this.column_STU_ADDRESS;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _STU_ADDRESS2Column {
+                get {
+                    return this.column_STU_ADDRESS2;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _STU_CITYColumn {
+                get {
+                    return this.column_STU_CITY;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _STU_STATEColumn {
+                get {
+                    return this.column_STU_STATE;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _STU_ZIPColumn {
+                get {
+                    return this.column_STU_ZIP;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _STU_TELEPHONEColumn {
+                get {
+                    return this.column_STU_TELEPHONE;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _STU_MAJORColumn {
+                get {
+                    return this.column_STU_MAJOR;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _STU_GRADYEARColumn {
+                get {
+                    return this.column_STU_GRADYEAR;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _STU_PHOTOGRAPHColumn {
+                get {
+                    return this.column_STU_PHOTOGRAPH;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public _TableRow this[int index] {
+                get {
+                    return ((_TableRow)(this.Rows[index]));
+                }
+            }
+            public event _TableRowChangeEventHandler _TableRowChanging;
+            public event _TableRowChangeEventHandler _TableRowChanged;
+            public event _TableRowChangeEventHandler _TableRowDeleting;
+            public event _TableRowChangeEventHandler _TableRowDeleted;
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Add_TableRow(_TableRow row) {
+                this.Rows.Add(row);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public _TableRow Add_TableRow(int _STU_NUMBER, string _STU_FIRSTNAME, string _STU_LASTNAME, string _STU_ADDRESS, string _STU_ADDRESS2, string _STU_CITY, string _STU_STATE, int _STU_ZIP, string _STU_TELEPHONE, int _STU_MAJOR, int _STU_GRADYEAR, string _STU_PHOTOGRAPH) {
+                _TableRow row_TableRow = ((_TableRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        _STU_NUMBER,
+                        _STU_FIRSTNAME,
+                        _STU_LASTNAME,
+                        _STU_ADDRESS,
+                        _STU_ADDRESS2,
+                        _STU_CITY,
+                        _STU_STATE,
+                        _STU_ZIP,
+                        _STU_TELEPHONE,
+                        _STU_MAJOR,
+                        _STU_GRADYEAR,
+                        _STU_PHOTOGRAPH};
+                row_TableRow.ItemArray = columnValuesArray;
+                this.Rows.Add(row_TableRow);
+                return row_TableRow;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public virtual global::System.Collections.IEnumerator GetEnumerator() {
+                return this.Rows.GetEnumerator();
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                _TableDataTable cln = ((_TableDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new _TableDataTable();
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.column_STU_NUMBER = base.Columns["STU:NUMBER"];
+                this.column_STU_FIRSTNAME = base.Columns["STU:FIRSTNAME"];
+                this.column_STU_LASTNAME = base.Columns["STU:LASTNAME"];
+                this.column_STU_ADDRESS = base.Columns["STU:ADDRESS"];
+                this.column_STU_ADDRESS2 = base.Columns["STU:ADDRESS2"];
+                this.column_STU_CITY = base.Columns["STU:CITY"];
+                this.column_STU_STATE = base.Columns["STU:STATE"];
+                this.column_STU_ZIP = base.Columns["STU:ZIP"];
+                this.column_STU_TELEPHONE = base.Columns["STU:TELEPHONE"];
+                this.column_STU_MAJOR = base.Columns["STU:MAJOR"];
+                this.column_STU_GRADYEAR = base.Columns["STU:GRADYEAR"];
+                this.column_STU_PHOTOGRAPH = base.Columns["STU:PHOTOGRAPH"];
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.column_STU_NUMBER = new global::System.Data.DataColumn("STU:NUMBER", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column_STU_NUMBER);
+                this.column_STU_FIRSTNAME = new global::System.Data.DataColumn("STU:FIRSTNAME", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column_STU_FIRSTNAME);
+                this.column_STU_LASTNAME = new global::System.Data.DataColumn("STU:LASTNAME", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column_STU_LASTNAME);
+                this.column_STU_ADDRESS = new global::System.Data.DataColumn("STU:ADDRESS", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column_STU_ADDRESS);
+                this.column_STU_ADDRESS2 = new global::System.Data.DataColumn("STU:ADDRESS2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column_STU_ADDRESS2);
+                this.column_STU_CITY = new global::System.Data.DataColumn("STU:CITY", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column_STU_CITY);
+                this.column_STU_STATE = new global::System.Data.DataColumn("STU:STATE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column_STU_STATE);
+                this.column_STU_ZIP = new global::System.Data.DataColumn("STU:ZIP", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column_STU_ZIP);
+                this.column_STU_TELEPHONE = new global::System.Data.DataColumn("STU:TELEPHONE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column_STU_TELEPHONE);
+                this.column_STU_MAJOR = new global::System.Data.DataColumn("STU:MAJOR", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column_STU_MAJOR);
+                this.column_STU_GRADYEAR = new global::System.Data.DataColumn("STU:GRADYEAR", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column_STU_GRADYEAR);
+                this.column_STU_PHOTOGRAPH = new global::System.Data.DataColumn("STU:PHOTOGRAPH", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column_STU_PHOTOGRAPH);
+                this.column_STU_FIRSTNAME.MaxLength = 20;
+                this.column_STU_LASTNAME.MaxLength = 20;
+                this.column_STU_ADDRESS.MaxLength = 20;
+                this.column_STU_ADDRESS2.MaxLength = 20;
+                this.column_STU_CITY.MaxLength = 20;
+                this.column_STU_STATE.MaxLength = 2;
+                this.column_STU_TELEPHONE.MaxLength = 12;
+                this.column_STU_PHOTOGRAPH.ReadOnly = true;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public _TableRow New_TableRow() {
+                return ((_TableRow)(this.NewRow()));
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new _TableRow(builder);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(_TableRow);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this._TableRowChanged != null)) {
+                    this._TableRowChanged(this, new _TableRowChangeEvent(((_TableRow)(e.Row)), e.Action));
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this._TableRowChanging != null)) {
+                    this._TableRowChanging(this, new _TableRowChangeEvent(((_TableRow)(e.Row)), e.Action));
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this._TableRowDeleted != null)) {
+                    this._TableRowDeleted(this, new _TableRowChangeEvent(((_TableRow)(e.Row)), e.Action));
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this._TableRowDeleting != null)) {
+                    this._TableRowDeleting(this, new _TableRowChangeEvent(((_TableRow)(e.Row)), e.Action));
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Remove_TableRow(_TableRow row) {
+                this.Rows.Remove(row);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dataSet1 ds = new dataSet1();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "_TableDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            &amp;&amp; (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        /// &lt;summary&gt;
+        ///Represents strongly named DataRow class.
+        ///&lt;/summary&gt;
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class _TableRow : global::System.Data.DataRow {
+            private _TableDataTable table_Table;
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal _TableRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.table_Table = ((_TableDataTable)(this.Table));
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int _STU_NUMBER {
+                get {
+                    try {
+                        return ((int)(this[this.table_Table._STU_NUMBERColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'STU:NUMBER\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table_Table._STU_NUMBERColumn] = value;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string _STU_FIRSTNAME {
+                get {
+                    try {
+                        return ((string)(this[this.table_Table._STU_FIRSTNAMEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'STU:FIRSTNAME\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table_Table._STU_FIRSTNAMEColumn] = value;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string _STU_LASTNAME {
+                get {
+                    try {
+                        return ((string)(this[this.table_Table._STU_LASTNAMEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'STU:LASTNAME\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table_Table._STU_LASTNAMEColumn] = value;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string _STU_ADDRESS {
+                get {
+                    try {
+                        return ((string)(this[this.table_Table._STU_ADDRESSColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'STU:ADDRESS\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table_Table._STU_ADDRESSColumn] = value;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string _STU_ADDRESS2 {
+                get {
+                    try {
+                        return ((string)(this[this.table_Table._STU_ADDRESS2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'STU:ADDRESS2\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table_Table._STU_ADDRESS2Column] = value;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string _STU_CITY {
+                get {
+                    try {
+                        return ((string)(this[this.table_Table._STU_CITYColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'STU:CITY\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table_Table._STU_CITYColumn] = value;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string _STU_STATE {
+                get {
+                    try {
+                        return ((string)(this[this.table_Table._STU_STATEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'STU:STATE\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table_Table._STU_STATEColumn] = value;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int _STU_ZIP {
+                get {
+                    try {
+                        return ((int)(this[this.table_Table._STU_ZIPColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'STU:ZIP\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table_Table._STU_ZIPColumn] = value;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string _STU_TELEPHONE {
+                get {
+                    try {
+                        return ((string)(this[this.table_Table._STU_TELEPHONEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'STU:TELEPHONE\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table_Table._STU_TELEPHONEColumn] = value;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int _STU_MAJOR {
+                get {
+                    try {
+                        return ((int)(this[this.table_Table._STU_MAJORColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'STU:MAJOR\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table_Table._STU_MAJORColumn] = value;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int _STU_GRADYEAR {
+                get {
+                    try {
+                        return ((int)(this[this.table_Table._STU_GRADYEARColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'STU:GRADYEAR\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table_Table._STU_GRADYEARColumn] = value;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string _STU_PHOTOGRAPH {
+                get {
+                    try {
+                        return ((string)(this[this.table_Table._STU_PHOTOGRAPHColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'STU:PHOTOGRAPH\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table_Table._STU_PHOTOGRAPHColumn] = value;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_STU_NUMBERNull() {
+                return this.IsNull(this.table_Table._STU_NUMBERColumn);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_STU_NUMBERNull() {
+                this[this.table_Table._STU_NUMBERColumn] = global::System.Convert.DBNull;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_STU_FIRSTNAMENull() {
+                return this.IsNull(this.table_Table._STU_FIRSTNAMEColumn);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_STU_FIRSTNAMENull() {
+                this[this.table_Table._STU_FIRSTNAMEColumn] = global::System.Convert.DBNull;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_STU_LASTNAMENull() {
+                return this.IsNull(this.table_Table._STU_LASTNAMEColumn);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_STU_LASTNAMENull() {
+                this[this.table_Table._STU_LASTNAMEColumn] = global::System.Convert.DBNull;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_STU_ADDRESSNull() {
+                return this.IsNull(this.table_Table._STU_ADDRESSColumn);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_STU_ADDRESSNull() {
+                this[this.table_Table._STU_ADDRESSColumn] = global::System.Convert.DBNull;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_STU_ADDRESS2Null() {
+                return this.IsNull(this.table_Table._STU_ADDRESS2Column);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_STU_ADDRESS2Null() {
+                this[this.table_Table._STU_ADDRESS2Column] = global::System.Convert.DBNull;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_STU_CITYNull() {
+                return this.IsNull(this.table_Table._STU_CITYColumn);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_STU_CITYNull() {
+                this[this.table_Table._STU_CITYColumn] = global::System.Convert.DBNull;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_STU_STATENull() {
+                return this.IsNull(this.table_Table._STU_STATEColumn);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_STU_STATENull() {
+                this[this.table_Table._STU_STATEColumn] = global::System.Convert.DBNull;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_STU_ZIPNull() {
+                return this.IsNull(this.table_Table._STU_ZIPColumn);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_STU_ZIPNull() {
+                this[this.table_Table._STU_ZIPColumn] = global::System.Convert.DBNull;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_STU_TELEPHONENull() {
+                return this.IsNull(this.table_Table._STU_TELEPHONEColumn);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_STU_TELEPHONENull() {
+                this[this.table_Table._STU_TELEPHONEColumn] = global::System.Convert.DBNull;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_STU_MAJORNull() {
+                return this.IsNull(this.table_Table._STU_MAJORColumn);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_STU_MAJORNull() {
+                this[this.table_Table._STU_MAJORColumn] = global::System.Convert.DBNull;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_STU_GRADYEARNull() {
+                return this.IsNull(this.table_Table._STU_GRADYEARColumn);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_STU_GRADYEARNull() {
+                this[this.table_Table._STU_GRADYEARColumn] = global::System.Convert.DBNull;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_STU_PHOTOGRAPHNull() {
+                return this.IsNull(this.table_Table._STU_PHOTOGRAPHColumn);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_STU_PHOTOGRAPHNull() {
+                this[this.table_Table._STU_PHOTOGRAPHColumn] = global::System.Convert.DBNull;
+            }
+        }
+        /// &lt;summary&gt;
+        ///Row event argument class
+        ///&lt;/summary&gt;
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class _TableRowChangeEvent : global::System.EventArgs {
+            private _TableRow eventRow;
+            private global::System.Data.DataRowAction eventAction;
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public _TableRowChangeEvent(_TableRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public _TableRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+    }
+}
+</Report>
+      <Description />
+      <LastModificationDate>0001-01-01T00:00:00</LastModificationDate>
+      <Name>Student Directory</Name>
+    </ReportLibraryItem>
+    <ReportLibraryItem>
+      <Report>/// &lt;XRTypeInfo&gt;
+///   &lt;AssemblyFullName&gt;DevExpress.XtraReports.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=4aca31c24e330653&lt;/AssemblyFullName&gt;
+///   &lt;AssemblyLocation&gt;C:\ReportWriter8\bin\DevExpress.XtraReports.v9.1.dll&lt;/AssemblyLocation&gt;
+///   &lt;TypeName&gt;DevExpress.XtraReports.UI.XtraReport&lt;/TypeName&gt;
+///   &lt;Localization&gt;en-US&lt;/Localization&gt;
+///   &lt;References&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\Softvelocity.RWClasses.dll" /&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\SoftVelocity.Clarion.Runtime.Procedures.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_MSIL\System.Windows.Forms\2.0.0.0__b77a5c561934e089\System.Windows.Forms.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_MSIL\System\2.0.0.0__b77a5c561934e089\System.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_MSIL\System.Configuration\2.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_MSIL\System.Xml\2.0.0.0__b77a5c561934e089\System.Xml.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_MSIL\System.Data.SqlXml\2.0.0.0__b77a5c561934e089\System.Data.SqlXml.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_MSIL\System.Security\2.0.0.0__b03f5f7f11d50a3a\System.Security.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_MSIL\System.Drawing\2.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_MSIL\Accessibility\2.0.0.0__b03f5f7f11d50a3a\Accessibility.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_MSIL\System.Runtime.Serialization.Formatters.Soap\2.0.0.0__b03f5f7f11d50a3a\System.Runtime.Serialization.Formatters.Soap.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_MSIL\System.Deployment\2.0.0.0__b03f5f7f11d50a3a\System.Deployment.dll" /&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\SoftVelocity.Clarion.FileIO.dll" /&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\SoftVelocity.Clarion.Runtime.Classes.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_32\System.Data\2.0.0.0__b77a5c561934e089\System.Data.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_MSIL\Microsoft.VisualC\8.0.0.0__b03f5f7f11d50a3a\Microsoft.VisualC.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_32\System.Transactions\2.0.0.0__b77a5c561934e089\System.Transactions.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_32\System.EnterpriseServices\2.0.0.0__b03f5f7f11d50a3a\System.EnterpriseServices.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_MSIL\System.DirectoryServices\2.0.0.0__b03f5f7f11d50a3a\System.DirectoryServices.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_MSIL\System.Runtime.Remoting\2.0.0.0__b77a5c561934e089\System.Runtime.Remoting.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_32\System.Web\2.0.0.0__b03f5f7f11d50a3a\System.Web.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_MSIL\System.Design\2.0.0.0__b03f5f7f11d50a3a\System.Design.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_MSIL\System.Drawing.Design\2.0.0.0__b03f5f7f11d50a3a\System.Drawing.Design.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_32\System.Data.OracleClient\2.0.0.0__b77a5c561934e089\System.Data.OracleClient.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_MSIL\System.Web.RegularExpressions\2.0.0.0__b03f5f7f11d50a3a\System.Web.RegularExpressions.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_MSIL\System.DirectoryServices.Protocols\2.0.0.0__b03f5f7f11d50a3a\System.DirectoryServices.Protocols.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_MSIL\System.ServiceProcess\2.0.0.0__b03f5f7f11d50a3a\System.ServiceProcess.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_MSIL\System.Configuration.Install\2.0.0.0__b03f5f7f11d50a3a\System.Configuration.Install.dll" /&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\AddIns\BackendBindings\ClarionBinding\Common\DataDictionary.dll" /&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\ICSharpCode.Core.dll" /&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\log4net.dll" /&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\AddIns\BackendBindings\ClarionBinding\Common\SoftVelocity.DataDictionary.Design.dll" /&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\Aga.Controls.dll" /&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\ICSharpCode.SharpDevelop.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_MSIL\Microsoft.Build.Framework\2.0.0.0__b03f5f7f11d50a3a\Microsoft.Build.Framework.dll" /&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\ICSharpCode.TextEditor.dll" /&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\ICSharpCode.SharpDevelop.Dom.dll" /&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\ICSharpCode.NRefactory.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_MSIL\Mono.Cecil\0.6.9.0__0738eb9f132ed756\Mono.Cecil.dll" /&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\ICSharpCode.SharpDevelop.Widgets.dll" /&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\WeifenLuo.WinFormsUI.Docking.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_MSIL\Microsoft.Build.Engine\2.0.0.0__b03f5f7f11d50a3a\Microsoft.Build.Engine.dll" /&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\SmartPropertyGrid.dll" /&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\Skybound.VisualTips.dll" /&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\SeriousBit.Licensing.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_MSIL\System.Management\2.0.0.0__b03f5f7f11d50a3a\System.Management.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_MSIL\Microsoft.JScript\8.0.0.0__b03f5f7f11d50a3a\Microsoft.JScript.dll" /&gt;
+///     &lt;Reference Path="C:\WINDOWS\assembly\GAC_MSIL\Microsoft.Vsa\8.0.0.0__b03f5f7f11d50a3a\Microsoft.Vsa.dll" /&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\ClarionDL.dll" /&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\clarion.asl.dll" /&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\AddIns\BackendBindings\ClarionBinding\Common\DataDictionaryFile.dll" /&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\Clarion.Core.dll" /&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\clarion.dct.dll" /&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\Clarion.Options.dll" /&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\AddIns\BackendBindings\ClarionBinding\Common\DataDictionaryEditor.dll" /&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\AddIns\BackendBindings\ClarionBinding\Common\CommonSources.dll" /&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\AddIns\BackendBindings\ClarionBinding\Common\Controls\ClarionParser.dll" /&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\SoftVelocity.Clarion.CompilerMessages.dll" /&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\clarion.prj.dll" /&gt;
+///     &lt;Reference Path="C:\ReportWriter8\bin\AddIns\BackendBindings\ClarionBinding\Common\CommonProperties.dll" /&gt;
+///   &lt;/References&gt;
+/// &lt;/XRTypeInfo&gt;
+namespace XtraReportSerialization {
+    
+    public class xtraReport1 : DevExpress.XtraReports.UI.XtraReport {
+        private DevExpress.XtraReports.UI.DetailBand detailBand1;
+        private DevExpress.XtraReports.UI.XRLine line1;
+        private DevExpress.XtraReports.UI.XRLabel label10;
+        private DevExpress.XtraReports.UI.XRLabel Address;
+        private DevExpress.XtraReports.UI.XRLabel label8;
+        private DevExpress.XtraReports.UI.XRLabel label7;
+        private DevExpress.XtraReports.UI.XRLabel label6;
+        private DevExpress.XtraReports.UI.XRLabel label5;
+        private DevExpress.XtraReports.UI.XRLabel label4;
+        private DevExpress.XtraReports.UI.XRLabel label3;
+        private DevExpress.XtraReports.UI.XRLabel label2;
+        private DevExpress.XtraReports.UI.XRLabel label1;
+        private DevExpress.XtraReports.UI.PageFooterBand pageFooterBand1;
+        private DevExpress.XtraReports.UI.XRPageInfo pageInfo2;
+        private DevExpress.XtraReports.UI.XRPageInfo pageInfo1;
+        private DevExpress.XtraReports.UI.ReportHeaderBand reportHeaderBand1;
+        private DevExpress.XtraReports.UI.XRLabel label11;
+        private Clarion.Data.DynFileAdapter TableTableAdapter;
+        private System.Data.DataSet dataSet1;
+        private DevExpress.XtraReports.UI.XRControlStyle Title;
+        private DevExpress.XtraReports.UI.XRControlStyle FieldCaption;
+        private DevExpress.XtraReports.UI.XRControlStyle PageInfo;
+        private DevExpress.XtraReports.UI.XRControlStyle DataField;
+        private System.Resources.ResourceManager _resources;
+        public xtraReport1() {
+            this.InitializeComponent();
+        }
+        private System.Resources.ResourceManager resources {
+            get {
+                if (_resources == null) {
+                    string resourceString = "zsrvvgEAAACRAAAAbFN5c3RlbS5SZXNvdXJjZXMuUmVzb3VyY2VSZWFkZXIsIG1zY29ybGliLCBWZXJza" +
+                        "W9uPTIuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4O" +
+                        "SNTeXN0ZW0uUmVzb3VyY2VzLlJ1bnRpbWVSZXNvdXJjZVNldAIAAAABAAAAAAAAAFBBRFBBRFC7QGePA" +
+                        "AAAAAcBAABGVABhAGIAbABlAFQAYQBiAGwAZQBBAGQAYQBwAHQAZQByAC4AWABtAGwAVgBpAGUAdwBEA" +
+                        "GUAcwBjAHIAaQBwAHQAbwByAAAAAAAB3hg8P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29kaW5nPSJ1dGYtM" +
+                        "TYiPz4NCjxSV1ZpZXdEZXNjcmlwdG9yIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YT" +
+                        "UxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlb" +
+                        "WEiPg0KICA8RmlsZT5UZWFjaGVyczwvRmlsZT4NCiAgPEpvaW5zIC8+DQogIDxEaWN0TmFtZT5DOlxpb" +
+                        "WFnZXNcQzdFeGFtcGxlc1xSZXBvcnRXcml0ZXJcUkVQWEwgUmVwb3J0c1xSV1R1dG9yXFNjaG9vbFxTb" +
+                        "2x1dGlvblxTQ0hPT0wuRENUPC9EaWN0TmFtZT4NCiAgPE1vZGlmaWVkPjIwMDktMDktMTVUMTU6NDg6N" +
+                        "TguMDAxPC9Nb2RpZmllZD4NCiAgPEZpbGVEZXNjcmlwdG9ycz4NCiAgICA8c3RyaW5nPiZsdDtGaWxlI" +
+                        "GxhYmVsPSJUZWFjaGVycyIgdmVyc2lvbj0iMSIgY29tcGF0aWJsZT0iMSIgZHJpdmVyPSJUT1BTUEVFR" +
+                        "CIgcHJlZml4PSJURUEiIGNyZWF0ZT0idHJ1ZSIgdGhyZWFkPSJ0cnVlIiZndDsNCiAgJmx0O0tleSBsY" +
+                        "WJlbD0iS2V5VGVhY2hlck51bWJlciIgdmVyc2lvbj0iMSIgY29tcGF0aWJsZT0iMSIgdHlwZT0iS2V5I" +
+                        "iBwcmltYXJ5PSJ0cnVlIiBub2Nhc2U9InRydWUiIG9wdD0idHJ1ZSImZ3Q7DQogICAgJmx0O0ZpZWxkI" +
+                        "GxhYmVsPSJOdW1iZXIiIGFzY2VuZGluZz0idHJ1ZSIgLyZndDsNCiAgJmx0Oy9LZXkmZ3Q7DQogICZsd" +
+                        "DtLZXkgbGFiZWw9IktleUxhc3ROYW1lIiB2ZXJzaW9uPSIxIiBjb21wYXRpYmxlPSIxIiB0eXBlPSJLZ" +
+                        "XkiIGR1cGxpY2F0ZXM9InRydWUiIG5vY2FzZT0idHJ1ZSImZ3Q7DQogICAgJmx0O0ZpZWxkIGxhYmVsP" +
+                        "SJMYXN0TmFtZSIgYXNjZW5kaW5nPSJ0cnVlIiAvJmd0Ow0KICAmbHQ7L0tleSZndDsNCiAgJmx0O0tle" +
+                        "SBsYWJlbD0iS2V5RGVwYXJ0bWVudCIgdmVyc2lvbj0iMSIgY29tcGF0aWJsZT0iMSIgdHlwZT0iS2V5I" +
+                        "iBkdXBsaWNhdGVzPSJ0cnVlIiBub2Nhc2U9InRydWUiIG9wdD0idHJ1ZSImZ3Q7DQogICAgJmx0O0ZpZ" +
+                        "WxkIGxhYmVsPSJEZXBhcnRtZW50IiBhc2NlbmRpbmc9InRydWUiIC8mZ3Q7DQogICZsdDsvS2V5Jmd0O" +
+                        "w0KICAmbHQ7RmllbGQgbGFiZWw9Ik51bWJlciIgdmVyc2lvbj0iMSIgY29tcGF0aWJsZT0iMSIgdHlwZ" +
+                        "T0iTE9ORyIgLyZndDsNCiAgJmx0O0ZpZWxkIGxhYmVsPSJGaXJzdE5hbWUiIHZlcnNpb249IjEiIGNvb" +
+                        "XBhdGlibGU9IjEiIHR5cGU9IlNUUklORyIgc2l6ZT0iMjAiIC8mZ3Q7DQogICZsdDtGaWVsZCBsYWJlb" +
+                        "D0iTGFzdE5hbWUiIHZlcnNpb249IjEiIGNvbXBhdGlibGU9IjEiIHR5cGU9IlNUUklORyIgc2l6ZT0iM" +
+                        "jAiIC8mZ3Q7DQogICZsdDtGaWVsZCBsYWJlbD0iQWRkcmVzcyIgdmVyc2lvbj0iMSIgY29tcGF0aWJsZ" +
+                        "T0iMSIgdHlwZT0iU1RSSU5HIiBzaXplPSIyMCIgLyZndDsNCiAgJmx0O0ZpZWxkIGxhYmVsPSJDaXR5I" +
+                        "iB2ZXJzaW9uPSIxIiBjb21wYXRpYmxlPSIxIiB0eXBlPSJTVFJJTkciIHNpemU9IjIwIiAvJmd0Ow0KI" +
+                        "CAmbHQ7RmllbGQgbGFiZWw9IlN0YXRlIiB2ZXJzaW9uPSIxIiBjb21wYXRpYmxlPSIxIiB0eXBlPSJTV" +
+                        "FJJTkciIHNpemU9IjIiIC8mZ3Q7DQogICZsdDtGaWVsZCBsYWJlbD0iWmlwIiB2ZXJzaW9uPSIxIiBjb" +
+                        "21wYXRpYmxlPSIxIiB0eXBlPSJMT05HIiAvJmd0Ow0KICAmbHQ7RmllbGQgbGFiZWw9IlRlbGVwaG9uZ" +
+                        "SIgdmVyc2lvbj0iMSIgY29tcGF0aWJsZT0iMSIgdHlwZT0iU1RSSU5HIiBzaXplPSIxMiIgLyZndDsNC" +
+                        "iAgJmx0O0ZpZWxkIGxhYmVsPSJEZXBhcnRtZW50IiB2ZXJzaW9uPSIxIiBjb21wYXRpYmxlPSIxIiB0e" +
+                        "XBlPSJMT05HIiAvJmd0Ow0KJmx0Oy9GaWxlJmd0Ozwvc3RyaW5nPg0KICA8L0ZpbGVEZXNjcmlwdG9yc" +
+                        "z4NCiAgPERlc2NyRmlsZU5hbWVzPg0KICAgIDxzdHJpbmc+VGVhY2hlcnM8L3N0cmluZz4NCiAgPC9EZ" +
+                        "XNjckZpbGVOYW1lcz4NCiAgPEZpbGVQYXRocz4NCiAgICA8UldQYXRoPg0KICAgICAgPE1hc2s+VGVhY" +
+                        "2hlcnM8L01hc2s+DQogICAgICA8UGF0aCAvPg0KICAgICAgPElzUmVsYXRpdmU+dHJ1ZTwvSXNSZWxhd" +
+                        "Gl2ZT4NCiAgICA8L1JXUGF0aD4NCiAgPC9GaWxlUGF0aHM+DQogIDxBZGRQYXRocyAvPg0KICA8UGljd" +
+                        "HVyZXM+DQogICAgPFJXUGljdHVyZUluZm8+DQogICAgICA8RmllbGROYW1lPlRFQTpOdW1iZXI8L0ZpZ" +
+                        "WxkTmFtZT4NCiAgICAgIDxQaWN0dXJlPkBQIyMjLSMjLSMjIyNQPC9QaWN0dXJlPg0KICAgIDwvUldQa" +
+                        "WN0dXJlSW5mbz4NCiAgICA8UldQaWN0dXJlSW5mbz4NCiAgICAgIDxGaWVsZE5hbWU+VEVBOkZpcnN0T" +
+                        "mFtZTwvRmllbGROYW1lPg0KICAgICAgPFBpY3R1cmU+QFMyMDwvUGljdHVyZT4NCiAgICA8L1JXUGljd" +
+                        "HVyZUluZm8+DQogICAgPFJXUGljdHVyZUluZm8+DQogICAgICA8RmllbGROYW1lPlRFQTpMYXN0TmFtZ" +
+                        "TwvRmllbGROYW1lPg0KICAgICAgPFBpY3R1cmU+QFMyMDwvUGljdHVyZT4NCiAgICA8L1JXUGljdHVyZ" +
+                        "UluZm8+DQogICAgPFJXUGljdHVyZUluZm8+DQogICAgICA8RmllbGROYW1lPlRFQTpBZGRyZXNzPC9Ga" +
+                        "WVsZE5hbWU+DQogICAgICA8UGljdHVyZT5AUzIwPC9QaWN0dXJlPg0KICAgIDwvUldQaWN0dXJlSW5mb" +
+                        "z4NCiAgICA8UldQaWN0dXJlSW5mbz4NCiAgICAgIDxGaWVsZE5hbWU+VEVBOkNpdHk8L0ZpZWxkTmFtZ" +
+                        "T4NCiAgICAgIDxQaWN0dXJlPkBTMjA8L1BpY3R1cmU+DQogICAgPC9SV1BpY3R1cmVJbmZvPg0KICAgI" +
+                        "DxSV1BpY3R1cmVJbmZvPg0KICAgICAgPEZpZWxkTmFtZT5URUE6U3RhdGU8L0ZpZWxkTmFtZT4NCiAgI" +
+                        "CAgIDxQaWN0dXJlPkBTMjwvUGljdHVyZT4NCiAgICA8L1JXUGljdHVyZUluZm8+DQogICAgPFJXUGljd" +
+                        "HVyZUluZm8+DQogICAgICA8RmllbGROYW1lPlRFQTpaaXA8L0ZpZWxkTmFtZT4NCiAgICAgIDxQaWN0d" +
+                        "XJlPkBuMDU8L1BpY3R1cmU+DQogICAgPC9SV1BpY3R1cmVJbmZvPg0KICAgIDxSV1BpY3R1cmVJbmZvP" +
+                        "g0KICAgICAgPEZpZWxkTmFtZT5URUE6VGVsZXBob25lPC9GaWVsZE5hbWU+DQogICAgICA8UGljdHVyZ" +
+                        "T5AczEyPC9QaWN0dXJlPg0KICAgIDwvUldQaWN0dXJlSW5mbz4NCiAgICA8UldQaWN0dXJlSW5mbz4NC" +
+                        "iAgICAgIDxGaWVsZE5hbWU+VEVBOkRlcGFydG1lbnQ8L0ZpZWxkTmFtZT4NCiAgICAgIDxQaWN0dXJlP" +
+                        "kBuNDwvUGljdHVyZT4NCiAgICA8L1JXUGljdHVyZUluZm8+DQogIDwvUGljdHVyZXM+DQo8L1JXVmlld" +
+                        "0Rlc2NyaXB0b3I+";
+                    this._resources = new DevExpress.XtraReports.Serialization.XRResourceManager(resourceString);
+                }
+                return this._resources;
+            }
+        }
+        private void InitializeComponent() {
+            this.detailBand1 = new DevExpress.XtraReports.UI.DetailBand();
+            this.pageFooterBand1 = new DevExpress.XtraReports.UI.PageFooterBand();
+            this.reportHeaderBand1 = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.line1 = new DevExpress.XtraReports.UI.XRLine();
+            this.label10 = new DevExpress.XtraReports.UI.XRLabel();
+            this.Address = new DevExpress.XtraReports.UI.XRLabel();
+            this.label8 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label7 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label6 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label5 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label4 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label3 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label2 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label1 = new DevExpress.XtraReports.UI.XRLabel();
+            this.pageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
+            this.pageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
+            this.label11 = new DevExpress.XtraReports.UI.XRLabel();
+            this.TableTableAdapter = new Clarion.Data.DynFileAdapter();
+            this.dataSet1 = new XtraReportSerialization.dataSet1();
+            this.Title = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.FieldCaption = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+            // 
+            // detailBand1
+            // 
+            this.detailBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+                        this.line1,
+                        this.label10,
+                        this.Address,
+                        this.label8,
+                        this.label7,
+                        this.label6,
+                        this.label5,
+                        this.label4,
+                        this.label3,
+                        this.label2,
+                        this.label1});
+            this.detailBand1.Height = 181;
+            this.detailBand1.Name = "detailBand1";
+            // 
+            // pageFooterBand1
+            // 
+            this.pageFooterBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+                        this.pageInfo2,
+                        this.pageInfo1});
+            this.pageFooterBand1.Height = 29;
+            this.pageFooterBand1.Name = "pageFooterBand1";
+            // 
+            // reportHeaderBand1
+            // 
+            this.reportHeaderBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+                        this.label11});
+            this.reportHeaderBand1.Height = 51;
+            this.reportHeaderBand1.Name = "reportHeaderBand1";
+            // 
+            // line1
+            // 
+            this.line1.Location = new System.Drawing.Point(6, 3);
+            this.line1.Name = "line1";
+            this.line1.Size = new System.Drawing.Size(638, 2);
+            // 
+            // label10
+            // 
+            this.label10.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Table.TEA:TELEPHONE", "@s12")});
+            this.label10.Location = new System.Drawing.Point(174, 113);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(470, 20);
+            this.label10.StyleName = "DataField";
+            // 
+            // Address
+            // 
+            this.Address.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Table.TEA:ADDRESS", "@S20")});
+            this.Address.Location = new System.Drawing.Point(174, 87);
+            this.Address.Name = "Address";
+            this.Address.Size = new System.Drawing.Size(470, 20);
+            this.Address.StyleName = "DataField";
+            // 
+            // label8
+            // 
+            this.label8.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Table.TEA:LASTNAME", "@S20")});
+            this.label8.Location = new System.Drawing.Point(174, 61);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(470, 20);
+            this.label8.StyleName = "DataField";
+            // 
+            // label7
+            // 
+            this.label7.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Table.TEA:FIRSTNAME", "@S20")});
+            this.label7.Location = new System.Drawing.Point(174, 35);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(470, 20);
+            this.label7.StyleName = "DataField";
+            // 
+            // label6
+            // 
+            this.label6.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Table.TEA:NUMBER", "@P###-##-####P")});
+            this.label6.Location = new System.Drawing.Point(174, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(470, 20);
+            this.label6.StyleName = "DataField";
+            // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(6, 113);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(162, 20);
+            this.label5.StyleName = "FieldCaption";
+            this.label5.Text = "TELEPHONE";
+            // 
+            // label4
+            // 
+            this.label4.Location = new System.Drawing.Point(6, 87);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(162, 20);
+            this.label4.StyleName = "FieldCaption";
+            this.label4.Text = "ADDRESS";
+            // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(6, 61);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(162, 20);
+            this.label3.StyleName = "FieldCaption";
+            this.label3.Text = "LASTNAME";
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(6, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(162, 20);
+            this.label2.StyleName = "FieldCaption";
+            this.label2.Text = "FIRSTNAME";
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(6, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(162, 20);
+            this.label1.StyleName = "FieldCaption";
+            this.label1.Text = "NUMBER";
+            // 
+            // pageInfo2
+            // 
+            this.pageInfo2.Format = "Page {0} of {1}";
+            this.pageInfo2.Location = new System.Drawing.Point(331, 6);
+            this.pageInfo2.Name = "pageInfo2";
+            this.pageInfo2.Size = new System.Drawing.Size(313, 23);
+            this.pageInfo2.StyleName = "PageInfo";
+            this.pageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            // 
+            // pageInfo1
+            // 
+            this.pageInfo1.Location = new System.Drawing.Point(6, 6);
+            this.pageInfo1.Name = "pageInfo1";
+            this.pageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
+            this.pageInfo1.Size = new System.Drawing.Size(313, 23);
+            this.pageInfo1.StyleName = "PageInfo";
+            // 
+            // label11
+            // 
+            this.label11.Location = new System.Drawing.Point(6, 6);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(638, 33);
+            this.label11.StyleName = "Title";
+            this.label11.Text = "MyReport";
+            // 
+            // TableTableAdapter
+            // 
+            this.TableTableAdapter.ConcurrencyCheck = false;
+            this.TableTableAdapter.DeleteCommand = null;
+            this.TableTableAdapter.Filter = "";
+            this.TableTableAdapter.InsertCommand = null;
+            this.TableTableAdapter.NoMemo = false;
+            this.TableTableAdapter.Order = "";
+            this.TableTableAdapter.SelectCommand = null;
+            this.TableTableAdapter.TableMappings.AddRange(new System.Data.Common.DataTableMapping[] {
+                        new System.Data.Common.DataTableMapping("Table", "Table", new System.Data.Common.DataColumnMapping[0])});
+            this.TableTableAdapter.UpdateCommand = null;
+            this.TableTableAdapter.XmlViewDescriptor = resources.GetString("TableTableAdapter.XmlViewDescriptor");
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "dataSet1";
+            // 
+            // Title
+            // 
+            this.Title.BackColor = System.Drawing.Color.White;
+            this.Title.BorderColor = System.Drawing.SystemColors.ControlText;
+            this.Title.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.Title.BorderWidth = 1;
+            this.Title.Font = new System.Drawing.Font("Times New Roman", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.Title.ForeColor = System.Drawing.Color.Navy;
+            this.Title.Name = "Title";
+            // 
+            // FieldCaption
+            // 
+            this.FieldCaption.BackColor = System.Drawing.Color.White;
+            this.FieldCaption.BorderColor = System.Drawing.SystemColors.ControlText;
+            this.FieldCaption.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.FieldCaption.BorderWidth = 1;
+            this.FieldCaption.Font = new System.Drawing.Font("Times New Roman", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.FieldCaption.ForeColor = System.Drawing.Color.Navy;
+            this.FieldCaption.Name = "FieldCaption";
+            // 
+            // PageInfo
+            // 
+            this.PageInfo.BackColor = System.Drawing.Color.White;
+            this.PageInfo.BorderColor = System.Drawing.SystemColors.ControlText;
+            this.PageInfo.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.PageInfo.BorderWidth = 1;
+            this.PageInfo.Font = new System.Drawing.Font("Times New Roman", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.PageInfo.ForeColor = System.Drawing.Color.Navy;
+            this.PageInfo.Name = "PageInfo";
+            // 
+            // DataField
+            // 
+            this.DataField.BackColor = System.Drawing.Color.White;
+            this.DataField.BorderColor = System.Drawing.SystemColors.ControlText;
+            this.DataField.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.DataField.BorderWidth = 1;
+            this.DataField.Font = new System.Drawing.Font("Arial", 8F);
+            this.DataField.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.DataField.Name = "DataField";
+            // 
+            // xtraReport1
+            // 
+            this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
+                        this.detailBand1,
+                        this.pageFooterBand1,
+                        this.reportHeaderBand1});
+            this.DataAdapter = this.TableTableAdapter;
+            this.DataSource = this.dataSet1;
+            this.Name = "xtraReport1";
+            this.PageHeight = 1100;
+            this.PageWidth = 850;
+            this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
+                        this.Title,
+                        this.FieldCaption,
+                        this.PageInfo,
+                        this.DataField});
+            this.Version = "9.1";
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
+        }
+    }
+}
+namespace XtraReportSerialization {
+    
+    /// &lt;summary&gt;
+    ///Represents a strongly typed in-memory cache of data.
+    ///&lt;/summary&gt;
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+    [global::System.Serializable()]
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
+    [global::System.Xml.Serialization.XmlRootAttribute("dataSet1")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
+    public partial class dataSet1 : global::System.Data.DataSet {
+        private _TableDataTable table_Table;
+        private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public dataSet1() {
+            this.BeginInit();
+            this.InitClass();
+            global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
+            base.Tables.CollectionChanged += schemaChangedHandler;
+            base.Relations.CollectionChanged += schemaChangedHandler;
+            this.EndInit();
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected dataSet1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                base(info, context, false) {
+            if ((this.IsBinarySerialized(info, context) == true)) {
+                this.InitVars(false);
+                global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler1 = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
+                this.Tables.CollectionChanged += schemaChangedHandler1;
+                this.Relations.CollectionChanged += schemaChangedHandler1;
+                return;
+            }
+            string strSchema = ((string)(info.GetValue("XmlSchema", typeof(string))));
+            if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
+                global::System.Data.DataSet ds = new global::System.Data.DataSet();
+                ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
+                if ((ds.Tables["Table"] != null)) {
+                    base.Tables.Add(new _TableDataTable(ds.Tables["Table"]));
+                }
+                this.DataSetName = ds.DataSetName;
+                this.Prefix = ds.Prefix;
+                this.Namespace = ds.Namespace;
+                this.Locale = ds.Locale;
+                this.CaseSensitive = ds.CaseSensitive;
+                this.EnforceConstraints = ds.EnforceConstraints;
+                this.Merge(ds, false, global::System.Data.MissingSchemaAction.Add);
+                this.InitVars();
+            }
+            else {
+                this.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
+            }
+            this.GetSerializationData(info, context);
+            global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
+            base.Tables.CollectionChanged += schemaChangedHandler;
+            this.Relations.CollectionChanged += schemaChangedHandler;
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public _TableDataTable _Table {
+            get {
+                return this.table_Table;
+            }
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.BrowsableAttribute(true)]
+        [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
+        public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
+            get {
+                return this._schemaSerializationMode;
+            }
+            set {
+                this._schemaSerializationMode = value;
+            }
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public new global::System.Data.DataTableCollection Tables {
+            get {
+                return base.Tables;
+            }
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public new global::System.Data.DataRelationCollection Relations {
+            get {
+                return base.Relations;
+            }
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected override void InitializeDerivedDataSet() {
+            this.BeginInit();
+            this.InitClass();
+            this.EndInit();
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public override global::System.Data.DataSet Clone() {
+            dataSet1 cln = ((dataSet1)(base.Clone()));
+            cln.InitVars();
+            cln.SchemaSerializationMode = this.SchemaSerializationMode;
+            return cln;
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected override bool ShouldSerializeTables() {
+            return false;
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected override bool ShouldSerializeRelations() {
+            return false;
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected override void ReadXmlSerializable(global::System.Xml.XmlReader reader) {
+            if ((this.DetermineSchemaSerializationMode(reader) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
+                this.Reset();
+                global::System.Data.DataSet ds = new global::System.Data.DataSet();
+                ds.ReadXml(reader);
+                if ((ds.Tables["Table"] != null)) {
+                    base.Tables.Add(new _TableDataTable(ds.Tables["Table"]));
+                }
+                this.DataSetName = ds.DataSetName;
+                this.Prefix = ds.Prefix;
+                this.Namespace = ds.Namespace;
+                this.Locale = ds.Locale;
+                this.CaseSensitive = ds.CaseSensitive;
+                this.EnforceConstraints = ds.EnforceConstraints;
+                this.Merge(ds, false, global::System.Data.MissingSchemaAction.Add);
+                this.InitVars();
+            }
+            else {
+                this.ReadXml(reader);
+                this.InitVars();
+            }
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected override global::System.Xml.Schema.XmlSchema GetSchemaSerializable() {
+            global::System.IO.MemoryStream stream = new global::System.IO.MemoryStream();
+            this.WriteXmlSchema(new global::System.Xml.XmlTextWriter(stream, null));
+            stream.Position = 0;
+            return global::System.Xml.Schema.XmlSchema.Read(new global::System.Xml.XmlTextReader(stream), null);
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal void InitVars() {
+            this.InitVars(true);
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal void InitVars(bool initTable) {
+            this.table_Table = ((_TableDataTable)(base.Tables["Table"]));
+            if ((initTable == true)) {
+                if ((this.table_Table != null)) {
+                    this.table_Table.InitVars();
+                }
+            }
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitClass() {
+            this.DataSetName = "dataSet1";
+            this.Prefix = "";
+            this.EnforceConstraints = true;
+            this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
+            this.table_Table = new _TableDataTable();
+            base.Tables.Add(this.table_Table);
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerialize_Table() {
+            return false;
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
+            if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
+                this.InitVars();
+            }
+        }
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+            dataSet1 ds = new dataSet1();
+            global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+            global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+            global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
+            any.Namespace = ds.Namespace;
+            sequence.Items.Add(any);
+            type.Particle = sequence;
+            global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+            if (xs.Contains(dsSchema.TargetNamespace)) {
+                global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                try {
+                    global::System.Xml.Schema.XmlSchema schema = null;
+                    dsSchema.Write(s1);
+                    for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                        schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                        s2.SetLength(0);
+                        schema.Write(s2);
+                        if ((s1.Length == s2.Length)) {
+                            s1.Position = 0;
+                            s2.Position = 0;
+                            for (; ((s1.Position != s1.Length) 
+                                        &amp;&amp; (s1.ReadByte() == s2.ReadByte())); ) {
+                                ;
+                            }
+                            if ((s1.Position == s1.Length)) {
+                                return type;
+                            }
+                        }
+                    }
+                }
+                finally {
+                    if ((s1 != null)) {
+                        s1.Close();
+                    }
+                    if ((s2 != null)) {
+                        s2.Close();
+                    }
+                }
+            }
+            xs.Add(dsSchema);
+            return type;
+        }
+        public delegate void _TableRowChangeEventHandler(object sender, _TableRowChangeEvent e);
+        /// &lt;summary&gt;
+        ///Represents the strongly named DataTable class.
+        ///&lt;/summary&gt;
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class _TableDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable {
+            private global::System.Data.DataColumn column_TEA_NUMBER;
+            private global::System.Data.DataColumn column_TEA_FIRSTNAME;
+            private global::System.Data.DataColumn column_TEA_LASTNAME;
+            private global::System.Data.DataColumn column_TEA_ADDRESS;
+            private global::System.Data.DataColumn column_TEA_CITY;
+            private global::System.Data.DataColumn column_TEA_STATE;
+            private global::System.Data.DataColumn column_TEA_ZIP;
+            private global::System.Data.DataColumn column_TEA_TELEPHONE;
+            private global::System.Data.DataColumn column_TEA_DEPARTMENT;
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public _TableDataTable() {
+                this.TableName = "Table";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal _TableDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected _TableDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _TEA_NUMBERColumn {
+                get {
+                    return this.column_TEA_NUMBER;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _TEA_FIRSTNAMEColumn {
+                get {
+                    return this.column_TEA_FIRSTNAME;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _TEA_LASTNAMEColumn {
+                get {
+                    return this.column_TEA_LASTNAME;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _TEA_ADDRESSColumn {
+                get {
+                    return this.column_TEA_ADDRESS;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _TEA_CITYColumn {
+                get {
+                    return this.column_TEA_CITY;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _TEA_STATEColumn {
+                get {
+                    return this.column_TEA_STATE;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _TEA_ZIPColumn {
+                get {
+                    return this.column_TEA_ZIP;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _TEA_TELEPHONEColumn {
+                get {
+                    return this.column_TEA_TELEPHONE;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn _TEA_DEPARTMENTColumn {
+                get {
+                    return this.column_TEA_DEPARTMENT;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public _TableRow this[int index] {
+                get {
+                    return ((_TableRow)(this.Rows[index]));
+                }
+            }
+            public event _TableRowChangeEventHandler _TableRowChanging;
+            public event _TableRowChangeEventHandler _TableRowChanged;
+            public event _TableRowChangeEventHandler _TableRowDeleting;
+            public event _TableRowChangeEventHandler _TableRowDeleted;
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Add_TableRow(_TableRow row) {
+                this.Rows.Add(row);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public _TableRow Add_TableRow(int _TEA_NUMBER, string _TEA_FIRSTNAME, string _TEA_LASTNAME, string _TEA_ADDRESS, string _TEA_CITY, string _TEA_STATE, int _TEA_ZIP, string _TEA_TELEPHONE, int _TEA_DEPARTMENT) {
+                _TableRow row_TableRow = ((_TableRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        _TEA_NUMBER,
+                        _TEA_FIRSTNAME,
+                        _TEA_LASTNAME,
+                        _TEA_ADDRESS,
+                        _TEA_CITY,
+                        _TEA_STATE,
+                        _TEA_ZIP,
+                        _TEA_TELEPHONE,
+                        _TEA_DEPARTMENT};
+                row_TableRow.ItemArray = columnValuesArray;
+                this.Rows.Add(row_TableRow);
+                return row_TableRow;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public virtual global::System.Collections.IEnumerator GetEnumerator() {
+                return this.Rows.GetEnumerator();
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                _TableDataTable cln = ((_TableDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new _TableDataTable();
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.column_TEA_NUMBER = base.Columns["TEA:NUMBER"];
+                this.column_TEA_FIRSTNAME = base.Columns["TEA:FIRSTNAME"];
+                this.column_TEA_LASTNAME = base.Columns["TEA:LASTNAME"];
+                this.column_TEA_ADDRESS = base.Columns["TEA:ADDRESS"];
+                this.column_TEA_CITY = base.Columns["TEA:CITY"];
+                this.column_TEA_STATE = base.Columns["TEA:STATE"];
+                this.column_TEA_ZIP = base.Columns["TEA:ZIP"];
+                this.column_TEA_TELEPHONE = base.Columns["TEA:TELEPHONE"];
+                this.column_TEA_DEPARTMENT = base.Columns["TEA:DEPARTMENT"];
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.column_TEA_NUMBER = new global::System.Data.DataColumn("TEA:NUMBER", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column_TEA_NUMBER);
+                this.column_TEA_FIRSTNAME = new global::System.Data.DataColumn("TEA:FIRSTNAME", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column_TEA_FIRSTNAME);
+                this.column_TEA_LASTNAME = new global::System.Data.DataColumn("TEA:LASTNAME", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column_TEA_LASTNAME);
+                this.column_TEA_ADDRESS = new global::System.Data.DataColumn("TEA:ADDRESS", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column_TEA_ADDRESS);
+                this.column_TEA_CITY = new global::System.Data.DataColumn("TEA:CITY", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column_TEA_CITY);
+                this.column_TEA_STATE = new global::System.Data.DataColumn("TEA:STATE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column_TEA_STATE);
+                this.column_TEA_ZIP = new global::System.Data.DataColumn("TEA:ZIP", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column_TEA_ZIP);
+                this.column_TEA_TELEPHONE = new global::System.Data.DataColumn("TEA:TELEPHONE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column_TEA_TELEPHONE);
+                this.column_TEA_DEPARTMENT = new global::System.Data.DataColumn("TEA:DEPARTMENT", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column_TEA_DEPARTMENT);
+                this.column_TEA_FIRSTNAME.MaxLength = 20;
+                this.column_TEA_LASTNAME.MaxLength = 20;
+                this.column_TEA_ADDRESS.MaxLength = 20;
+                this.column_TEA_CITY.MaxLength = 20;
+                this.column_TEA_STATE.MaxLength = 2;
+                this.column_TEA_TELEPHONE.MaxLength = 12;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public _TableRow New_TableRow() {
+                return ((_TableRow)(this.NewRow()));
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new _TableRow(builder);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(_TableRow);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this._TableRowChanged != null)) {
+                    this._TableRowChanged(this, new _TableRowChangeEvent(((_TableRow)(e.Row)), e.Action));
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this._TableRowChanging != null)) {
+                    this._TableRowChanging(this, new _TableRowChangeEvent(((_TableRow)(e.Row)), e.Action));
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this._TableRowDeleted != null)) {
+                    this._TableRowDeleted(this, new _TableRowChangeEvent(((_TableRow)(e.Row)), e.Action));
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this._TableRowDeleting != null)) {
+                    this._TableRowDeleting(this, new _TableRowChangeEvent(((_TableRow)(e.Row)), e.Action));
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Remove_TableRow(_TableRow row) {
+                this.Rows.Remove(row);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dataSet1 ds = new dataSet1();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "_TableDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            &amp;&amp; (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        /// &lt;summary&gt;
+        ///Represents strongly named DataRow class.
+        ///&lt;/summary&gt;
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class _TableRow : global::System.Data.DataRow {
+            private _TableDataTable table_Table;
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal _TableRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.table_Table = ((_TableDataTable)(this.Table));
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int _TEA_NUMBER {
+                get {
+                    try {
+                        return ((int)(this[this.table_Table._TEA_NUMBERColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TEA:NUMBER\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table_Table._TEA_NUMBERColumn] = value;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string _TEA_FIRSTNAME {
+                get {
+                    try {
+                        return ((string)(this[this.table_Table._TEA_FIRSTNAMEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TEA:FIRSTNAME\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table_Table._TEA_FIRSTNAMEColumn] = value;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string _TEA_LASTNAME {
+                get {
+                    try {
+                        return ((string)(this[this.table_Table._TEA_LASTNAMEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TEA:LASTNAME\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table_Table._TEA_LASTNAMEColumn] = value;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string _TEA_ADDRESS {
+                get {
+                    try {
+                        return ((string)(this[this.table_Table._TEA_ADDRESSColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TEA:ADDRESS\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table_Table._TEA_ADDRESSColumn] = value;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string _TEA_CITY {
+                get {
+                    try {
+                        return ((string)(this[this.table_Table._TEA_CITYColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TEA:CITY\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table_Table._TEA_CITYColumn] = value;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string _TEA_STATE {
+                get {
+                    try {
+                        return ((string)(this[this.table_Table._TEA_STATEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TEA:STATE\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table_Table._TEA_STATEColumn] = value;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int _TEA_ZIP {
+                get {
+                    try {
+                        return ((int)(this[this.table_Table._TEA_ZIPColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TEA:ZIP\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table_Table._TEA_ZIPColumn] = value;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string _TEA_TELEPHONE {
+                get {
+                    try {
+                        return ((string)(this[this.table_Table._TEA_TELEPHONEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TEA:TELEPHONE\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table_Table._TEA_TELEPHONEColumn] = value;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int _TEA_DEPARTMENT {
+                get {
+                    try {
+                        return ((int)(this[this.table_Table._TEA_DEPARTMENTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TEA:DEPARTMENT\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table_Table._TEA_DEPARTMENTColumn] = value;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_TEA_NUMBERNull() {
+                return this.IsNull(this.table_Table._TEA_NUMBERColumn);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_TEA_NUMBERNull() {
+                this[this.table_Table._TEA_NUMBERColumn] = global::System.Convert.DBNull;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_TEA_FIRSTNAMENull() {
+                return this.IsNull(this.table_Table._TEA_FIRSTNAMEColumn);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_TEA_FIRSTNAMENull() {
+                this[this.table_Table._TEA_FIRSTNAMEColumn] = global::System.Convert.DBNull;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_TEA_LASTNAMENull() {
+                return this.IsNull(this.table_Table._TEA_LASTNAMEColumn);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_TEA_LASTNAMENull() {
+                this[this.table_Table._TEA_LASTNAMEColumn] = global::System.Convert.DBNull;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_TEA_ADDRESSNull() {
+                return this.IsNull(this.table_Table._TEA_ADDRESSColumn);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_TEA_ADDRESSNull() {
+                this[this.table_Table._TEA_ADDRESSColumn] = global::System.Convert.DBNull;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_TEA_CITYNull() {
+                return this.IsNull(this.table_Table._TEA_CITYColumn);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_TEA_CITYNull() {
+                this[this.table_Table._TEA_CITYColumn] = global::System.Convert.DBNull;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_TEA_STATENull() {
+                return this.IsNull(this.table_Table._TEA_STATEColumn);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_TEA_STATENull() {
+                this[this.table_Table._TEA_STATEColumn] = global::System.Convert.DBNull;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_TEA_ZIPNull() {
+                return this.IsNull(this.table_Table._TEA_ZIPColumn);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_TEA_ZIPNull() {
+                this[this.table_Table._TEA_ZIPColumn] = global::System.Convert.DBNull;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_TEA_TELEPHONENull() {
+                return this.IsNull(this.table_Table._TEA_TELEPHONEColumn);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_TEA_TELEPHONENull() {
+                this[this.table_Table._TEA_TELEPHONEColumn] = global::System.Convert.DBNull;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is_TEA_DEPARTMENTNull() {
+                return this.IsNull(this.table_Table._TEA_DEPARTMENTColumn);
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set_TEA_DEPARTMENTNull() {
+                this[this.table_Table._TEA_DEPARTMENTColumn] = global::System.Convert.DBNull;
+            }
+        }
+        /// &lt;summary&gt;
+        ///Row event argument class
+        ///&lt;/summary&gt;
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class _TableRowChangeEvent : global::System.EventArgs {
+            private _TableRow eventRow;
+            private global::System.Data.DataRowAction eventAction;
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public _TableRowChangeEvent(_TableRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public _TableRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+    }
+}
+</Report>
+      <Description />
+      <LastModificationDate>0001-01-01T00:00:00</LastModificationDate>
+      <Name>Teacher's List</Name>
+    </ReportLibraryItem>
+  </LibraryItems>
+  <Externals />
+</ReportLibrary>

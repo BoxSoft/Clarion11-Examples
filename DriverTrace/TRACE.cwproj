@@ -1,0 +1,55 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{B6163E92-8E85-4EEB-8733-DDE2CA0E41E6}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>TRACE</AssemblyName>
+    <OutputName>TRACE</OutputName>
+    <ApplicationIcon>prewrit.ico</ApplicationIcon>
+    <DefineConstants>_ABCDllMode_=&gt;0%3b_ABCLinkMode_=&gt;1</DefineConstants>
+    <Model>Lib</Model>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <vid>off</vid>
+    <check_stack>False</check_stack>
+    <check_index>False</check_index>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="TRACE.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="TRACE001.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="TRACE002.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="TRACE003.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="TRACE_BC.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="TRACE_BC0.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <None Include="DRVLIST.TPS">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <FileDriver Include="TOPSPEED" />
+    <Library Include="TRACE.EXE.manifest" />
+  </ItemGroup>
+  <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
+</Project>

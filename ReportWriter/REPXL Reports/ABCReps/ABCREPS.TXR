@@ -1,0 +1,349 @@
+[LIBRARY]
+VERSION(4001)
+ENDUSER('off')
+OPTION(0)
+
+[REPORTS]
+AuthorsReport REPORT,FONT('Arial',10),PRE(AuthorsReport),THOUS,AT(1000,1936,6500,6940),MARGINS(1000,1328,1000,1562)
+          HEADER,FONT('Times New Roman',11,0,4796),AT(1000,1328,6500,608)
+            STRING('Authors SS'),AT(50,372)
+            STRING('Name'),AT(833,372)
+            STRING('Phone'),AT(3350,372)
+            STRING('City'),AT(4258,372)
+            STRING('State'),AT(5617,372)
+            STRING('Zip'),AT(6058,372)
+            LINE,LINEWIDTH(15),AT(0,532,6500,0)
+            STRING('Authur''s Report - Sorted by SS Number'),FONT(,12,,12988),CENTER,AT(17,22,6475)
+          END
+_REPORT_  BREAK
+_TOTALS_    BREAK
+Detail1       DETAIL,FONT('Arial',8,0),AT(0,0,,249)
+                STRING(@P###-##-####P),USE(AUT:Au_SS),AT(50,0,708)
+                STRING(@P(###) ###-####PB),USE(AUT:Phone),AT(3348,0)
+                STRING(@s20),USE(AUT:City),AT(4258,0)
+                STRING(@s2),USE(AUT:State),AT(5618,0,308)
+                STRING(@s5),USE(AUT:Zip),AT(6061,0)
+                STRING(@s35),USE(Fullname),AT(833,0,2358)
+              END
+            END
+          END
+          FOOTER,FONT('Times New Roman',9,0,4796),AT(1000,8876,,562)
+            STRING('Page '),AT(5808,281)
+            STRING(@n5),PAGENO,AT(6108,281)
+          END
+Fullname FORMULA(@s35),VALUE('CLIP( AUT:Au_Fname ) &''  '' & CLIP( AUT:Au_Lname )')
+        END
+PubInfoReport REPORT,FONT('Arial',10),PRE(PubInfoReport),THOUS,AT(1000,1656,6500,7220),MARGINS(1000,990,1000,1562)
+          HEADER,FONT('Times New Roman',11,0,4796),AT(1000,990,6500,666)
+            STRING('Logo'),AT(3125,427,517)
+            STRING('Publisher''s Info'),AT(58,427,1309)
+            LINE,LINEWIDTH(15),AT(0,578,6500,0)
+            STRING('Pub_Info Report with LOGO'),FONT(,,,12988),CENTER,AT(17,60,6475)
+          END
+_REPORT_  BREAK
+_TOTALS_    BREAK
+Detail1       DETAIL,FONT('Arial',8,0),AT(0,0,,684)
+                STRING(@s4),USE(PBI:PubID),AT(83,36,458)
+                IMAGE,USE(PBI:Logo),AT(3125,119,,441)
+                LINE,LINEWIDTH(10),AT(0,662,6492,0)
+                STRING(@s40),USE(PUB:Pub_name),AT(686,36,2392)
+                STRING(@s2),USE(PUB:State),AT(1983,236)
+                STRING(@s30),USE(PUB:Country),AT(683,436)
+                STRING(@s20),USE(PUB:City),AT(692,236)
+              END
+            END
+          END
+          FOOTER,FONT('Times New Roman',9,0,4796),AT(1000,8876,,562)
+            STRING('Page '),AT(5808,281)
+            STRING(@n5),PAGENO,AT(6108,281)
+          END
+        END
+RTFReport REPORT,FONT('Arial',10),PRE(RTFReport),THOUS,AT(1000,1573,6500,7303),MARGINS(1000,981,1000,1562)
+          HEADER,FONT('Times New Roman',11,0,4796),AT(1000,981,6500,592)
+            STRING('Pub Info Report With RTF'),FONT(,,,12988),CENTER,AT(17,102,6466)
+          END
+_REPORT_  BREAK
+_TOTALS_    BREAK
+Detail1       DETAIL,FONT('Arial',8,0),AT(0,0,,417)
+                STRING(@s4),USE(PBI:PubID),AT(50,0,458)
+                TEXT,RESIZE,RTF(0),USE(PBI:Pr_info),AT(617,19,5833,332)
+              END
+            END
+          END
+          FOOTER,FONT('Times New Roman',9,0,4796),AT(1000,8876,,562)
+            STRING('Page '),AT(5808,281)
+            STRING(@n5),PAGENO,AT(6108,281)
+          END
+        END
+
+[FILES]
+Authors FILE,PRE(AUT),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE,NAME('Authors.tps')
+AuSS_Key  KEY(AUT:Au_SS),PRIMARY !By: Authors SS
+AuName_Key KEY(AUT:Au_Lname,AUT:Au_Fname),DUP
+__Record  RECORD
+Au_SS       CSTRING(10),PICTURE(@P###-##-####P),PROMPT('Authors SS:'),HEADER('Authors SS') !Author's SS number
+Au_Lname    CSTRING(41),PICTURE(@s40),PROMPT('Lastname:'),HEADER('Lastname') !Author's last name
+Au_Fname    CSTRING(21),PICTURE(@s20),PROMPT('Firstname:'),HEADER('Firstname') !Author's first name
+Phone       CSTRING(11),PICTURE(@P(###) ###-####PB),PROMPT('Phone:'),HEADER('Phone') !Author's phone number
+Address     CSTRING(41),PICTURE(@s40),PROMPT('Address:'),HEADER('Address') !Author's address
+City        CSTRING(21),PICTURE(@s20),PROMPT('City:'),HEADER('City') !Author's city
+State       CSTRING(3),PICTURE(@s2),PROMPT('State:'),HEADER('State') !Author's state
+Zip         CSTRING(6),PICTURE(@s5),PROMPT('Zip:'),HEADER('Zip') !Author's zipcode
+Contract    BYTE,PROMPT('Contract:'),HEADER('Contract') !Any contract? Yes / No
+          END
+        END
+Discounts FILE,PRE(DIS),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE,NAME('Discount.tps')
+DiscID_Key KEY(DIS:DiscID),PRIMARY !By: Discount ID
+StoreID_Key KEY(DIS:StoreID),DUP !By: Store ID
+__Record  RECORD
+DiscID      SHORT,PICTURE(@n_5),PROMPT('Disc ID:'),HEADER('Disc ID') !Identification of discount
+Discounttype CSTRING(41),PICTURE(@s40),PROMPT('Discount type:'),HEADER('Discount type') !Type of discount
+StoreID     CSTRING(5),PICTURE(@s4),PROMPT('Store ID:'),HEADER('Store ID') !ID of store
+LowQty      SHORT,PICTURE(@n6),PROMPT('Low Quantity:'),HEADER('Low Qty') !Low quantity
+HighQty     SHORT,PICTURE(@n6),PROMPT('High Quantity:'),HEADER('High Qty') !High quantity
+Discount    DECIMAL(4,2),PICTURE(@n-6.2),PROMPT('Discount:'),HEADER('Discount') !Amount of discount
+          END
+        END
+Employee FILE,PRE(EMP),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE,NAME('Employee.tps')
+EmpID_Key KEY(EMP:EmpID),PRIMARY !By: Emp ID
+EmpName_Key KEY(EMP:Lname,EMP:Fname,EMP:MInit),DUP !By Emp Name
+JobID_Key KEY(EMP:JobID),DUP !By: Job ID
+PubID_Key KEY(EMP:PubID),DUP !By: Pub ID
+DateKey   KEY(-EMP:Hire_date),DUP,NOCASE,OPT !By: HireDate
+__Record  RECORD
+EmpID       CSTRING(10),PICTURE(@s9),PROMPT('Emp ID:'),HEADER('Emp ID') !Identification number of employee
+Fname       CSTRING(21),PICTURE(@s20),PROMPT('Firstname:'),HEADER('Firstname') !Employee's first name
+MInit       CSTRING(2),PICTURE(@s1),PROMPT('Middle Initial:'),HEADER('MI') !Employee's middle initial
+Lname       CSTRING(31),PICTURE(@s30),PROMPT('Lastname:'),HEADER('Lastname') !Employee's last name
+JobID       SHORT,PICTURE(@n6),PROMPT('Job ID:'),HEADER('Job ID') !Employee's job Identification
+Job_lvl     BYTE,PICTURE(@n3),PROMPT('Job level:'),HEADER('Job lvl') !Employee's job level
+PubID       CSTRING(5),PICTURE(@s4),PROMPT('Pub ID:'),HEADER('Pub ID') !Pub ID of employee
+Hire_date   DATE,PICTURE(@d2),PROMPT('Hire date:'),HEADER('Hire date') !Hire date of employee
+PictureFile STRING(65),PICTURE(@s65),PROMPT('Picture File:'),HEADER('Picture File') !Path to emp picture
+          END
+        END
+Jobs    FILE,PRE(JOB),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE,NAME('Jobs.tps')
+JobID_Key KEY(JOB:JobID),PRIMARY !By: Job ID
+__Record  RECORD
+JobID       SHORT,PICTURE(@n_5),PROMPT('Job ID:'),HEADER('Job ID') !Job Identification
+Job_desc    CSTRING(51),PICTURE(@s50),PROMPT('Job description:'),HEADER('Job desc') !Decription of job
+Min_lvl     BYTE,PICTURE(@n3),PROMPT('Min level:'),HEADER('Min lvl') !Minimum level
+Max_lvl     BYTE,PICTURE(@n3),PROMPT('Max level:'),HEADER('Max lvl') !Maximum level
+          END
+        END
+Pub_info FILE,PRE(PBI),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE,NAME('Pub_info.tps')
+PubID_Key KEY(PBI:PubID) !By: Pub ID
+Logo      BLOB,BINARY,PROMPT('logo:'),HEADER('logo') !Graphic logo for publisher
+__Record  RECORD
+PubID       CSTRING(5),PICTURE(@s4),PROMPT('Pub ID:'),HEADER('Pub ID') !ID of publisher
+Pr_info     CSTRING(5000),PROMPT('Pr info:'),HEADER('Pr info') !Information of publisher
+          END
+        END
+Publishers FILE,PRE(PUB),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE,NAME('Publish.tps')
+PubID_Key KEY(PUB:PubID),PRIMARY !By: Pub ID
+__Record  RECORD
+PubID       CSTRING(5),PICTURE(@s4),PROMPT('Pub ID:'),HEADER('Pub ID') !ID of publisher
+Pub_name    CSTRING(41),PICTURE(@s40),PROMPT('Pub name:'),HEADER('Pub name') !Name of publisher
+City        CSTRING(21),PICTURE(@s20),PROMPT('City:'),HEADER('City') !City of publisher
+State       CSTRING(3),PICTURE(@s2),PROMPT('State:'),HEADER('State') !State of publisher
+Country     CSTRING(31),PICTURE(@s30),PROMPT('Country:'),HEADER('Country') !Country of publisher
+          END
+        END
+Roysched FILE,PRE(ROY),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE,NAME('Roysched.tps')
+TitleID_Key KEY(ROY:TitleID,ROY:Lorange) !By: Title ID/Low range
+__Record  RECORD
+TitleID     CSTRING(7),PICTURE(@s6),PROMPT('Title ID:'),HEADER('Title ID') !ID of title
+Lorange     LONG,PICTURE(@n13),PROMPT('Low range:'),HEADER('Low range') !Low range for royalty
+Hirange     LONG,PICTURE(@n13),PROMPT('High range:'),HEADER('High range') !High range for royalty
+Royalty     LONG,PICTURE(@n13),PROMPT('Royalty:'),HEADER('Royalty') !Royalty amount
+          END
+        END
+Sales   FILE,PRE(SAL),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE,NAME('Sales.tps')
+Sales_Key KEY(SAL:StoreID,SAL:Ord_num,SAL:TitleID),PRIMARY !By: Store/Order/Title ID
+TitleID_Key KEY(SAL:TitleID),DUP !By: Title ID
+StoreID_Key KEY(SAL:StoreID),DUP !By: Store ID
+OrdDate_Key KEY(-SAL:Ord_date),DUP,NOCASE !By: Order Date
+__Record  RECORD
+StoreID     CSTRING(5),PICTURE(@s4),PROMPT('Store ID:'),HEADER('Store ID') !Store identification
+Ord_num     CSTRING(21),PICTURE(@s20),PROMPT('Ord num:'),HEADER('Ord num') !Order number
+Ord_date    DATE,PICTURE(@d2),PROMPT('Order date:'),HEADER('Ord date') !Order date
+Qty         SHORT,PICTURE(@n6),PROMPT('Quantity:'),HEADER('Qty') !Quantity ordered
+Payterms    CSTRING(13),PICTURE(@s12),PROMPT('Payment terms:'),HEADER('Payterms') !Terms of payment
+TitleID     CSTRING(7),PICTURE(@s6),PROMPT('Title ID:'),HEADER('Title ID') !Title identification
+          END
+        END
+Stores  FILE,PRE(STO),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE,NAME('Stores.tps')
+StoreID_Key KEY(STO:StoreID),PRIMARY !By: Store ID
+__Record  RECORD
+StoreID     CSTRING(5),PICTURE(@s4),PROMPT('Store ID:'),HEADER('Store ID') !ID of store
+Store_name  CSTRING(41),PICTURE(@s40),PROMPT('Store name:'),HEADER('Store name') !Name of store
+Store_address CSTRING(41),PICTURE(@s40),PROMPT('Store address:'),HEADER('Store address') !Address of store
+City        CSTRING(21),PICTURE(@s20),PROMPT('City:'),HEADER('City') !City of store
+State       CSTRING(3),PICTURE(@s2),PROMPT('State:'),HEADER('State') !State where the store is located in
+Zip         CSTRING(6),PICTURE(@s5),PROMPT('Zip:'),HEADER('Zip') !Zipcode where the store is located in
+          END
+        END
+Titleauthor FILE,PRE(TTA),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE,NAME('Titleaut.TPS')
+AuTitle_Key KEY(TTA:Au_SS,TTA:TitleID),PRIMARY !By: Authors / Title ID
+AuSS_Key  KEY(TTA:Au_SS),DUP !By: Authors ID
+TitleID_Key KEY(TTA:TitleID),DUP !By: Title ID
+__Record  RECORD
+Au_SS       CSTRING(11),PICTURE(@P###-##-####P),PROMPT('Authors SS:'),HEADER('Authors SS') !Author's SS number
+TitleID     CSTRING(7),PICTURE(@s6),PROMPT('Title ID:'),HEADER('Title ID') !Identification of title
+Au_ord      BYTE,PICTURE(@n3),PROMPT('Au ord:'),HEADER('Au ord') !Numbers ordered
+Royaltyper  LONG,PICTURE(@n13),PROMPT('Royaltyper:'),HEADER('Royaltyper') !Percent royalty
+          END
+        END
+Titles  FILE,PRE(TIT),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE,NAME('Titles.tps')
+TitleID_Key KEY(TIT:TitleID),PRIMARY !By: Title ID
+Title_Key KEY(TIT:Title),DUP !By: Title
+PubID_Key KEY(TIT:PubID),DUP !By: Pub ID
+__Record  RECORD
+TitleID     CSTRING(7),PICTURE(@s6),PROMPT('Title ID:'),HEADER('Title ID') !Identification of title
+Title       CSTRING(81),PICTURE(@s80),PROMPT('Title:'),HEADER('Title') !Title description
+Type        CSTRING(13),PICTURE(@s12),PROMPT('Type:'),HEADER('Type') !Title type
+PubID       CSTRING(5),PICTURE(@s4),PROMPT('Pub ID:'),HEADER('Pub ID') !Identification of pub
+Price       DECIMAL(19,4),PICTURE(@n24.4),PROMPT('Price:'),HEADER('Price') !Price
+Advance     DECIMAL(19,4),PICTURE(@n24.4),PROMPT('Advance:'),HEADER('Advance') !Cash advance on title
+Royalty     LONG,PICTURE(@n13),PROMPT('Royalty:'),HEADER('Royalty') !Royalty for title
+Ytd_Sales   LONG,PICTURE(@n13),PROMPT('Year-to-date Sales:'),HEADER('Ytd Sales') !Year-to-date sales of title
+Notes       CSTRING(201),PICTURE(@s200),PROMPT('Notes:'),HEADER('Notes') !General notes on title
+Pubdate     DATE,PICTURE(@d2),PROMPT('Pub date:'),HEADER('Pub date') !Date published
+          END
+        END
+GloVariables FILE,PRE(GLO),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE
+__Record  RECORD
+          END
+        END
+
+[RELATIONS]
+        RELATION,ONE:MANY
+Authors   FILE(AUT:AuSS_Key)
+Titleauthor RELATED_FILE(TTA:AuSS_Key)
+          FILE_TO_RELATED_KEY
+            FIELD(AUT:Au_SS,TTA:Au_SS)
+          END
+          RELATED_FILE_TO_KEY
+            FIELD(TTA:Au_SS,AUT:Au_SS)
+          END
+        END
+        RELATION,ONE:MANY
+Jobs      FILE(JOB:JobID_Key)
+Employee  RELATED_FILE(EMP:JobID_Key)
+          FILE_TO_RELATED_KEY
+            FIELD(JOB:JobID,EMP:JobID)
+          END
+          RELATED_FILE_TO_KEY
+            FIELD(EMP:JobID,JOB:JobID)
+          END
+        END
+        RELATION,ONE:MANY
+Publishers FILE(PUB:PubID_Key)
+Employee  RELATED_FILE(EMP:PubID_Key)
+          FILE_TO_RELATED_KEY
+            FIELD(PUB:PubID,EMP:PubID)
+          END
+          RELATED_FILE_TO_KEY
+            FIELD(EMP:PubID,PUB:PubID)
+          END
+        END
+        RELATION,ONE:MANY
+Publishers FILE(PUB:PubID_Key)
+Pub_info  RELATED_FILE(PBI:PubID_Key)
+          FILE_TO_RELATED_KEY
+            FIELD(PUB:PubID,PBI:PubID)
+          END
+          RELATED_FILE_TO_KEY
+            FIELD(PBI:PubID,PUB:PubID)
+          END
+        END
+        RELATION,ONE:MANY
+Publishers FILE(PUB:PubID_Key)
+Titles    RELATED_FILE(TIT:PubID_Key)
+          FILE_TO_RELATED_KEY
+            FIELD(PUB:PubID,TIT:PubID)
+          END
+          RELATED_FILE_TO_KEY
+            FIELD(TIT:PubID,PUB:PubID)
+          END
+        END
+        RELATION,ONE:MANY
+Stores    FILE(STO:StoreID_Key)
+Discounts RELATED_FILE(DIS:StoreID_Key)
+          FILE_TO_RELATED_KEY
+            FIELD(STO:StoreID,DIS:StoreID)
+          END
+          RELATED_FILE_TO_KEY
+            FIELD(DIS:StoreID,STO:StoreID)
+          END
+        END
+        RELATION,ONE:MANY
+Stores    FILE(STO:StoreID_Key)
+Sales     RELATED_FILE(SAL:StoreID_Key)
+          FILE_TO_RELATED_KEY
+            FIELD(STO:StoreID,SAL:StoreID)
+          END
+          RELATED_FILE_TO_KEY
+            FIELD(SAL:StoreID,STO:StoreID)
+          END
+        END
+        RELATION,ONE:MANY
+Titles    FILE(TIT:TitleID_Key)
+Roysched  RELATED_FILE(ROY:TitleID_Key)
+          FILE_TO_RELATED_KEY
+            FIELD(TIT:TitleID,ROY:TitleID)
+            FIELD(NOLINK,ROY:Lorange)
+          END
+          RELATED_FILE_TO_KEY
+            FIELD(ROY:TitleID,TIT:TitleID)
+          END
+        END
+        RELATION,ONE:MANY
+Titles    FILE(TIT:TitleID_Key)
+Sales     RELATED_FILE(SAL:TitleID_Key)
+          FILE_TO_RELATED_KEY
+            FIELD(TIT:TitleID,SAL:TitleID)
+          END
+          RELATED_FILE_TO_KEY
+            FIELD(SAL:TitleID,TIT:TitleID)
+          END
+        END
+        RELATION,ONE:MANY
+Titles    FILE(TIT:TitleID_Key)
+Titleauthor RELATED_FILE(TTA:TitleID_Key)
+          FILE_TO_RELATED_KEY
+            FIELD(TIT:TitleID,TTA:TitleID)
+          END
+          RELATED_FILE_TO_KEY
+            FIELD(TTA:TitleID,TIT:TitleID)
+          END
+        END
+
+[REPORTVIEWS]
+AuthorsReport VIEW(Authors),ORDER('AUT:Au_SS'),KEY(AUT:AuSS_Key)
+        END
+PubInfoReport VIEW(Pub_info),ORDER('PBI:PubID'),KEY(PBI:PubID_Key)
+          JOIN(Publishers,'PUB:PubID=PBI:PubID'),CHILD
+          END
+        END
+RTFReport VIEW(Pub_info),ORDER('PBI:PubID'),KEY(PBI:PubID_Key)
+        END
+
+[SOURCES]
+        DICTIONARY,VERSION('1.0'),DATE(74035),TIME(4559200),NAME('D:\CLARION6\EXAMPLES\ABC\REPORTS\SVEXAM.DCT')
+
+[SEARCHPATHS]
+        PATH('Authors.tps','D:\CLARION6\EXAMPLES\ABC\REPORTS\')
+        PATH('Discount.tps','D:\CLARION6\EXAMPLES\ABC\REPORTS\')
+        PATH('Employee.tps','D:\CLARION6\EXAMPLES\ABC\REPORTS\')
+        PATH('Jobs.tps','D:\CLARION6\EXAMPLES\ABC\REPORTS\')
+        PATH('Pub_info.tps','D:\CLARION6\EXAMPLES\ABC\REPORTS\')
+        PATH('Publish.tps','D:\CLARION6\EXAMPLES\ABC\REPORTS\')
+        PATH('Roysched.tps','D:\CLARION6\EXAMPLES\ABC\REPORTS\')
+        PATH('Sales.tps','D:\CLARION6\EXAMPLES\ABC\REPORTS\')
+        PATH('Stores.tps','D:\CLARION6\EXAMPLES\ABC\REPORTS\')
+        PATH('Titleaut.TPS','D:\CLARION6\EXAMPLES\ABC\REPORTS\')
+        PATH('Titles.tps','D:\CLARION6\EXAMPLES\ABC\REPORTS\')
+
+[EXTERNALS]
+

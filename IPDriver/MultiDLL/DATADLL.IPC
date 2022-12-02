@@ -1,0 +1,4 @@
+ENABLE
+IPDRV::OWNER = 'ip_country.dll'&'@'&'localhost'&':'&'2339'
+IP_COUNTRY.IPS
+Country

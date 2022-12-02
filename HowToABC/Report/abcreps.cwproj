@@ -1,0 +1,104 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{0C3AE90F-3328-4503-B23C-3A666445EFD7}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>abcreps</AssemblyName>
+    <OutputName>ABCReps</OutputName>
+    <DefineConstants>_ABCDllMode_=&gt;0%3b_ABCLinkMode_=&gt;1%3b_GRAPHDllMode_=&gt;0%3b_GRAPHLinkMode_=&gt;1%3b</DefineConstants>
+    <Model>Dll</Model>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <vid>off</vid>
+    <check_stack>False</check_stack>
+    <check_index>False</check_index>
+  </PropertyGroup>
+  <ItemGroup>
+    <Library Include="abcreps.exe.manifest" />
+    <Library Include="C%25V%25prlb%25X%25.lib" />
+    <Library Include="ClaRunExt.LIB" />
+    <Library Include="SCANCEL.ICO" />
+    <Library Include="SOK.ICO" />
+    <Compile Include="abcreps.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcreps001.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcreps002.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcreps003.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcreps004.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcreps005.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcreps006.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcreps007.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcreps008.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcreps009.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcreps010.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcreps011.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcreps012.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcreps013.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcreps014.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcreps015.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcreps016.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcreps017.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcreps018.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcreps019.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcreps020.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="ABCREPS_BC.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcreps_BC0.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <FileDriver Include="TOPSPEED" />
+  </ItemGroup>
+  <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
+</Project>

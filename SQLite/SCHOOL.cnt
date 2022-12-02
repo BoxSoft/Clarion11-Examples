@@ -1,0 +1,20 @@
+:Base SCHOOL.hlp
+:Title Example School Application
+1 SCHOOL
+2 Contents=CONTENTS
+2 TopSpeed University=TopSpeedUniversity
+2 Class Tree=ClassTree
+2 Student Tree=StudentTree
+2 Browse Students=BrowseStudents
+2 Browse Teachers=BrowseTeachers
+2 Browse Classes=BrowseClasses
+2 Browse Enrollment=BrowseEnrollment
+2 Browse Courses=BrowseCourses
+2 Browse Majors=BrowseMajors
+2 Update Grades=UpdateGrades
+2 Update Students=UpdateStudents
+2 Update Teachers=UpdateTeachers
+2 Update Classes=UpdateClasses
+2 Update Enrollment=UpdateEnrollment
+2 Update Courses=UpdateCourses
+2 Update Majors=UpdateMajors

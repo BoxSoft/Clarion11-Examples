@@ -1,0 +1,151 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{D36EBF12-FF00-4679-BE31-4F93569950E8}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>clbrws</AssemblyName>
+    <OutputName>clbrws</OutputName>
+    <DefineConstants>_ABCDllMode_=&gt;0%3b_ABCLinkMode_=&gt;1%3b_svDllMode_=&gt;0%3b_svLinkMode_=&gt;1%3b</DefineConstants>
+    <Model>Dll</Model>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <vid>off</vid>
+    <check_stack>False</check_stack>
+    <check_index>False</check_index>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="clbrws.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws001.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws002.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws003.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws004.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws005.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws006.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws007.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws008.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws009.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws010.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws011.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws012.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws013.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws014.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws015.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws016.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws017.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws018.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws019.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws020.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws021.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws022.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws023.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws024.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws025.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws026.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws027.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws028.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws029.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws030.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrws031.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrw_RD.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrw_RU.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="clbrw_SF.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="ResCode.Clw">
+      <Generated>true</Generated>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <FileDriver Include="TOPSPEED" />
+    <Library Include="5.ICO" />
+    <Library Include="Check.ico" />
+    <Library Include="CheckOff.ICO" />
+    <Library Include="CheckOffDim.ICO" />
+    <Library Include="CheckOn.ICO" />
+    <Library Include="CheckOnDim.ICO" />
+    <Library Include="clbrws.exe.manifest" />
+    <Library Include="FILE.ICO" />
+    <Library Include="FOLDER.ICO" />
+    <Library Include="STAR1.ICO" />
+    <Library Include="uncheck.ico" />
+  </ItemGroup>
+  <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
+</Project>

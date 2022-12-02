@@ -1,0 +1,57 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{7D11DD74-1F28-478B-8A22-197EB1AFC402}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>CacheInMemFromMsSql</AssemblyName>
+    <OutputName>CacheInMemFromMSSQL</OutputName>
+    <DefineConstants>_ABCDllMode_=&gt;0%3b_ABCLinkMode_=&gt;1%3b</DefineConstants>
+    <Model>Dll</Model>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <vid>off</vid>
+    <check_stack>False</check_stack>
+    <check_index>False</check_index>
+  </PropertyGroup>
+  <ItemGroup>
+    <FileDriver Include="MEMORY" />
+    <FileDriver Include="MSSQL" />
+    <Compile Include="CacheInMemFromMsSql.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="CacheInMemFromMsSql001.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="CacheInMemFromMsSql002.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="CacheInMemFromMsSql003.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="CacheInMemFromMsSql005.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="CacheInMemFromMsSql006.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="CACHEINMEMFROMMSSQL_BC.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="CacheInMemFromMsSql_BC0.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Library Include="C%25V%25DF%25X%25.LIB" />
+    <Library Include="CacheInMemFromMsSql.exe.manifest" />
+  </ItemGroup>
+  <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
+</Project>

@@ -1,0 +1,10 @@
+FileSynchronizationClass
+ENABLE
+[CACHED TABLES]
+States
+Products
+Orders
+Customers
+[COPIED TABLES]
+Detail
+MemDetail

@@ -1,0 +1,14 @@
+-- ConnErr
+#noedit
+#system win32
+#model clarion dll
+#pragma debug(vid=>full)
+#pragma optimize(cpu=>386)
+#pragma define(_COMLinkMode_=>on)
+#pragma define(_COMDLLMode_=>off)
+#pragma define(_ADOLinkMode_=>on)
+#pragma define(_ADODLLMode_=>off)
+#pragma define(_svLinkMode_=>on)
+#pragma define(_svDLLMode_=>off)
+#compile "ConnErr.clw"
+#link "ConnErr.exe"

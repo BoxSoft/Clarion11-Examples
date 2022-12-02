@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+# Clarion 2.1.0.2447
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "rules", "rules.cwproj", "{C5003C68-E629-4017-BDD0-CA6A82150114}"
+EndProject
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "DBrules", "DBrules.cwproj", "{965B835B-8353-47D4-BA3B-011F5E7A084B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{{2150E333-8FDC-42A3-9474-1A3956D46DE8}}"
+	ProjectSection(SolutionItems) = postProject
+		DBrules.app = DBrules.app
+		rules.app = rules.app
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C5003C68-E629-4017-BDD0-CA6A82150114}.Debug|Win32.Build.0 = Debug|Win32
+		{C5003C68-E629-4017-BDD0-CA6A82150114}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C5003C68-E629-4017-BDD0-CA6A82150114}.Release|Win32.Build.0 = Release|Win32
+		{C5003C68-E629-4017-BDD0-CA6A82150114}.Release|Win32.ActiveCfg = Release|Win32
+		{965B835B-8353-47D4-BA3B-011F5E7A084B}.Debug|Win32.Build.0 = Debug|Win32
+		{965B835B-8353-47D4-BA3B-011F5E7A084B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{965B835B-8353-47D4-BA3B-011F5E7A084B}.Release|Win32.Build.0 = Release|Win32
+		{965B835B-8353-47D4-BA3B-011F5E7A084B}.Release|Win32.ActiveCfg = Release|Win32
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,32 @@
+#message "making LibMaker"
+
+#pragma debug(vid=>%_debug)
+
+#pragma link_option(icon=>"Library.ico")
+#compile "libmaker.clw"
+#pragma link("C%V%DOS%X%%L%.LIB")
+#pragma link("C%V%ASC%X%%L%.LIB")
+#pragma link("SVLogo.png")
+#pragma link("123.ico")
+#pragma link("Abc.ico")
+#pragma link("Copy.ico")
+#pragma link("Closed.ico")
+#pragma link("Opened.ico")
+#pragma link("Clear.ico")
+#pragma link("Quill.ico")
+#pragma link("Wizok.ico")
+#pragma link("DelLine.ico")
+#pragma link("Wizditto.ico")
+#pragma link("Wizcncl.ico")
+#pragma link("Wizhelp.ico")
+#pragma link("Wizins.ico")
+#compile "libmaker.ver"
+#compile "libmaker.man"
+#autocompile
+#pragma linkfirst(iexe32w.obj)
+#pragma link(win32.lib)
+#pragma link(C%V%run%X%%L%.lib)
+#pragma link_option(decode=>off)
+#pragma link_option(smart_method=>off)
+#dolink LibMaker.exe
+

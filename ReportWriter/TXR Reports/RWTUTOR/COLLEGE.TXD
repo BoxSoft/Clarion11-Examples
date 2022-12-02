@@ -1,0 +1,422 @@
+[DICTIONARY]
+VERSION '1.0 r3'
+CREATED '23 MAR 96' ' 8:09:11PM'
+MODIFIED '23 JUN 96' ' 6:01:54PM'
+
+[FILES]
+
+Students FILE,DRIVER('TOPSPEED'),PRE(STU),CREATE,THREAD
+!!> IDENT(1)
+[QUICKCODE]
+!NOPOPULATE
+KeyStudentNumber KEY(STU:Number),NOCASE,OPT
+!!> IDENT(1)
+MajorKey KEY(STU:Major,STU:LastName,STU:FirstName),DUP,NOCASE,OPT
+!!> IDENT(20)
+KeyLastName KEY(STU:LastName),DUP,NOCASE
+!!> IDENT(2)
+KeyGradYear KEY(-STU:GradYear,STU:LastName,STU:FirstName),DUP,NOCASE,OPT
+!!> IDENT(22)
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! IMAGE,USE(?STU:Photo)
+[REPORTCONTROLS]
+! IMAGE,USE(?STU:Photo)
+Photo                      MEMO(64000),BINARY
+!!> IDENT(90),PROMPT('Photo:'),HEADER('Photo'),PICTURE(@s255)
+Record                   RECORD
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('&Number:'),USE(?STU:Number:Prompt)
+! ENTRY(@P###-##-####P),USE(STU:Number),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@P###-##-####P),USE(STU:Number),RIGHT(1)
+Number                     LONG
+!!> IDENT(3),PROMPT('&Number:'),HEADER('Number'),PICTURE(@P###-##-####P),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('&First Name:'),USE(?STU:FirstName:Prompt)
+! ENTRY(@S20),USE(STU:FirstName)
+[REPORTCONTROLS]
+! STRING(@S20),USE(STU:FirstName)
+FirstName                  STRING(20)
+!!> IDENT(4),PROMPT('&First Name:'),HEADER('First Name'),PICTURE(@S20)
+[SCREENCONTROLS]
+! PROMPT('&Last Name:'),USE(?STU:LastName:Prompt)
+! ENTRY(@S20),USE(STU:LastName)
+[REPORTCONTROLS]
+! STRING(@S20),USE(STU:LastName)
+LastName                   STRING(20)
+!!> IDENT(5),PROMPT('&Last Name:'),HEADER('Last Name'),PICTURE(@S20)
+[SCREENCONTROLS]
+! PROMPT('&Address:'),USE(?STU:Address:Prompt)
+! ENTRY(@S20),USE(STU:Address)
+[REPORTCONTROLS]
+! STRING(@S20),USE(STU:Address)
+Address                    STRING(20)
+!!> IDENT(6),PROMPT('&Address:'),HEADER('Address'),PICTURE(@S20)
+[SCREENCONTROLS]
+! PROMPT('Address 2:'),USE(?STU:Address2:Prompt)
+! ENTRY(@s20),USE(STU:Address2)
+[REPORTCONTROLS]
+! STRING(@s20),USE(STU:Address2)
+Address2                   STRING(20)
+!!> IDENT(96),PROMPT('Address 2:'),HEADER('Address 2'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('&City:'),USE(?STU:City:Prompt)
+! ENTRY(@S20),USE(STU:City)
+[REPORTCONTROLS]
+! STRING(@S20),USE(STU:City)
+City                       STRING(20)
+!!> IDENT(7),PROMPT('&City:'),HEADER('City'),PICTURE(@S20)
+[SCREENCONTROLS]
+! PROMPT('&State:'),USE(?STU:State:Prompt)
+! ENTRY(@S2),USE(STU:State)
+[REPORTCONTROLS]
+! STRING(@S2),USE(STU:State)
+State                      STRING(2)
+!!> IDENT(8),PROMPT('&State:'),HEADER('State'),PICTURE(@S2)
+[SCREENCONTROLS]
+! PROMPT('&Zip:'),USE(?STU:Zip:Prompt)
+! ENTRY(@n05),USE(STU:Zip)
+[REPORTCONTROLS]
+! STRING(@n05),USE(STU:Zip)
+Zip                        LONG
+!!> IDENT(9),PROMPT('&Zip:'),HEADER('Zip'),PICTURE(@n05)
+[SCREENCONTROLS]
+! PROMPT('&Telephone:'),USE(?STU:Telephone:Prompt)
+! ENTRY(@s12),USE(STU:Telephone)
+[REPORTCONTROLS]
+! STRING(@s12),USE(STU:Telephone)
+Telephone                  STRING(12)
+!!> IDENT(10),PROMPT('&Telephone:'),HEADER('Telephone'),PICTURE(@s12)
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('Major:'),USE(?STU:Major:Prompt)
+! ENTRY(@n4),USE(STU:Major)
+[REPORTCONTROLS]
+! STRING(@n4),USE(STU:Major)
+Major                      LONG
+!!> IDENT(34),PROMPT('Major:'),HEADER('Major'),PICTURE(@n4)
+[SCREENCONTROLS]
+! PROMPT('Grad Year:'),USE(?STU:GradYear:Prompt)
+! ENTRY(@n4),USE(STU:GradYear)
+[REPORTCONTROLS]
+! STRING(@n4),USE(STU:GradYear)
+GradYear                   LONG
+!!> IDENT(94),PROMPT('Grad Year:'),HEADER('Grad Year'),PICTURE(@n4)
+                         END
+                       END
+
+Teachers FILE,DRIVER('TOPSPEED'),PRE(Tea),CREATE,THREAD
+!!> IDENT(6)
+[QUICKCODE]
+!NOPOPULATE
+KeyTeacherNumber KEY(Tea:Number),NOCASE,OPT
+!!> IDENT(7)
+KeyLastName KEY(Tea:LastName),DUP,NOCASE
+!!> IDENT(8)
+KeyDepartment KEY(Tea:Department),DUP,NOCASE,OPT
+!!> IDENT(24)
+Record                   RECORD
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('&Number:'),USE(?Tea:Number:Prompt)
+! ENTRY(@P###-##-####P),USE(Tea:Number),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@P###-##-####P),USE(Tea:Number),RIGHT(1)
+Number                     LONG
+!!> IDENT(45),PROMPT('&Number:'),HEADER('Number'),PICTURE(@P###-##-####P),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('&First Name:'),USE(?Tea:FirstName:Prompt)
+! ENTRY(@S20),USE(Tea:FirstName)
+[REPORTCONTROLS]
+! STRING(@S20),USE(Tea:FirstName)
+FirstName                  STRING(20)
+!!> IDENT(46),PROMPT('&First Name:'),HEADER('First Name'),PICTURE(@S20)
+[SCREENCONTROLS]
+! PROMPT('&Last Name:'),USE(?Tea:LastName:Prompt)
+! ENTRY(@S20),USE(Tea:LastName)
+[REPORTCONTROLS]
+! STRING(@S20),USE(Tea:LastName)
+LastName                   STRING(20)
+!!> IDENT(47),PROMPT('&Last Name:'),HEADER('Last Name'),PICTURE(@S20)
+[SCREENCONTROLS]
+! PROMPT('&Address:'),USE(?Tea:Address:Prompt)
+! ENTRY(@S20),USE(Tea:Address)
+[REPORTCONTROLS]
+! STRING(@S20),USE(Tea:Address)
+Address                    STRING(20)
+!!> IDENT(48),PROMPT('&Address:'),HEADER('Address'),PICTURE(@S20)
+[SCREENCONTROLS]
+! PROMPT('&City:'),USE(?Tea:City:Prompt)
+! ENTRY(@S20),USE(Tea:City)
+[REPORTCONTROLS]
+! STRING(@S20),USE(Tea:City)
+City                       STRING(20)
+!!> IDENT(49),PROMPT('&City:'),HEADER('City'),PICTURE(@S20)
+[SCREENCONTROLS]
+! PROMPT('&State:'),USE(?Tea:State:Prompt)
+! ENTRY(@S2),USE(Tea:State)
+[REPORTCONTROLS]
+! STRING(@S2),USE(Tea:State)
+State                      STRING(2)
+!!> IDENT(50),PROMPT('&State:'),HEADER('State'),PICTURE(@S2)
+[SCREENCONTROLS]
+! PROMPT('&Zip:'),USE(?Tea:Zip:Prompt)
+! ENTRY(@n05),USE(Tea:Zip)
+[REPORTCONTROLS]
+! STRING(@n05),USE(Tea:Zip)
+Zip                        LONG
+!!> IDENT(51),PROMPT('&Zip:'),HEADER('Zip'),PICTURE(@n05)
+[SCREENCONTROLS]
+! PROMPT('&Telephone:'),USE(?Tea:Telephone:Prompt)
+! ENTRY(@s12),USE(Tea:Telephone)
+[REPORTCONTROLS]
+! STRING(@s12),USE(Tea:Telephone)
+Telephone                  STRING(12)
+!!> IDENT(52),PROMPT('&Telephone:'),HEADER('Telephone'),PICTURE(@s12)
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('Department:'),USE(?Tea:Department:Prompt)
+! ENTRY(@n4),USE(Tea:Department)
+[REPORTCONTROLS]
+! STRING(@n4),USE(Tea:Department)
+Department                 LONG
+!!> IDENT(53),PROMPT('Department:'),HEADER('Department'),PICTURE(@n4)
+                         END
+                       END
+
+Classes FILE,DRIVER('TOPSPEED'),PRE(CLA),CREATE,THREAD
+!!> IDENT(8)
+KeyClassNumber KEY(CLA:ClassNumber),NOCASE,OPT
+!!> IDENT(11)
+KeyCourseNumber KEY(CLA:CourseNumber,CLA:ClassNumber),DUP,NOCASE
+!!> IDENT(12)
+KeyTeacherNumber KEY(CLA:TeacherNumber),DUP,NOCASE
+!!> IDENT(13)
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('&Class Number:'),USE(?CLA:ClassNumber:Prompt)
+! ENTRY(@P##-#####P),USE(CLA:ClassNumber),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@P##-#####P),USE(CLA:ClassNumber),RIGHT(1)
+ClassNumber                LONG
+!!> IDENT(63),PROMPT('&Class Number:'),HEADER('Class Number'),PICTURE(@P##-#####P),JUSTIFY(RIGHT,1)
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('&Course Number:'),USE(?CLA:CourseNumber:Prompt)
+! ENTRY(@n4),USE(CLA:CourseNumber),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n4),USE(CLA:CourseNumber),RIGHT(1)
+CourseNumber               LONG
+!!> IDENT(64),PROMPT('&Course Number:'),HEADER('Course Number'),PICTURE(@n4),JUSTIFY(RIGHT,1)
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('&Teacher Number:'),USE(?CLA:TeacherNumber:Prompt)
+! ENTRY(@p###-##-####p),USE(CLA:TeacherNumber),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@p###-##-####p),USE(CLA:TeacherNumber),RIGHT(1)
+TeacherNumber              LONG
+!!> IDENT(65),PROMPT('&Teacher Number:'),HEADER('Teacher Number'),PICTURE(@p###-##-####p),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Room Number:'),USE(?CLA:RoomNumber:Prompt)
+! ENTRY(@n4),USE(CLA:RoomNumber)
+[REPORTCONTROLS]
+! STRING(@n4),USE(CLA:RoomNumber)
+RoomNumber                 LONG
+!!> IDENT(87),PROMPT('Room Number:'),HEADER('Room Number'),PICTURE(@n4)
+[SCREENCONTROLS]
+! PROMPT('Scheduled Time:'),USE(?CLA:ScheduledTime:Prompt)
+! ENTRY(@s20),USE(CLA:ScheduledTime)
+[REPORTCONTROLS]
+! STRING(@s20),USE(CLA:ScheduledTime)
+ScheduledTime              STRING(20)
+!!> IDENT(88),PROMPT('Scheduled Time:'),HEADER('Scheduled Time'),PICTURE(@s20)
+                         END
+                       END
+
+Enrollment FILE,DRIVER('TOPSPEED'),PRE(ENR),CREATE,THREAD
+!!> IDENT(11)
+StuSeq KEY(ENR:StudentNumber),DUP,NOCASE,OPT
+!!> IDENT(18)
+SeqStu KEY(ENR:ClassNumber),DUP,NOCASE,OPT
+!!> IDENT(19)
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('&Student Number:'),USE(?ENR:StudentNumber:Prompt)
+! ENTRY(@p###-##-####p),USE(ENR:StudentNumber),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@p###-##-####p),USE(ENR:StudentNumber),RIGHT(1)
+StudentNumber              LONG
+!!> IDENT(82),PROMPT('&Student Number:'),HEADER('Student Number'),PICTURE(@p###-##-####p),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('&Class Number'),USE(?ENR:ClassNumber:Prompt)
+! ENTRY(@p##-#####p),USE(ENR:ClassNumber),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@p##-#####p),USE(ENR:ClassNumber),RIGHT(1)
+ClassNumber                LONG
+!!> IDENT(83),PROMPT('&Class Number'),HEADER('Class Number'),PICTURE(@p##-#####p),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Midterm Exam:'),USE(?ENR:MidtermExam:Prompt)
+! ENTRY(@n3),USE(ENR:MidtermExam)
+[REPORTCONTROLS]
+! STRING(@n3),USE(ENR:MidtermExam)
+MidtermExam                SHORT
+!!> IDENT(84),PROMPT('Midterm Exam:'),HEADER('Midterm Exam'),PICTURE(@n3)
+[SCREENCONTROLS]
+! PROMPT('Final Exam:'),USE(?ENR:FinalExam:Prompt)
+! ENTRY(@n3),USE(ENR:FinalExam)
+[REPORTCONTROLS]
+! STRING(@n3),USE(ENR:FinalExam)
+FinalExam                  SHORT
+!!> IDENT(85),PROMPT('Final Exam:'),HEADER('Final Exam'),PICTURE(@n3)
+[SCREENCONTROLS]
+! PROMPT('Term Paper:'),USE(?ENR:TermPaper:Prompt)
+! ENTRY(@n3),USE(ENR:TermPaper)
+[REPORTCONTROLS]
+! STRING(@n3),USE(ENR:TermPaper)
+TermPaper                  SHORT
+!!> IDENT(86),PROMPT('Term Paper:'),HEADER('Term Paper'),PICTURE(@n3)
+                         END
+                       END
+
+Courses FILE,DRIVER('TOPSPEED'),PRE(COU),CREATE,THREAD
+!!> IDENT(7)
+[QUICKCODE]
+!NOPOPULATE 
+KeyNumber KEY(COU:Number),NOCASE,OPT
+!!> IDENT(9)
+KeyDescription KEY(COU:Description),DUP,NOCASE
+!!> IDENT(10)
+[SCREENCONTROLS]
+! PROMPT('Complete Description:'),USE(?COU:CompleteDescription:Prompt)
+! TEXT,USE(COU:CompleteDescription)
+[REPORTCONTROLS]
+! TEXT,USE(COU:CompleteDescription)
+CompleteDescription        MEMO(1000)
+!!> IDENT(92),PROMPT('Complete Description:'),HEADER('Complete Description'),PICTURE(@s255)
+Record                   RECORD
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('&Number:'),USE(?COU:Number:Prompt)
+! ENTRY(@n4),USE(COU:Number),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n4),USE(COU:Number),RIGHT(1)
+Number                     LONG
+!!> IDENT(57),PROMPT('&Number:'),HEADER('Number'),PICTURE(@n4),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('&Description:'),USE(?COU:Description:Prompt)
+! ENTRY(@S30),USE(COU:Description)
+[REPORTCONTROLS]
+! STRING(@S30),USE(COU:Description)
+Description                STRING(40)
+!!> IDENT(58),PROMPT('&Description:'),HEADER('Description'),PICTURE(@S30)
+                         END
+                       END
+
+Majors FILE,DRIVER('TOPSPEED'),NAME('majors.tps'),PRE(MAJ),CREATE,THREAD
+!!> IDENT(10)
+KeyNumber KEY(MAJ:Number),NOCASE,OPT
+!!> IDENT(16)
+KeyDescription KEY(MAJ:Description),NOCASE,OPT
+!!> IDENT(17)
+Record                   RECORD
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('&Number:'),USE(?MAJ:Number:Prompt)
+! ENTRY(@n4),USE(MAJ:Number),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n4),USE(MAJ:Number),RIGHT(1)
+Number                     LONG
+!!> IDENT(77),PROMPT('&Number:'),HEADER('Number'),PICTURE(@n4),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('&Description:'),USE(?MAJ:Description:Prompt)
+! ENTRY(@S20),USE(MAJ:Description)
+[REPORTCONTROLS]
+! STRING(@S20),USE(MAJ:Description)
+Description                STRING(20)
+!!> IDENT(78),PROMPT('&Description:'),HEADER('Description'),PICTURE(@S20)
+                         END
+                       END
+
+
+[RELATIONS]
+
+                       RELATION,MANY:ONE,UPDATE(CASCADE),DELETE(RESTRICT)
+Teachers                 FILE(Tea:KeyDepartment)
+Majors                   RELATED_FILE(MAJ:KeyNumber)
+                         FILE_TO_RELATED_KEY
+                           FIELD(Tea:Department,MAJ:Number)
+                         END
+                         RELATED_FILE_TO_KEY
+                           FIELD(MAJ:Number,Tea:Department)
+                         END
+                       END
+
+                       RELATION,ONE:MANY,UPDATE(CASCADE),DELETE(RESTRICT)
+Courses                  FILE(COU:KeyNumber)
+Classes                  RELATED_FILE(CLA:KeyCourseNumber)
+                         FILE_TO_RELATED_KEY
+                           FIELD(COU:Number,CLA:CourseNumber)
+                           FIELD(NOLINK,CLA:ClassNumber)
+                         END
+                         RELATED_FILE_TO_KEY
+                           FIELD(CLA:CourseNumber,COU:Number)
+                         END
+                       END
+
+                       RELATION,MANY:ONE,UPDATE(CASCADE),DELETE(RESTRICT)
+Enrollment               FILE(ENR:StuSeq)
+Students                 RELATED_FILE(STU:KeyStudentNumber)
+                         FILE_TO_RELATED_KEY
+                           FIELD(ENR:StudentNumber,STU:Number)
+                         END
+                         RELATED_FILE_TO_KEY
+                           FIELD(STU:Number,ENR:StudentNumber)
+                         END
+                       END
+
+                       RELATION,ONE:MANY,UPDATE(CASCADE),DELETE(RESTRICT)
+Classes                  FILE(CLA:KeyClassNumber)
+Enrollment               RELATED_FILE(ENR:SeqStu)
+                         FILE_TO_RELATED_KEY
+                           FIELD(CLA:ClassNumber,ENR:ClassNumber)
+                         END
+                         RELATED_FILE_TO_KEY
+                           FIELD(ENR:ClassNumber,CLA:ClassNumber)
+                         END
+                       END
+
+                       RELATION,ONE:MANY,UPDATE(CASCADE),DELETE(RESTRICT)
+Teachers                 FILE(Tea:KeyTeacherNumber)
+Classes                  RELATED_FILE(CLA:KeyTeacherNumber)
+                         FILE_TO_RELATED_KEY
+                           FIELD(Tea:Number,CLA:TeacherNumber)
+                         END
+                         RELATED_FILE_TO_KEY
+                           FIELD(CLA:TeacherNumber,Tea:Number)
+                         END
+                       END
+
+                       RELATION,MANY:ONE,UPDATE(CASCADE),DELETE(RESTRICT)
+Students                 FILE(STU:MajorKey)
+Majors                   RELATED_FILE(MAJ:KeyNumber)
+                         FILE_TO_RELATED_KEY
+                           FIELD(STU:Major,MAJ:Number)
+                         END
+                         RELATED_FILE_TO_KEY
+                           FIELD(MAJ:Number,STU:Major)
+                           FIELD(NOLINK,STU:LastName)
+                           FIELD(NOLINK,STU:FirstName)
+                         END
+                       END
+

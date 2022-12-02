@@ -1,0 +1,238 @@
+[LIBRARY]
+VERSION(4001)
+ENDUSER('off')
+OPTION(0)
+
+[REPORTS]
+NameBadges REPORT,FONT('Arial',10),PRE(NameBadges),THOUS,AT(313,416,7874,10168),MARGINS(313,416,313,416) !Name Badges for General Assembly
+_REPORT_  BREAK
+_TOTALS_    BREAK
+Detail1       DETAIL,FIXED,FONT('Arial',8,0),AT(375,167,3375,2333)
+                BOX,LINEWIDTH(11),AT(12,17,3352,2296)
+                STRING(@S20),FONT(,20,,4796),SKIP,USE(STU:FirstName),AT(1177,469,2169)
+                STRING(@S20),FONT(,14),SKIP,USE(STU:LastName),AT(1187,896)
+                STRING(@n4),FONT(,14,,700),CENTER,SKIP,USE(STU:GradYear),AT(2250,2011,1093)
+                STRING('Major:'),FONT(,14),AT(83,1698)
+                STRING('Class of '),FONT(,14),AT(2412,1717)
+                STRING(@S20),FONT(,14),USE(MAJ:Description),AT(83,2011,2156)
+                STRING(@P###-##-####P),FONT(,12,,700),USE(STU:Number),AT(52,42,1427)
+                IMAGE,SKIP,USE(STU:Photo),AT(83,469,,675)
+              END
+            END
+          END
+        END
+Diploma REPORT,FONT('Arial',10),LANDSCAPE,PRE(Report6),THOUS,AT(1000,1000,9000,6500) !Example of using images on a detail band
+_REPORT_  BREAK
+_TOTALS_    BREAK
+Detail1       DETAIL,FONT('Arial',8,0),AT(0,0,,6500)
+                IMAGE('C:\CLARION6\EXAMPLES\RWTUTOR\SOLUTION\DIPLOMA.WMF'),AT(100,100,8858,6379)
+                STRING('University of Opportunity'),FONT('Arial',26,,4796),CENTER,AT(2200,800)
+                STRING('Awards A'),FONT(,20),CENTER,AT(3300,1500)
+                STRING('Bachelor of Common Sense'),FONT(,20),CENTER,AT(2400,2100)
+                STRING('To'),FONT(,20),AT(3700,2600)
+                STRING('This 30th Day of May 1996'),FONT(,14,,4796),AT(2100,5300,2760)
+                STRING(@s20),FONT(,20),CENTER,USE(FullName),AT(2350,3300)
+              END
+            END
+          END
+FullName FORMULA(@s30),VALUE('CLIP( STU:FirstName ) & '' '' & CLIP( STU:LastName )')
+        END
+Diploma1 REPORT,FONT('Arial',10),LANDSCAPE,PRE(Diploma1),THOUS,AT(1000,1000,9000,6500) !Example of using images on a page form band
+_REPORT_  BREAK
+_TOTALS_    BREAK
+Detail1       DETAIL,FONT('Times New Roman',12,0,400),AT(0,0,,5854)
+                STRING('Awards A'),FONT('Arial',20),CENTER,AT(3922,1800)
+                STRING('This 30th Day of May 1996'),FONT(,14,,4796),AT(1900,5100,2760)
+                STRING('University of Opportunity'),FONT('Arial',36,0,4796),AT(1495,700)
+                STRING('Bachelor of Common Sense'),FONT('Arial',20),CENTER,AT(2833,2366)
+                STRING('To'),FONT('Arial',16,,400),AT(4375,2932)
+                STRING(@s20),FONT('Arial',20),CENTER,USE(FullName),AT(2963,3500)
+              END
+            END
+          END
+          FORM,AT(1000,1000,,6500)
+            IMAGE('C:\CLARION6\EXAMPLES\RWTUTOR\SOLUTION\DIPLOMA.WMF'),AT(0,0,8896,6385)
+          END
+FullName FORMULA(@s20),VALUE('CLIP( STU:FirstName ) & '' '' & CLIP( STU:LastName )')
+        END
+
+[FILES]
+STUDENTS FILE,PRE(STU),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE
+KeyStudentNumber KEY(STU:Number),NOCASE,OPT
+MajorKey  KEY(STU:Major,STU:LastName,STU:FirstName),DUP,NOCASE,OPT
+KeyLastName KEY(STU:LastName),DUP,NOCASE
+KeyGradYear KEY(-STU:GradYear,STU:LastName,STU:FirstName),DUP,NOCASE,OPT
+Photo     MEMO(64000),BINARY
+__Record  RECORD
+Number      LONG,PICTURE(@P###-##-####P)
+FirstName   STRING(20),PICTURE(@S20)
+LastName    STRING(20),PICTURE(@S20)
+Address     STRING(20),PICTURE(@S20)
+Address2    STRING(20),PICTURE(@s20)
+City        STRING(20),PICTURE(@S20)
+State       STRING(2),PICTURE(@S2)
+Zip         LONG,PICTURE(@n05)
+Telephone   STRING(12),PICTURE(@s12)
+Major       LONG,PICTURE(@n4)
+GradYear    LONG,PICTURE(@n4)
+          END
+        END
+Teachers FILE,PRE(Tea),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE
+KeyTeacherNumber KEY(Tea:Number),NOCASE,OPT
+KeyLastName KEY(Tea:LastName),DUP,NOCASE
+KeyDepartment KEY(Tea:Department),DUP,NOCASE,OPT
+__Record  RECORD
+Number      LONG,PICTURE(@P###-##-####P)
+FirstName   STRING(20),PICTURE(@S20)
+LastName    STRING(20),PICTURE(@S20)
+Address     STRING(20),PICTURE(@S20)
+City        STRING(20),PICTURE(@S20)
+State       STRING(2),PICTURE(@S2)
+Zip         LONG,PICTURE(@n05)
+Telephone   STRING(12),PICTURE(@s12)
+Department  LONG,PICTURE(@n4)
+          END
+        END
+Classes FILE,PRE(CLA),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE
+KeyClassNumber KEY(CLA:ClassNumber),NOCASE,OPT
+KeyCourseNumber KEY(CLA:CourseNumber,CLA:ClassNumber),DUP,NOCASE
+KeyTeacherNumber KEY(CLA:TeacherNumber),DUP,NOCASE
+__Record  RECORD
+ClassNumber LONG,PICTURE(@P##-#####P)
+CourseNumber LONG,PICTURE(@n4)
+TeacherNumber LONG,PICTURE(@p###-##-####p)
+RoomNumber  LONG,PICTURE(@n4)
+ScheduledTime STRING(20),PICTURE(@s20)
+          END
+        END
+Enrollment FILE,PRE(ENR),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE
+StuSeq    KEY(ENR:StudentNumber),DUP,NOCASE,OPT
+SeqStu    KEY(ENR:ClassNumber),DUP,NOCASE,OPT
+__Record  RECORD
+StudentNumber LONG,PICTURE(@p###-##-####p)
+ClassNumber LONG,PICTURE(@p##-#####p)
+MidtermExam SHORT,PICTURE(@n3)
+FinalExam   SHORT,PICTURE(@n3)
+TermPaper   SHORT,PICTURE(@n3)
+          END
+        END
+Courses FILE,PRE(COU),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE
+KeyNumber KEY(COU:Number),NOCASE,OPT
+KeyDescription KEY(COU:Description),DUP,NOCASE
+CompleteDescription MEMO(1000)
+__Record  RECORD
+Number      LONG,PICTURE(@n4)
+Description STRING(40),PICTURE(@S30)
+          END
+        END
+Majors  FILE,PRE(MAJ),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE,NAME('majors.tps')
+KeyNumber KEY(MAJ:Number),NOCASE,OPT
+KeyDescription KEY(MAJ:Description),NOCASE,OPT
+__Record  RECORD
+Number      LONG,PICTURE(@n4)
+Description STRING(20),PICTURE(@S20)
+          END
+        END
+
+[RELATIONS]
+        RELATION,MANY:ONE
+Teachers  FILE(Tea:KeyDepartment)
+Majors    RELATED_FILE(MAJ:KeyNumber)
+          FILE_TO_RELATED_KEY
+            FIELD(Tea:Department,MAJ:Number)
+          END
+          RELATED_FILE_TO_KEY
+            FIELD(MAJ:Number,Tea:Department)
+          END
+        END
+        RELATION,ONE:MANY
+Courses   FILE(COU:KeyNumber)
+Classes   RELATED_FILE(CLA:KeyCourseNumber)
+          FILE_TO_RELATED_KEY
+            FIELD(COU:Number,CLA:CourseNumber)
+            FIELD(NOLINK,CLA:ClassNumber)
+          END
+          RELATED_FILE_TO_KEY
+            FIELD(CLA:CourseNumber,COU:Number)
+          END
+        END
+        RELATION,MANY:ONE
+Enrollment FILE(ENR:StuSeq)
+STUDENTS  RELATED_FILE(STU:KeyStudentNumber)
+          FILE_TO_RELATED_KEY
+            FIELD(ENR:StudentNumber,STU:Number)
+          END
+          RELATED_FILE_TO_KEY
+            FIELD(STU:Number,ENR:StudentNumber)
+          END
+        END
+        RELATION,ONE:MANY
+Classes   FILE(CLA:KeyClassNumber)
+Enrollment RELATED_FILE(ENR:SeqStu)
+          FILE_TO_RELATED_KEY
+            FIELD(CLA:ClassNumber,ENR:ClassNumber)
+          END
+          RELATED_FILE_TO_KEY
+            FIELD(ENR:ClassNumber,CLA:ClassNumber)
+          END
+        END
+        RELATION,ONE:MANY
+Teachers  FILE(Tea:KeyTeacherNumber)
+Classes   RELATED_FILE(CLA:KeyTeacherNumber)
+          FILE_TO_RELATED_KEY
+            FIELD(Tea:Number,CLA:TeacherNumber)
+          END
+          RELATED_FILE_TO_KEY
+            FIELD(CLA:TeacherNumber,Tea:Number)
+          END
+        END
+        RELATION,MANY:ONE
+STUDENTS  FILE(STU:MajorKey)
+Majors    RELATED_FILE(MAJ:KeyNumber)
+          FILE_TO_RELATED_KEY
+            FIELD(STU:Major,MAJ:Number)
+          END
+          RELATED_FILE_TO_KEY
+            FIELD(MAJ:Number,STU:Major)
+            FIELD(NOLINK,STU:LastName)
+            FIELD(NOLINK,STU:FirstName)
+          END
+        END
+
+[REPORTVIEWS]
+NameBadges VIEW(STUDENTS),FILTER('STU:LastName <<= ''Bagley'''),ORDER('UPPER(STU:LastName),STU:Number'),KEY(STU:KeyLastName)
+          JOIN(MAJ:KeyNumber,STU:Major)
+          END
+        END
+Diploma VIEW(STUDENTS),FILTER('STU:LastName = ''Babbitt'''),ORDER('UPPER(STU:LastName)'),KEY(STU:KeyLastName)
+        END
+Diploma1 VIEW(STUDENTS),FILTER('STU:LastName <<= ''Babin'''),ORDER('UPPER(STU:LastName)'),KEY(STU:KeyLastName)
+        END
+
+[SOURCES]
+        DICTIONARY,VERSION('1.0 r3'),DATE(71402),TIME(6517700),NAME('O:\COMMON\CWRW\RWTUTOR\SOLUTION\COLLEGE.TXD')
+
+[SEARCHPATHS]
+        PATH('DIPLOMA.WMF','C:\CLARION6\EXAMPLES\RWTUTOR\SOLUTION\')
+        PATH('DIPLOMA.WMF','C:\CW20\RWTUTOR\SOLUTION\')
+        PATH('STUDENTS.TPS','C:\CW20\RWTUTOR\SOLUTION\')
+        PATH('TEACHERS.TPS','C:\CW20\RWTUTOR\SOLUTION\')
+        PATH('CLASSES.TPS','C:\CW20\RWTUTOR\SOLUTION\')
+        PATH('ENROLLME.TPS','C:\CW20\RWTUTOR\SOLUTION\')
+        PATH('COURSES.TPS','C:\CW20\RWTUTOR\SOLUTION\')
+        PATH('MAJORS.TPS','C:\CW20\RWTUTOR\SOLUTION\')
+        PATH('STUDENTS.TPS','O:\COMMON\CWRW\RWTUTOR\SOLUTION\')
+        PATH('Teachers.TPS','O:\COMMON\CWRW\RWTUTOR\SOLUTION\')
+        PATH('Classes.TPS','O:\COMMON\CWRW\RWTUTOR\SOLUTION\')
+        PATH('Enrollme.TPS','O:\COMMON\CWRW\RWTUTOR\SOLUTION\')
+        PATH('Courses.TPS','O:\COMMON\CWRW\RWTUTOR\SOLUTION\')
+        PATH('majors.tps','O:\COMMON\CWRW\RWTUTOR\SOLUTION\')
+        PATH('STUDENTS.TPS','C:\CLARION6\EXAMPLES\RWTUTOR\SOLUTION\')
+        PATH('Teachers.TPS','C:\CLARION6\EXAMPLES\RWTUTOR\SOLUTION\')
+        PATH('Classes.TPS','C:\CLARION6\EXAMPLES\RWTUTOR\SOLUTION\')
+        PATH('Enrollme.TPS','C:\CLARION6\EXAMPLES\RWTUTOR\SOLUTION\')
+        PATH('Courses.TPS','C:\CLARION6\EXAMPLES\RWTUTOR\SOLUTION\')
+        PATH('majors.tps','C:\CLARION6\EXAMPLES\RWTUTOR\SOLUTION\')
+
+[EXTERNALS]
+

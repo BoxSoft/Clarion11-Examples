@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+# Clarion 2.1.0.2447
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "CacheInMemABC", "CacheInMemABC.cwproj", "{A6D0B16A-3DE2-4ECD-8D58-4E1CD27CB8E4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{{2150E333-8FDC-42A3-9474-1A3956D46DE8}}"
+	ProjectSection(SolutionItems) = postProject
+		CacheInMemABC.app = CacheInMemABC.app
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6D0B16A-3DE2-4ECD-8D58-4E1CD27CB8E4}.Debug|Win32.Build.0 = Debug|Win32
+		{A6D0B16A-3DE2-4ECD-8D58-4E1CD27CB8E4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A6D0B16A-3DE2-4ECD-8D58-4E1CD27CB8E4}.Release|Win32.Build.0 = Release|Win32
+		{A6D0B16A-3DE2-4ECD-8D58-4E1CD27CB8E4}.Release|Win32.ActiveCfg = Release|Win32
+	EndGlobalSection
+EndGlobal

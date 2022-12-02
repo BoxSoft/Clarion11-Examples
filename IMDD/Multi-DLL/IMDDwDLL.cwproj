@@ -1,0 +1,77 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{E0805F2D-C923-493A-AADD-12FFA78BECB4}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>IMDDwDLL</AssemblyName>
+    <OutputName>IMDDwDLL</OutputName>
+    <DefineConstants>_ABCDllMode_=&gt;1%3b_ABCLinkMode_=&gt;0</DefineConstants>
+    <Model>Dll</Model>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <vid>off</vid>
+    <check_stack>False</check_stack>
+    <check_index>False</check_index>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="IMDDwDLL.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IMDDwDLL001.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IMDDwDLL002.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IMDDwDLL003.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IMDDwDLL004.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IMDDwDLL005.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IMDDwDLL006.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IMDDwDLL007.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IMDDwDLL008.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IMDDwDLL009.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IMDDwDLL010.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IMDDwDLL011.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="IMDDwDLL012.clw">
+      <Generated>true</Generated>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="data.cwproj">
+      <Project>{79133B76-248E-43E6-AE5C-D60E37271814}</Project>
+      <Name>data</Name>
+      <Generated>True</Generated>
+    </ProjectReference>
+    <FileDriver Include="MEMORY" />
+    <Library Include="IMDDwDLL.EXE.manifest" />
+  </ItemGroup>
+  <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
+</Project>

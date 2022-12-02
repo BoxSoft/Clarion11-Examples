@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dictionary Name="tmpSqlScriptor" Version="1" StructureChecked="1" DctxFormat="4">
+	<DictionaryVersion Version="1" Description="Initial version"/>
+	<Table Guid="{ca114bbc-5a95-44fd-8f23-01a91484f5b7}" Name="sqlTable" Description="Table used to run the SQL script.  Change the driver to run the script against a different SQL engine" Prefix="sql" Driver="SQLite" DriverOption="/TURBOSQL=TRUE">
+		<Audit CreateUser="Administrator" CreateDate=" 5 JUL 2012" CreateTime=" 4:05:46PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="21 APR 2013" ModifiedTime=" 8:20:02PM" ModifiedVersionNumber="1"/>
+	</Table>
+</Dictionary>
+

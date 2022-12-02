@@ -1,0 +1,165 @@
+[LIBRARY]
+VERSION(4001)
+ENDUSER('off')
+OPTION(0)
+
+[REPORTS]
+RelationalReport REPORT,FONT('Arial',10),PRE(RelationalReport),THOUS,AT(1000,1000,6500,7832),MARGINS(1000,1000,1000,1584) !Creating the Enrollment Report by User Defined Relations
+_REPORT_  BREAK
+            HEADER,ALONE,ABSOLUTE,AT(1000,1000,,9416)
+              TEXT('Enrollment Report'),FONT('Times New Roman',20,0,4796),CENTER,RESIZE,AT(2166,3000,2166,3000)
+            END
+_TOTALS_    BREAK
+_BREAK1       BREAK(COU:DESCRIPTION)
+                HEADER,COLOR(12632256),FONT('Arial',10,0,700),PAGEBEFORE(-1),AT(0,0,,834)
+                  STRING(@s40),FONT(,20),USE(COU:DESCRIPTION),AT(-2,0)
+                  TEXT,RESIZE,USE(COU:COMPLETEDESCRIPTION),AT(1798,413,4702,417)
+                END
+_BREAK2         BREAK(CLA:ClassNumber)
+                  HEADER,FONT('Arial',10,0,700),AT(0,0,,1565)
+                    GROUP('Class'),BOXED,AT(813,73,1594,1084)
+                    END
+                    GROUP('Teacher'),BOXED,AT(4458,124,1594,1021)
+                    END
+                    STRING(@n-13),USE(CLA:ClassNumber),AT(1021,343)
+                    STRING(@n-13),USE(CLA:TeacherNumber),AT(4671,843)
+                    STRING(@n-13),USE(CLA:RoomNumber),AT(1021,588)
+                    STRING(@s20),USE(CLA:ScheduledTime),AT(1021,833,1094)
+                    STRING('Student Number'),AT(1050,1252)
+                    STRING('Midterm Exam'),AT(2323,1252)
+                    STRING('Final Exam'),AT(3481,1252)
+                    STRING('Term Paper'),AT(4431,1252)
+                    STRING(@s20),USE(TEA:LastName),AT(4671,406,1208)
+                    STRING(@s20),USE(TEA:FirstName),AT(4671,624,1208)
+                    STRING('Final Grade'),AT(5417,1252)
+                    LINE,LINEWIDTH(15),AT(1000,1420,5500,0)
+                  END
+Detail1           DETAIL,FONT('Arial',8,0),AT(0,0,,253),IF('NOT EMPTY( ''ENROLLME'' )')
+                    STRING(@n-13),USE(ENR:StudentNumber),AT(1050,0,1073)
+                    STRING(@n-6),USE(ENR:MidtermExam),AT(2323,0,958)
+                    STRING(@n-6),USE(ENR:FinalExam),AT(3481,0,750)
+                    STRING(@n-6),USE(ENR:TermPaper),AT(4431,0,781)
+                    STRING(@s20),USE(STU:LastName),AT(31,0,948)
+                    STRING(@n5.2),USE(FinalGrade),AT(5413,0,739)
+                    LINE,LINEWIDTH(10),AT(10,142,6490,0)
+                  END
+                  FOOTER,WITHPRIOR(1),AT(0,0,,459)
+                    STRING(@n5),USE(Cnt_StudentNumber_2),AT(177,129)
+                    STRING('Students Enrolled'),AT(729,129,1625)
+                    STRING(@D1),USE(mytoday),AT(4073,129)
+                    STRING(@D1),USE(mytoday),AT(4844,129)
+                  END
+                END
+                FOOTER,WITHPRIOR(1),AT(0,0,,448)
+                  STRING(@n5),USE(Cnt_StudentNumber),AT(156,108)
+                  STRING('Students Enrolled'),AT(708,108)
+                END
+              END
+            END
+          END
+          FOOTER,FONT('Times New Roman',9,0,4796),AT(1000,8832,,584)
+            STRING('Page '),AT(5833,292)
+            STRING(@n5),PAGENO,AT(6114,292)
+          END
+Cnt_StudentNumber TOTAL(@n5),RESET(_BREAK1),CNT,USE(ENR:StudentNumber) !Count of ENR:StudentNumber
+Cnt_StudentNumber_2 TOTAL(@n5),RESET(_BREAK2),CNT,USE(ENR:StudentNumber) !Count of ENR:StudentNumber
+FinalGrade FORMULA(@n5.2),VALUE('ENR:MidtermExam *0.25 + ENR:FinalExam *0.25 + ENR:TermPaper *0.50') !25% MidTerm + 25% FinalExam + 50% TermPaper
+mytoday FORMULA(@D1),VALUE('TODAY()')
+        END
+
+[FILES]
+Courses FILE,PRE(COU),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE,NAME('C:\CW20\RWTUTOR\COURSES.TPS')
+KeyNumber KEY(COU:Number),NOCASE,OPT
+KeyDescription KEY(COU:Description),DUP,NOCASE
+CompleteDescription MEMO(1000)
+__Record  RECORD
+Number      LONG
+Description STRING(40)
+          END
+        END
+Classes FILE,PRE(CLA),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE,NAME('C:\CW20\RWTUTOR\CLASSES.TPS')
+KeySequenceNumber KEY(CLA:ClassNumber),NOCASE,OPT
+KeyCourseNumber KEY(CLA:CourseNumber,CLA:ClassNumber),DUP,NOCASE
+KeyTeacherNumber KEY(CLA:TeacherNumber),DUP,NOCASE
+__Record  RECORD
+ClassNumber LONG
+CourseNumber LONG
+TeacherNumber LONG
+RoomNumber  LONG
+ScheduledTime STRING(20)
+          END
+        END
+ENROLLME FILE,PRE(ENR),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE,NAME('C:\CW20\RWTUTOR\ENROLLME.TPS')
+StuSeq    KEY(ENR:StudentNumber),DUP,NOCASE,OPT
+SeqStu    KEY(ENR:ClassNumber),DUP,NOCASE,OPT
+__Record  RECORD
+StudentNumber LONG
+ClassNumber LONG
+MidtermExam SHORT
+FinalExam   SHORT
+TermPaper   SHORT
+          END
+        END
+Teachers FILE,PRE(Tea),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE,NAME('C:\CW20\RWTUTOR\TEACHERS.TPS')
+KeyTeacherNumber KEY(Tea:Number),NOCASE,OPT
+KeyLastName KEY(Tea:LastName),DUP,NOCASE
+KeyDepartment KEY(Tea:Department),DUP,NOCASE,OPT
+__Record  RECORD
+Number      LONG
+FirstName   STRING(20)
+LastName    STRING(20)
+Address     STRING(20)
+City        STRING(20)
+State       STRING(2)
+Zip         LONG
+Telephone   STRING(12)
+Department  LONG
+          END
+        END
+STUDENTS FILE,PRE(STU),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE,NAME('C:\CW20\RWTUTOR\STUDENTS.TPS')
+KeyStudentNumber KEY(STU:Number),NOCASE,OPT
+MajorKey  KEY(STU:Major,STU:LastName,STU:FirstName),DUP,NOCASE,OPT
+KeyLastName KEY(STU:LastName),DUP,NOCASE
+KeyGradYear KEY(-STU:GradYear,STU:LastName,STU:FirstName),DUP,NOCASE,OPT
+Photo     MEMO(64000),BINARY
+__Record  RECORD
+Number      LONG
+FirstName   STRING(20)
+LastName    STRING(20)
+Address     STRING(20)
+Address2    STRING(20)
+City        STRING(20)
+State       STRING(2)
+Zip         LONG
+Telephone   STRING(12)
+Major       LONG
+GradYear    LONG
+          END
+        END
+
+[RELATIONS]
+
+[REPORTVIEWS]
+RelationalReport VIEW(Courses),ORDER('UPPER(COU:DESCRIPTION),COU:NUMBER,CLA:ClassNumber'),KEY(COU:KEYDESCRIPTION)
+          JOIN(Classes,'CLA:CourseNumber=COU:NUMBER'),CHILD
+            JOIN(ENROLLME,'ENR:ClassNumber=CLA:ClassNumber'),CHILD
+              JOIN(STUDENTS,'STU:Number=ENR:StudentNumber')
+              END
+            END
+            JOIN(Teachers,'TEA:Number=CLA:TeacherNumber')
+            END
+          END
+        END
+
+[SOURCES]
+
+[SEARCHPATHS]
+        PATH('COURSES.TPS','C:\CLARION6\EXAMPLES\RWTUTOR\SOLUTION\')
+        PATH('CLASSES.TPS','C:\CLARION6\EXAMPLES\RWTUTOR\SOLUTION\')
+        PATH('ENROLLME.TPS','C:\CLARION6\EXAMPLES\RWTUTOR\SOLUTION\')
+        PATH('TEACHERS.TPS','C:\CLARION6\EXAMPLES\RWTUTOR\SOLUTION\')
+        PATH('STUDENTS.TPS','C:\CLARION6\EXAMPLES\RWTUTOR\SOLUTION\')
+        PATH('COURSES.TPS','C:\DEV\CLAR\EXAMPLES\XMLIMP~1\IMPORT~1\')
+
+[EXTERNALS]
+

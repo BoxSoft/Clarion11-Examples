@@ -1,0 +1,18 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+# Clarion 2.1.0.2447
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "WebRequest", "WebRequest.cwproj", "{2A0C1A92-A272-4AB6-A7F2-ABB4273CD5DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A0C1A92-A272-4AB6-A7F2-ABB4273CD5DC}.Debug|Win32.Build.0 = Debug|Win32
+		{2A0C1A92-A272-4AB6-A7F2-ABB4273CD5DC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2A0C1A92-A272-4AB6-A7F2-ABB4273CD5DC}.Release|Win32.Build.0 = Release|Win32
+		{2A0C1A92-A272-4AB6-A7F2-ABB4273CD5DC}.Release|Win32.ActiveCfg = Release|Win32
+	EndGlobalSection
+EndGlobal

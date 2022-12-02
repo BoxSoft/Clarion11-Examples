@@ -1,0 +1,28 @@
+-- 
+#noedit
+#system win32
+#model clarion dll
+#pragma debug(vid=>full)
+#compile "RTFdemo.clw"
+#pragma link("ttffont.ico")
+#pragma link("bmpfont.ico")
+#pragma link("openfont.ico")
+#pragma link("PRNFONT.ICO")
+#pragma link("color.ico")
+#pragma link("yellow.bmp")
+#pragma link("aqua.bmp")
+#pragma link("black.bmp")
+#pragma link("blue.bmp")
+#pragma link("fuschia.bmp")
+#pragma link("gray.bmp")
+#pragma link("green.bmp")
+#pragma link("lime.bmp")
+#pragma link("maroon.bmp")
+#pragma link("navy.bmp")
+#pragma link("olive.bmp")
+#pragma link("purple.bmp")
+#pragma link("red.bmp")
+#pragma link("silver.bmp")
+#pragma link("teal.bmp")
+#pragma link("white.bmp")
+#link "RTFdemo.exe"

@@ -1,0 +1,18 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+# Clarion 2.1.0.2447
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "RWDEMO5", "RWDEMO5.cwproj", "{B8FF3E7E-9CDA-4DC0-9376-B3EE1FB3FB0A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B8FF3E7E-9CDA-4DC0-9376-B3EE1FB3FB0A}.Debug|Win32.Build.0 = Debug|Win32
+		{B8FF3E7E-9CDA-4DC0-9376-B3EE1FB3FB0A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B8FF3E7E-9CDA-4DC0-9376-B3EE1FB3FB0A}.Release|Win32.Build.0 = Release|Win32
+		{B8FF3E7E-9CDA-4DC0-9376-B3EE1FB3FB0A}.Release|Win32.ActiveCfg = Release|Win32
+	EndGlobalSection
+EndGlobal

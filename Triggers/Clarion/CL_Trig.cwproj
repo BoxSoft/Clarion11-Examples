@@ -1,0 +1,70 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{6451C1A6-572D-4EB7-A11D-29F62728F002}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>CL_Trig</AssemblyName>
+    <OutputName>CL_Trig</OutputName>
+    <DefineConstants>_ABCDllMode_=&gt;0%3b_ABCLinkMode_=&gt;1</DefineConstants>
+    <Model>Dll</Model>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <vid>off</vid>
+    <check_stack>False</check_stack>
+    <check_index>False</check_index>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="CL_Trig.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="CL_Trig001.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="CL_Trig002.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="CL_Trig003.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="CL_Trig004.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="CL_Trig005.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="CL_Trig006.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="CL_TrigT0.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="CL_Tr_RD.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="CL_Tr_RU.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="CL_Tr_SF.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="ResCode.Clw">
+      <Generated>true</Generated>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <FileDriver Include="ASCII" />
+    <FileDriver Include="TOPSPEED" />
+    <Library Include="CL_Trig.EXE.manifest" />
+  </ItemGroup>
+  <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
+</Project>

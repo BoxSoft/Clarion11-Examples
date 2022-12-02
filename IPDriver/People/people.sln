@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+# Clarion 2.1.0.2447
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "people", "people.cwproj", "{1E68CF61-4B98-484F-8894-E816F914596D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{{2150E333-8FDC-42A3-9474-1A3956D46DE8}}"
+	ProjectSection(SolutionItems) = postProject
+		people.app = people.app
+		IP_people.app = IP_people.app
+	EndProjectSection
+EndProject
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "IP_people", "IP_people.cwproj", "{440F7427-B790-478C-84EA-61232A8B73D0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E68CF61-4B98-484F-8894-E816F914596D}.Debug|Win32.Build.0 = Debug|Win32
+		{1E68CF61-4B98-484F-8894-E816F914596D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1E68CF61-4B98-484F-8894-E816F914596D}.Release|Win32.Build.0 = Release|Win32
+		{1E68CF61-4B98-484F-8894-E816F914596D}.Release|Win32.ActiveCfg = Release|Win32
+		{440F7427-B790-478C-84EA-61232A8B73D0}.Debug|Win32.Build.0 = Debug|Win32
+		{440F7427-B790-478C-84EA-61232A8B73D0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{440F7427-B790-478C-84EA-61232A8B73D0}.Release|Win32.Build.0 = Release|Win32
+		{440F7427-B790-478C-84EA-61232A8B73D0}.Release|Win32.ActiveCfg = Release|Win32
+	EndGlobalSection
+EndGlobal

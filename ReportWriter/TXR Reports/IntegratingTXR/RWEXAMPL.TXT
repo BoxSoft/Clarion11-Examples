@@ -1,0 +1,409 @@
+CWRW - Preliminary Documentation
+========================================
+
+The following is a brief description of functional changes between CWRW
+version 2003 and the latest Clarion for Windows product. The documentation 
+is not intended to be exhaustive and is subject to change, but taken together 
+with the provided examples hopefully it will explain some of the key new concepts.
+
+Most of the changes to RW are in the print engine to enable it to be
+easily driven 'programmatically' as a DLL. However there are a few
+small (but hopefully useful) enhancements to the design side.
+The print engine is also now supported for both 16 bit (C%V%PRINT.EXE) and
+32 bit (C%V%PRINTX.EXE). The print library DLL is also 16 bit (C%V%PRLIB.DLL)
+and 32 bit (C%V%PRLBX.DLL).
+
+1) Print Engine Library
+It is now possible to call the ReportWriter Print Engine directly as a
+DLL in order to print reports (previously C5PRINT needed to be
+executed). A simple Class based interface is provided that enables
+a) Report libraries (i.e. TXR files) to be read and reports printed.
+b) The report preview to be replaced by user code.
+c) The record fetch mechanism to be tailored to user requirements.
+There is one class 'ReportEngine' defined in RWPRLIB.INC which handles
+all the above. To show how easy it can be to print a report the following
+is a full program that prints Report1 from RWDEMO1.TXR.
+
+  PROGRAM
+  MAP
+  .
+  INCLUDE('RWPRLIB.INC')
+RE   ReportEngine
+     CODE
+       RE.LoadReportLibrary('RWDEMO1.TXR')
+       RE.PrintReport('Report1')
+
+ReportEngine Methods
+--------------------
+
+-----------------------------------------------------------------------------
+LoadReportLibrary   FUNCTION(STRING txrname,<STRING password>),SIGNED,PROC,VIRTUAL
+-----------------------------------------------------------------------------
+This must be called before a report is printed or any parameter to the
+engine is set. The parameters are:
+txrname - the filename of the report library containing the report(s) that
+          need to be printed.
+          Note that only one ReportLibrary can be loaded for each
+          ReportEngine object (loading a TXR unloads any TXRs previously
+          loaded within that object).
+password - (optional) this specifies the password if the TXR requires it.
+
+The return value is TRUE if the TXR loaded correctly with no errors.
+
+-----------------------------------------------------------------------------
+PrintReport         FUNCTION(STRING rptname),SIGNED,PROC,VIRTUAL
+-----------------------------------------------------------------------------
+This is called to actually print a report, either directly to the printer
+or via a preview dialog if SetPreview has been previously called.
+The parameter rptname specifies the name of the report (defined when
+you create the report in report writer) or the report number. e.g.
+  RE.PrintReport('TestReport')
+or
+  RE.PrintReport(1)
+The return value is TRUE if there were no errors during printing.
+
+-----------------------------------------------------------------------------
+UnloadReportLibrary PROCEDURE(),VIRTUAL
+-----------------------------------------------------------------------------
+This frees resources allocated to a report library and clears any parameters
+set. It generally need not be called as it is automatically invoked
+by either loading a new report library or when the ReportEngine object is
+freed (for example at program termination for global objects).
+
+The following methods deal with setting the parameters used to determine
+how the report is printed. They must be called *after* LoadReportLibrary
+and *before* PrintReport. The values of parameters set persists until
+a new report library is loaded or UnloadReportLibrary is called.
+-----------------------------------------------------------------------------
+SetVariable         PROCEDURE(STRING varname,STRING value),VIRTUAL
+-----------------------------------------------------------------------------
+This sets the value of a runtime variable (see main RW documentation for a
+description of the usage of these).
+varname - is the name of the runtime variable.
+value - is the value to assign to that variable
+(See also external below for details on how to use bound functions and
+strings within reports)
+
+-----------------------------------------------------------------------------
+SetPreview          PROCEDURE(SIGNED numpages=-1),VIRTUAL
+-----------------------------------------------------------------------------
+This defines whether a preview dialog is to be displayed before printing
+actually begins.
+If numpages is omitted (or negative) then preview is enabled for all pages
+of report. If numpages is 0 the preview is disabled (default after loading
+a report library). If numpages is positive then only that number of pages will
+be displayed in the preview (although all pages will be printed).
+
+-----------------------------------------------------------------------------
+SetPrinter          PROCEDURE(STRING printdef),VIRTUAL
+-----------------------------------------------------------------------------
+This defines the printer definition used to print the report. See
+the main RW documentation for the '/D' parameter for a full description
+of this
+
+-----------------------------------------------------------------------------
+SetPageRange        PROCEDURE(LONG frompage=-1,LONG topage=-1),VIRTUAL
+-----------------------------------------------------------------------------
+This defines the page range to print, i.e. from frompage to topage
+if topage is omitted then pages are printed to the end of the report.
+The default on loading a report library is print all pages.
+
+-----------------------------------------------------------------------------
+SetNumberOfCopies   PROCEDURE(LONG numcopies),VIRTUAL
+-----------------------------------------------------------------------------
+This defines the number of copies (in numcopies) of the report to print.
+This may not be supported on all printers.
+The default on loading a report library is to print 1 copy.
+
+
+-----------------------------------------------------------------------------
+SetNextPageNumber   PROCEDURE(LONG pagenum),VIRTUAL
+-----------------------------------------------------------------------------
+This defines the value printed for the first and following (sequentially increasing)
+page numbers. This allows to reports to be printed using sequential
+page numbering.
+
+-----------------------------------------------------------------------------
+GetNextPageNumber   FUNCTION(),LONG,VIRTUAL
+-----------------------------------------------------------------------------
+This unlike the previous functions, must be called immediately *after*
+calling PrintReport and returns the next page number that would
+have been printed (i.e. one more than the last page printed).
+This is useful when used in conjunction with SetNextPageNumber.
+
+-----------------------------------------------------------------------------
+SetReportFilter       PROCEDURE(STRING rptname,STRING filter)
+-----------------------------------------------------------------------------
+This allows the filter expression to be overridden for the specified
+report. rptname must contain the name/number specifying the report
+(as in PrintReport). 'Filter' contains the new value for the filter.
+e.g.
+    C.SetReportFilter('Report1','demo:Major<<=3')
+
+The report filter set remains in effect until the report library
+is unloaded
+
+-----------------------------------------------------------------------------
+SetReportOrder        PROCEDURE(STRING rptname,STRING order)
+-----------------------------------------------------------------------------
+This allows the sort order of a report to be overridden for the specified
+report. rptname must contain the name/number specifying the report
+(as in PrintReport). 'order' contains the new value for the sort order.
+(See Clarion Language Reference Manual, Views/ORDER for a description
+of the order string format)
+e.g.
+    C.SetReportOrder('Report1','UPPER(demo:FirstName)')
+
+The report order set remains in effect until the report library
+is unloaded.
+
+The following are for more advanced printing of reports, by
+taking over one or more of the report engines functions.
+You will probable need to look at the supplied examples to get
+a full idea of how to use these techniques.
+
+Replacing Print Preview
+-------------------------
+This is achieved by 'taking over' the virtual PrintHook for
+your own class. e.g.
+
+MyEngine CLASS(ReportEngine)
+PrintHook           FUNCTION(),SIGNED,VIRTUAL
+         END
+
+Semantics of PrintHook:
+PrintHook is called from within PrintReport after the report definition
+is created. It is PrintHooks job to read the data from the file(s) and
+then print the details to the report. It does this by calling the
+following three helper functions:
+
+Reset               FUNCTION(),LONG,VIRTUAL ! returns records to process
+Next                FUNCTION(),BYTE,VIRTUAL ! returns Level:Notify when finished
+PrintAction         PROCEDURE(),VIRTUAL     ! called after next
+EndReport           PROCEDURE(),VIRTUAL     ! call to close report
+
+and using the following fields of the ReportEngine class:
+
+ReportName          STRING(FILE:MaxFilePath)
+Report              &WINDOW
+View                &VIEW
+PagesToPreview      LONG                    ! 0  = no preview
+                                            ! -1 = all pages
+
+(NB These methods and fields are *only* available during the PrintHook
+call - they are cannot be validly used at any other time)
+
+e.g. The simplest printhook implementation (without preview) would be:
+
+MyEngine.PrintHook           FUNCTION(),SIGNED,VIRTUAL
+  CODE
+    LOOP
+      SELF.Reset()                            ! Reset files/view
+      LOOP
+        CASE SELF.Next()                      ! Record fetch
+        OF Level:Notify
+          RETURN TRUE
+        OF Level:Fatal
+          RETURN FALSE
+        END
+        SELF.PrintAction()                    ! Print detail(s)
+      END
+    END
+    SELF.EndReport()                          ! Close the report
+
+This cycles through the records calling PrintAction for every
+record fetch.
+
+To include print preview the code is considerably more complex so
+to make it easier the AB Classes can be used namely ABBROWSE and ABREPORT.
+You should look at RWDEMO2.CLW for a model implementation including
+the handling of the 'progress' window.
+
+Replacing Record Fetch
+-------------------------
+For the advanced control of reports the record fetch helper routines
+Reset and Next can be overridden in a class derived from ReportEngine.
+This powerful engine allows for database access that cannot be specified
+using views. By using bound functions and variables it is possible
+to divorce the report from any database access entirely! (see RWDEMO5.CLW
+for an example of replacing Reset and Next and using this to print the
+contents of a QUEUE).
+
+Semantics of Reset and Next
+Reset must initialize the file access so that the subsequent call to
+      Next will return the first record that is to printed. It should return
+      the number of records to print (if known) or -1 if not known (or expensive
+      to calculate).
+Next  must fetch the next record to make it available for printing (via
+      PrintAction). It must return Level:Benign if succesful. Level:Notify if
+      no more records are available or Level:Fatal if there has been an
+      error.
+
+Other Micellaneous Hooks
+-----------------------------------------------------------------------------
+AttachOpenFile      FUNCTION(STRING label),*FILE,VIRTUAL
+-----------------------------------------------------------------------------
+
+This can be overridden to allow an (open) file to replace the file
+specified in the report library. The label passed is the name of the file
+to replace. The function should return the FILE if it is required to be
+replaced, or should 'pass-on' the call to PARENT.AttachOpenFile if not.
+e.g. (from RWDEMO4.CLW)
+
+MyEngine. CLASS(ReportEngine)
+AttachOpenFile    FUNCTION(STRING label),*FILE,VIRTUAL ! To attach my own file
+  .
+
+MyEngine.AttachOpenFile    FUNCTION(STRING label)
+  CODE
+    IF label='students' THEN                ! file we which to override
+      RETURN demofile                       ! My file
+    END
+    RETURN Parent.AttachOpenFile(label)     ! leave others default
+
+
+Note the following:
+a) This function need only be called in special cases (i.e. where the
+file to print is different from the file specified in the report library)
+b) You must ensure the FILE returned is already OPEN (i.e. it will not
+be opened by the print engine)
+c) If the file definition is different to the original file specified in
+the report, then the all field names used must match in name *and* prefix.
+If the name and prefix do not match then you will need to BIND the fields
+used (see RWDEMO4.CLW for an example of this).
+
+
+-----------------------------------------------------------------------------
+ResolveVariableFilename FUNCTION (STRING vname,*STRING value),SIGNED,VIRTUAL
+-----------------------------------------------------------------------------
+
+This can be used to resolve 'variable filenames' i.e. filenames that were
+specified to be variables in the dictionary used to create a report library.
+This can be used to avoid the dialog prompting for the variable name.
+For example if the filename is specified as '!avariable' then:
+
+MyEngine. CLASS(ReportEngine)
+ResolveVariableFilename FUNCTION (STRING vname,*STRING value),SIGNED,VIRTUAL
+  .
+
+MyEngine.ResolveVariableFilename FUNCTION (STRING vname,*STRING value)
+  CODE
+    IF label='!avariable' THEN
+      value = 'c:\examples\test.tps'
+      RETURN TRUE
+    END
+    RETURN FALSE;
+
+The routine must return TRUE if the variable name has been recognized and
+value set to the filename otherwise it should return FALSE.
+
+-----------------------------------------------------------------------------
+ReadReportLibrary   FUNCTION(*CSTRING buffer,USHORT count),SHORT,VIRTUAL !returns amount read
+-----------------------------------------------------------------------------
+This can be overridden to load the report library for somewhere other than
+a TXR file (for example from a database).
+The function will be called by LoadReportLibrary to read the library in
+chunks (i.e. < 64K). A derived ReadReportLibrary should copy the
+contents of the report library into the supplied buffer and return
+the amount read. When the library has been fully read the function should
+return 0.
+
+Using your program defined Variables and Functions
+
+
+
+2) Changes to ReportWriter (C5RW.EXE)
+=====================================
+
+Choose Function
+---------------
+
+There is now a CHOOSE standard function available to formulae
+which allows the equivalent of 'case' statements within formulae.
+The first parameter is the index and the result is the parameter 'chosen'
+from the following parameters. If the choice is 'out of range' then
+the final parameter is returned. For example
+  CHOOSE(f:dow,'Mo','Tu','We','Th','Fr','Sa','Su','??').
+would return 'Tu' if the value of f:dow is 2 and '??' if f:dow
+is not in the range 1 to 7.
+Choose may have up to 25 parameters (if more are required then formulae may
+be chained: e.g.
+  CHOOSE(v,a,b,CHOOSE(v,c,d))
+
+Evaluate Function
+-----------------
+The EVALUATE standard function has been added which when used within a formula
+(re-)evaluates a string as an expression and returns the result as a string.
+This can be very useful when passing through user expressions to
+the report engine.
+An example is passing filters into runtime variables.
+e.g. filterexpr = 'EVALUATE(s)' where s is a runtime
+variable containing any expression (e.g. 'fil:dow=2')
+
+
+
+External Functions and Variables
+--------------------------------
+It is now possible to connect user functions and variables contained
+within Clarion DLLs to formulae called by reports.
+To create a external link, first you invoke Externals... from either
+the File menu when the report library is open, but you are not in
+design mode, or from the Report menu if you are designing the report.
+This will bring up a dialog where you can add new 'externals'.
+Adding a new external you should press 'New External' and you will be
+prompted to enter:
+
+     Label - this is the name of the function or variable in the formula
+
+     Description - this is what is displayed in the file schematic (see below)
+
+     Function - check this if the external is a function
+                uncheck if the external is a variable
+
+     either Number of parameters (for functions)
+     or     String size (for variables)
+            NB external functions can have between 0 and 16 parameters
+            which all must be STRING. The result type of an external function
+            is always STRING.
+            External variables must be of type STRING and their size must
+            match that specified.
+
+     DLL name - This specifies the DLL that the function/variable is
+            implemented. Only the tailname of the DLL should be specified
+            (i.e. no directory or extension).
+            If this is left blank it is assumed the external will be bound
+            by a program calling C5PRLIB (see below). An invalid formula
+            error will be displayed if an 'unbound' external is used.
+
+            Note that you can use the macros %X% and %S% to differentiate
+            between 16 and 32 bit DLLs. i.e. At report print time
+            %X% expands to nothing and %S% to '16' if the report is being run
+            in 16-bit or %X% expands to 'X' and %S% to 32 if being run
+            in 32 bit-mode.
+
+     DLL Entrypoint - this specifies either the ordinal number or (preferably)
+            the name of the function/variable as exported. This must match the
+            name in the EXP file when creating the external DLL.
+            Note in 32 bit, only the name form is supported also names *must*
+            be exported all uppercase.
+
+Externals are 'Report library wide', i.e. they are shared by all reports
+in the report library and thus only need to be defined once for each library.
+
+Using Externals: Once defined, the externals can be incorporated into any
+formulae (for example in computed fields) by selecting the correct external
+from the Externals list in the formula editor. The description displayed
+in the formula editor tree is the User Description entered when creating
+the external and can contain parameter descriptions for easy reference.
+During report printing, functions will be called every time a formula that
+uses that function is used.
+For an example of use see RWDEMO2.TXR Report1. This calls a simple function
+in RWDEMO3.DLL (or RWDEMO3X.DLL for 32 bit) to prompt the user. You may
+need to make RWDEMO3.DLL using the project RWDEMO3.PRJ before running
+this report.
+
+
+
+
+
+

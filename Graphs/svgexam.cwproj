@@ -1,0 +1,95 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{84AE0981-D84F-4271-B725-F50ACC2933F0}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>svgexam</AssemblyName>
+    <OutputName>svgexam</OutputName>
+    <DefineConstants>_ABCDllMode_=&gt;0%3b_ABCLinkMode_=&gt;1%3b_GRAPHDllMode_=&gt;0%3b_GRAPHLinkMode_=&gt;1</DefineConstants>
+    <Model>Dll</Model>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <vid>off</vid>
+    <check_stack>False</check_stack>
+    <check_index>False</check_index>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="svgexam.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="svgexam001.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="svgexam002.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="svgexam003.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="svgexam005.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="svgexam006.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="svgexam007.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="svgexam008.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="svgexam009.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="svgexam012.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="svgexam013.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="svgexam014.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="svgexam015.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="svgexam016.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="svgexam017.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="svgexam018.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="svgexam019.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="svgexam020.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="svgexam021.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVGEXAM_BC.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="svgexam_BC0.CLW">
+      <Generated>true</Generated>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <FileDriver Include="TOPSPEED" />
+  </ItemGroup>
+  <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
+</Project>

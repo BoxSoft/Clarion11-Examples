@@ -1,0 +1,18 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+# Clarion 2.1.0.2447
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "OCXPRP32", "OCXPRP32.cwproj", "{BC8DD4DE-1958-48A2-A2FF-128C89EF92A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC8DD4DE-1958-48A2-A2FF-128C89EF92A7}.Debug|Win32.Build.0 = Debug|Win32
+		{BC8DD4DE-1958-48A2-A2FF-128C89EF92A7}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BC8DD4DE-1958-48A2-A2FF-128C89EF92A7}.Release|Win32.Build.0 = Release|Win32
+		{BC8DD4DE-1958-48A2-A2FF-128C89EF92A7}.Release|Win32.ActiveCfg = Release|Win32
+	EndGlobalSection
+EndGlobal

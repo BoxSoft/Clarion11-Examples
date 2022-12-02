@@ -1,0 +1,10 @@
+-- 
+#noedit
+#system win32
+#model clarion dll
+#pragma debug(vid=>full)
+#pragma optimize(cpu=>386)
+#pragma define(_ABCDllMode_=>0)
+#pragma define(_ABCLinkMode_=>1)
+#compile "XMLGenSample.clw"
+#link "XMLGenSample.exe"

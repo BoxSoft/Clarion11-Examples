@@ -1,0 +1,8 @@
+[PROCEDURE]
+[VARIABLES]
+[DATAMANAGER]
+C:\Clarion7\examples\IP Driver\Multidataset\IP_Ledger.dll
+[FILES]
+Year
+Account
+Ledger

@@ -1,0 +1,87 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{8E2B79B6-301A-414F-B1B5-CE4EF1FA8814}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>emailtree</AssemblyName>
+    <OutputName>emailtree</OutputName>
+    <DefineConstants>_ABCDllMode_=&gt;0%3b_ABCLinkMode_=&gt;1</DefineConstants>
+    <Model>Dll</Model>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <vid>off</vid>
+    <check_stack>False</check_stack>
+    <check_index>False</check_index>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="emailtree.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="emailtree001.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="emailtree002.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="emailtree003.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="emailtree004.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="emailtree005.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="emailtree006.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="emailtree007.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="emailtree008.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="emailtree009.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="emailtree010.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="EMAILTREE_BC.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="emailtree_BC0.CLW">
+      <Generated>true</Generated>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <FileDriver Include="TOPSPEED" />
+    <Library Include="1Inbox.ico" />
+    <Library Include="2Draft.ico" />
+    <Library Include="3Trash.ico" />
+    <Library Include="4Junk.ico" />
+    <Library Include="5Sent.ico" />
+    <Library Include="6Templates.ico" />
+    <Library Include="7Folder.ico" />
+    <Library Include="Account.ico" />
+    <Library Include="emailtree.exe.manifest" />
+    <Library Include="Folder.ico" />
+    <Library Include="NewsAccount.ico" />
+    <Library Include="NewsGroup.ico" />
+    <Library Include="NewsServer.ico" />
+    <Library Include="Root.ico" />
+    <Library Include="SelNewsAccount.ico" />
+    <Library Include="StopFolder.ico" />
+  </ItemGroup>
+  <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
+</Project>

@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+# Clarion 2.1.0.2447
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "Transfer_Example", "Transfer_Example.cwproj", "{95890C60-AB03-4A1A-8273-775D3134D6BB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{{2150E333-8FDC-42A3-9474-1A3956D46DE8}}"
+	ProjectSection(SolutionItems) = postProject
+		Transfer_Example.app = Transfer_Example.app
+		IP_transfer.app = IP_transfer.app
+	EndProjectSection
+EndProject
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "IP_transfer", "IP_transfer.cwproj", "{3DB29F78-28BB-495D-9417-0EBC06D1DACE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95890C60-AB03-4A1A-8273-775D3134D6BB}.Debug|Win32.Build.0 = Debug|Win32
+		{95890C60-AB03-4A1A-8273-775D3134D6BB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{95890C60-AB03-4A1A-8273-775D3134D6BB}.Release|Win32.Build.0 = Release|Win32
+		{95890C60-AB03-4A1A-8273-775D3134D6BB}.Release|Win32.ActiveCfg = Release|Win32
+		{3DB29F78-28BB-495D-9417-0EBC06D1DACE}.Debug|Win32.Build.0 = Debug|Win32
+		{3DB29F78-28BB-495D-9417-0EBC06D1DACE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3DB29F78-28BB-495D-9417-0EBC06D1DACE}.Release|Win32.Build.0 = Release|Win32
+		{3DB29F78-28BB-495D-9417-0EBC06D1DACE}.Release|Win32.ActiveCfg = Release|Win32
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,29 @@
+XMLParser
+This is a non-validating XML parser. It is fast and use very little memory.
+It can be very handy to parse trusted files that are known to be valid in form.
+The parser does not store, or create any structure with the XML data, instead it uses an interface 
+and calls each method of that interface passing the XML Data.
+
+To use the parser the IXmlNotify interface needs to be implemented.
+
+It is easy to implement the IXmlNotify, just declare a class like
+
+MyClass CLASS,IMPLEMENTS(IXmlNotify)
+        END
+
+And implement the IXmlNotify methods like:
+
+MyClass.IXmlNotify.FoundNode           PROCEDURE( STRING name, STRING  attributes )
+ CODE
+
+In the methods you write the code that is needed every time the parser finds the data that you are interested in.
+Remember that this is not a general poupose parser, so you will know exactly the data that you will be receiving.
+
+After you have your class implemented just call the parser like:
+
+lXMLParser XMLParser
+LOC:XMLStream  STRING(1024)
+ CODE
+    lXMLParser.Parse(LOC:XMLStream,MyClass.IXmlNotify)
+    
+Note: you can declare your expected string at runtime based on the size of the xml file, or you can receive the stream from a web server,etc.

@@ -1,0 +1,144 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{73F60A58-E0B5-4B29-98BA-B0C6BBE4334A}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>SVOracle</AssemblyName>
+    <OutputName>SVOracle</OutputName>
+    <DefineConstants>_ABCDllMode_=&gt;0%3b_ABCLinkMode_=&gt;1%3b</DefineConstants>
+    <Model>Dll</Model>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <vid>off</vid>
+    <check_stack>False</check_stack>
+    <check_index>False</check_index>
+  </PropertyGroup>
+  <ItemGroup>
+    <FileDriver Include="ASCII" />
+    <FileDriver Include="Clarion" />
+    <FileDriver Include="Oracle" />
+    <Compile Include="SVOracle.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle001.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle002.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle003.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle004.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle005.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle006.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle007.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle008.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle009.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle010.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle011.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle012.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle013.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle014.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle015.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle016.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle017.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle018.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle019.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle020.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle021.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle022.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle023.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle024.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle025.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle026.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle027.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle028.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle029.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle030.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle031.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle032.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOracle033.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOra_RD.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOra_RU.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="SVOra_SF.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Library Include="SVOracle.EXE.manifest" />
+  </ItemGroup>
+  <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
+</Project>

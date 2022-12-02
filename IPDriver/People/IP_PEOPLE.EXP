@@ -1,0 +1,19 @@
+
+NAME D:\CLARION 7\EXAMPLES\IPDRIVER\PEOPLE\IP_PEOPLE GUI
+EXPORTS
+  $people @?
+  _InitFileList @?
+  _InheritFromPrototyp  @?
+  _KillInheritedFile  @?
+  _ClaOperation @?
+  _ClaGetFileRecord @?
+  _ClaSetFileRecord @?
+  _ClaSetPropFileName @?
+  _ClaGetKeysCount @?
+  _ClaGetKeyInfo @?
+  _ClaLogout @?
+  _ClaRollback @?
+  _ClaCommit @?
+  _ClaGetFileMemoCnt @?
+  _ClaGetFileMemo @?
+  _ClaSetFileMemo @?

@@ -1,0 +1,67 @@
+RULESFILENAME                  ruledemo.brf
+
+ALLRULEBASEDESCRIPTION         Procedure Rules
+ERRORINDICATORIMAGE            BRuleNo.ico
+RULEOFFSETRIGHT                3
+
+VIEWRULESHEADERICON            BRules.ico
+VIEWRULESVALIDRULEICON         BRuleOk.ico
+VIEWRULESBROKENRULEICON        BRuleNo.ico
+
+
+
+  RULEBASES                    1
+  RULEBASENAME                 CustomerTable
+  RULEBASEDESCRIPTION          Rules for Customer table
+
+    RULES                      1
+    RULENAME                   City
+    RULEDESCRIPTION            You must enter a City 
+    RULEEXPRESSION             CLIP(CUS:City) > ''
+    RULELINKFIELD              CUS:City
+    RULESHOWINDICATOR          1
+      RULEENABLEDISABLECONTROL ?Ok
+      RULEENABLEDISABLECONTROL ?OkButton
+      RULEENABLEDISABLECONTROL ?Accept
+      RULEENABLEDISABLECONTROL ?Save
+
+  RULEBASES                    2
+  RULEBASENAME                 OrderTable
+  RULEBASEDESCRIPTION          Rules for the Orders table
+
+    RULES                      1
+    RULENAME                   OrderDate
+    RULEDESCRIPTION            Ordered date must equal to or greater than today
+    RULEEXPRESSION             fnCheckDate(ORD:Ordered,Action)
+    RULELINKFIELD              ORD:Ordered
+    RULESHOWINDICATOR          1
+      RULEENABLEDISABLECONTROL ?Ok
+      RULEENABLEDISABLECONTROL ?OkButton
+      RULEENABLEDISABLECONTROL ?Accept
+      RULEENABLEDISABLECONTROL ?Save
+
+  RULEBASES                    3
+  RULEBASENAME                 LineTable
+  RULEBASEDESCRIPTION          rules for Lines table
+
+    RULES                      2
+    RULENAME                   ValidQuantity
+    RULEDESCRIPTION            Item quantity validation
+    RULEEXPRESSION             LIN:Quantity > 0
+    RULELINKFIELD              LIN:Quantity 
+    RULESHOWINDICATOR          1
+      RULEENABLEDISABLECONTROL ?Ok
+      RULEENABLEDISABLECONTROL ?OkButton
+      RULEENABLEDISABLECONTROL ?Accept
+      RULEENABLEDISABLECONTROL ?Save
+
+    RULES                      1
+    RULENAME                   DiscountRate
+    RULEDESCRIPTION            Discount rate validation
+    RULEEXPRESSION             fnCheckDiscount(LIN:Quantity,LIN:DiscountRate)
+    RULELINKFIELD              LIN:DiscountRate
+    RULESHOWINDICATOR          1
+      RULEENABLEDISABLECONTROL ?Ok
+      RULEENABLEDISABLECONTROL ?OkButton
+      RULEENABLEDISABLECONTROL ?Accept
+      RULEENABLEDISABLECONTROL ?Save

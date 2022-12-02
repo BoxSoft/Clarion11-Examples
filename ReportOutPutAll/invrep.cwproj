@@ -1,0 +1,103 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{A09A4842-6AE2-4C49-B479-F2A59286D83B}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>invrep</AssemblyName>
+    <OutputName>invrep</OutputName>
+    <DefineConstants>_ABCDllMode_=&gt;0%3b_ABCLinkMode_=&gt;1</DefineConstants>
+    <Model>Dll</Model>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <vid>off</vid>
+    <check_stack>False</check_stack>
+    <check_index>False</check_index>
+  </PropertyGroup>
+  <ItemGroup>
+    <FileDriver Include="DOS" />
+    <FileDriver Include="TOPSPEED" />
+    <Library Include="ClaRunExt.LIB" />
+    <Library Include="invrep.exe.manifest" />
+    <Library Include="order.ico" />
+    <Compile Include="invrep.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invrep001.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invrep002.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invrep003.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invrep004.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invrep005.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invrep006.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invrep007.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invrep008.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invrep009.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invrep010.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invrep011.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invrep012.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invrep013.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invrep014.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invrep015.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invrep016.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invrep017.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invrep018.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invrep019.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invrep020.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="INVREP_BC.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="invrep_BC0.CLW">
+      <Generated>true</Generated>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
+</Project>

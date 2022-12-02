@@ -1,0 +1,11 @@
+-- 
+#noedit
+#system win32
+#model clarion dll
+#set RELEASE = on
+#pragma debug(vid=>off)
+#pragma optimize(cpu=>386)
+#pragma link_option(icon=>"clarion.ico")
+#compile "oledemo2.clw"
+#pragma link("C%V%TPS%X%%L%.LIB")
+#link "oledemo2.exe"

@@ -1,0 +1,257 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{D3FBA627-08E4-433F-A23F-67B791D97474}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>abcbrws</AssemblyName>
+    <OutputName>abcbrws</OutputName>
+    <DefineConstants>_ABCDllMode_=&gt;0%3b_ABCLinkMode_=&gt;1%3b_GRAPHDllMode_=&gt;0%3b_GRAPHLinkMode_=&gt;1%3b_svDllMode_=&gt;0%3b_svLinkMode_=&gt;1%3b_MSSQLDateTime_=&gt;1%3b_ORACLEDateTime_=&gt;0%3b</DefineConstants>
+    <Model>Dll</Model>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <vid>off</vid>
+    <check_stack>False</check_stack>
+    <check_index>False</check_index>
+  </PropertyGroup>
+  <ItemGroup>
+    <FileDriver Include="ASCII" />
+    <FileDriver Include="DOS" />
+    <FileDriver Include="TOPSPEED" />
+    <Compile Include="abcbrws.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws001.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws002.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws003.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws004.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws005.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws006.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws007.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws008.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws009.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws010.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws011.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws012.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws013.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws014.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws015.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws016.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws017.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws018.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws019.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws020.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws021.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws022.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws023.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws024.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws025.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws026.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws027.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws028.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws029.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws030.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws031.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws032.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws033.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws034.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws035.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws036.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws037.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws038.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws039.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws040.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws041.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws042.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws043.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws044.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws045.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws046.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws047.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws048.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws049.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws050.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws051.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws052.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws053.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws054.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws055.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws056.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws057.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws058.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws059.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws060.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws061.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws062.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws063.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws064.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws065.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="ABCBRWS_BC.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="abcbrws_BC0.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="EFOCUS.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Library Include="12.ico" />
+    <Library Include="2.ico" />
+    <Library Include="4.ico" />
+    <Library Include="47.ico" />
+    <Library Include="5.ico" />
+    <Library Include="abcbrws.exe.manifest" />
+    <Library Include="Check.ico" />
+    <Library Include="CheckOff.ICO" />
+    <Library Include="CheckOffDim.ICO" />
+    <Library Include="CheckOn.ICO" />
+    <Library Include="CheckOnDim.ICO" />
+    <Library Include="file.ico" />
+    <Library Include="folder.ico" />
+    <Library Include="invoice.ico" />
+    <Library Include="QkLoad.ico" />
+    <Library Include="QkQBE.ico" />
+    <Library Include="Star1.ico" />
+    <Library Include="uncheck.ico" />
+  </ItemGroup>
+  <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
+</Project>

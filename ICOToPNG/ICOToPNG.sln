@@ -1,0 +1,18 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+# Clarion 2.1.0.2447
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "ICOToPNG", "ICOToPNG.cwproj", "{42F9538B-24D0-425F-88D8-3082E7E879CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42F9538B-24D0-425F-88D8-3082E7E879CF}.Debug|Win32.Build.0 = Debug|Win32
+		{42F9538B-24D0-425F-88D8-3082E7E879CF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{42F9538B-24D0-425F-88D8-3082E7E879CF}.Release|Win32.Build.0 = Release|Win32
+		{42F9538B-24D0-425F-88D8-3082E7E879CF}.Release|Win32.ActiveCfg = Release|Win32
+	EndGlobalSection
+EndGlobal

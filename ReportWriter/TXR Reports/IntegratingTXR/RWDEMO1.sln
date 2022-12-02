@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+# Clarion 2.1.0.2447
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "RWDEMO1", "RWDEMO1.cwproj", "{B39AC453-CD1E-47C5-9682-436BF241AD02}"
+EndProject
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "RWDEMO3", "RWDEMO3.cwproj", "{EE6B3237-98F3-4777-8F9F-E112771197F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B39AC453-CD1E-47C5-9682-436BF241AD02}.Debug|Win32.Build.0 = Debug|Win32
+		{B39AC453-CD1E-47C5-9682-436BF241AD02}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B39AC453-CD1E-47C5-9682-436BF241AD02}.Release|Win32.Build.0 = Release|Win32
+		{B39AC453-CD1E-47C5-9682-436BF241AD02}.Release|Win32.ActiveCfg = Release|Win32
+		{EE6B3237-98F3-4777-8F9F-E112771197F0}.Debug|Win32.Build.0 = Debug|Win32
+		{EE6B3237-98F3-4777-8F9F-E112771197F0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EE6B3237-98F3-4777-8F9F-E112771197F0}.Release|Win32.Build.0 = Release|Win32
+		{EE6B3237-98F3-4777-8F9F-E112771197F0}.Release|Win32.ActiveCfg = Release|Win32
+	EndGlobalSection
+EndGlobal

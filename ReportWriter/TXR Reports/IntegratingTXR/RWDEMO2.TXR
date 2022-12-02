@@ -1,0 +1,78 @@
+[LIBRARY]
+VERSION(4000)
+ENDUSER('off')
+OPTION(0)
+
+[REPORTS]
+Report1 REPORT,FONT('Arial',10),PRE(Report1),THOUS,AT(1000,1000,6250,9688) !test of external procedure
+_REPORT_  BREAK
+_TOTALS_    BREAK
+Detail1       DETAIL,FONT('Arial',8,0),AT(0,0,,1012)
+                STRING('FirstName:'),AT(0,0)
+                STRING(@s20),USE(stu:FirstName),AT(619,0)
+                STRING('LastName:'),AT(0,253)
+                STRING(@s20),USE(stu:LastName),AT(619,253)
+                STRING('Major:'),AT(0,506)
+                STRING(@n-14),USE(stu:Major),AT(619,506)
+                STRING(@s30),USE(Comment),AT(3188,521)
+                STRING('Comment:'),AT(2521,521)
+              END
+            END
+          END
+Comment FORMULA(@s30),VALUE('Comment( stu:Major ,''Comment for: '' & stu:LastName )')
+        END
+Report2 REPORT,FONT('Arial',10),PRE(Report2),THOUS,AT(1000,1331,6250,9357),MARGINS(1000,1331,1000,1000)
+_REPORT_  BREAK
+_TOTALS_    BREAK
+Detail1       DETAIL,FONT('Arial',8,0),AT(0,0,,385)
+                STRING(@s40),USE(Title),AT(494,151)
+                STRING('Title:'),AT(135,151)
+                STRING('Author:'),AT(3281,151)
+                STRING(@s30),USE(Author),AT(3927,151)
+              END
+            END
+          END
+Title   FORMULA(@s40),VALUE('BookTitle') !Title
+Author  FORMULA(@s30),VALUE('BookAuthor') !Author
+        END
+
+[FILES]
+students FILE,PRE(stu),DRIVER('TOPSPEED',,'C60tps','TPS'),CREATE,NAME('students.tps')
+KeyStudentNumber KEY(stu:Number),NOCASE,OPT
+MajorKey  KEY(stu:Major,stu:LastName,stu:FirstName),DUP,NOCASE,OPT
+KeyLastName KEY(stu:LastName),DUP,NOCASE
+KeyGradYear KEY(-stu:GradYear,stu:LastName,stu:FirstName),DUP,NOCASE,OPT
+Photo     MEMO(64000),BINARY
+__Record  RECORD
+Number      LONG,PICTURE(@n-14),PROMPT('Number:'),HEADER('Number')
+FirstName   STRING(20),PICTURE(@s20),PROMPT('FirstName:'),HEADER('FirstName')
+LastName    STRING(20),PICTURE(@s20),PROMPT('LastName:'),HEADER('LastName')
+Address     STRING(20),PICTURE(@s20),PROMPT('Address:'),HEADER('Address')
+Address2    STRING(20),PICTURE(@s20),PROMPT('Address2:'),HEADER('Address2')
+City        STRING(20),PICTURE(@s20),PROMPT('City:'),HEADER('City')
+State       STRING(2),PICTURE(@s2),PROMPT('State:'),HEADER('State')
+Zip         LONG,PICTURE(@n-14),PROMPT('Zip:'),HEADER('Zip')
+Telephone   STRING(12),PICTURE(@s12),PROMPT('Telephone:'),HEADER('Telephone')
+Major       LONG,PICTURE(@n-14),PROMPT('Major:'),HEADER('Major')
+GradYear    LONG,PICTURE(@n-14),PROMPT('GradYear:'),HEADER('GradYear')
+          END
+        END
+
+[RELATIONS]
+
+[REPORTVIEWS]
+Report1 VIEW(students),ORDER('UPPER(stu:LastName)'),KEY(stu:KeyLastName)
+        END
+Report2 VIEW(students)
+        END
+
+[SOURCES]
+        DICTIONARY,VERSION('1.0'),DATE(71876),TIME(4933700),NAME('rwdemo.dct')
+
+[SEARCHPATHS]
+
+[EXTERNALS]
+Comment EXTERNAL(2),DLL('rwdemo3%X%.dll|TestProc') !Comment(majnum,student)
+BookTitle EXTERNAL(-40) !BookTitle
+BookAuthor EXTERNAL(-30) !Book Author
+

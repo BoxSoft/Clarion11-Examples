@@ -1,0 +1,17 @@
+:Base messaging.hlp>Main
+:Title Messaging Extensions
+1 Messaging Templates
+2 Welcome=Welcome
+2 GlobalDocumentHandling=GlobalDocumentHandling
+2 DocumentSend=DocumentSend
+2 LoadAddresses=LoadAddresses
+2 FileTriggers=FileTriggers
+1 Example Application
+2 Welcome=Welcome_Example
+2 The Database=The_Database
+2 Default Mail Settings=Default_Mail_Settings
+2 E-Mail Process=E-Mail_Process
+2 The Load Addresses from File Template=The_Load_Addresses_from_File_Template
+2 Hand Coded Messaging=Hand_Coded_Messaging
+2 NNTP Demo=NNTP_Demo
+2 SMTP Demo=SMTP_Demo

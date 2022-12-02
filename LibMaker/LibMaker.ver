@@ -1,0 +1,3 @@
+#define DLLNAME " LibMaker\0"
+#define CLAINTERNALNAME  "LibMaker\0"
+#include <claver.ver>

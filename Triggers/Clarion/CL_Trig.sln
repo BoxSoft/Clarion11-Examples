@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+# Clarion 2.1.0.2447
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "CL_Trig", "CL_Trig.cwproj", "{6451C1A6-572D-4EB7-A11D-29F62728F002}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{{2150E333-8FDC-42A3-9474-1A3956D46DE8}}"
+	ProjectSection(SolutionItems) = postProject
+		CL_Trig.app = CL_Trig.app
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6451C1A6-572D-4EB7-A11D-29F62728F002}.Debug|Win32.Build.0 = Debug|Win32
+		{6451C1A6-572D-4EB7-A11D-29F62728F002}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6451C1A6-572D-4EB7-A11D-29F62728F002}.Release|Win32.Build.0 = Release|Win32
+		{6451C1A6-572D-4EB7-A11D-29F62728F002}.Release|Win32.ActiveCfg = Release|Win32
+	EndGlobalSection
+EndGlobal

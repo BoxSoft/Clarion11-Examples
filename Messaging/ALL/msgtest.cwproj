@@ -1,0 +1,80 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{594AB64D-BD1E-4DC4-A437-859B1C071938}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>msgtest</AssemblyName>
+    <OutputName>messtest</OutputName>
+    <DefineConstants>_ABCDllMode_=&gt;0%3b_ABCLinkMode_=&gt;1%3b_APIDllMode_=&gt;0%3b_APILinkMode_=&gt;1%3b_MAIDllMode_=&gt;0%3b_MAILinkMode_=&gt;1%3b_WinsockDllMode_=&gt;0%3b_WinsockLinkMode_=&gt;1%3b</DefineConstants>
+    <Model>Dll</Model>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <vid>off</vid>
+    <check_stack>False</check_stack>
+    <check_index>False</check_index>
+  </PropertyGroup>
+  <ItemGroup>
+    <FileDriver Include="DOS" />
+    <FileDriver Include="TOPSPEED" />
+    <Library Include="messtest.EXE.manifest" />
+    <Compile Include="msgtest.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="msgtest001.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="msgtest002.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="msgtest003.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="msgtest004.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="msgtest005.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="msgtest006.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="msgtest007.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="msgtest008.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="msgtest009.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="msgtest010.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="msgtest011.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="msgtest012.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="msgtest013.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="MSGTEST_BC.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="msgtest_BC0.CLW">
+      <Generated>true</Generated>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
+</Project>
