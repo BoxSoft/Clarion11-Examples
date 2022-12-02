@@ -1,0 +1,12 @@
+*.dll
+*.bct
+*.bpp
+*.exe
+*.EXE.manifest
+*.MAP
+*.obj
+*.RSC
+*.lib
+*.shp
+*.EXP
+*.INI
