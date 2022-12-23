@@ -1,13 +1,16 @@
 ﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <ProjectGuid>{6713B082-28E3-419E-B429-081608E1B7F5}</ProjectGuid>
+    <ProjectGuid>{231079F2-F3C7-44BC-A64D-EDFEC9E5BFA3}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>invoice</RootNamespace>
     <AssemblyName>invoice</AssemblyName>
     <OutputName>invoice</OutputName>
+    <CWOutputType>Exe</CWOutputType>
     <DefineConstants>_ABCDllMode_=&gt;0%3b_ABCLinkMode_=&gt;1</DefineConstants>
     <Model>Dll</Model>
+    <ApplicationIcon>Application.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>True</DebugSymbols>
@@ -24,16 +27,7 @@
     <check_index>False</check_index>
   </PropertyGroup>
   <ItemGroup>
-    <Library Include="C%25V%25prlb%25X%25.lib" />
-    <Library Include="File.ico" />
-    <Library Include="Folder.ico" />
-    <Library Include="invoice.exe.manifest" />
-    <Library Include="Invoice.ico" />
-    <Library Include="order.ico" />
-    <Library Include="QkLoad.ico" />
-    <Library Include="QkQBE.ico" />
-    <Library Include="star1.ico" />
-    <FileDriver Include="TOPSPEED" />
+    <FileDriver Include="SQLite" />
     <Compile Include="invoice.clw">
       <Generated>true</Generated>
     </Compile>
