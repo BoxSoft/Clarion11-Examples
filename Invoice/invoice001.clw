@@ -22,7 +22,6 @@
 
 !!! <summary>
 !!! Generated from procedure template - Frame
-!!! Wizard Application for P:\C11Ex\Examples\Invoice\Invoice.dct
 !!! </summary>
 Main PROCEDURE 
 
@@ -73,6 +72,7 @@ TakeAccepted           PROCEDURE(),BYTE,PROC,DERIVED
 Toolbar              ToolbarClass
 
   CODE
+? DEBUGHOOK(CustomerCompany:Record)
   GlobalResponse = ThisWindow.Run()                        ! Opens the window and starts an Accept Loop
 
 !---------------------------------------------------------------------------
@@ -95,9 +95,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = 1
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
-  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
+  SELF.AddItem(Toolbar)
   SETCURSOR(Cursor:Wait)
   OPEN(SQLOpenWindow)
   ACCEPT

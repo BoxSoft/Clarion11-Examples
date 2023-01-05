@@ -94,6 +94,7 @@ ProgressMgr          StepStringClass                       ! Progress Manager
 Previewer            PrintPreviewClass                     ! Print Previewer
 
   CODE
+? DEBUGHOOK(CustomerCompany:Record)
   GlobalResponse = ThisWindow.Run()                        ! Opens the window and starts an Accept Loop
 
 !---------------------------------------------------------------------------
@@ -124,7 +125,6 @@ ReturnValue          BYTE,AUTO
   !Setting the LineHeight for every control of type LIST/DROP or COMBO in the window using the global setting.
   Do DefineListboxStyle
   INIMgr.Fetch('ReportCustomerCompanyByCusCom:CompanyNameKey',ProgressWindow) ! Restore window settings from non-volatile store
-  ProgressWindow{PROP:Timer} = 10                          ! Assign timer interval
   ProgressMgr.Init(ScrollSort:AllowAlpha+ScrollSort:AllowNumeric,ScrollBy:RunTime)
   ThisReport.Init(Process:View, Relate:CustomerCompany, ?Progress:PctText, Progress:Thermometer, ProgressMgr, CusCom:CompanyName)
   ThisReport.CaseSensitiveValue = FALSE
@@ -133,6 +133,7 @@ ReturnValue          BYTE,AUTO
   SELF.Init(ThisReport,Report,Previewer)
   ?Progress:UserString{PROP:Text} = ''
   Relate:CustomerCompany.SetQuickScan(1,Propagate:OneMany)
+  ProgressWindow{PROP:Timer} = 10                          ! Assign timer interval
   SELF.SkipPreview = False
   Previewer.SetINIManager(INIMgr)
   Previewer.AllowUserZoom = True

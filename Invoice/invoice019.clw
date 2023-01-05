@@ -78,6 +78,7 @@ OldColor              LONG
                     END
 
   CODE
+? DEBUGHOOK(Customer:Record)
   GlobalResponse = ThisWindow.Run()                        ! Opens the window and starts an Accept Loop
 
 !---------------------------------------------------------------------------

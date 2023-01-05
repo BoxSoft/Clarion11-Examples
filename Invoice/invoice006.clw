@@ -19,7 +19,7 @@
 
 !!! <summary>
 !!! Generated from procedure template - Window
-!!! Browse the Invoice file
+!!! Browse the Invoice file (with select)
 !!! </summary>
 BrowseInvoice PROCEDURE 
 
@@ -53,38 +53,29 @@ Mark                   BYTE                           !Entry's marked status
 ViewPosition           STRING(1024)                   !Entry's view position
                      END
 QuickWindow          WINDOW('Browse the Invoice file'),AT(,,358,198),FONT('Segoe UI',10,COLOR:Black,FONT:regular, |
-  CHARSET:DEFAULT),RESIZE,CENTER,GRAY,IMM,MDI,HLP('BrowseInvoice'),SYSTEM
-                       LIST,AT(8,30,342,124),USE(?Browse:1),HVSCROLL,FORMAT('40R(2)|M~Invoice #~C(0)@n07@80R(2' & |
-  ')|M~Date~C(0)@d10@32L(2)|M~Shipped~L(2)@s1@80L(2)|M~First Name~L(2)@s100@80L(2)|M~La' & |
-  'st Name~L(2)@s100@80L(2)|M~Street~L(2)@s255@80L(2)|M~City~L(2)@s100@80L(2)|M~State~L' & |
-  '(2)@s100@80L(2)|M~Postal Code~L(2)@s100@'),FROM(Queue:Browse:1),IMM,MSG('Browsing th' & |
-  'e Invoice file')
-                       BUTTON('&Insert'),AT(192,158,50,14),USE(?Insert:2),LEFT,ICON('WAINSERT.ICO'),FLAT,MSG('Insert a Record'), |
-  TIP('Insert a Record')
-                       BUTTON('&Change'),AT(246,158,50,14),USE(?Change:2),LEFT,ICON('WACHANGE.ICO'),DEFAULT,FLAT, |
-  MSG('Change the Record'),TIP('Change the Record')
-                       BUTTON('&Delete'),AT(300,158,50,14),USE(?Delete:2),LEFT,ICON('WADELETE.ICO'),FLAT,MSG('Delete the Record'), |
-  TIP('Delete the Record')
-                       SHEET,AT(4,4,350,172),USE(?CurrentTab)
-                         TAB('Tab'),USE(?Tab:2)
-                         END
-                         TAB('Tab'),USE(?Tab:3)
-                           BUTTON('Select Customer'),AT(8,158,120,14),USE(?SelectCustomer),LEFT,ICON('WAPARENT.ICO'), |
-  FLAT,MSG('Select Parent Field'),TIP('Select Parent Field')
-                         END
-                         TAB('Tab'),USE(?Tab:4)
-                         END
-                       END
-                       BUTTON('&Close'),AT(304,180,50,14),USE(?Close),LEFT,ICON('WACLOSE.ICO'),FLAT,MSG('Close Window'), |
-  TIP('Close Window')
+  CHARSET:DEFAULT),RESIZE,CENTER,ICON('INVOICE.ICO'),GRAY,IMM,MDI,HLP('BrowseInvoice'),SYSTEM
+                       LIST,AT(8,8,342,147),USE(?Browse:1),HVSCROLL,FORMAT('40R(2)|M~Invoice~C(0)@n07@80R(2)|M' & |
+  '~Date~C(0)@d10@32L(2)|M~Shipped~@s1@80L(2)|M~First Name~@s100@80L(2)|M~Last Name~@s1' & |
+  '00@80L(2)|M~Street~@s255@80L(2)|M~City~@s100@80L(2)|M~State~@s100@80L(2)|M~Postal Code~@s100@'), |
+  FROM(Queue:Browse:1),IMM,MSG('Browsing the Invoice file')
+                       BUTTON('Insert'),AT(192,158,50,14),USE(?Insert)
+                       BUTTON('Change'),AT(246,158,50,14),USE(?Change),DEFAULT
+                       BUTTON('Delete'),AT(300,158,50,14),USE(?Delete)
+                       BUTTON('Select Customer'),AT(8,158,75,14),USE(?SelectCustomer)
+                       BUTTON('Close'),AT(304,180,50,14),USE(?Close)
                      END
 
+BRW1::LastSortOrder       BYTE
+BRW1::SortHeader  CLASS(SortHeaderClassType) !Declare SortHeader Class
+QueueResorted          PROCEDURE(STRING pString),VIRTUAL
+                  END
 BRW1::AutoSizeColumn CLASS(AutoSizeColumnClassType)
                END
 ThisWindow           CLASS(WindowManager)
 Init                   PROCEDURE(),BYTE,PROC,DERIVED
 Kill                   PROCEDURE(),BYTE,PROC,DERIVED
 Run                    PROCEDURE(USHORT Number,BYTE Request),BYTE,PROC,DERIVED
+SetAlerts              PROCEDURE(),DERIVED
 TakeAccepted           PROCEDURE(),BYTE,PROC,DERIVED
 TakeEvent              PROCEDURE(),BYTE,PROC,DERIVED
                      END
@@ -94,16 +85,18 @@ BRW1                 CLASS(BrowseClass)                    ! Browse using ?Brows
 Q                      &Queue:Browse:1                !Reference to browse queue
 Init                   PROCEDURE(SIGNED ListBox,*STRING Posit,VIEW V,QUEUE Q,RelationManager RM,WindowManager WM)
 ResetSort              PROCEDURE(BYTE Force),BYTE,PROC,DERIVED
+SetSort                PROCEDURE(BYTE NewOrder,BYTE Force),BYTE,PROC,DERIVED
                      END
 
 BRW1::Sort0:Locator  StepLocatorClass                      ! Default Locator
-BRW1::Sort2:Locator  StepLocatorClass                      ! Conditional Locator - CHOICE(?CurrentTab) = 3
 Resizer              CLASS(WindowResizeClass)
 Init                   PROCEDURE(BYTE AppStrategy=AppStrategy:Resize,BYTE SetWindowMinSize=False,BYTE SetWindowMaxSize=False)
                      END
 
 
   CODE
+? DEBUGHOOK(Customer:Record)
+? DEBUGHOOK(Invoice:Record)
   GlobalResponse = ThisWindow.Run()                        ! Opens the window and starts an Accept Loop
 
 !---------------------------------------------------------------------------
@@ -126,9 +119,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = ?Browse:1
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
-  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
+  SELF.AddItem(Toolbar)
   IF SELF.Request = SelectRecord
      SELF.AddItem(?Close,RequestCancelled)                 ! Add the close control to the window manger
   ELSE
@@ -146,11 +139,8 @@ ReturnValue          BYTE,AUTO
   BRW1.RetainRow = 0
   BRW1.AddSortOrder(,Inv:CustomerKey)                      ! Add the sort order for Inv:CustomerKey for sort order 1
   BRW1.AddRange(Inv:CustomerGuid,Relate:Invoice,Relate:Customer) ! Add file relationship range limit for sort order 1
-  BRW1.AddSortOrder(,Inv:DateKey)                          ! Add the sort order for Inv:DateKey for sort order 2
-  BRW1.AddLocator(BRW1::Sort2:Locator)                     ! Browse has a locator for sort order 2
-  BRW1::Sort2:Locator.Init(,Inv:Date,1,BRW1)               ! Initialize the browse locator using  using key: Inv:DateKey , Inv:Date
-  BRW1.AddSortOrder(,Inv:GuidKey)                          ! Add the sort order for Inv:GuidKey for sort order 3
-  BRW1.AddLocator(BRW1::Sort0:Locator)                     ! Browse has a locator for sort order 3
+  BRW1.AddSortOrder(,Inv:GuidKey)                          ! Add the sort order for Inv:GuidKey for sort order 2
+  BRW1.AddLocator(BRW1::Sort0:Locator)                     ! Browse has a locator for sort order 2
   BRW1::Sort0:Locator.Init(,Inv:GUID,1,BRW1)               ! Initialize the browse locator using  using key: Inv:GuidKey , Inv:GUID
   BRW1.AddField(Inv:InvoiceNumber,BRW1.Q.Inv:InvoiceNumber) ! Field Inv:InvoiceNumber is a hot field or requires assignment from browse
   BRW1.AddField(Inv:Date,BRW1.Q.Inv:Date)                  ! Field Inv:Date is a hot field or requires assignment from browse
@@ -171,6 +161,9 @@ ReturnValue          BYTE,AUTO
   SELF.SetAlerts()
   BRW1::AutoSizeColumn.Init()
   BRW1::AutoSizeColumn.AddListBox(?Browse:1,Queue:Browse:1)
+  !Initialize the Sort Header using the Browse Queue and Browse Control
+  BRW1::SortHeader.Init(Queue:Browse:1,?Browse:1,'','',BRW1::View:Browse,Inv:GuidKey)
+  BRW1::SortHeader.UseSortColors = False
   RETURN ReturnValue
 
 
@@ -183,6 +176,8 @@ ReturnValue          BYTE,AUTO
   IF ReturnValue THEN RETURN ReturnValue.
   IF SELF.FilesOpened
     Relate:Customer.Close()
+  !Kill the Sort Header
+  BRW1::SortHeader.Kill()
   END
   BRW1::AutoSizeColumn.Kill()
   IF SELF.Opened
@@ -206,6 +201,14 @@ ReturnValue          BYTE,AUTO
     ReturnValue = GlobalResponse
   END
   RETURN ReturnValue
+
+
+ThisWindow.SetAlerts PROCEDURE
+
+  CODE
+  PARENT.SetAlerts
+  !Initialize the Sort Header using the Browse Queue and Browse Control
+  BRW1::SortHeader.SetAlerts()
 
 
 ThisWindow.TakeAccepted PROCEDURE
@@ -246,6 +249,10 @@ Looped BYTE
     ELSE
       Looped = 1
     END
+  !Take Sort Headers Events
+  IF BRW1::SortHeader.TakeEvents()
+     RETURN Level:Notify
+  END
   IF BRW1::AutoSizeColumn.TakeEvents()
      RETURN Level:Notify
   END
@@ -261,9 +268,9 @@ BRW1.Init PROCEDURE(SIGNED ListBox,*STRING Posit,VIEW V,QUEUE Q,RelationManager 
   CODE
   PARENT.Init(ListBox,Posit,V,Q,RM,WM)
   IF WM.Request <> ViewRecord                              ! If called for anything other than ViewMode, make the insert, change & delete controls available
-    SELF.InsertControl=?Insert:2
-    SELF.ChangeControl=?Change:2
-    SELF.DeleteControl=?Delete:2
+    SELF.InsertControl=?Insert
+    SELF.ChangeControl=?Change
+    SELF.DeleteControl=?Delete
   END
 
 
@@ -272,14 +279,25 @@ BRW1.ResetSort PROCEDURE(BYTE Force)
 ReturnValue          BYTE,AUTO
 
   CODE
-  IF CHOICE(?CurrentTab) = 2
+  IF x#= 2
     RETURN SELF.SetSort(1,Force)
-  ELSIF CHOICE(?CurrentTab) = 3
-    RETURN SELF.SetSort(2,Force)
   ELSE
-    RETURN SELF.SetSort(3,Force)
+    RETURN SELF.SetSort(2,Force)
   END
   ReturnValue = PARENT.ResetSort(Force)
+  RETURN ReturnValue
+
+
+BRW1.SetSort PROCEDURE(BYTE NewOrder,BYTE Force)
+
+ReturnValue          BYTE,AUTO
+
+  CODE
+  ReturnValue = PARENT.SetSort(NewOrder,Force)
+  IF BRW1::LastSortOrder<>NewOrder THEN
+     BRW1::SortHeader.ClearSort()
+  END
+  BRW1::LastSortOrder=NewOrder
   RETURN ReturnValue
 
 
@@ -290,3 +308,12 @@ Resizer.Init PROCEDURE(BYTE AppStrategy=AppStrategy:Resize,BYTE SetWindowMinSize
   PARENT.Init(AppStrategy,SetWindowMinSize,SetWindowMaxSize)
   SELF.SetParentDefaults()                                 ! Calculate default control parent-child relationships based upon their positions on the window
 
+BRW1::SortHeader.QueueResorted       PROCEDURE(STRING pString)
+  CODE
+    IF pString = ''
+       BRW1.RestoreSort()
+       BRW1.ResetSort(True)
+    ELSE
+       BRW1.ReplaceSort(pString,BRW1::Sort0:Locator)
+       BRW1.SetLocatorFromSort()
+    END

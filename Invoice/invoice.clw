@@ -16,7 +16,7 @@ DctKill     PROCEDURE                                      ! Kills the dictionar
      END
 !--- Application Global and Exported Procedure Definitions --------------------------------------------
      MODULE('INVOICE001.CLW')
-Main                   PROCEDURE   !Wizard Application for P:\C11Ex\Examples\Invoice\Invoice.dct
+Main                   PROCEDURE   !
      END
      MODULE('INVOICE021.CLW')
 MakeGUID               FUNCTION(),STRING   !
