@@ -12,6 +12,7 @@
 
                      MAP
                        INCLUDE('INVOICE008.INC'),ONCE        !Local module procedure declarations
+                       INCLUDE('INVOICE006.INC'),ONCE        !Req'd for module callout resolution
                        INCLUDE('INVOICE018.INC'),ONCE        !Req'd for module callout resolution
                        INCLUDE('INVOICE019.INC'),ONCE        !Req'd for module callout resolution
                      END
@@ -67,6 +68,7 @@ QuickWindow          WINDOW('Browse Customers'),AT(,,358,198),FONT('Segoe UI',10
                        BUTTON('Delete'),AT(300,158,50,14),USE(?Delete)
                        BUTTON('Select Company'),AT(7,158,75,14),USE(?SelectCustomerCompany)
                        BUTTON('Close'),AT(304,180,50,14),USE(?Close)
+                       BUTTON('Invoices'),AT(91,159),USE(?BUTTON:BrowseInvoices)
                      END
 
 BRW1::LastSortOrder       BYTE
@@ -239,6 +241,10 @@ Looped BYTE
       ThisWindow.Update()
       GlobalRequest = SelectRecord
       SelectCustomerCompany()
+      ThisWindow.Reset
+    OF ?BUTTON:BrowseInvoices
+      ThisWindow.Update()
+      BrowseInvoice:Window(Cus:GUID)
       ThisWindow.Reset
     END
     RETURN ReturnValue

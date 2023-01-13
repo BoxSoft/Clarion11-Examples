@@ -5,8 +5,10 @@
    INCLUDE('ABERROR.INC'),ONCE
    INCLUDE('ABFILE.INC'),ONCE
    INCLUDE('ABUTIL.INC'),ONCE
+   INCLUDE('CSIDL.EQU'),ONCE
    INCLUDE('ERRORS.CLW'),ONCE
    INCLUDE('KEYCODES.CLW'),ONCE
+   INCLUDE('SPECIALFOLDER.INC'),ONCE
    INCLUDE('ABFUZZY.INC'),ONCE
 
    MAP
@@ -159,6 +161,7 @@ FuzzyMatcher         FuzzyClass                            ! Global fuzzy matche
 GlobalErrorStatus    ErrorStatusClass,THREAD
 GlobalErrors         ErrorClass                            ! Global error manager
 INIMgr               INIClass                              ! Global non-volatile storage manager
+svSpecialFolder        SpecialFolder
 GlobalRequest        BYTE(0),THREAD                        ! Set when a browse calls a form, to let it know action to perform
 GlobalResponse       BYTE(0),THREAD                        ! Set to the response from the form
 VCRRequest           LONG(0),THREAD                        ! Set to the request from the VCR buttons
@@ -174,7 +177,8 @@ Destruct               PROCEDURE
   FuzzyMatcher.Init                                        ! Initilaize the browse 'fuzzy matcher'
   FuzzyMatcher.SetOption(MatchOption:NoCase, 1)            ! Configure case matching
   FuzzyMatcher.SetOption(MatchOption:WordOnly, 0)          ! Configure 'word only' matching
-  INIMgr.Init('.\invoice.INI', NVD_INI)                    ! Configure INIManager to use INI file
+  svSpecialFolder.CreateDirIn(SV:CSIDL_PERSONAL, 'SoftVelocity Examples' & '\' & 'Invoice' )
+  INIMgr.Init(svSpecialFolder.GetDir(SV:CSIDL_PERSONAL, 'SoftVelocity Examples' & '\' & 'Invoice') & '\' & 'invoice.INI', NVD_INI)
   DctInit()
   Main
   INIMgr.Update

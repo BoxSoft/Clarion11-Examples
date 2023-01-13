@@ -1,3 +1,3 @@
   MODULE('INVOICE006.CLW')
-BrowseInvoice          PROCEDURE                      !Browse the Invoice file (with select)
+BrowseInvoice:Window   PROCEDURE(<STRING pCustomerGuid>) !Browse the Invoice file (with select)
   END

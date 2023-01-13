@@ -12,11 +12,11 @@
                        INCLUDE('INVOICE003.INC'),ONCE        !Req'd for module callout resolution
                        INCLUDE('INVOICE004.INC'),ONCE        !Req'd for module callout resolution
                        INCLUDE('INVOICE005.INC'),ONCE        !Req'd for module callout resolution
-                       INCLUDE('INVOICE006.INC'),ONCE        !Req'd for module callout resolution
                        INCLUDE('INVOICE007.INC'),ONCE        !Req'd for module callout resolution
                        INCLUDE('INVOICE008.INC'),ONCE        !Req'd for module callout resolution
                        INCLUDE('INVOICE009.INC'),ONCE        !Req'd for module callout resolution
                        INCLUDE('INVOICE010.INC'),ONCE        !Req'd for module callout resolution
+                       INCLUDE('INVOICE021.INC'),ONCE        !Req'd for module callout resolution
                      END
 
 
@@ -25,12 +25,7 @@
 !!! </summary>
 Main PROCEDURE 
 
-SQLOpenWindow        WINDOW('Initializing Database'),AT(,,208,26),FONT('Microsoft Sans Serif',8,,FONT:regular),CENTER,GRAY,DOUBLE
-                       STRING('This process could take several seconds.'),AT(27,12)
-                       IMAGE(Icon:Connect),AT(4,4,23,17)
-                       STRING('Please wait while the program connects to the database.'),AT(27,3)
-                     END
-
+LastMenu             LONG                                  ! 
 AppFrame             APPLICATION('Invoice Example'),AT(,,505,318),FONT('Segoe UI',10,COLOR:Black,FONT:regular,CHARSET:DEFAULT), |
   RESIZE,TILED,CENTER,ICON('Application.ico'),MAX,SYSTEM,WALLPAPER('White.png'),IMM
                        TOOLBAR,AT(0,0,505,63),USE(?Toolbar),COLOR(COLOR:White)
@@ -67,6 +62,7 @@ ThisWindow           CLASS(WindowManager)
 Init                   PROCEDURE(),BYTE,PROC,DERIVED
 Kill                   PROCEDURE(),BYTE,PROC,DERIVED
 TakeAccepted           PROCEDURE(),BYTE,PROC,DERIVED
+TakeNewSelection       PROCEDURE(),BYTE,PROC,DERIVED
                      END
 
 Toolbar              ToolbarClass
@@ -95,24 +91,18 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = 1
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
+  ! Restore preserved local variables from non-volatile store
+  LastMenu = INIMgr.TryFetch('Main_PreservedVars','LastMenu')
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
   SELF.AddItem(Toolbar)
-  SETCURSOR(Cursor:Wait)
-  OPEN(SQLOpenWindow)
-  ACCEPT
-    IF EVENT() = Event:OpenWindow
   Relate:CustomerCompany.Open()                            ! File CustomerCompany used by this procedure, so make sure it's RelationManager is open
   SELF.FilesOpened = True
-      POST(EVENT:CloseWindow)
-    END
-  END
-  CLOSE(SQLOpenWindow)
-  SETCURSOR()
   SELF.Open(AppFrame)                                      ! Open window
   !Setting the LineHeight for every control of type LIST/DROP or COMBO in the window using the global setting.
   Do DefineListboxStyle
   INIMgr.Fetch('Main',AppFrame)                            ! Restore window settings from non-volatile store
+  SELECT(?Sheet, LastMenu)
   SELF.SetAlerts()
       AppFrame{PROP:TabBarVisible}  = False
   RETURN ReturnValue
@@ -131,6 +121,8 @@ ReturnValue          BYTE,AUTO
   IF SELF.Opened
     INIMgr.Update('Main',AppFrame)                         ! Save window data to non-volatile store
   END
+  ! Save preserved local variables in non-volatile store
+  INIMgr.Update('Main_PreservedVars','LastMenu',LastMenu)
   GlobalErrors.SetProcedureName
   RETURN ReturnValue
 
@@ -167,6 +159,31 @@ Looped BYTE
       START(ReportProductByPro:ProductCodeKey, 25000)
     OF ?Button:Settings:Configuration
       START(BrowseConfiguration, 25000)
+    END
+    RETURN ReturnValue
+  END
+  ReturnValue = Level:Fatal
+  RETURN ReturnValue
+
+
+ThisWindow.TakeNewSelection PROCEDURE
+
+ReturnValue          BYTE,AUTO
+
+Looped BYTE
+  CODE
+  LOOP                                                     ! This method receives all NewSelection events
+    IF Looped
+      RETURN Level:Notify
+    ELSE
+      Looped = 1
+    END
+  ReturnValue = PARENT.TakeNewSelection()
+    CASE FIELD()
+    OF ?Sheet
+      IF CHOICE(?Sheet) <> 1
+        LastMenu = CHOICE(?Sheet)
+      END
     END
     RETURN ReturnValue
   END

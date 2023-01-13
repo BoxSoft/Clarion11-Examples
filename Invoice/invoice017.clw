@@ -9,6 +9,7 @@
 
                      MAP
                        INCLUDE('INVOICE017.INC'),ONCE        !Local module procedure declarations
+                       INCLUDE('INVOICE016.INC'),ONCE        !Req'd for module callout resolution
                      END
 
 
@@ -18,45 +19,40 @@
 !!! </summary>
 UpdateInvoice PROCEDURE 
 
+                              MAP
+TakeCustomerSelected            PROCEDURE
+                              END
 CurrentTab           STRING(80)                            ! 
 ActionMessage        CSTRING(40)                           ! 
 History::Inv:Record  LIKE(Inv:RECORD),THREAD
-QuickWindow          WINDOW('Form Invoice'),AT(,,358,186),FONT('Segoe UI',10,COLOR:Black,FONT:regular,CHARSET:DEFAULT), |
-  RESIZE,AUTO,CENTER,GRAY,IMM,MDI,HLP('UpdateInvoice'),SYSTEM
-                       SHEET,AT(4,4,350,160),USE(?CurrentTab)
-                         TAB('Tab'),USE(?Tab:1)
-                           PROMPT('Invoice Number:'),AT(8,20),USE(?Inv:InvoiceNumber:Prompt),TRN
-                           STRING(@n07),AT(72,20,40,10),USE(Inv:InvoiceNumber),TRN
-                           PROMPT('Date:'),AT(8,34),USE(?Inv:Date:Prompt),TRN
-                           STRING(@d10),AT(72,34,104,10),USE(Inv:Date),TRN
-                           CHECK('Order Shipped'),AT(72,48,70,8),USE(Inv:OrderShipped),MSG('Checked if order is shipped'),TRN
-                           PROMPT('&First Name:'),AT(8,60),USE(?Inv:FirstName:Prompt),TRN
-                           ENTRY(@s100),AT(72,60,278,10),USE(Inv:FirstName),MSG('Enter the first name of customer'),REQ
-                           PROMPT('&Last Name:'),AT(8,74),USE(?Inv:LastName:Prompt),TRN
-                           ENTRY(@s100),AT(72,74,278,10),USE(Inv:LastName),MSG('Enter the last name of customer'),REQ
-                           PROMPT('&Street:'),AT(8,88),USE(?Inv:Street:Prompt),TRN
-                           TEXT,AT(72,88,278,30),USE(Inv:Street),MSG('Enter the first line address of customer')
-                           PROMPT('&City:'),AT(8,122),USE(?Inv:City:Prompt),TRN
-                           ENTRY(@s100),AT(72,122,278,10),USE(Inv:City),MSG('Enter  city of customer')
-                           PROMPT('&State:'),AT(8,136),USE(?Inv:State:Prompt),TRN
-                           ENTRY(@s100),AT(72,136,278,10),USE(Inv:State),MSG('Enter state of customer')
-                           PROMPT('&Zip Code:'),AT(8,150),USE(?Inv:PostalCode:Prompt),TRN
-                           ENTRY(@s100),AT(72,150,278,10),USE(Inv:PostalCode),MSG('Enter zipcode of customer'),TIP('Enter zipc' & |
+Window               WINDOW('Invoice'),AT(,,316,196),FONT('Segoe UI',10,COLOR:Black,FONT:regular,CHARSET:DEFAULT), |
+  RESIZE,AUTO,CENTER,IMM,MDI,SYSTEM
+                       PROMPT('Invoice Number:'),AT(9,3),USE(?Inv:InvoiceNumber:Prompt)
+                       ENTRY(@n07),AT(68,3,60,10),USE(Inv:InvoiceNumber),MSG('Invoice number for each order')
+                       PROMPT('Date:'),AT(9,16),USE(?Inv:Date:Prompt)
+                       ENTRY(@d10),AT(68,17,60,10),USE(Inv:Date),REQ
+                       PROMPT('&First Name:'),AT(9,30),USE(?Inv:FirstName:Prompt:2)
+                       ENTRY(@s100),AT(68,31,240,10),USE(Inv:FirstName,,?Inv:FirstName:2),MSG('Enter the first' & |
+  ' name of customer'),REQ
+                       PROMPT('&Last Name:'),AT(9,44),USE(?Inv:LastName:Prompt)
+                       ENTRY(@s100),AT(68,44,240,10),USE(Inv:LastName),MSG('Enter the last name of customer'),REQ
+                       PROMPT('&Street:'),AT(9,57),USE(?Inv:Street:Prompt)
+                       TEXT,AT(68,58,240,48),USE(Inv:Street),MSG('Enter the first line address of customer')
+                       PROMPT('&City:'),AT(9,109),USE(?Inv:City:Prompt)
+                       ENTRY(@s100),AT(68,110,240,10),USE(Inv:City),MSG('Enter  city of customer')
+                       PROMPT('&State:'),AT(9,123),USE(?Inv:State:Prompt)
+                       ENTRY(@s100),AT(68,123,240,10),USE(Inv:State),MSG('Enter state of customer')
+                       PROMPT('&Zip Code:'),AT(9,136),USE(?Inv:PostalCode:Prompt)
+                       ENTRY(@s100),AT(68,137,240,10),USE(Inv:PostalCode),MSG('Enter zipcode of customer'),TIP('Enter zipc' & |
   'ode of customer')
-                         END
-                         TAB('Tab'),USE(?Tab:2)
-                           PROMPT('Mobile Phone:'),AT(8,20),USE(?Inv:Phone:Prompt),TRN
-                           ENTRY(@s100),AT(72,20,278,10),USE(Inv:Phone)
-                           PROMPT('Total:'),AT(8,34),USE(?Inv:Total:Prompt),TRN
-                           STRING(@n-15.2),AT(72,34,68,10),USE(Inv:Total),TRN
-                           PROMPT('Note:'),AT(8,48),USE(?Inv:Note:Prompt),TRN
-                           TEXT,AT(72,48,278,30),USE(Inv:Note)
-                         END
-                       END
-                       BUTTON('&OK'),AT(250,168,50,14),USE(?OK),LEFT,ICON('WAOK.ICO'),DEFAULT,FLAT,MSG('Accept dat' & |
-  'a and close the window'),TIP('Accept data and close the window')
-                       BUTTON('&Cancel'),AT(304,168,50,14),USE(?Cancel),LEFT,ICON('WACANCEL.ICO'),FLAT,MSG('Cancel operation'), |
-  TIP('Cancel operation')
+                       PROMPT('Mobile Phone:'),AT(9,150),USE(?Inv:Phone:Prompt)
+                       ENTRY(@s100),AT(68,151,240,10),USE(Inv:Phone)
+                       PROMPT('Customer Order Number:'),AT(9,164,55,16),USE(?Inv:CustomerOrderNumber:Prompt)
+                       ENTRY(@s100),AT(68,164,240,10),USE(Inv:CustomerOrderNumber),REQ
+                       CHECK('Order Shipped'),AT(239,3),USE(Inv:OrderShipped),MSG('Checked if order is shipped')
+                       BUTTON('&OK'),AT(205,177,50,14),USE(?OK),DEFAULT
+                       BUTTON('&Cancel'),AT(258,177,50,14),USE(?Cancel)
+                       BUTTON,AT(54,31,10,10),USE(?BUTTON:SelectCustomer),ICON('Lookup.ico'),FLAT
                      END
 
 ThisWindow           CLASS(WindowManager)
@@ -101,7 +97,7 @@ ThisWindow.Ask PROCEDURE
   OF ChangeRecord
     ActionMessage = 'Record Will Be Changed'
   END
-  QuickWindow{PROP:Text} = ActionMessage                   ! Display status message in title bar
+  Window{PROP:Text} = ActionMessage                        ! Display status message in title bar
   PARENT.Ask
 
 
@@ -124,16 +120,15 @@ ReturnValue          BYTE,AUTO
   SELF.AddHistoryFile(Inv:Record,History::Inv:Record)
   SELF.AddHistoryField(?Inv:InvoiceNumber,3)
   SELF.AddHistoryField(?Inv:Date,4)
-  SELF.AddHistoryField(?Inv:OrderShipped,6)
-  SELF.AddHistoryField(?Inv:FirstName,7)
+  SELF.AddHistoryField(?Inv:FirstName:2,7)
   SELF.AddHistoryField(?Inv:LastName,8)
   SELF.AddHistoryField(?Inv:Street,9)
   SELF.AddHistoryField(?Inv:City,10)
   SELF.AddHistoryField(?Inv:State,11)
   SELF.AddHistoryField(?Inv:PostalCode,12)
   SELF.AddHistoryField(?Inv:Phone,13)
-  SELF.AddHistoryField(?Inv:Total,14)
-  SELF.AddHistoryField(?Inv:Note,15)
+  SELF.AddHistoryField(?Inv:CustomerOrderNumber,5)
+  SELF.AddHistoryField(?Inv:OrderShipped,6)
   SELF.AddUpdateFile(Access:Invoice)
   SELF.AddItem(?Cancel,RequestCancelled)                   ! Add the cancel control to the window manager
   Relate:Invoice.SetOpenRelated()
@@ -152,20 +147,24 @@ ReturnValue          BYTE,AUTO
     SELF.OkControl = ?OK
     IF SELF.PrimeUpdate() THEN RETURN Level:Notify.
   END
-  SELF.Open(QuickWindow)                                   ! Open window
+  SELF.Open(Window)                                        ! Open window
   !Setting the LineHeight for every control of type LIST/DROP or COMBO in the window using the global setting.
   Do DefineListboxStyle
   IF SELF.Request = ViewRecord                             ! Configure controls for View Only mode
-    ?Inv:FirstName{PROP:ReadOnly} = True
+    ?Inv:InvoiceNumber{PROP:ReadOnly} = True
+    ?Inv:Date{PROP:ReadOnly} = True
+    ?Inv:FirstName:2{PROP:ReadOnly} = True
     ?Inv:LastName{PROP:ReadOnly} = True
     ?Inv:City{PROP:ReadOnly} = True
     ?Inv:State{PROP:ReadOnly} = True
     ?Inv:PostalCode{PROP:ReadOnly} = True
     ?Inv:Phone{PROP:ReadOnly} = True
+    ?Inv:CustomerOrderNumber{PROP:ReadOnly} = True
+    DISABLE(?BUTTON:SelectCustomer)
   END
   Resizer.Init(AppStrategy:Surface,Resize:SetMinSize)      ! Controls like list boxes will resize, whilst controls like buttons will move
   SELF.AddItem(Resizer)                                    ! Add resizer to window manager
-  INIMgr.Fetch('UpdateInvoice',QuickWindow)                ! Restore window settings from non-volatile store
+  INIMgr.Fetch('UpdateInvoice',Window)                     ! Restore window settings from non-volatile store
   Resizer.Resize                                           ! Reset required after window size altered by INI manager
   SELF.SetAlerts()
   RETURN ReturnValue
@@ -182,7 +181,7 @@ ReturnValue          BYTE,AUTO
     Relate:Invoice.Close()
   END
   IF SELF.Opened
-    INIMgr.Update('UpdateInvoice',QuickWindow)             ! Save window data to non-volatile store
+    INIMgr.Update('UpdateInvoice',Window)                  ! Save window data to non-volatile store
   END
   GlobalErrors.SetProcedureName
   RETURN ReturnValue
@@ -219,6 +218,14 @@ Looped BYTE
       IF SELF.Request = ViewRecord AND NOT SELF.BatchProcessing THEN
          POST(EVENT:CloseWindow)
       END
+    OF ?BUTTON:SelectCustomer
+      ThisWindow.Update()
+        GlobalRequest = SelectRecord                       ! Set Action for Lookup
+        SelectCustomer                                     ! Call the Lookup Procedure
+        IF GlobalResponse = RequestCompleted               ! IF Lookup completed
+          TakeCustomerSelected()                           ! Source on Completion
+        END                                                ! END (IF Lookup completed)
+        GlobalResponse = RequestCancelled                  ! Clear Result
     END
     RETURN ReturnValue
   END
@@ -233,3 +240,14 @@ Resizer.Init PROCEDURE(BYTE AppStrategy=AppStrategy:Resize,BYTE SetWindowMinSize
   PARENT.Init(AppStrategy,SetWindowMinSize,SetWindowMaxSize)
   SELF.SetParentDefaults()                                 ! Calculate default control parent-child relationships based upon their positions on the window
 
+TakeCustomerSelected          PROCEDURE
+  CODE
+  Inv:CustomerGuid = Cus:GUID
+  Inv:FirstName    = Cus:FirstName
+  Inv:LastName     = Cus:LastName
+  Inv:Street       = Cus:Street
+  Inv:City         = Cus:City
+  Inv:State        = Cus:State
+  Inv:PostalCode   = Cus:PostalCode
+  Inv:Phone        = Cus:Phone
+  

@@ -4,6 +4,7 @@
 
                      MAP
                        INCLUDE('INVOICE021.INC'),ONCE        !Local module procedure declarations
+                       INCLUDE('INVOICE006.INC'),ONCE        !Req'd for module callout resolution
                      END
 
 
@@ -21,3 +22,11 @@ Guid                   STRING(16)
   END
   RETURN Guid
     
+!!! <summary>
+!!! Generated from procedure template - Source
+!!! </summary>
+BrowseInvoice        PROCEDURE                             ! Declare Procedure
+
+  CODE
+  BrowseInvoice:Window()
+  
