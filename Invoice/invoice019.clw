@@ -9,6 +9,7 @@
 
                      MAP
                        INCLUDE('INVOICE019.INC'),ONCE        !Local module procedure declarations
+                       INCLUDE('INVOICE018.INC'),ONCE        !Req'd for module callout resolution
                      END
 
 
@@ -21,47 +22,38 @@ UpdateCustomer PROCEDURE
 CurrentTab           STRING(80)                            ! 
 ActionMessage        CSTRING(40)                           ! 
 History::Cus:Record  LIKE(Cus:RECORD),THREAD
-QuickWindow          WINDOW('Form Customer'),AT(,,358,188),FONT('Segoe UI',10,COLOR:Black,FONT:regular,CHARSET:DEFAULT), |
-  RESIZE,CENTER,GRAY,IMM,MDI,HLP('UpdateCustomer'),SYSTEM
-                       SHEET,AT(4,4,350,162),USE(?CurrentTab)
-                         TAB('Tab'),USE(?Tab:1)
-                           PROMPT('&Company:'),AT(8,20),USE(?Cus:CompanyGuid:Prompt),TRN
-                           ENTRY(@s16),AT(64,20,68,10),USE(Cus:CompanyGuid),CAP,MSG('Enter the customer''s company')
-                           PROMPT('&First Name:'),AT(8,34),USE(?Cus:FirstName:Prompt),TRN
-                           ENTRY(@s100),AT(64,34,286,10),USE(Cus:FirstName),CAP,MSG('Enter the first name of customer'), |
-  REQ
-                           PROMPT('&Last Name:'),AT(8,48),USE(?Cus:LastName:Prompt),TRN
-                           ENTRY(@s100),AT(64,48,286,10),USE(Cus:LastName),CAP,MSG('Enter the last name of customer'), |
-  REQ
-                           PROMPT('&Street:'),AT(8,62),USE(?Cus:Street:Prompt),TRN
-                           TEXT,AT(64,62,286,30),USE(Cus:Street),MSG('Enter the first line address of customer')
-                           PROMPT('&City:'),AT(8,96),USE(?Cus:City:Prompt),TRN
-                           ENTRY(@s100),AT(64,96,286,10),USE(Cus:City),CAP,MSG('Enter  city of customer')
-                           PROMPT('&State:'),AT(8,110),USE(?Cus:State:Prompt),TRN
-                           ENTRY(@s100),AT(64,110,286,10),USE(Cus:State),UPR,MSG('Enter state of customer')
-                           PROMPT('&Zip Code:'),AT(8,124),USE(?Cus:PostalCode:Prompt),TRN
-                           ENTRY(@s100),AT(64,124,286,10),USE(Cus:PostalCode),MSG('Enter zipcode of customer'),TIP('Enter zipc' & |
-  'ode of customer')
-                           PROMPT('Mobile Phone:'),AT(8,138),USE(?Cus:Phone:Prompt),TRN
-                           ENTRY(@s100),AT(64,138,286,10),USE(Cus:Phone)
-                           PROMPT('Mobile Phone:'),AT(8,152),USE(?Cus:MobilePhone:Prompt),TRN
-                           ENTRY(@s100),AT(64,152,286,10),USE(Cus:MobilePhone)
-                         END
-                         TAB('Tab'),USE(?Tab:2)
-                           PROMPT('Email:'),AT(8,20),USE(?Cus:Email:Prompt),TRN
-                           ENTRY(@s100),AT(64,20,286,10),USE(Cus:Email)
-                         END
-                       END
-                       BUTTON('&OK'),AT(250,170,50,14),USE(?OK),LEFT,ICON('WAOK.ICO'),DEFAULT,FLAT,MSG('Accept dat' & |
-  'a and close the window'),TIP('Accept data and close the window')
-                       BUTTON('&Cancel'),AT(304,170,50,14),USE(?Cancel),LEFT,ICON('WACANCEL.ICO'),FLAT,MSG('Cancel operation'), |
-  TIP('Cancel operation')
+Window               WINDOW('Customer'),AT(,,353,184),FONT('Segoe UI',10,COLOR:Black,FONT:regular,CHARSET:DEFAULT), |
+  DOUBLE,AUTO,CENTER,ICON('Customer.ico'),IMM,MDI,SYSTEM
+                       PROMPT('First Name:'),AT(5,7),USE(?Cus:FirstName:Prompt),TRN
+                       ENTRY(@s100),AT(61,7,286,10),USE(Cus:FirstName),REQ
+                       PROMPT('Last Name:'),AT(5,21),USE(?Cus:LastName:Prompt),TRN
+                       ENTRY(@s100),AT(61,21,286,10),USE(Cus:LastName),REQ
+                       PROMPT('Company:'),AT(5,35),USE(?Cus:CompanyGuid:Prompt),TRN
+                       BUTTON,AT(61,34,10,10),USE(?BUTTON:SelectCustomerCompany),ICON('Lookup.ico'),FLAT
+                       ENTRY(@s100),AT(75,35,272,10),USE(CusCom:CompanyName),READONLY,SKIP,TRN
+                       PROMPT('Street:'),AT(5,48),USE(?Cus:Street:Prompt),TRN
+                       TEXT,AT(61,48,286,30),USE(Cus:Street),VSCROLL,BOXED
+                       PROMPT('City:'),AT(5,82),USE(?Cus:City:Prompt),TRN
+                       ENTRY(@s100),AT(61,82,286,10),USE(Cus:City)
+                       PROMPT('State:'),AT(5,96),USE(?Cus:State:Prompt),TRN
+                       ENTRY(@s100),AT(61,96,286,10),USE(Cus:State)
+                       PROMPT('Zip Code:'),AT(5,111),USE(?Cus:PostalCode:Prompt),TRN
+                       ENTRY(@s100),AT(61,111,286,10),USE(Cus:PostalCode)
+                       PROMPT('Phone:'),AT(5,124),USE(?Cus:Phone:Prompt),TRN
+                       ENTRY(@s100),AT(61,124,286,10),USE(Cus:Phone)
+                       PROMPT('Mobile Phone:'),AT(5,138),USE(?Cus:MobilePhone:Prompt),TRN
+                       ENTRY(@s100),AT(61,138,286,10),USE(Cus:MobilePhone)
+                       PROMPT('Email:'),AT(5,152),USE(?Cus:Email:Prompt),TRN
+                       ENTRY(@s100),AT(61,152,286,10),USE(Cus:Email)
+                       BUTTON('&OK'),AT(243,165,50,14),USE(?OK),DEFAULT
+                       BUTTON('Cancel'),AT(297,165,50,14),USE(?Cancel)
                      END
 
 ThisWindow           CLASS(WindowManager)
 Ask                    PROCEDURE(),DERIVED
 Init                   PROCEDURE(),BYTE,PROC,DERIVED
 Kill                   PROCEDURE(),BYTE,PROC,DERIVED
+Reset                  PROCEDURE(BYTE Force=0),DERIVED
 Run                    PROCEDURE(),BYTE,PROC,DERIVED
 TakeAccepted           PROCEDURE(),BYTE,PROC,DERIVED
                      END
@@ -100,7 +92,7 @@ ThisWindow.Ask PROCEDURE
   OF ChangeRecord
     ActionMessage = 'Record Will Be Changed'
   END
-  QuickWindow{PROP:Text} = ActionMessage                   ! Display status message in title bar
+  Window{PROP:Text} = ActionMessage                        ! Display status message in title bar
   PARENT.Ask
 
 
@@ -113,15 +105,14 @@ ReturnValue          BYTE,AUTO
   SELF.Request = GlobalRequest                             ! Store the incoming request
   ReturnValue = PARENT.Init()
   IF ReturnValue THEN RETURN ReturnValue.
-  SELF.FirstField = ?Cus:CompanyGuid:Prompt
+  SELF.FirstField = ?Cus:FirstName:Prompt
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
-  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
+  SELF.AddItem(Toolbar)
   SELF.HistoryKey = CtrlH
   SELF.AddHistoryFile(Cus:Record,History::Cus:Record)
-  SELF.AddHistoryField(?Cus:CompanyGuid,3)
   SELF.AddHistoryField(?Cus:FirstName,4)
   SELF.AddHistoryField(?Cus:LastName,5)
   SELF.AddHistoryField(?Cus:Street,6)
@@ -148,13 +139,14 @@ ReturnValue          BYTE,AUTO
     SELF.OkControl = ?OK
     IF SELF.PrimeUpdate() THEN RETURN Level:Notify.
   END
-  SELF.Open(QuickWindow)                                   ! Open window
+  SELF.Open(Window)                                        ! Open window
   !Setting the LineHeight for every control of type LIST/DROP or COMBO in the window using the global setting.
   Do DefineListboxStyle
   IF SELF.Request = ViewRecord                             ! Configure controls for View Only mode
-    ?Cus:CompanyGuid{PROP:ReadOnly} = True
     ?Cus:FirstName{PROP:ReadOnly} = True
     ?Cus:LastName{PROP:ReadOnly} = True
+    DISABLE(?BUTTON:SelectCustomerCompany)
+    ?CusCom:CompanyName{PROP:ReadOnly} = True
     ?Cus:City{PROP:ReadOnly} = True
     ?Cus:State{PROP:ReadOnly} = True
     ?Cus:PostalCode{PROP:ReadOnly} = True
@@ -164,7 +156,7 @@ ReturnValue          BYTE,AUTO
   END
   Resizer.Init(AppStrategy:Surface,Resize:SetMinSize)      ! Controls like list boxes will resize, whilst controls like buttons will move
   SELF.AddItem(Resizer)                                    ! Add resizer to window manager
-  INIMgr.Fetch('UpdateCustomer',QuickWindow)               ! Restore window settings from non-volatile store
+  INIMgr.Fetch('UpdateCustomer',Window)                    ! Restore window settings from non-volatile store
   Resizer.Resize                                           ! Reset required after window size altered by INI manager
   SELF.SetAlerts()
   RETURN ReturnValue
@@ -181,10 +173,20 @@ ReturnValue          BYTE,AUTO
     Relate:Customer.Close()
   END
   IF SELF.Opened
-    INIMgr.Update('UpdateCustomer',QuickWindow)            ! Save window data to non-volatile store
+    INIMgr.Update('UpdateCustomer',Window)                 ! Save window data to non-volatile store
   END
   GlobalErrors.SetProcedureName
   RETURN ReturnValue
+
+
+ThisWindow.Reset PROCEDURE(BYTE Force=0)
+
+  CODE
+  SELF.ForcedReset += Force
+  IF Window{Prop:AcceptAll} THEN RETURN.
+  CusCom:GUID = Cus:CompanyGuid                            ! Assign linking field value
+  Access:CustomerCompany.Fetch(CusCom:GuidKey)
+  PARENT.Reset(Force)
 
 
 ThisWindow.Run PROCEDURE
@@ -213,6 +215,15 @@ Looped BYTE
     END
   ReturnValue = PARENT.TakeAccepted()
     CASE ACCEPTED()
+    OF ?BUTTON:SelectCustomerCompany
+      ThisWindow.Update()
+        CusCom:Guid = Cus:CompanyGuid                      ! Source before Lookup
+        GlobalRequest = SelectRecord                       ! Set Action for Lookup
+        SelectCustomerCompany                              ! Call the Lookup Procedure
+        IF GlobalResponse = RequestCompleted               ! IF Lookup completed
+          Cus:CompanyGuid = CusCom:Guid                    ! Source on Completion
+        END                                                ! END (IF Lookup completed)
+        GlobalResponse = RequestCancelled                  ! Clear Result
     OF ?OK
       ThisWindow.Update()
       IF SELF.Request = ViewRecord AND NOT SELF.BatchProcessing THEN

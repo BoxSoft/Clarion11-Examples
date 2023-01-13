@@ -11,9 +11,9 @@
 !!! Generated from procedure template - Source
 !!! </summary>
 MakeGUID             PROCEDURE                             ! Declare Procedure
-Alphabet                STRING('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
-X                       LONG
-Guid                    STRING(16)        
+Alphabet               STRING('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
+X                      LONG
+Guid                   STRING(16)        
 
   CODE
   LOOP X = 1 TO SIZE(Guid)

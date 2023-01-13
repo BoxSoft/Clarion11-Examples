@@ -22,7 +22,7 @@ CurrentTab           STRING(80)                            !
 ActionMessage        CSTRING(40)                           ! 
 History::Pro:Record  LIKE(Pro:RECORD),THREAD
 QuickWindow          WINDOW('Form Product'),AT(,,358,174),FONT('Segoe UI',10,COLOR:Black,FONT:regular,CHARSET:DEFAULT), |
-  RESIZE,CENTER,GRAY,IMM,MDI,HLP('UpdateProduct'),SYSTEM
+  RESIZE,AUTO,CENTER,GRAY,IMM,MDI,HLP('UpdateProduct'),SYSTEM
                        SHEET,AT(4,4,350,148),USE(?CurrentTab)
                          TAB('Tab'),USE(?Tab:1)
                            PROMPT('Product Code:'),AT(8,20),USE(?Pro:ProductCode:Prompt),TRN
@@ -109,9 +109,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = ?Pro:ProductCode:Prompt
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
-  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
+  SELF.AddItem(Toolbar)
   SELF.HistoryKey = CtrlH
   SELF.AddHistoryFile(Pro:Record,History::Pro:Record)
   SELF.AddHistoryField(?Pro:ProductCode,2)

@@ -127,9 +127,9 @@ ReturnValue          BYTE,AUTO
   Do DefineListboxStyle
   BRW1.Q &= Queue:Browse:1
   BRW1.RetainRow = 0
-  BRW1.AddSortOrder(,Inv:GuidKey)                          ! Add the sort order for Inv:GuidKey for sort order 1
+  BRW1.AddSortOrder(,Inv:InvoiceNumberKey)                 ! Add the sort order for Inv:InvoiceNumberKey for sort order 1
   BRW1.AddLocator(BRW1::Sort0:Locator)                     ! Browse has a locator for sort order 1
-  BRW1::Sort0:Locator.Init(,Inv:GUID,1,BRW1)               ! Initialize the browse locator using  using key: Inv:GuidKey , Inv:GUID
+  BRW1::Sort0:Locator.Init(,Inv:InvoiceNumber,1,BRW1)      ! Initialize the browse locator using  using key: Inv:InvoiceNumberKey , Inv:InvoiceNumber
   BRW1.AddField(Inv:InvoiceNumber,BRW1.Q.Inv:InvoiceNumber) ! Field Inv:InvoiceNumber is a hot field or requires assignment from browse
   BRW1.AddField(Inv:Date,BRW1.Q.Inv:Date)                  ! Field Inv:Date is a hot field or requires assignment from browse
   BRW1.AddField(Inv:OrderShipped,BRW1.Q.Inv:OrderShipped)  ! Field Inv:OrderShipped is a hot field or requires assignment from browse

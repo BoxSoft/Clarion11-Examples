@@ -22,17 +22,17 @@ CurrentTab           STRING(80)                            !
 ActionMessage        CSTRING(40)                           ! 
 History::CusCom:Record LIKE(CusCom:RECORD),THREAD
 QuickWindow          WINDOW('Form CustomerCompany'),AT(,,358,146),FONT('Segoe UI',10,COLOR:Black,FONT:regular,CHARSET:DEFAULT), |
-  RESIZE,CENTER,GRAY,IMM,MDI,HLP('UpdateCustomerCompany'),SYSTEM
+  RESIZE,AUTO,CENTER,GRAY,IMM,MDI,HLP('UpdateCustomerCompany'),SYSTEM
                        SHEET,AT(4,4,350,120),USE(?CurrentTab)
                          TAB('Tab'),USE(?Tab:1)
                            PROMPT('Company Name:'),AT(8,20),USE(?CusCom:CompanyName:Prompt),TRN
-                           ENTRY(@s100),AT(64,20,286,10),USE(CusCom:CompanyName),CAP
+                           ENTRY(@s100),AT(64,20,286,10),USE(CusCom:CompanyName)
                            PROMPT('&Street:'),AT(8,34),USE(?CusCom:Street:Prompt),TRN
                            TEXT,AT(64,34,286,30),USE(CusCom:Street),MSG('Enter the first line address of customer')
                            PROMPT('&City:'),AT(8,68),USE(?CusCom:City:Prompt),TRN
-                           ENTRY(@s100),AT(64,68,286,10),USE(CusCom:City),CAP,MSG('Enter  city of customer')
+                           ENTRY(@s100),AT(64,68,286,10),USE(CusCom:City),MSG('Enter  city of customer')
                            PROMPT('&State:'),AT(8,82),USE(?CusCom:State:Prompt),TRN
-                           ENTRY(@s100),AT(64,82,286,10),USE(CusCom:State),UPR,MSG('Enter state of customer')
+                           ENTRY(@s100),AT(64,82,286,10),USE(CusCom:State),MSG('Enter state of customer')
                            PROMPT('&Zip Code:'),AT(8,96),USE(?CusCom:PostalCode:Prompt),TRN
                            ENTRY(@s100),AT(64,96,286,10),USE(CusCom:PostalCode),MSG('Enter zipcode of customer'),TIP('Enter zipc' & |
   'ode of customer')
@@ -104,9 +104,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = ?CusCom:CompanyName:Prompt
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
-  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
+  SELF.AddItem(Toolbar)
   SELF.HistoryKey = CtrlH
   SELF.AddHistoryFile(CusCom:Record,History::CusCom:Record)
   SELF.AddHistoryField(?CusCom:CompanyName,2)

@@ -124,9 +124,9 @@ ReturnValue          BYTE,AUTO
   Do DefineListboxStyle
   BRW1.Q &= Queue:Browse:1
   BRW1.RetainRow = 0
-  BRW1.AddSortOrder(,Pro:GuidKey)                          ! Add the sort order for Pro:GuidKey for sort order 1
+  BRW1.AddSortOrder(,Pro:ProductNameKey)                   ! Add the sort order for Pro:ProductNameKey for sort order 1
   BRW1.AddLocator(BRW1::Sort0:Locator)                     ! Browse has a locator for sort order 1
-  BRW1::Sort0:Locator.Init(,Pro:GUID,1,BRW1)               ! Initialize the browse locator using  using key: Pro:GuidKey , Pro:GUID
+  BRW1::Sort0:Locator.Init(,Pro:ProductName,1,BRW1)        ! Initialize the browse locator using  using key: Pro:ProductNameKey , Pro:ProductName
   BRW1.AddField(Pro:ProductCode,BRW1.Q.Pro:ProductCode)    ! Field Pro:ProductCode is a hot field or requires assignment from browse
   BRW1.AddField(Pro:ProductName,BRW1.Q.Pro:ProductName)    ! Field Pro:ProductName is a hot field or requires assignment from browse
   BRW1.AddField(Pro:Description,BRW1.Q.Pro:Description)    ! Field Pro:Description is a hot field or requires assignment from browse

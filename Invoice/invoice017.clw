@@ -22,7 +22,7 @@ CurrentTab           STRING(80)                            !
 ActionMessage        CSTRING(40)                           ! 
 History::Inv:Record  LIKE(Inv:RECORD),THREAD
 QuickWindow          WINDOW('Form Invoice'),AT(,,358,186),FONT('Segoe UI',10,COLOR:Black,FONT:regular,CHARSET:DEFAULT), |
-  RESIZE,CENTER,GRAY,IMM,MDI,HLP('UpdateInvoice'),SYSTEM
+  RESIZE,AUTO,CENTER,GRAY,IMM,MDI,HLP('UpdateInvoice'),SYSTEM
                        SHEET,AT(4,4,350,160),USE(?CurrentTab)
                          TAB('Tab'),USE(?Tab:1)
                            PROMPT('Invoice Number:'),AT(8,20),USE(?Inv:InvoiceNumber:Prompt),TRN
@@ -31,17 +31,15 @@ QuickWindow          WINDOW('Form Invoice'),AT(,,358,186),FONT('Segoe UI',10,COL
                            STRING(@d10),AT(72,34,104,10),USE(Inv:Date),TRN
                            CHECK('Order Shipped'),AT(72,48,70,8),USE(Inv:OrderShipped),MSG('Checked if order is shipped'),TRN
                            PROMPT('&First Name:'),AT(8,60),USE(?Inv:FirstName:Prompt),TRN
-                           ENTRY(@s100),AT(72,60,278,10),USE(Inv:FirstName),CAP,MSG('Enter the first name of customer'), |
-  REQ
+                           ENTRY(@s100),AT(72,60,278,10),USE(Inv:FirstName),MSG('Enter the first name of customer'),REQ
                            PROMPT('&Last Name:'),AT(8,74),USE(?Inv:LastName:Prompt),TRN
-                           ENTRY(@s100),AT(72,74,278,10),USE(Inv:LastName),CAP,MSG('Enter the last name of customer'), |
-  REQ
+                           ENTRY(@s100),AT(72,74,278,10),USE(Inv:LastName),MSG('Enter the last name of customer'),REQ
                            PROMPT('&Street:'),AT(8,88),USE(?Inv:Street:Prompt),TRN
                            TEXT,AT(72,88,278,30),USE(Inv:Street),MSG('Enter the first line address of customer')
                            PROMPT('&City:'),AT(8,122),USE(?Inv:City:Prompt),TRN
-                           ENTRY(@s100),AT(72,122,278,10),USE(Inv:City),CAP,MSG('Enter  city of customer')
+                           ENTRY(@s100),AT(72,122,278,10),USE(Inv:City),MSG('Enter  city of customer')
                            PROMPT('&State:'),AT(8,136),USE(?Inv:State:Prompt),TRN
-                           ENTRY(@s100),AT(72,136,278,10),USE(Inv:State),UPR,MSG('Enter state of customer')
+                           ENTRY(@s100),AT(72,136,278,10),USE(Inv:State),MSG('Enter state of customer')
                            PROMPT('&Zip Code:'),AT(8,150),USE(?Inv:PostalCode:Prompt),TRN
                            ENTRY(@s100),AT(72,150,278,10),USE(Inv:PostalCode),MSG('Enter zipcode of customer'),TIP('Enter zipc' & |
   'ode of customer')
@@ -119,9 +117,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = ?Inv:InvoiceNumber:Prompt
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
-  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
+  SELF.AddItem(Toolbar)
   SELF.HistoryKey = CtrlH
   SELF.AddHistoryFile(Inv:Record,History::Inv:Record)
   SELF.AddHistoryField(?Inv:InvoiceNumber,3)

@@ -22,7 +22,7 @@ CurrentTab           STRING(80)                            !
 ActionMessage        CSTRING(40)                           ! 
 History::InvDet:Record LIKE(InvDet:RECORD),THREAD
 QuickWindow          WINDOW('Form InvoiceDetail'),AT(,,158,168),FONT('Segoe UI',10,COLOR:Black,FONT:regular,CHARSET:DEFAULT), |
-  RESIZE,CENTER,GRAY,IMM,MDI,HLP('UpdateInvoiceDetail'),SYSTEM
+  RESIZE,AUTO,CENTER,GRAY,IMM,MDI,HLP('UpdateInvoiceDetail'),SYSTEM
                        SHEET,AT(4,4,150,142),USE(?CurrentTab)
                          TAB('Tab'),USE(?Tab:1)
                            PROMPT('Product Guid:'),AT(8,20),USE(?InvDet:ProductGuid:Prompt),TRN
@@ -113,9 +113,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = ?InvDet:ProductGuid:Prompt
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
-  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
+  SELF.AddItem(Toolbar)
   SELF.HistoryKey = CtrlH
   SELF.AddHistoryFile(InvDet:Record,History::InvDet:Record)
   SELF.AddHistoryField(?InvDet:ProductGuid,3)

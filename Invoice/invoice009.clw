@@ -18,78 +18,57 @@
 ReportCustomerByCus:LastFirstNameKey PROCEDURE 
 
 Progress:Thermometer BYTE                                  ! 
+FullName             STRING(255)                           ! 
 Process:View         VIEW(Customer)
                        PROJECT(Cus:City)
-                       PROJECT(Cus:CompanyGuid)
                        PROJECT(Cus:Email)
                        PROJECT(Cus:FirstName)
                        PROJECT(Cus:LastName)
                        PROJECT(Cus:MobilePhone)
                        PROJECT(Cus:Phone)
-                       PROJECT(Cus:PostalCode)
                        PROJECT(Cus:State)
-                       PROJECT(Cus:Street)
+                       PROJECT(Cus:CompanyGuid)
+                       JOIN(CusCom:GuidKey,Cus:CompanyGuid)
+                         PROJECT(CusCom:CompanyName)
+                       END
                      END
-ProgressWindow       WINDOW('Report Customer'),AT(,,142,59),FONT('Segoe UI',10,COLOR:Black,FONT:regular,CHARSET:DEFAULT), |
+ProgressWindow       WINDOW('Customers'),AT(,,250,61),FONT('Segoe UI',10,COLOR:Black,FONT:regular,CHARSET:DEFAULT), |
   DOUBLE,CENTER,GRAY,TIMER(1)
-                       PROGRESS,AT(15,15,111,12),USE(Progress:Thermometer),RANGE(0,100)
-                       STRING(''),AT(0,3,141,10),USE(?Progress:UserString),CENTER
-                       STRING(''),AT(0,30,141,10),USE(?Progress:PctText),CENTER
-                       BUTTON('Cancel'),AT(46,42,49,15),USE(?Progress:Cancel),LEFT,ICON('WACANCEL.ICO'),FLAT,MSG('Cancel Report'), |
-  TIP('Cancel Report')
+                       PROGRESS,AT(15,15,220,15),USE(Progress:Thermometer),RANGE(0,100)
+                       STRING(''),AT(2,3,247),USE(?Progress:UserString),CENTER
+                       STRING(''),AT(2,30,247),USE(?Progress:PctText),CENTER
+                       BUTTON('Cancel'),AT(101,42,49,15),USE(?Progress:Cancel)
                      END
 
-Report               REPORT('Customer Report'),AT(250,1190,8000,9310),PRE(RPT),PAPER(PAPER:LETTER),FONT('Segoe UI', |
+Report               REPORT('Customer Report'),AT(250,1000,11000,8250),PRE(RPT),PAPER(PAPER:A4),LANDSCAPE,FONT('Segoe UI', |
   10,COLOR:Black,FONT:regular,CHARSET:DEFAULT),THOUS
-                       HEADER,AT(250,250,8000,940),USE(?Header),FONT('Microsoft Sans Serif',8,,FONT:regular,CHARSET:DEFAULT)
-                         STRING('Report Customer file'),AT(0,20,8000,220),USE(?ReportTitle),FONT('Segoe UI',12,COLOR:Black, |
-  FONT:regular,CHARSET:DEFAULT),CENTER
-                         BOX,AT(0,350,8000,610),USE(?HeaderBox),COLOR(COLOR:Black)
-                         LINE,AT(2000,350,0,610),USE(?HeaderLine:1),COLOR(COLOR:Black)
-                         LINE,AT(4000,350,0,610),USE(?HeaderLine:2),COLOR(COLOR:Black)
-                         LINE,AT(6000,350,0,610),USE(?HeaderLine:3),COLOR(COLOR:Black)
-                         STRING('Company Guid'),AT(50,390,1900,170),USE(?HeaderTitle:1),TRN
-                         STRING('First Name'),AT(2050,390,1900,170),USE(?HeaderTitle:2),TRN
-                         STRING('Last Name'),AT(4050,390,1900,170),USE(?HeaderTitle:3),TRN
-                         STRING('Street'),AT(6050,390,1900,170),USE(?HeaderTitle:4),TRN
-                         STRING('City'),AT(50,570,1900,170),USE(?HeaderTitle:5),TRN
-                         STRING('State'),AT(2050,570,1900,170),USE(?HeaderTitle:6),TRN
-                         STRING('Postal Code'),AT(4050,570,1900,170),USE(?HeaderTitle:7),TRN
-                         STRING('Phone#'),AT(6050,570,1900,170),USE(?HeaderTitle:8),TRN
-                         STRING('Phone#'),AT(50,750,1900,170),USE(?HeaderTitle:9),TRN
-                         STRING('Email'),AT(2050,750,1900,170),USE(?HeaderTitle:10),TRN
-                       END
-Detail                 DETAIL,AT(0,0,8000,750),USE(?Detail)
-                         LINE,AT(0,0,0,750),USE(?DetailLine:0),COLOR(COLOR:Black)
-                         LINE,AT(2000,0,0,750),USE(?DetailLine:1),COLOR(COLOR:Black)
-                         LINE,AT(4000,0,0,750),USE(?DetailLine:2),COLOR(COLOR:Black)
-                         LINE,AT(6000,0,0,750),USE(?DetailLine:3),COLOR(COLOR:Black)
-                         LINE,AT(8000,0,0,750),USE(?DetailLine:4),COLOR(COLOR:Black)
-                         STRING(@s16),AT(50,50,1900,170),USE(Cus:CompanyGuid)
-                         STRING(@s100),AT(2050,50,1900,170),USE(Cus:FirstName)
-                         STRING(@s100),AT(4050,50,1900,170),USE(Cus:LastName)
-                         STRING(@s255),AT(6050,50,1900,170),USE(Cus:Street)
-                         STRING(@s100),AT(50,230,1900,170),USE(Cus:City)
-                         STRING(@s100),AT(2050,230,1900,170),USE(Cus:State)
-                         STRING(@s100),AT(4050,230,1900,170),USE(Cus:PostalCode)
-                         STRING(@s100),AT(6050,230,1900,170),USE(Cus:Phone)
-                         STRING(@s100),AT(50,410,1900,170),USE(Cus:MobilePhone)
-                         STRING(@s100),AT(2050,410,1900,170),USE(Cus:Email)
-                         LINE,AT(0,750,8000,0),USE(?DetailEndLine),COLOR(COLOR:Black)
-                       END
-                       FOOTER,AT(250,10500,8000,250),USE(?Footer)
-                         STRING('Date:'),AT(115,52,344,135),USE(?ReportDatePrompt:2),FONT('Arial',8,,FONT:regular), |
+                       HEADER,AT(250,250,10500,740),USE(?Header)
+                         IMAGE('logo.png'),AT(0,0,400,400),USE(?IMAGE1)
+                         STRING('Customers'),AT(0,9,10448),USE(?ReportTitle),FONT(,14,00701919h,FONT:regular),CENTER, |
   TRN
-                         STRING('<<-- Date Stamp -->'),AT(490,52,927,135),USE(?ReportDateStamp:2),FONT('Arial',8,,FONT:regular), |
+                         STRING('<<-- Date Stamp -->'),AT(9521,31,927),USE(?ReportDateStamp:2),FONT(,,00404040h),RIGHT(30), |
   TRN
-                         STRING('Time:'),AT(1625,52,271,135),USE(?ReportTimePrompt:2),FONT('Arial',8,,FONT:regular), |
+                         STRING('<<-- Time Stamp -->'),AT(9521,260,927),USE(?ReportTimeStamp),FONT(,,00404040h),RIGHT(30), |
   TRN
-                         STRING('<<-- Time Stamp -->'),AT(1927,52,927,135),USE(?ReportTimeStamp:2),FONT('Arial',8,, |
-  FONT:regular),TRN
-                         STRING(@pPage <<#p),AT(6950,52,700,135),USE(?PageCount:2),FONT('Arial',8,,FONT:regular),PAGENO
+                         STRING('Company'),AT(2115,500),USE(?STRING1),FONT(,12,00701919h,FONT:regular),TRN
+                         STRING('Name'),AT(52,500),USE(?STRING2),FONT(,12,00701919h,FONT:regular),TRN
+                         STRING('City'),AT(7302,500),USE(?STRING3),FONT(,12,00701919h,FONT:regular),TRN
+                         STRING('State'),AT(8865,500),USE(?STRING4),FONT(,12,00701919h,FONT:regular),TRN
+                         STRING('Phone/Mobile'),AT(3677,500),USE(?STRING5),FONT(,12,00701919h,FONT:regular),TRN
+                         STRING('Email'),AT(5240,500),USE(?STRING6),FONT(,12,00701919h,FONT:regular),TRN
                        END
-                       FORM,AT(250,250,8000,10500),USE(?Form),FONT('Segoe UI',10,COLOR:Black,FONT:regular,CHARSET:DEFAULT)
-                         IMAGE,AT(0,0,8000,10500),USE(?FormImage),TILED
+Detail                 DETAIL,AT(0,0,10500),USE(?Detail)
+                         LINE,AT(0,104,10500,0),USE(?LINE2),COLOR(00EFEFEFh)
+                         TEXT,AT(52,140,2000),USE(FullName),TRN
+                         STRING(@s100),AT(2115,140,1500,170),USE(CusCom:CompanyName)
+                         STRING(@s100),AT(7302,140,1500,170),USE(Cus:City)
+                         STRING(@s100),AT(8865,140,1583,170),USE(Cus:State)
+                         STRING(@s100),AT(3677,140,1500,170),USE(Cus:Phone)
+                         STRING(@s100),AT(3677,360,1500,170),USE(Cus:MobilePhone)
+                         STRING(@s100),AT(5240,140,2000,170),USE(Cus:Email)
+                       END
+                       FOOTER,AT(250,7750,10500,250),USE(?Footer)
+                         STRING(@pPage <<#p),AT(9750,10,700),USE(?PageCount:2),FONT(,,00404040h),PAGENO
                        END
                      END
 ThisWindow           CLASS(ReportManager)
@@ -182,7 +161,7 @@ ReturnValue          BYTE,AUTO
     SELF.Report $ ?ReportDateStamp:2{PROP:Text} = FORMAT(TODAY(),@D17)
   END
   IF ReturnValue = Level:Benign
-    SELF.Report $ ?ReportTimeStamp:2{PROP:Text} = FORMAT(CLOCK(),@T7)
+    SELF.Report $ ?ReportTimeStamp{PROP:Text} = FORMAT(CLOCK(),@T7)
   END
   RETURN ReturnValue
 
@@ -194,6 +173,7 @@ ReturnValue          BYTE,AUTO
 SkipDetails BYTE
   CODE
   ReturnValue = PARENT.TakeRecord()
+  FullName = LEFT(CLIP(Cus:LastName) & CHOOSE(~Cus:FirstName, '', ', '& Cus:FirstName))
   PRINT(RPT:Detail)
   RETURN ReturnValue
 

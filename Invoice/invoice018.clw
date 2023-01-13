@@ -44,10 +44,9 @@ ViewPosition           STRING(1024)                   !Entry's view position
                      END
 QuickWindow          WINDOW('Select Company'),AT(,,358,176),FONT('Segoe UI',10,COLOR:Black,FONT:regular,CHARSET:DEFAULT), |
   RESIZE,CENTER,ICON('company.ico'),IMM,MDI,SYSTEM
-                       LIST,AT(8,9,342,145),USE(?Browse:1),HVSCROLL,FORMAT('80L(2)|M~Company Name~L(2)@s100@80' & |
-  'L(2)|M~Street~L(2)@s255@80L(2)|M~City~L(2)@s100@80L(2)|M~State~L(2)@s100@80L(2)|M~Po' & |
-  'stal Code~L(2)@s100@80L(2)|M~Phone#~L(2)@s100@'),FROM(Queue:Browse:1),IMM,MSG('Browsing t' & |
-  'he CustomerCompany file')
+                       LIST,AT(8,9,342,145),USE(?Browse:1),HVSCROLL,FORMAT('80L(2)|M~Company~@s100@80L(2)|M~St' & |
+  'reet~@s255@80L(2)|M~City~@s100@80L(2)|M~State~@s100@80L(2)|M~Postal Code~@s100@80L(2' & |
+  ')|M~Phone~@s100@'),FROM(Queue:Browse:1),IMM,MSG('Browsing the CustomerCompany file')
                        BUTTON('Select'),AT(246,158,50,14),USE(?Select)
                        BUTTON('Cancel'),AT(300,158,50,14),USE(?Close)
                      END
@@ -119,9 +118,9 @@ ReturnValue          BYTE,AUTO
   Do DefineListboxStyle
   BRW1.Q &= Queue:Browse:1
   BRW1.RetainRow = 0
-  BRW1.AddSortOrder(,CusCom:GuidKey)                       ! Add the sort order for CusCom:GuidKey for sort order 1
+  BRW1.AddSortOrder(,CusCom:CompanyNameKey)                ! Add the sort order for CusCom:CompanyNameKey for sort order 1
   BRW1.AddLocator(BRW1::Sort0:Locator)                     ! Browse has a locator for sort order 1
-  BRW1::Sort0:Locator.Init(,CusCom:GUID,1,BRW1)            ! Initialize the browse locator using  using key: CusCom:GuidKey , CusCom:GUID
+  BRW1::Sort0:Locator.Init(,CusCom:CompanyName,1,BRW1)     ! Initialize the browse locator using  using key: CusCom:CompanyNameKey , CusCom:CompanyName
   BRW1.AddField(CusCom:CompanyName,BRW1.Q.CusCom:CompanyName) ! Field CusCom:CompanyName is a hot field or requires assignment from browse
   BRW1.AddField(CusCom:Street,BRW1.Q.CusCom:Street)        ! Field CusCom:Street is a hot field or requires assignment from browse
   BRW1.AddField(CusCom:City,BRW1.Q.CusCom:City)            ! Field CusCom:City is a hot field or requires assignment from browse

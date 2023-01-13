@@ -22,17 +22,17 @@ CurrentTab           STRING(80)                            !
 ActionMessage        CSTRING(40)                           ! 
 History::Cfg:Record  LIKE(Cfg:RECORD),THREAD
 QuickWindow          WINDOW('Form Configuration'),AT(,,358,146),FONT('Segoe UI',10,COLOR:Black,FONT:regular,CHARSET:DEFAULT), |
-  RESIZE,CENTER,GRAY,IMM,MDI,HLP('UpdateConfiguration'),SYSTEM
+  RESIZE,AUTO,CENTER,GRAY,IMM,MDI,HLP('UpdateConfiguration'),SYSTEM
                        SHEET,AT(4,4,350,120),USE(?CurrentTab)
                          TAB('Tab'),USE(?Tab:1)
                            PROMPT('Company Name:'),AT(8,20),USE(?Cfg:CompanyName:Prompt),TRN
-                           ENTRY(@s100),AT(64,20,286,10),USE(Cfg:CompanyName),CAP
+                           ENTRY(@s100),AT(64,20,286,10),USE(Cfg:CompanyName)
                            PROMPT('&Street:'),AT(8,34),USE(?Cfg:Street:Prompt),TRN
                            TEXT,AT(64,34,286,30),USE(Cfg:Street),MSG('Enter the first line address of customer')
                            PROMPT('&City:'),AT(8,68),USE(?Cfg:City:Prompt),TRN
-                           ENTRY(@s100),AT(64,68,286,10),USE(Cfg:City),CAP,MSG('Enter  city of customer')
+                           ENTRY(@s100),AT(64,68,286,10),USE(Cfg:City),MSG('Enter  city of customer')
                            PROMPT('&State:'),AT(8,82),USE(?Cfg:State:Prompt),TRN
-                           ENTRY(@s100),AT(64,82,286,10),USE(Cfg:State),UPR,MSG('Enter state of customer')
+                           ENTRY(@s100),AT(64,82,286,10),USE(Cfg:State),MSG('Enter state of customer')
                            PROMPT('&Zip Code:'),AT(8,96),USE(?Cfg:PostalCode:Prompt),TRN
                            ENTRY(@s100),AT(64,96,286,10),USE(Cfg:PostalCode),MSG('Enter zipcode of customer'),TIP('Enter zipc' & |
   'ode of customer')
@@ -104,9 +104,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = ?Cfg:CompanyName:Prompt
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
-  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
+  SELF.AddItem(Toolbar)
   SELF.HistoryKey = CtrlH
   SELF.AddHistoryFile(Cfg:Record,History::Cfg:Record)
   SELF.AddHistoryField(?Cfg:CompanyName,2)

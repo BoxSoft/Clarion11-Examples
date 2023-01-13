@@ -25,8 +25,8 @@ BrowseCustomer PROCEDURE
 
 CurrentTab           STRING(80)                            ! 
 BRW1::View:Browse    VIEW(Customer)
-                       PROJECT(Cus:FirstName)
                        PROJECT(Cus:LastName)
+                       PROJECT(Cus:FirstName)
                        PROJECT(Cus:Street)
                        PROJECT(Cus:City)
                        PROJECT(Cus:State)
@@ -41,9 +41,9 @@ BRW1::View:Browse    VIEW(Customer)
                        END
                      END
 Queue:Browse         QUEUE                            !Queue declaration for browse/combo box using ?Browse
-CusCom:CompanyName     LIKE(CusCom:CompanyName)       !List box control field - type derived from field
-Cus:FirstName          LIKE(Cus:FirstName)            !List box control field - type derived from field
 Cus:LastName           LIKE(Cus:LastName)             !List box control field - type derived from field
+Cus:FirstName          LIKE(Cus:FirstName)            !List box control field - type derived from field
+CusCom:CompanyName     LIKE(CusCom:CompanyName)       !List box control field - type derived from field
 Cus:Street             LIKE(Cus:Street)               !List box control field - type derived from field
 Cus:City               LIKE(Cus:City)                 !List box control field - type derived from field
 Cus:State              LIKE(Cus:State)                !List box control field - type derived from field
@@ -58,10 +58,10 @@ ViewPosition           STRING(1024)                   !Entry's view position
                      END
 QuickWindow          WINDOW('Browse Customers'),AT(,,358,198),FONT('Segoe UI',10,COLOR:Black,FONT:regular,CHARSET:DEFAULT), |
   RESIZE,CENTER,ICON('CUSTOMER.ICO'),IMM,MDI,SYSTEM
-                       LIST,AT(8,8,342,146),USE(?Browse),HVSCROLL,FORMAT('100L(2)|M~Company Name~@s100@80L(2)|' & |
-  'M~First Name~@s100@80L(2)|M~Last Name~@s100@80L(2)|M~Street~@s255@80L(2)|M~City~@s10' & |
-  '0@80L(2)|M~State~@s100@80L(2)|M~Postal Code~@s100@80L(2)|M~Phone~@s100@80L(2)|M~Mobi' & |
-  'le Phone~@s100@'),FROM(Queue:Browse),IMM
+                       LIST,AT(8,8,342,146),USE(?Browse),HVSCROLL,FORMAT('80L(2)|M~Last Name~@s100@80L(2)|M~Fi' & |
+  'rst Name~@s100@100L(2)|M~Company~@s100@80L(2)|M~Street~@s255@80L(2)|M~City~@s100@80L' & |
+  '(2)|M~State~@s100@80L(2)|M~Postal Code~@s100@80L(2)|M~Phone~@s100@80L(2)|M~Mobile Ph' & |
+  'one~@s100@'),FROM(Queue:Browse),IMM
                        BUTTON('Insert'),AT(192,158,50,14),USE(?Insert)
                        BUTTON('Change'),AT(246,158,50,14),USE(?Change),DEFAULT
                        BUTTON('Delete'),AT(300,158,50,14),USE(?Delete)
@@ -92,7 +92,9 @@ ResetSort              PROCEDURE(BYTE Force),BYTE,PROC,DERIVED
 SetSort                PROCEDURE(BYTE NewOrder,BYTE Force),BYTE,PROC,DERIVED
                      END
 
-BRW1::Sort0:Locator  StepLocatorClass                      ! Default Locator
+BRW1::Sort0:Locator  IncrementalLocatorClass               ! Default Locator
+BRW1::Sort1:Locator  IncrementalLocatorClass               ! Conditional Locator - X#=2
+BRW1::Sort0:StepClass StepStringClass                      ! Default Step Manager
 Resizer              CLASS(WindowResizeClass)
 Init                   PROCEDURE(BYTE AppStrategy=AppStrategy:Resize,BYTE SetWindowMinSize=False,BYTE SetWindowMaxSize=False)
                      END
@@ -143,12 +145,15 @@ ReturnValue          BYTE,AUTO
   BRW1.RetainRow = 0
   BRW1.AddSortOrder(,Cus:CompanyKey)                       ! Add the sort order for Cus:CompanyKey for sort order 1
   BRW1.AddRange(Cus:CompanyGuid,Relate:Customer,Relate:CustomerCompany) ! Add file relationship range limit for sort order 1
-  BRW1.AddSortOrder(,Cus:GuidKey)                          ! Add the sort order for Cus:GuidKey for sort order 2
+  BRW1.AddLocator(BRW1::Sort1:Locator)                     ! Browse has a locator for sort order 1
+  BRW1::Sort1:Locator.Init(,Cus:CompanyGuid,1,BRW1)        ! Initialize the browse locator using  using key: Cus:CompanyKey , Cus:CompanyGuid
+  BRW1::Sort0:StepClass.Init(+ScrollSort:AllowAlpha,ScrollBy:Alpha) ! Moveable thumb based upon Cus:LastName for sort order 2
+  BRW1.AddSortOrder(BRW1::Sort0:StepClass,Cus:LastFirstNameKey) ! Add the sort order for Cus:LastFirstNameKey for sort order 2
   BRW1.AddLocator(BRW1::Sort0:Locator)                     ! Browse has a locator for sort order 2
-  BRW1::Sort0:Locator.Init(,Cus:GUID,1,BRW1)               ! Initialize the browse locator using  using key: Cus:GuidKey , Cus:GUID
-  BRW1.AddField(CusCom:CompanyName,BRW1.Q.CusCom:CompanyName) ! Field CusCom:CompanyName is a hot field or requires assignment from browse
-  BRW1.AddField(Cus:FirstName,BRW1.Q.Cus:FirstName)        ! Field Cus:FirstName is a hot field or requires assignment from browse
+  BRW1::Sort0:Locator.Init(,Cus:LastName,1,BRW1)           ! Initialize the browse locator using  using key: Cus:LastFirstNameKey , Cus:LastName
   BRW1.AddField(Cus:LastName,BRW1.Q.Cus:LastName)          ! Field Cus:LastName is a hot field or requires assignment from browse
+  BRW1.AddField(Cus:FirstName,BRW1.Q.Cus:FirstName)        ! Field Cus:FirstName is a hot field or requires assignment from browse
+  BRW1.AddField(CusCom:CompanyName,BRW1.Q.CusCom:CompanyName) ! Field CusCom:CompanyName is a hot field or requires assignment from browse
   BRW1.AddField(Cus:Street,BRW1.Q.Cus:Street)              ! Field Cus:Street is a hot field or requires assignment from browse
   BRW1.AddField(Cus:City,BRW1.Q.Cus:City)                  ! Field Cus:City is a hot field or requires assignment from browse
   BRW1.AddField(Cus:State,BRW1.Q.Cus:State)                ! Field Cus:State is a hot field or requires assignment from browse
@@ -319,6 +324,11 @@ BRW1::SortHeader.QueueResorted       PROCEDURE(STRING pString)
        BRW1.RestoreSort()
        BRW1.ResetSort(True)
     ELSE
-       BRW1.ReplaceSort(pString,BRW1::Sort0:Locator)
-       BRW1.SetLocatorFromSort()
+       IF X#=2
+          BRW1.ReplaceSort(pString,BRW1::Sort1:Locator)
+          BRW1.SetLocatorFromSort()
+       ELSE
+          BRW1.ReplaceSort(pString,BRW1::Sort0:Locator)
+          BRW1.SetLocatorFromSort()
+       END
     END
