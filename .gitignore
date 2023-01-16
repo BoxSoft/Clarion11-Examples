@@ -11,3 +11,10 @@
 *.EXP
 *.INI
 *.cwproj.FileList.xml
+map/
+obj/
+*.cache
+*.bak
+*.[Bb][Aa][Kk]
+*.lnk
+*.[Ll][Nn][Kk]
