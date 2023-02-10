@@ -350,7 +350,7 @@ ReturnValue          BYTE,AUTO
     SELF.Create = 1
     SELF.LockRecover = 10
     SELF.AddKey(InvDet:GuidKey,'InvDet:GuidKey',0)
-    SELF.AddKey(InvDet:InvoiceKey,'InvDet:InvoiceKey',2)
+    SELF.AddKey(InvDet:InvoiceKey,'InvDet:InvoiceKey',0)
     SELF.AddKey(InvDet:ProductKey,'InvDet:ProductKey',0)
   END
                                                            !SELF.InUseFile will be set to False in PARENT
@@ -459,7 +459,7 @@ ReturnValue          BYTE,AUTO
     SELF.LockRecover = 10
     SELF.AddKey(Inv:GuidKey,'Inv:GuidKey',0)
     SELF.AddKey(Inv:CustomerKey,'Inv:CustomerKey',0)
-    SELF.AddKey(Inv:InvoiceNumberKey,'Inv:InvoiceNumberKey',1)
+    SELF.AddKey(Inv:InvoiceNumberKey,'Inv:InvoiceNumberKey',0)
     SELF.AddKey(Inv:DateKey,'Inv:DateKey',0)
   END
                                                            !SELF.InUseFile will be set to False in PARENT

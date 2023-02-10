@@ -9,57 +9,49 @@
 
                      MAP
                        INCLUDE('INVOICE015.INC'),ONCE        !Local module procedure declarations
+                       INCLUDE('INVOICE014.INC'),ONCE        !Req'd for module callout resolution
                      END
 
 
 !!! <summary>
 !!! Generated from procedure template - Window
-!!! Form InvoiceDetail
+!!! Edit InvoiceDetail. Does not use regular OkButton
 !!! </summary>
 UpdateInvoiceDetail PROCEDURE 
 
-CurrentTab           STRING(80)                            ! 
-ActionMessage        CSTRING(40)                           ! 
-History::InvDet:Record LIKE(InvDet:RECORD),THREAD
-QuickWindow          WINDOW('Form InvoiceDetail'),AT(,,158,168),FONT('Segoe UI',10,COLOR:Black,FONT:regular,CHARSET:DEFAULT), |
-  RESIZE,AUTO,CENTER,GRAY,IMM,MDI,HLP('UpdateInvoiceDetail'),SYSTEM
-                       SHEET,AT(4,4,150,142),USE(?CurrentTab)
-                         TAB('Tab'),USE(?Tab:1)
-                           PROMPT('Product Guid:'),AT(8,20),USE(?InvDet:ProductGuid:Prompt),TRN
-                           ENTRY(@s16),AT(68,20,68,10),USE(InvDet:ProductGuid),DECIMAL(14)
-                           PROMPT('Line Number:'),AT(8,34),USE(?InvDet:LineNumber:Prompt),TRN
-                           STRING(@n-14),AT(68,34,64,10),USE(InvDet:LineNumber),RIGHT(1),TRN
-                           PROMPT('Quantity:'),AT(8,48),USE(?InvDet:Quantity:Prompt),TRN
-                           SPIN(@n-14),AT(68,48,79,10),USE(InvDet:Quantity),RIGHT(1),RANGE(1,99999)
-                           PROMPT('Price:'),AT(8,62),USE(?InvDet:Price:Prompt),TRN
-                           ENTRY(@n-15.2),AT(68,62,68,10),USE(InvDet:Price),DECIMAL(12),MSG('Enter Product''s Price')
-                           PROMPT('Tax Rate:'),AT(8,76),USE(?InvDet:TaxRate:Prompt),TRN
-                           ENTRY(@n7.4B),AT(68,76,40,10),USE(InvDet:TaxRate),MSG('Enter Consumer''s Tax rate')
-                           PROMPT('Tax Paid:'),AT(8,90),USE(?InvDet:TaxPaid:Prompt),TRN
-                           ENTRY(@n-15.2),AT(68,90,68,10),USE(InvDet:TaxPaid),DECIMAL(12),MSG('Enter Product''s Price')
-                           PROMPT('Discount Rate:'),AT(8,104),USE(?InvDet:DiscountRate:Prompt),TRN
-                           ENTRY(@n7.4B),AT(68,104,40,10),USE(InvDet:DiscountRate),MSG('Enter discount rate')
-                           PROMPT('Discount:'),AT(8,118),USE(?InvDet:Discount:Prompt),TRN
-                           ENTRY(@n-15.2),AT(68,118,68,10),USE(InvDet:Discount),DECIMAL(12),MSG('Enter Product''s Price')
-                           PROMPT('Total:'),AT(8,132),USE(?InvDet:Total:Prompt),TRN
-                           STRING(@n-15.2),AT(68,132,68,10),USE(InvDet:Total),TRN
-                         END
-                         TAB('Tab'),USE(?Tab:2)
-                           PROMPT('Note:'),AT(8,20),USE(?InvDet:Note:Prompt),TRN
-                           TEXT,AT(68,20,82,30),USE(InvDet:Note)
-                         END
-                       END
-                       BUTTON('&OK'),AT(50,150,50,14),USE(?OK),LEFT,ICON('WAOK.ICO'),DEFAULT,FLAT,MSG('Accept dat' & |
-  'a and close the window'),TIP('Accept data and close the window')
-                       BUTTON('&Cancel'),AT(104,150,50,14),USE(?Cancel),LEFT,ICON('WACANCEL.ICO'),FLAT,MSG('Cancel operation'), |
-  TIP('Cancel operation')
+ProductState         USHORT                                ! 
+Window               WINDOW('Form InvoiceDetail'),AT(,,309,194),FONT('Segoe UI',10,COLOR:Black,FONT:regular,CHARSET:DEFAULT), |
+  AUTO,CENTER,IMM,MDI,SYSTEM
+                       PROMPT('Product Code:'),AT(7,8),USE(?Pro:ProductCode:Prompt)
+                       BUTTON,AT(68,8,10,10),USE(?BUTTON:SelectProduct),ICON('Lookup.ico'),FLAT
+                       ENTRY(@s100),AT(82,8,65,10),USE(Pro:ProductCode),MSG('User defined Product Number'),REQ
+                       ENTRY(@s100),AT(152,8,152,10),USE(Pro:ProductName),READONLY,SKIP,TRN
+                       PROMPT('Quantity:'),AT(9,22),USE(?InvDet:Quantity:Prompt),TRN
+                       SPIN(@n-14),AT(69,22,79,10),USE(InvDet:Quantity),DECIMAL(10),RANGE(1,99999)
+                       PROMPT('Price:'),AT(9,36),USE(?InvDet:Price:Prompt),TRN
+                       ENTRY(@n-15.2),AT(69,36,79,10),USE(InvDet:Price),DECIMAL(16),MSG('Enter Product''s Price')
+                       PROMPT('Tax Rate:'),AT(9,50),USE(?InvDet:TaxRate:Prompt),TRN
+                       ENTRY(@n7.4B),AT(69,50,79,10),USE(InvDet:TaxRate),DECIMAL(16),MSG('Enter Consumer''s Tax rate')
+                       PROMPT('Tax Paid:'),AT(9,64),USE(?InvDet:TaxPaid:Prompt),TRN
+                       ENTRY(@n-15.2),AT(69,64,79,10),USE(InvDet:TaxPaid),DECIMAL(16),MSG('Enter Product''s Price'), |
+  READONLY,SKIP,TRN
+                       PROMPT('Discount Rate:'),AT(9,78),USE(?InvDet:DiscountRate:Prompt),TRN
+                       ENTRY(@n7.4B),AT(69,78,79,10),USE(InvDet:DiscountRate),DECIMAL(16),MSG('Enter discount rate')
+                       PROMPT('Discount:'),AT(9,92),USE(?InvDet:Discount:Prompt),TRN
+                       ENTRY(@n-15.2),AT(69,92,79,10),USE(InvDet:Discount),DECIMAL(16),MSG('Enter Product''s Price'), |
+  READONLY,SKIP,TRN
+                       PROMPT('Total:'),AT(9,105),USE(?InvDet:Total:Prompt),TRN
+                       ENTRY(@n-15.2),AT(69,105,79,10),USE(InvDet:Total),DECIMAL(16),READONLY,SKIP,TRN
+                       PROMPT('Note:'),AT(10,119),USE(?InvDet:Note:Prompt),TRN
+                       TEXT,AT(70,119,235,56),USE(InvDet:Note),VSCROLL,BOXED
+                       BUTTON('&OK'),AT(201,178,50,14),USE(?OK),DEFAULT,REQ
+                       BUTTON('&Cancel'),AT(254,178,50,14),USE(?Cancel)
                      END
 
 ThisWindow           CLASS(WindowManager)
-Ask                    PROCEDURE(),DERIVED
 Init                   PROCEDURE(),BYTE,PROC,DERIVED
 Kill                   PROCEDURE(),BYTE,PROC,DERIVED
-Run                    PROCEDURE(),BYTE,PROC,DERIVED
+PrimeFields            PROCEDURE(),PROC,DERIVED
 TakeAccepted           PROCEDURE(),BYTE,PROC,DERIVED
                      END
 
@@ -76,8 +68,18 @@ OldColor              LONG
 
   CODE
 ? DEBUGHOOK(InvoiceDetail:Record)
+? DEBUGHOOK(Product:Record)
   GlobalResponse = ThisWindow.Run()                        ! Opens the window and starts an Accept Loop
 
+CalculateTotals               ROUTINE
+  InvDet:Discount = InvDet:DiscountRate * InvDet:Price / 100
+  InvDet:Total    = InvDet:Quantity     * (InvDet:Price - InvDet:Discount)
+  InvDet:TaxPaid  = InvDet:TaxRate      * InvDet:Total / 100
+
+AfterLookup                   ROUTINE
+  InvDet:Price = Pro:Price
+  DO CalculateTotals
+  
 !---------------------------------------------------------------------------
 DefineListboxStyle ROUTINE
 !|
@@ -85,21 +87,6 @@ DefineListboxStyle ROUTINE
 !| It`s called after the window open
 !|
 !---------------------------------------------------------------------------
-
-ThisWindow.Ask PROCEDURE
-
-  CODE
-  CASE SELF.Request                                        ! Configure the action message text
-  OF ViewRecord
-    ActionMessage = 'View Record'
-  OF InsertRecord
-    ActionMessage = 'Record Will Be Added'
-  OF ChangeRecord
-    ActionMessage = 'Record Will Be Changed'
-  END
-  QuickWindow{PROP:Text} = ActionMessage                   ! Display status message in title bar
-  PARENT.Ask
-
 
 ThisWindow.Init PROCEDURE
 
@@ -110,56 +97,40 @@ ReturnValue          BYTE,AUTO
   SELF.Request = GlobalRequest                             ! Store the incoming request
   ReturnValue = PARENT.Init()
   IF ReturnValue THEN RETURN ReturnValue.
-  SELF.FirstField = ?InvDet:ProductGuid:Prompt
+  SELF.FirstField = ?Pro:ProductCode:Prompt
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
   SELF.AddItem(Toolbar)
-  SELF.HistoryKey = CtrlH
-  SELF.AddHistoryFile(InvDet:Record,History::InvDet:Record)
-  SELF.AddHistoryField(?InvDet:ProductGuid,3)
-  SELF.AddHistoryField(?InvDet:LineNumber,4)
-  SELF.AddHistoryField(?InvDet:Quantity,5)
-  SELF.AddHistoryField(?InvDet:Price,6)
-  SELF.AddHistoryField(?InvDet:TaxRate,7)
-  SELF.AddHistoryField(?InvDet:TaxPaid,8)
-  SELF.AddHistoryField(?InvDet:DiscountRate,9)
-  SELF.AddHistoryField(?InvDet:Discount,10)
-  SELF.AddHistoryField(?InvDet:Total,11)
-  SELF.AddHistoryField(?InvDet:Note,12)
-  SELF.AddUpdateFile(Access:InvoiceDetail)
   SELF.AddItem(?Cancel,RequestCancelled)                   ! Add the cancel control to the window manager
   Relate:InvoiceDetail.SetOpenRelated()
   Relate:InvoiceDetail.Open()                              ! File InvoiceDetail used by this procedure, so make sure it's RelationManager is open
+  Access:Product.UseFile()                                 ! File referenced in 'Other Files' so need to inform it's FileManager
   SELF.FilesOpened = True
-  SELF.Primary &= Relate:InvoiceDetail
-  IF SELF.Request = ViewRecord AND NOT SELF.BatchProcessing ! Setup actions for ViewOnly Mode
-    SELF.InsertAction = Insert:None
-    SELF.DeleteAction = Delete:None
-    SELF.ChangeAction = Change:None
-    SELF.CancelAction = Cancel:Cancel
-    SELF.OkControl = 0
-  ELSE
-    SELF.ChangeAction = Change:Caller                      ! Changes allowed
-    SELF.CancelAction = Cancel:Cancel+Cancel:Query         ! Confirm cancel
-    SELF.OkControl = ?OK
-    IF SELF.PrimeUpdate() THEN RETURN Level:Notify.
+  Access:InvoiceDetail.UseFile(UseType:Returns)
+  Access:Product.UseFile(UseType:Returns)
+  
+  IF SELF.Request = InsertRecord
+    SELF.PrimeFields()
   END
-  SELF.Open(QuickWindow)                                   ! Open window
+  SELF.Open(Window)                                        ! Open window
   !Setting the LineHeight for every control of type LIST/DROP or COMBO in the window using the global setting.
   Do DefineListboxStyle
   IF SELF.Request = ViewRecord                             ! Configure controls for View Only mode
-    ?InvDet:ProductGuid{PROP:ReadOnly} = True
+    DISABLE(?BUTTON:SelectProduct)
+    ?Pro:ProductCode{PROP:ReadOnly} = True
+    ?Pro:ProductName{PROP:ReadOnly} = True
     ?InvDet:Price{PROP:ReadOnly} = True
     ?InvDet:TaxRate{PROP:ReadOnly} = True
     ?InvDet:TaxPaid{PROP:ReadOnly} = True
     ?InvDet:DiscountRate{PROP:ReadOnly} = True
     ?InvDet:Discount{PROP:ReadOnly} = True
+    DISABLE(?OK)
   END
   Resizer.Init(AppStrategy:Surface,Resize:SetMinSize)      ! Controls like list boxes will resize, whilst controls like buttons will move
   SELF.AddItem(Resizer)                                    ! Add resizer to window manager
-  INIMgr.Fetch('UpdateInvoiceDetail',QuickWindow)          ! Restore window settings from non-volatile store
+  INIMgr.Fetch('UpdateInvoiceDetail',Window)               ! Restore window settings from non-volatile store
   Resizer.Resize                                           ! Reset required after window size altered by INI manager
   SELF.SetAlerts()
   RETURN ReturnValue
@@ -176,22 +147,17 @@ ReturnValue          BYTE,AUTO
     Relate:InvoiceDetail.Close()
   END
   IF SELF.Opened
-    INIMgr.Update('UpdateInvoiceDetail',QuickWindow)       ! Save window data to non-volatile store
+    INIMgr.Update('UpdateInvoiceDetail',Window)            ! Save window data to non-volatile store
   END
   GlobalErrors.SetProcedureName
   RETURN ReturnValue
 
 
-ThisWindow.Run PROCEDURE
-
-ReturnValue          BYTE,AUTO
+ThisWindow.PrimeFields PROCEDURE
 
   CODE
-  ReturnValue = PARENT.Run()
-  IF SELF.Request = ViewRecord                             ! In View Only mode always signal RequestCancelled
-    ReturnValue = RequestCancelled
-  END
-  RETURN ReturnValue
+  PARENT.PrimeFields
+  InvDet:TaxRate = 10 !Cfg:TaxRate
 
 
 ThisWindow.TakeAccepted PROCEDURE
@@ -200,6 +166,7 @@ ReturnValue          BYTE,AUTO
 
 Looped BYTE
   CODE
+  DO CalculateTotals
   LOOP                                                     ! This method receive all EVENT:Accepted's
     IF Looped
       RETURN Level:Notify
@@ -208,10 +175,27 @@ Looped BYTE
     END
   ReturnValue = PARENT.TakeAccepted()
     CASE ACCEPTED()
+    OF ?BUTTON:SelectProduct
+      ThisWindow.Update()
+        ProductState = Access:Product.SaveFile()           ! Source before Lookup
+        GlobalRequest = SelectRecord                       ! Set Action for Lookup
+        SelectProduct                                      ! Call the Lookup Procedure
+        IF GlobalResponse = RequestCompleted               ! IF Lookup completed
+          InvDet:ProductGuid = Pro:Guid; DO AfterLookup; Access:Product.RestoreFile(ProductState, False) ! Source on Completion
+        ELSE                                               ! ELSE (IF Lookup NOT...)
+          Access:Product.RestoreFile(ProductState)         ! Source on Cancellation
+        END                                                ! END (IF Lookup completed)
+        GlobalResponse = RequestCancelled                  ! Clear Result
+    OF ?Pro:ProductCode
+      IF Access:Product.TryFetch(Pro:ProductCodeKey) = Level:Benign
+        DO AfterLookup
+      ELSE
+        CLEAR(Pro:ProductName)
+      END
     OF ?InvDet:Quantity
       IF Access:InvoiceDetail.TryValidateField(5)          ! Attempt to validate InvDet:Quantity in InvoiceDetail
         SELECT(?InvDet:Quantity)
-        QuickWindow{PROP:AcceptAll} = False
+        Window{PROP:AcceptAll} = False
         CYCLE
       ELSE
         FieldColorQueue.Feq = ?InvDet:Quantity
@@ -223,9 +207,8 @@ Looped BYTE
       END
     OF ?OK
       ThisWindow.Update()
-      IF SELF.Request = ViewRecord AND NOT SELF.BatchProcessing THEN
-         POST(EVENT:CloseWindow)
-      END
+      SELF.Response = RequestCompleted
+      POST(EVENT:CloseWindow)
     END
     RETURN ReturnValue
   END

@@ -1,0 +1,927 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dictionary Name="Invoice" Version="1" StructureChecked="1" DctxFormat="4">
+	<DictionaryVersion Version="1" Description="Initial version"/>
+	<Comment Text="Authored by Mike, aided (and occasionally berated) by Bruce and John on ClarionLive Weekly Webinar #685">
+		<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 2:03:35PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 2:03:35PM" ModifiedVersionNumber="1"/>
+	</Comment>
+	<Table Guid="{eadff588-404d-4e3f-a1f8-83ced7a03317}" Ident="21" Name="CustomerCompany" Description="Default company information" Prefix="CusCom" Driver="SQLite" Owner="!Glo:Owner" Path="CustomerCompany" Create="true" Thread="true" Bindable="true">
+		<Audit CreateUser="Administrator" CreateDate="17 OCT 1996" CreateTime=" 2:36:22PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="13 JAN 2023" ModifiedTime=" 1:22:07PM" ModifiedVersionNumber="1"/>
+		<Field Guid="{6acb3c22-06b5-4c64-ae43-de67da3e1b8f}" Name="GUID" DerivedFrom="Pool:GUID" DataType="STRING" Size="16" ScreenPicture="@s16" ScreenPrompt="GUID:" ReportHeading="GUID" InitialValue="MakeGUID()" NoPopulate="true" ReportControl=" STRING(@s16),USE(CusCom:GUID)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;GUID:&apos;),USE(?CusCom:GUID:Prompt),TRN"/>
+				<Line Text=" ENTRY(@s16),USE(CusCom:GUID),SKIP,TRN,READONLY"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime="12:42:40PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="23 DEC 2022" ModifiedTime="11:56:13AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{3d0f368f-ae70-4ff4-8e43-3daa0a3e47da}" Ident="191" Name="CompanyName" DataType="STRING" Size="100" ScreenPicture="@s100" ScreenPrompt="Company Name:" ReportHeading="Company Name" ReportControl=" STRING(@s100),USE(CusCom:CompanyName)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Company Name:&apos;),USE(?CusCom:CompanyName:Prompt)"/>
+				<Line Text=" ENTRY(@s100),USE(CusCom:CompanyName)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="17 OCT 1996" CreateTime=" 2:37:25PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 6 JAN 2023" ModifiedTime="12:54:05PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{a120b7a6-39e9-4db9-82c8-7cce50df3e8e}" Ident="59" Name="Street" DataType="STRING" Size="255" ScreenPicture="@s255" ScreenPrompt="&amp;Street:" ReportHeading="Street" Message="Enter the first line address of customer" ReportControl=" STRING(@s255),USE(CusCom:Street)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;&amp;Street:&apos;),USE(?CusCom:Street:Prompt)"/>
+				<Line Text=" TEXT,USE(CusCom:Street),MSG(&apos;Enter the first line address of customer&apos;)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:12:23PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:12:23PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{613d9d3e-28e8-47bb-8ab7-8268a744f1ed}" Ident="60" Name="City" DataType="STRING" Size="100" ScreenPicture="@s100" ScreenPrompt="&amp;City:" ReportHeading="City" Message="Enter  city of customer" ReportControl=" STRING(@s100),USE(CusCom:City)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;&amp;City:&apos;),USE(?CusCom:City:Prompt)"/>
+				<Line Text=" ENTRY(@s100),USE(CusCom:City),MSG(&apos;Enter  city of customer&apos;)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:12:23PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 6 JAN 2023" ModifiedTime="12:54:10PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{0c929e88-d543-4969-a727-c2bba21523e3}" Ident="61" Name="State" DataType="STRING" Size="100" ScreenPicture="@s100" ScreenPrompt="&amp;State:" ReportHeading="State" Message="Enter state of customer" ReportControl=" STRING(@s100),USE(CusCom:State)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;&amp;State:&apos;),USE(?CusCom:State:Prompt)"/>
+				<Line Text=" ENTRY(@s100),USE(CusCom:State),MSG(&apos;Enter state of customer&apos;)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:12:23PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 6 JAN 2023" ModifiedTime="12:54:09PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{dfb201aa-ac00-4562-b512-3dea8959f634}" Ident="62" Name="PostalCode" DataType="STRING" Size="100" ScreenPicture="@s100" ScreenPrompt="&amp;Zip Code:" ReportHeading="Postal Code" Message="Enter zipcode of customer" Tooltip="Enter zipcode of customer" ReportControl=" STRING(@s100),USE(CusCom:PostalCode)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;&amp;Zip Code:&apos;),USE(?CusCom:PostalCode:Prompt)"/>
+				<Line Text=" ENTRY(@s100),USE(CusCom:PostalCode),MSG(&apos;Enter zipcode of customer&apos;),TIP(&apos;Enter zipcode of customer&apos;)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:12:23PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:12:23PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{fb7207cc-f449-4b76-8546-a5d202f36e92}" Ident="125" Name="Phone" DataType="STRING" Size="100" ScreenPicture="@s100" ScreenPrompt="Mobile Phone:" ReportHeading="Phone#" ReportControl=" STRING(@s100),USE(CusCom:Phone)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Mobile Phone:&apos;),USE(?CusCom:Phone:Prompt)"/>
+				<Line Text=" ENTRY(@s100),USE(CusCom:Phone)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:12:24PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:12:24PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Key Guid="{a6a1bb20-9f29-4d81-90ec-9d5d05379904}" Order="1" Name="GuidKey" ExternalName="CustomerCompany_GuidKey" KeyType="KEY" Unique="true" Primary="true">
+			<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime="12:44:39PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime="12:44:51PM" ModifiedVersionNumber="1"/>
+			<Component Guid="{ab128a51-7324-4dfc-9370-17062e8dd5f3}" FieldId="{6acb3c22-06b5-4c64-ae43-de67da3e1b8f}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime="12:44:51PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime="12:44:51PM" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+		<Key Guid="{9de07eea-ed9a-4c58-9b12-64ef70d6190d}" Order="2" Name="CompanyNameKey" ExternalName="CustomerCompany_CompanyNameKey" KeyType="KEY" Unique="true">
+			<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:13:01PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:13:41PM" ModifiedVersionNumber="1"/>
+			<Component Guid="{cd81b32c-1b54-4177-a283-16e94e6e2777}" FieldId="{3d0f368f-ae70-4ff4-8e43-3daa0a3e47da}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:13:41PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:13:41PM" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+	</Table>
+	<Table Guid="{72fd575d-387e-4213-b177-cc3624454367}" Ident="15" Name="Product" Description="Product&apos;s Information" Prefix="Pro" Driver="SQLite" Owner="!Glo:Owner" Path="Product" Create="true" Thread="true" Bindable="true">
+		<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:53PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="13 JAN 2023" ModifiedTime=" 1:22:07PM" ModifiedVersionNumber="1"/>
+		<Field Guid="{d4ce3faa-cdf7-4056-b8bf-4a958f50f0fe}" Name="GUID" DerivedFrom="Pool:GUID" DataType="STRING" Size="16" ScreenPicture="@s16" ScreenPrompt="GUID:" ReportHeading="GUID" InitialValue="MakeGUID()" NoPopulate="true" ReportControl=" STRING(@s16),USE(Pro:GUID)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;GUID:&apos;),USE(?Pro:GUID:Prompt),TRN"/>
+				<Line Text=" ENTRY(@s16),USE(Pro:GUID),SKIP,TRN,READONLY"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime="12:42:48PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:59:02PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{20c12324-2f15-4659-8db3-2b5acc8dc6f7}" Ident="89" Name="ProductCode" Description="User defined Product Number" DataType="STRING" Size="100" ScreenPicture="@s100" ScreenPrompt="Product Code:" ReportHeading="Product Code" Message="User defined Product Number" ReportControl=" STRING(@s100),USE(Pro:ProductCode)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Product Code:&apos;),USE(?Pro:ProductCode:Prompt)"/>
+				<Line Text=" ENTRY(@s100),USE(Pro:ProductCode),MSG(&apos;User defined Product Number&apos;),REQ"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:53PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:15:28PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NONZERO"/>
+		</Field>
+		<Field Guid="{3d98616b-2bae-448d-858c-75a56390b775}" Ident="89" Name="ProductName" DataType="STRING" Size="100" ScreenPicture="@s100" ScreenPrompt="Product Name:" ReportHeading="Product Name" ReportControl=" STRING(@s100),USE(Pro:ProductName)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Product Name:&apos;),USE(?Pro:ProductName:Prompt)"/>
+				<Line Text=" ENTRY(@s100),USE(Pro:ProductName),REQ"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:53PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:15:51PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NONZERO"/>
+		</Field>
+		<Field Guid="{5c3d8c76-90d6-46a1-94f6-060d27390c3a}" Ident="90" Name="Description" Description="Product&apos;s Description" DataType="STRING" Size="255" ScreenPicture="@s255" ScreenPrompt="Description:" ReportHeading="Description" Message="Enter Product&apos;s Description" ReportControl=" STRING(@s255),USE(Pro:Description)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Description:&apos;),USE(?Pro:Description:Prompt)"/>
+				<Line Text=" TEXT,USE(Pro:Description),MSG(&apos;Enter Product&apos;&apos;s Description&apos;),REQ"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:53PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 6 JAN 2023" ModifiedTime="12:55:16PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NONZERO"/>
+		</Field>
+		<Field Guid="{5bfa0c53-40ac-4d86-b631-1cb98cca747d}" Ident="91" Name="Price" Description="Product&apos;s Price" DataType="DECIMAL" Size="11" Places="2" ScreenPicture="@n15.2" ScreenPrompt="Price:" ReportHeading="Price" Justification="DECIMAL" Offset="12" Message="Enter Product&apos;s Price" ReportControl=" STRING(@n15.2),USE(Pro:Price),DECIMAL(12)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Price:&apos;),USE(?Pro:Price:Prompt)"/>
+				<Line Text=" ENTRY(@n15.2),USE(Pro:Price),DECIMAL(12),MSG(&apos;Enter Product&apos;&apos;s Price&apos;)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:53PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:16:52PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{11680ff6-3eb6-4201-9447-405636eb2f1d}" Ident="92" Name="QuantityInStock" Description="Quantity of product in stock" DataType="LONG" Size="4" ScreenPicture="@n-14" ScreenPrompt="Quantity In Stock:" ReportHeading="Quantity In Stock" Justification="RIGHT" Offset="1" Message="Enter quantity of product in stock" ReportControl=" STRING(@n-14),USE(Pro:QuantityInStock),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Quantity In Stock:&apos;),USE(?Pro:QuantityInStock:Prompt)"/>
+				<Line Text=" ENTRY(@n-14),USE(Pro:QuantityInStock),RIGHT(1),MSG(&apos;Enter quantity of product in stock&apos;)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:53PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:19:01PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{ce6fce5b-82f7-4a34-83b5-f41453a92870}" Ident="93" Name="ReorderQuantity" Description="Product&apos;s quantity for re-order" DataType="LONG" Size="4" ScreenPicture="@n13" ScreenPrompt="Reorder Quantity:" ReportHeading="Reorder Quantity" Justification="RIGHT" Offset="1" Message="Enter product&apos;s quantity for re-order" ReportControl=" STRING(@n13),USE(Pro:ReorderQuantity),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Reorder Quantity:&apos;),USE(?Pro:ReorderQuantity:Prompt)"/>
+				<Line Text=" ENTRY(@n13),USE(Pro:ReorderQuantity),RIGHT(1),MSG(&apos;Enter product&apos;&apos;s quantity for re-order&apos;)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:53PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:19:25PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{66e96104-bfd5-4d8c-bbf8-d4ead436b1e4}" Ident="94" Name="Cost" DataType="DECIMAL" Size="11" Places="2" ScreenPicture="@n-15.2" ScreenPrompt="Cost:" ReportHeading="Cost" Message="Enter product&apos;s cost" ReportControl=" STRING(@n-15.2),USE(Pro:Cost)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Cost:&apos;),USE(?Pro:Cost:Prompt)"/>
+				<Line Text=" ENTRY(@n-15.2),USE(Pro:Cost),MSG(&apos;Enter product&apos;&apos;s cost&apos;)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:53PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:31:04PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{72836117-618e-40aa-a9f2-fa033d5a9291}" Ident="180" Name="ImageFilename" DataType="STRING" Size="255" ScreenPicture="@s255" ScreenPrompt="Image Filename:" ReportHeading="Image" ReportControl=" STRING(@s255),USE(Pro:ImageFilename)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Image Filename:&apos;),USE(?Pro:ImageFilename:Prompt)"/>
+				<Line Text=" ENTRY(@s255),USE(Pro:ImageFilename)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:54PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:20:49PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{6f1565b7-bb35-4953-a2d4-518d0dd850ae}" Name="ImageBlob" DataType="MEMO" Binary="true" ScreenPicture="@s20" ScreenPrompt="Image Blob:" ReportHeading="Image Blob" ReportControl=" STRING(@s20),USE(Pro:ImageBlob)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Image Blob:&apos;),USE(?Pro:ImageBlob:Prompt)"/>
+				<Line Text=" ENTRY(@s20),USE(Pro:ImageBlob)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:21:22PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:21:22PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Key Guid="{ecae9765-292e-4a59-be62-c144ebf59ed1}" Order="1" Name="GuidKey" ExternalName="Product_GuidKey" KeyType="KEY" Unique="true" Primary="true">
+			<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime="12:43:42PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime="12:43:42PM" ModifiedVersionNumber="1"/>
+			<Component Guid="{c9025477-7b7d-4604-8a3e-e792b1230c21}" FieldId="{d4ce3faa-cdf7-4056-b8bf-4a958f50f0fe}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime="12:43:42PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime="12:43:42PM" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+		<Key Guid="{ddedc76d-4c08-4ca1-bcec-4a25fe145357}" Ident="41" Order="2" Name="ProductCodeKey" KeyType="KEY" Unique="true">
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:53PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:21:45PM" ModifiedVersionNumber="1"/>
+			<Component Guid="{1f25ad7c-3a60-4af0-b849-8fd9507797a8}" FieldId="{20c12324-2f15-4659-8db3-2b5acc8dc6f7}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:53PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+		<Key Guid="{823eeb23-1ce7-4178-98d3-91eb49ef1a31}" Ident="33" Order="3" Name="ProductNameKey" ExternalName="Product_ProductNameKey" KeyType="KEY">
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:53PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:22:26PM" ModifiedVersionNumber="1"/>
+			<Component Guid="{0d3a763c-02e5-4b8a-9551-f792b687a8ff}" FieldId="{3d98616b-2bae-448d-858c-75a56390b775}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:22:26PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:22:26PM" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+	</Table>
+	<Table Guid="{d1d9a452-684c-4371-bb51-f6dd48c71945}" Ident="13" Name="InvoiceDetail" Description="Product-Order detail" Prefix="InvDet" Driver="SQLite" Owner="!Glo:Owner" Path="InvoiceDetail" Create="true" Thread="true" Bindable="true">
+		<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:55PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="13 JAN 2023" ModifiedTime=" 1:22:07PM" ModifiedVersionNumber="1"/>
+		<Field Guid="{32a5ecde-051d-4741-956c-420f82d0ac1b}" Name="GUID" DerivedFrom="Pool:GUID" DataType="STRING" Size="16" ScreenPicture="@s16" ScreenPrompt="GUID:" ReportHeading="GUID" InitialValue="MakeGUID()" NoPopulate="true" ReportControl=" STRING(@s16),USE(InvDet:GUID)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;GUID:&apos;),USE(?InvDet:GUID:Prompt),TRN"/>
+				<Line Text=" ENTRY(@s16),USE(InvDet:GUID),SKIP,TRN,READONLY"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime="12:42:46PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:59:02PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{0323c9b0-2246-4900-8161-a00446a56ccc}" Ident="74" Name="InvoiceGuid" DataType="STRING" Size="16" ScreenPicture="@s16" ScreenPrompt="Invoice Guid:" ReportHeading="Invoice" NoPopulate="true" ReportControl=" STRING(@s16),USE(InvDet:InvoiceGuid),DECIMAL(14)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Invoice Guid:&apos;),USE(?InvDet:InvoiceGuid:Prompt)"/>
+				<Line Text=" STRING(@s16),USE(InvDet:InvoiceGuid),DECIMAL(14)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:55PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:39:07PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{6431484b-482e-424f-94e1-f29c6e9ada43}" Ident="75" Name="ProductGuid" DataType="STRING" Size="16" ScreenPicture="@s16" ScreenPrompt="Product Guid:" ReportHeading="Product" ReportControl=" STRING(@s16),USE(InvDet:ProductGuid),DECIMAL(14)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Product Guid:&apos;),USE(?InvDet:ProductGuid:Prompt)"/>
+				<Line Text=" ENTRY(@s16),USE(InvDet:ProductGuid),DECIMAL(14)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:55PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:39:59PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{2f64b399-444d-43fd-be2e-0bc5a8371af0}" Ident="76" Name="LineNumber" Description="Line number" DataType="LONG" Size="4" ScreenPicture="@n-14" ScreenPrompt="Line Number:" ReportHeading="Line #" Justification="RIGHT" Offset="1" Message="Line number" ReportControl=" STRING(@n-14),USE(InvDet:LineNumber),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Line Number:&apos;),USE(?InvDet:LineNumber:Prompt)"/>
+				<Line Text=" STRING(@n-14),USE(InvDet:LineNumber),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:55PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:40:08PM" ModifiedVersionNumber="1"/>
+			<Validity Check="INRANGE" RangeLow="1" RangeHigh="99999"/>
+		</Field>
+		<Field Guid="{42c05131-29d1-40d0-9a2b-e7bfbeada2ad}" Ident="137" Name="Quantity" DataType="LONG" Size="4" ScreenPicture="@n-14" ScreenPrompt="Quantity:" ReportHeading="Quantity" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n-14),USE(InvDet:Quantity),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Quantity:&apos;),USE(?InvDet:Quantity:Prompt)"/>
+				<Line Text=" SPIN(@n-14),USE(InvDet:Quantity),RIGHT(1),RANGE(1,99999)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:55PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:40:33PM" ModifiedVersionNumber="1"/>
+			<Validity Check="INRANGE" RangeLow="1" RangeHigh="99999"/>
+		</Field>
+		<Field Guid="{ca98ddae-6d34-4221-ab85-a262995acecf}" Ident="91" Name="Price" Description="Product&apos;s Price" DataType="DECIMAL" Size="11" Places="2" ScreenPicture="@n-15.2" ScreenPrompt="Price:" ReportHeading="Price" Justification="DECIMAL" Offset="12" Message="Enter Product&apos;s Price" ReportControl=" STRING(@n-15.2),USE(InvDet:Price),DECIMAL(12)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Price:&apos;),USE(?InvDet:Price:Prompt)"/>
+				<Line Text=" ENTRY(@n-15.2),USE(InvDet:Price),DECIMAL(12),MSG(&apos;Enter Product&apos;&apos;s Price&apos;)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:53PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:44:11PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{034af487-8190-452b-99d1-6c17762ed414}" Ident="78" Name="TaxRate" Description="Consumer&apos;s Tax rate" DataType="DECIMAL" Size="6" Places="4" ScreenPicture="@n7.4B" ScreenPrompt="Tax Rate:" ReportHeading="Tax Rate" Message="Enter Consumer&apos;s Tax rate" ReportControl=" STRING(@n7.4B),USE(InvDet:TaxRate)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Tax Rate:&apos;),USE(?InvDet:TaxRate:Prompt)"/>
+				<Line Text=" ENTRY(@n7.4B),USE(InvDet:TaxRate),MSG(&apos;Enter Consumer&apos;&apos;s Tax rate&apos;)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:55PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime="12:32:14PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{48240ecf-4cb5-4f2a-8f10-a2c6f9a7fe87}" Ident="91" Name="TaxPaid" DataType="DECIMAL" Size="11" Places="2" ScreenPicture="@n-15.2" ScreenPrompt="Tax Paid:" ReportHeading="Tax Paid" Justification="DECIMAL" Offset="12" Message="Enter Product&apos;s Price" ReportControl=" STRING(@n-15.2),USE(InvDet:TaxPaid),DECIMAL(12)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Tax Paid:&apos;),USE(?InvDet:TaxPaid:Prompt)"/>
+				<Line Text=" ENTRY(@n-15.2),USE(InvDet:TaxPaid),DECIMAL(12),MSG(&apos;Enter Product&apos;&apos;s Price&apos;)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:53PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:44:18PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{67bd12ba-3f72-4967-8885-6830ea10f74d}" Ident="122" Name="DiscountRate" Description="Special discount rate on product" DataType="DECIMAL" Size="6" Places="4" ScreenPicture="@n7.4B" ScreenPrompt="Discount Rate:" ReportHeading="Discount Rate" Message="Enter discount rate" ReportControl=" STRING(@n7.4B),USE(InvDet:DiscountRate)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Discount Rate:&apos;),USE(?InvDet:DiscountRate:Prompt)"/>
+				<Line Text=" ENTRY(@n7.4B),USE(InvDet:DiscountRate),MSG(&apos;Enter discount rate&apos;)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:55PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:42:59PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{1ba71ea1-6e7a-4406-9cc8-7db70c789371}" Ident="91" Name="Discount" DataType="DECIMAL" Size="11" Places="2" ScreenPicture="@n-15.2" ScreenPrompt="Discount:" ReportHeading="Discount" Justification="DECIMAL" Offset="12" Message="Enter Product&apos;s Price" ReportControl=" STRING(@n-15.2),USE(InvDet:Discount),DECIMAL(12)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Discount:&apos;),USE(?InvDet:Discount:Prompt)"/>
+				<Line Text=" ENTRY(@n-15.2),USE(InvDet:Discount),DECIMAL(12),MSG(&apos;Enter Product&apos;&apos;s Price&apos;)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:53PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:44:25PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{bde27bc3-4f5e-4753-892e-7779978b0e7f}" Ident="123" Name="Total" DataType="DECIMAL" Size="11" Places="2" ScreenPicture="@n-15.2" ScreenPrompt="Total:" ReportHeading="Total" ReportControl=" STRING(@n-15.2),USE(InvDet:Total)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Total:&apos;),USE(?InvDet:Total:Prompt)"/>
+				<Line Text=" STRING(@n-15.2),USE(InvDet:Total)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:55PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:43:55PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{2b2e77f6-42b8-45c2-92f8-f4ffa0cb3260}" Ident="70" Name="Note" DataType="STRING" Size="255" ScreenPicture="@s255" ScreenPrompt="Note:" ReportHeading="Note" ReportControl=" STRING(@s255),USE(InvDet:Note)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Note:&apos;),USE(?InvDet:Note:Prompt)"/>
+				<Line Text=" TEXT,USE(InvDet:Note)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:56PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:35:40PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Key Guid="{3c78012e-e617-4d75-9ab1-55e7c293f561}" Order="1" Name="GuidKey" ExternalName="InvoiceDetail_GuidKey" KeyType="KEY" Unique="true" Primary="true">
+			<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime="12:44:18PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime="12:44:18PM" ModifiedVersionNumber="1"/>
+			<Component Guid="{bf8215ee-ffc3-4f57-9555-3a030c9e49c0}" FieldId="{32a5ecde-051d-4741-956c-420f82d0ac1b}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime="12:44:18PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime="12:44:18PM" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+		<Key Guid="{f47735fa-5bc8-4dee-8398-0d9e628a8b61}" Order="2" Name="InvoiceKey" ExternalName="InvoiceDetail_InvoiceKey" KeyType="KEY" Unique="true" AutoNumber="true">
+			<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:44:42PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:46:00PM" ModifiedVersionNumber="1"/>
+			<Component Guid="{98dd77f6-2b72-4e6e-8af3-e9bb0eb52b78}" FieldId="{0323c9b0-2246-4900-8161-a00446a56ccc}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:46:00PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:46:00PM" ModifiedVersionNumber="1"/>
+			</Component>
+			<Component Guid="{8a43bf88-225d-4874-8f57-6c4c8e97d1e4}" FieldId="{2f64b399-444d-43fd-be2e-0bc5a8371af0}" Order="2" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:46:00PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:46:00PM" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+		<Key Guid="{0904e75e-5669-46bb-9925-2ac58623a069}" Order="3" Name="ProductKey" ExternalName="InvoiceDetail_ProductKey" KeyType="KEY">
+			<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:45:15PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:45:15PM" ModifiedVersionNumber="1"/>
+			<Component Guid="{77d5c432-8b6d-4464-a8a6-a732299fcb55}" FieldId="{6431484b-482e-424f-94e1-f29c6e9ada43}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:45:15PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:45:15PM" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+	</Table>
+	<Table Guid="{e211317f-ad30-4e1f-a2e4-f4b5fc39489d}" Ident="12" Name="Invoice" Description="Customer&apos;s Orders" Prefix="Inv" Driver="SQLite" Owner="!Glo:Owner" Path="Invoice" Create="true" Thread="true" Bindable="true">
+		<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:56PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="13 JAN 2023" ModifiedTime=" 1:23:20PM" ModifiedVersionNumber="1"/>
+		<Field Guid="{5cf1a4af-b2ac-4d53-a325-04a7115636ae}" Name="GUID" DerivedFrom="Pool:GUID" DataType="STRING" Size="16" ScreenPicture="@s16" ScreenPrompt="GUID:" ReportHeading="GUID" InitialValue="MakeGUID()" NoPopulate="true" ReportControl=" STRING(@s16),USE(Inv:GUID)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;GUID:&apos;),USE(?Inv:GUID:Prompt),TRN"/>
+				<Line Text=" ENTRY(@s16),USE(Inv:GUID),SKIP,TRN,READONLY"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime="12:42:43PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:59:02PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{431e28f6-ac34-4ad8-a1c2-6740175bc42f}" Ident="66" Name="CustomerGuid" DataType="STRING" Size="16" ScreenPicture="@s16" ScreenPrompt="Customer Guid:" ReportHeading="Customer Guid" NoPopulate="true" ReportControl=" STRING(@s16),USE(Inv:CustomerGuid),DECIMAL(14)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Customer Guid:&apos;),USE(?Inv:CustomerGuid:Prompt)"/>
+				<Line Text=" STRING(@s16),USE(Inv:CustomerGuid),DECIMAL(14)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:56PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime="12:47:51PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{81b9e610-2629-41db-b3ce-ff9d0e290774}" Ident="185" Name="InvoiceNumber" Description="Invoice number for each order" DataType="LONG" Size="4" ScreenPicture="@n07" ScreenPrompt="Invoice Number:" ReportHeading="Invoice #" Message="Invoice number for each order" ReportControl=" STRING(@n07),USE(Inv:InvoiceNumber)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Invoice Number:&apos;),USE(?Inv:InvoiceNumber:Prompt)"/>
+				<Line Text=" ENTRY(@n07),USE(Inv:InvoiceNumber),MSG(&apos;Invoice number for each order&apos;)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate=" 5 OCT 1996" CreateTime="11:08:00AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="13 JAN 2023" ModifiedTime=" 1:23:07PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{675aaf43-ece7-41a2-a703-c0210b5c61a2}" Ident="69" Name="Date" DataType="DATE" Size="4" ScreenPicture="@d10" ScreenPrompt="Date:" ReportHeading="Date" InitialValue="TODAY()" ReportControl=" STRING(@d10),USE(Inv:Date)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Date:&apos;),USE(?Inv:Date:Prompt)"/>
+				<Line Text=" ENTRY(@d10),USE(Inv:Date),REQ"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:56PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="13 JAN 2023" ModifiedTime=" 1:23:12PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NONZERO"/>
+		</Field>
+		<Field Guid="{b0387d51-b1db-4004-a2db-1dbddd4a18a8}" Ident="67" Name="CustomerOrderNumber" DataType="STRING" Size="100" ScreenPicture="@s100" ScreenPrompt="Customer Order Number:" ReportHeading="Customer Order Number" NoPopulate="true" ReportControl=" STRING(@s100),USE(Inv:CustomerOrderNumber),DECIMAL(14)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Customer Order Number:&apos;),USE(?Inv:CustomerOrderNumber:Prompt)"/>
+				<Line Text=" ENTRY(@s100),USE(Inv:CustomerOrderNumber),REQ"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:56PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="13 JAN 2023" ModifiedTime=" 1:23:20PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NONZERO"/>
+		</Field>
+		<Field Guid="{318181f2-cb27-4ed2-9f0c-7c847ad8e041}" Ident="135" Name="OrderShipped" Description="Checked if order is shipped" DataType="BYTE" Size="1" ScreenPicture="@s1" ScreenPrompt="Order Shipped" ReportHeading="Shipped" Message="Checked if order is shipped" WindowControl=" CHECK(&apos;Order Shipped&apos;),USE(Inv:OrderShipped),MSG(&apos;Checked if order is shipped&apos;)" ReportControl=" CHECK(&apos;Order Shipped&apos;),USE(Inv:OrderShipped)">
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:56PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime="12:28:56PM" ModifiedVersionNumber="1"/>
+			<Validity Check="BOOLEAN"/>
+		</Field>
+		<Field Guid="{dbc388e4-ae4e-4778-98cf-e4a31892f6f8}" Ident="57" Name="FirstName" DataType="STRING" Size="100" ScreenPicture="@s100" ScreenPrompt="&amp;First Name:" ReportHeading="First Name" Message="Enter the first name of customer" ReportControl=" STRING(@s100),USE(Inv:FirstName)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;&amp;First Name:&apos;),USE(?Inv:FirstName:Prompt)"/>
+				<Line Text=" ENTRY(@s100),USE(Inv:FirstName),MSG(&apos;Enter the first name of customer&apos;),REQ"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:33:11PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 6 JAN 2023" ModifiedTime="12:54:30PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NONZERO"/>
+		</Field>
+		<Field Guid="{2efb0647-2f24-4045-93bd-743719a9439a}" Ident="58" Name="LastName" DataType="STRING" Size="100" ScreenPicture="@s100" ScreenPrompt="&amp;Last Name:" ReportHeading="Last Name" Message="Enter the last name of customer" ReportControl=" STRING(@s100),USE(Inv:LastName)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;&amp;Last Name:&apos;),USE(?Inv:LastName:Prompt)"/>
+				<Line Text=" ENTRY(@s100),USE(Inv:LastName),MSG(&apos;Enter the last name of customer&apos;),REQ"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:33:11PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 6 JAN 2023" ModifiedTime="12:54:32PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NONZERO"/>
+		</Field>
+		<Field Guid="{dd5b7900-70f0-47d6-8d02-42918cb9ea56}" Ident="59" Name="Street" DataType="STRING" Size="255" ScreenPicture="@s255" ScreenPrompt="&amp;Street:" ReportHeading="Street" Message="Enter the first line address of customer" ReportControl=" STRING(@s255),USE(Inv:Street)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;&amp;Street:&apos;),USE(?Inv:Street:Prompt)"/>
+				<Line Text=" TEXT,USE(Inv:Street),MSG(&apos;Enter the first line address of customer&apos;)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:33:11PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:33:11PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{0f7a2a7b-f8b7-485d-8121-ad0fabdb8647}" Ident="60" Name="City" DataType="STRING" Size="100" ScreenPicture="@s100" ScreenPrompt="&amp;City:" ReportHeading="City" Message="Enter  city of customer" ReportControl=" STRING(@s100),USE(Inv:City)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;&amp;City:&apos;),USE(?Inv:City:Prompt)"/>
+				<Line Text=" ENTRY(@s100),USE(Inv:City),MSG(&apos;Enter  city of customer&apos;)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:33:12PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 6 JAN 2023" ModifiedTime="12:54:36PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{1858e906-1e30-4fa7-89f9-4d6e8b44e7bc}" Ident="61" Name="State" DataType="STRING" Size="100" ScreenPicture="@s100" ScreenPrompt="&amp;State:" ReportHeading="State" Message="Enter state of customer" ReportControl=" STRING(@s100),USE(Inv:State)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;&amp;State:&apos;),USE(?Inv:State:Prompt)"/>
+				<Line Text=" ENTRY(@s100),USE(Inv:State),MSG(&apos;Enter state of customer&apos;)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:33:12PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 6 JAN 2023" ModifiedTime="12:54:38PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{3032c1d5-cd95-4266-acae-e143973862ef}" Ident="62" Name="PostalCode" DataType="STRING" Size="100" ScreenPicture="@s100" ScreenPrompt="&amp;Zip Code:" ReportHeading="Postal Code" Message="Enter zipcode of customer" Tooltip="Enter zipcode of customer" ReportControl=" STRING(@s100),USE(Inv:PostalCode)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;&amp;Zip Code:&apos;),USE(?Inv:PostalCode:Prompt)"/>
+				<Line Text=" ENTRY(@s100),USE(Inv:PostalCode),MSG(&apos;Enter zipcode of customer&apos;),TIP(&apos;Enter zipcode of customer&apos;)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:33:12PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:33:12PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{2b00294b-42f8-4b45-8389-0a2d2da716ff}" Ident="125" Name="Phone" DataType="STRING" Size="100" ScreenPicture="@s100" ScreenPrompt="Mobile Phone:" ReportHeading="Phone#" ReportControl=" STRING(@s100),USE(Inv:Phone)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Mobile Phone:&apos;),USE(?Inv:Phone:Prompt)"/>
+				<Line Text=" ENTRY(@s100),USE(Inv:Phone)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:57PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:04:31PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{f6628bd0-61a8-4687-8013-06542dde1813}" Ident="123" Name="Total" Description="Roll-up Field" DataType="DECIMAL" Size="11" Places="2" ScreenPicture="@n-15.2" ScreenPrompt="Total:" ReportHeading="Total" Message="Roll-up Field" Tooltip="Roll-up Field" ReportControl=" STRING(@n-15.2),USE(Inv:Total)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Total:&apos;),USE(?Inv:Total:Prompt)"/>
+				<Line Text=" STRING(@n-15.2),USE(Inv:Total)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:55PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:47:31PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{cced87ce-c63a-4b28-b99e-9a95e75e326e}" Ident="70" Name="Note" DataType="STRING" Size="255" ScreenPicture="@s255" ScreenPrompt="Note:" ReportHeading="Note" ReportControl=" STRING(@s255),USE(Inv:Note)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Note:&apos;),USE(?Inv:Note:Prompt)"/>
+				<Line Text=" TEXT,USE(Inv:Note)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:56PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:35:40PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Key Guid="{1de70678-6d6a-4593-b501-eeb514dbe013}" Order="1" Name="GuidKey" ExternalName="Invoice_GuidKey" KeyType="KEY" Unique="true" Primary="true">
+			<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime="12:44:34PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime="12:44:34PM" ModifiedVersionNumber="1"/>
+			<Component Guid="{8f0e5675-a6f9-4c0a-9802-aeeeeca4d1f6}" FieldId="{5cf1a4af-b2ac-4d53-a325-04a7115636ae}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime="12:44:34PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime="12:44:34PM" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+		<Key Guid="{27ee7892-4ef3-42a4-954e-7256a4207286}" Ident="27" Order="2" Name="CustomerKey" KeyType="KEY">
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:56PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime="12:52:12PM" ModifiedVersionNumber="1"/>
+			<Component Guid="{7ca1457f-e707-4615-82ce-1fa5aec10383}" FieldId="{431e28f6-ac34-4ad8-a1c2-6740175bc42f}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime="12:52:12PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime="12:52:12PM" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+		<Key Guid="{0bed171a-4334-4c59-8e64-f551505a67bb}" Ident="57" Order="3" Name="InvoiceNumberKey" KeyType="KEY" Unique="true" AutoNumber="true" NoPopulate="true">
+			<Audit CreateUser="Administrator" CreateDate=" 5 OCT 1996" CreateTime="11:10:06AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime="12:53:29PM" ModifiedVersionNumber="1"/>
+			<Component Guid="{d1fc9193-409e-40b0-aca2-359ea508f867}" FieldId="{81b9e610-2629-41db-b3ce-ff9d0e290774}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate=" 5 OCT 1996" CreateTime="11:10:06AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+		<Key Guid="{59c5ad9d-64cf-48d3-93bb-d8501e5179e1}" Order="4" Name="DateKey" ExternalName="Invoice_DateKey" KeyType="KEY">
+			<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:36:24PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:37:16PM" ModifiedVersionNumber="1"/>
+			<Component Guid="{26bb8a89-b3f7-4555-b872-0b3a452f6d23}" FieldId="{675aaf43-ece7-41a2-a703-c0210b5c61a2}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:37:16PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:37:16PM" ModifiedVersionNumber="1"/>
+			</Component>
+			<Component Guid="{66e6916e-3df3-4477-aeca-2d23b0be75aa}" FieldId="{81b9e610-2629-41db-b3ce-ff9d0e290774}" Order="2" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:37:16PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:37:16PM" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+	</Table>
+	<Table Guid="{b284b3f5-57cd-4614-b128-2800c5a459d4}" Ident="11" Name="Customer" Description="Customer&apos;s Information" Prefix="Cus" Driver="SQLite" Owner="!Glo:Owner" Path="Customer" Create="true" Thread="true" Bindable="true">
+		<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:56PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="13 JAN 2023" ModifiedTime=" 1:22:07PM" ModifiedVersionNumber="1"/>
+		<Field Guid="{d1e08eb7-3f03-4402-8221-4e1aaf215c5b}" Name="GUID" DerivedFrom="Pool:GUID" DataType="STRING" Size="16" ScreenPicture="@s16" ScreenPrompt="GUID:" ReportHeading="GUID" InitialValue="MakeGUID()" NoPopulate="true" ReportControl=" STRING(@s16),USE(Cus:GUID)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;GUID:&apos;),USE(?Cus:GUID:Prompt),TRN"/>
+				<Line Text=" ENTRY(@s16),USE(Cus:GUID),SKIP,TRN,READONLY"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime="12:37:27PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime="12:38:28PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{8f37978d-8d7a-48dc-8c5b-742be6df6eba}" Ident="55" Name="CustomerNumber" DataType="LONG" Size="4" ScreenPicture="@n_7" ScreenPrompt="&amp;Cust Number:" ReportHeading="Customer Number" Justification="LEFT" NoPopulate="true" ReportControl=" STRING(@n_7),USE(Cus:CustomerNumber),LEFT">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;&amp;Cust Number:&apos;),USE(?Cus:CustomerNumber:Prompt)"/>
+				<Line Text=" STRING(@n_7),USE(Cus:CustomerNumber),LEFT"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:56PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:06:33PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NONZERO"/>
+		</Field>
+		<Field Guid="{27cebba6-2b02-4d21-88d7-3082b3753c2f}" Ident="56" Name="CompanyGuid" DataType="STRING" Size="16" ScreenPicture="@s16" ScreenPrompt="&amp;Company:" ReportHeading="Company Guid" Message="Enter the customer&apos;s company" ReportControl=" STRING(@s16),USE(Cus:CompanyGuid)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;&amp;Company:&apos;),USE(?Cus:CompanyGuid:Prompt)"/>
+				<Line Text=" ENTRY(@s16),USE(Cus:CompanyGuid),MSG(&apos;Enter the customer&apos;&apos;s company&apos;)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:56PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 6 JAN 2023" ModifiedTime="12:53:44PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{e77d6618-d3ee-49c5-8c86-a0a169a3945c}" Ident="57" Name="FirstName" DataType="STRING" Size="100" ScreenPicture="@s100" ScreenPrompt="&amp;First Name:" ReportHeading="First Name" Message="Enter the first name of customer" ReportControl=" STRING(@s100),USE(Cus:FirstName)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;&amp;First Name:&apos;),USE(?Cus:FirstName:Prompt)"/>
+				<Line Text=" ENTRY(@s100),USE(Cus:FirstName),MSG(&apos;Enter the first name of customer&apos;),REQ"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:56PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 6 JAN 2023" ModifiedTime="12:53:47PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NONZERO"/>
+		</Field>
+		<Field Guid="{1c95284d-031d-4cba-bb61-c3583a44ab10}" Ident="58" Name="LastName" DataType="STRING" Size="100" ScreenPicture="@s100" ScreenPrompt="&amp;Last Name:" ReportHeading="Last Name" Message="Enter the last name of customer" ReportControl=" STRING(@s100),USE(Cus:LastName)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;&amp;Last Name:&apos;),USE(?Cus:LastName:Prompt)"/>
+				<Line Text=" ENTRY(@s100),USE(Cus:LastName),MSG(&apos;Enter the last name of customer&apos;),REQ"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:56PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 6 JAN 2023" ModifiedTime="12:53:49PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NONZERO"/>
+		</Field>
+		<Field Guid="{55c3bbbb-738d-4904-ad72-27e758d667f5}" Ident="59" Name="Street" DataType="STRING" Size="255" ScreenPicture="@s255" ScreenPrompt="&amp;Street:" ReportHeading="Street" Message="Enter the first line address of customer" ReportControl=" STRING(@s255),USE(Cus:Street)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;&amp;Street:&apos;),USE(?Cus:Street:Prompt)"/>
+				<Line Text=" TEXT,USE(Cus:Street),MSG(&apos;Enter the first line address of customer&apos;)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:57PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:02:44PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{42c59c40-fdb8-492b-b370-55ad60142dc6}" Ident="60" Name="City" DataType="STRING" Size="100" ScreenPicture="@s100" ScreenPrompt="&amp;City:" ReportHeading="City" Message="Enter  city of customer" ReportControl=" STRING(@s100),USE(Cus:City)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;&amp;City:&apos;),USE(?Cus:City:Prompt)"/>
+				<Line Text=" ENTRY(@s100),USE(Cus:City),MSG(&apos;Enter  city of customer&apos;)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:57PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 6 JAN 2023" ModifiedTime="12:53:53PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{66b06334-2b67-497a-9d8f-04296a4761e0}" Ident="61" Name="State" DataType="STRING" Size="100" ScreenPicture="@s100" ScreenPrompt="&amp;State:" ReportHeading="State" Message="Enter state of customer" ReportControl=" STRING(@s100),USE(Cus:State)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;&amp;State:&apos;),USE(?Cus:State:Prompt)"/>
+				<Line Text=" ENTRY(@s100),USE(Cus:State),MSG(&apos;Enter state of customer&apos;)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:56PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 6 JAN 2023" ModifiedTime="12:53:55PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{dce799a9-a1e4-47dd-8245-a6c67978497f}" Ident="62" Name="PostalCode" DataType="STRING" Size="100" ScreenPicture="@s100" ScreenPrompt="&amp;Zip Code:" ReportHeading="Postal Code" Message="Enter zipcode of customer" Tooltip="Enter zipcode of customer" ReportControl=" STRING(@s100),USE(Cus:PostalCode)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;&amp;Zip Code:&apos;),USE(?Cus:PostalCode:Prompt)"/>
+				<Line Text=" ENTRY(@s100),USE(Cus:PostalCode),MSG(&apos;Enter zipcode of customer&apos;),TIP(&apos;Enter zipcode of customer&apos;)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:56PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:06:03PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{734c9d3b-360d-4166-aa4a-6d8633485d77}" Ident="125" Name="Phone" DataType="STRING" Size="100" ScreenPicture="@s100" ScreenPrompt="Mobile Phone:" ReportHeading="Phone#" ReportControl=" STRING(@s100),USE(Cus:Phone)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Mobile Phone:&apos;),USE(?Cus:Phone:Prompt)"/>
+				<Line Text=" ENTRY(@s100),USE(Cus:Phone)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:57PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:04:31PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{86749fea-1718-4974-9552-ae6776d9eaf5}" Ident="125" Name="MobilePhone" DataType="STRING" Size="100" ScreenPicture="@s100" ScreenPrompt="Mobile Phone:" ReportHeading="Phone#" ReportControl=" STRING(@s100),USE(Cus:MobilePhone)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Mobile Phone:&apos;),USE(?Cus:MobilePhone:Prompt)"/>
+				<Line Text=" ENTRY(@s100),USE(Cus:MobilePhone)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:57PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:06:45PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{234f8037-60d2-4a58-859d-792352490a88}" Name="Email" DataType="STRING" Size="100" ScreenPicture="@s100" ScreenPrompt="Email:" ReportHeading="Email" ReportControl=" STRING(@s100),USE(Cus:Email)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Email:&apos;),USE(?Cus:Email:Prompt)"/>
+				<Line Text=" ENTRY(@s100),USE(Cus:Email)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:05:00PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:05:00PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Key Guid="{a14f5d78-b2dc-40e9-8264-365eadbbf840}" Order="1" Name="GuidKey" ExternalName="Customer_GuidKey" KeyType="KEY" Unique="true" Primary="true">
+			<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime="12:42:27PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime="12:42:27PM" ModifiedVersionNumber="1"/>
+			<Component Guid="{baf42c2b-2f93-49fa-bce0-1fe22354813e}" FieldId="{d1e08eb7-3f03-4402-8221-4e1aaf215c5b}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime="12:42:27PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime="12:42:27PM" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+		<Key Guid="{379f9c53-c4dc-4652-9c5f-7f9f9a15f1e4}" Ident="25" Order="2" Name="CompanyKey" ExternalName="Customer_CompanyKey" KeyType="KEY">
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:56PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:10:48PM" ModifiedVersionNumber="1"/>
+			<Component Guid="{3bb6decc-8d2c-4c8e-91af-006d39f1b7c4}" FieldId="{27cebba6-2b02-4d21-88d7-3082b3753c2f}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:56PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+		<Key Guid="{016bb574-b980-40e6-8d30-e5f536347976}" Ident="24" Order="3" Name="CustomerNumberKey" KeyType="KEY" Unique="true" AutoNumber="true" NoPopulate="true">
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:56PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:11:30PM" ModifiedVersionNumber="1"/>
+			<Component Guid="{86e8193b-283b-42d2-b147-0d02788d50b9}" FieldId="{8f37978d-8d7a-48dc-8c5b-742be6df6eba}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:56PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+		<Key Guid="{bb704fc8-1848-4649-a263-a0561e5b0368}" Ident="36" Order="4" Name="LastFirstNameKey" ExternalName="Customer_LastFirstNameKey" KeyType="KEY">
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:56PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:09:42PM" ModifiedVersionNumber="1"/>
+			<Component Guid="{4baa0f46-8c69-4fd9-a9b4-930c444cc88b}" FieldId="{1c95284d-031d-4cba-bb61-c3583a44ab10}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:56PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+			<Component Guid="{83079aef-e20d-49dd-9d57-0508079f306a}" FieldId="{e77d6618-d3ee-49c5-8c86-a0a169a3945c}" Order="2" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:56PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+		<Key Guid="{1b1520de-bf95-4899-96dd-bedf38289fa6}" Ident="36" Order="5" Name="FirstLastNameKey_Copy" ExternalName="Customer_FirstLastNameKey" KeyType="KEY">
+			<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:10:04PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:10:04PM" ModifiedVersionNumber="1"/>
+			<Component Guid="{eb7ef769-03d3-43e8-adc7-4efa2b27ae78}" FieldId="{e77d6618-d3ee-49c5-8c86-a0a169a3945c}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:10:04PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:10:04PM" ModifiedVersionNumber="1"/>
+			</Component>
+			<Component Guid="{119fe66a-b4e1-4283-8e93-ebc3dfc2d5d0}" FieldId="{1c95284d-031d-4cba-bb61-c3583a44ab10}" Order="2" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:10:04PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:10:04PM" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+		<Key Guid="{56d18d18-7f90-4ace-8e05-30dfa82a394c}" Ident="26" Order="6" Name="PostalCodeKey" ExternalName="Customer_PostalCodeKey" KeyType="KEY">
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:56PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:11:16PM" ModifiedVersionNumber="1"/>
+			<Component Guid="{5acaac5c-3e9e-4d0f-b694-267c3c6fd1b3}" FieldId="{dce799a9-a1e4-47dd-8245-a6c67978497f}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:56PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+		<Key Guid="{b1bc574a-e7a8-4685-8421-45176a8636e1}" Ident="56" Order="7" Name="StateKey" ExternalName="Customer_StateKey" KeyType="KEY">
+			<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:56PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:11:24PM" ModifiedVersionNumber="1"/>
+			<Component Guid="{1c430d6b-f90c-43e2-a068-99452b3c1d87}" FieldId="{66b06334-2b67-497a-9d8f-04296a4761e0}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="26 SEP 1996" CreateTime=" 5:24:56PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+	</Table>
+	<Table Guid="{b9c89a20-2fe8-4138-b41e-00a577896a61}" Usage="Pool" Name="Pool" Prefix="Pool">
+		<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime="12:34:00PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime="12:37:23PM" ModifiedVersionNumber="1"/>
+		<Field Guid="{fda98c16-4da1-4cc3-9528-6949b6bfa363}" Name="GUID" DataType="STRING" Size="16" ScreenPicture="@s16" ScreenPrompt="GUID:" ReportHeading="GUID" InitialValue="MakeGUID()" NoPopulate="true" ReportControl=" STRING(@s16),USE(Pool:GUID)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;GUID:&apos;),USE(?Pool:GUID:Prompt)"/>
+				<Line Text=" ENTRY(@s16),USE(Pool:GUID),SKIP,TRN,READONLY"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime="12:34:57PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime="12:37:23PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+	</Table>
+	<Table Guid="{ba807c44-bef1-45df-bbc0-fea152557202}" Ident="21" Name="Configuration" Description="Program settings and such" Prefix="Cfg" Driver="SQLite" Owner="!Glo:Owner" Path="Configuration" Create="true" Thread="true" Bindable="true">
+		<Audit CreateUser="Administrator" CreateDate="17 OCT 1996" CreateTime=" 2:36:22PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="13 JAN 2023" ModifiedTime=" 1:22:07PM" ModifiedVersionNumber="1"/>
+		<Field Guid="{11c257c8-a0d4-439f-b509-b4fab10b7fb3}" Name="GUID" DerivedFrom="Pool:GUID" DataType="STRING" Size="16" ScreenPicture="@s16" ScreenPrompt="GUID:" ReportHeading="GUID" InitialValue="MakeGUID()" NoPopulate="true" ReportControl=" STRING(@s16),USE(Cfg:GUID)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;GUID:&apos;),USE(?Cfg:GUID:Prompt),TRN"/>
+				<Line Text=" ENTRY(@s16),USE(Cfg:GUID),SKIP,TRN,READONLY"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="23 DEC 2022" CreateTime="12:31:23PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="23 DEC 2022" ModifiedTime="12:31:23PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{8c7e807c-05f0-46b9-b0cc-a74b9ca243f0}" Ident="191" Name="CompanyName" DataType="STRING" Size="100" ScreenPicture="@s100" ScreenPrompt="Company Name:" ReportHeading="Company Name" ReportControl=" STRING(@s100),USE(Cfg:CompanyName)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Company Name:&apos;),USE(?Cfg:CompanyName:Prompt)"/>
+				<Line Text=" ENTRY(@s100),USE(Cfg:CompanyName)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="23 DEC 2022" CreateTime="12:31:23PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 6 JAN 2023" ModifiedTime="12:53:16PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{cb0a0569-e111-4ab2-b5f4-352490f37bad}" Ident="59" Name="Street" DataType="STRING" Size="255" ScreenPicture="@s255" ScreenPrompt="&amp;Street:" ReportHeading="Street" Message="Enter the first line address of customer" ReportControl=" STRING(@s255),USE(Cfg:Street)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;&amp;Street:&apos;),USE(?Cfg:Street:Prompt)"/>
+				<Line Text=" TEXT,USE(Cfg:Street),MSG(&apos;Enter the first line address of customer&apos;)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="23 DEC 2022" CreateTime="12:31:23PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="23 DEC 2022" ModifiedTime="12:31:23PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{368ebe2c-0da5-4f44-a4ee-33098c85a855}" Ident="60" Name="City" DataType="STRING" Size="100" ScreenPicture="@s100" ScreenPrompt="&amp;City:" ReportHeading="City" Message="Enter  city of customer" ReportControl=" STRING(@s100),USE(Cfg:City)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;&amp;City:&apos;),USE(?Cfg:City:Prompt)"/>
+				<Line Text=" ENTRY(@s100),USE(Cfg:City),MSG(&apos;Enter  city of customer&apos;)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="23 DEC 2022" CreateTime="12:31:23PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 6 JAN 2023" ModifiedTime="12:53:20PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{29e56512-1501-4f25-be9f-8f82b08d0b7a}" Ident="61" Name="State" DataType="STRING" Size="100" ScreenPicture="@s100" ScreenPrompt="&amp;State:" ReportHeading="State" Message="Enter state of customer" ReportControl=" STRING(@s100),USE(Cfg:State)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;&amp;State:&apos;),USE(?Cfg:State:Prompt)"/>
+				<Line Text=" ENTRY(@s100),USE(Cfg:State),MSG(&apos;Enter state of customer&apos;)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="23 DEC 2022" CreateTime="12:31:23PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 6 JAN 2023" ModifiedTime="12:53:23PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{9f9c00a7-bd6d-465e-994f-97b6e09ad1b0}" Ident="62" Name="PostalCode" DataType="STRING" Size="100" ScreenPicture="@s100" ScreenPrompt="&amp;Zip Code:" ReportHeading="Postal Code" Message="Enter zipcode of customer" Tooltip="Enter zipcode of customer" ReportControl=" STRING(@s100),USE(Cfg:PostalCode)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;&amp;Zip Code:&apos;),USE(?Cfg:PostalCode:Prompt)"/>
+				<Line Text=" ENTRY(@s100),USE(Cfg:PostalCode),MSG(&apos;Enter zipcode of customer&apos;),TIP(&apos;Enter zipcode of customer&apos;)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="23 DEC 2022" CreateTime="12:31:23PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="23 DEC 2022" ModifiedTime="12:31:23PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{ccc1040d-0780-4edf-b08b-f9cc015cb225}" Ident="125" Name="Phone" DataType="STRING" Size="100" ScreenPicture="@s100" ScreenPrompt="Mobile Phone:" ReportHeading="Phone#" ReportControl=" STRING(@s100),USE(Cfg:Phone)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Mobile Phone:&apos;),USE(?Cfg:Phone:Prompt)"/>
+				<Line Text=" ENTRY(@s100),USE(Cfg:Phone)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="23 DEC 2022" CreateTime="12:31:23PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="23 DEC 2022" ModifiedTime="12:31:23PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Key Guid="{261f7d62-4da6-4ad7-9dea-514f056e5b4b}" Order="1" Name="GuidKey" ExternalName="CustomerCompany_GuidKey" KeyType="KEY" Unique="true" Primary="true">
+			<Audit CreateUser="Administrator" CreateDate="23 DEC 2022" CreateTime="12:31:23PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="23 DEC 2022" ModifiedTime="12:31:23PM" ModifiedVersionNumber="1"/>
+			<Component Guid="{d44d0345-109e-443b-b95e-69aab371a99e}" FieldId="{11c257c8-a0d4-439f-b509-b4fab10b7fb3}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="23 DEC 2022" CreateTime="12:31:23PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="23 DEC 2022" ModifiedTime="12:31:23PM" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+	</Table>
+	<Table Guid="{2cbd2359-8f65-4609-a92f-9b93c4ac7e07}" Usage="Global" Name="Global" Prefix="Glo">
+		<Audit CreateUser="Administrator" CreateDate="23 DEC 2022" CreateTime="12:33:27PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="23 DEC 2022" ModifiedTime=" 1:15:27PM" ModifiedVersionNumber="1"/>
+		<Field Guid="{8b8755a9-462b-4cde-abf8-371680392bb9}" Name="Owner" DataType="STRING" Size="255" ScreenPicture="@s255" ScreenPrompt="Owner:" ReportHeading="Owner" InitialValue="Invoice.sqlite" ReportControl=" STRING(@s255),USE(Glo:Owner)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Owner:&apos;),USE(?Glo:Owner:Prompt)"/>
+				<Line Text=" ENTRY(@s255),USE(Glo:Owner)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="23 DEC 2022" CreateTime="12:33:46PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="23 DEC 2022" ModifiedTime=" 1:15:27PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+	</Table>
+	<Table Guid="{56828483-a5d9-4d4c-9fd1-db3e695b7c35}" Name="TestCompanyCSV" Prefix="ImpCo" Driver="BASIC" DriverOption="/FIRSTROWHEADER=ON" Path="TestCompanyCSV.csv" Thread="true" Bindable="true">
+		<Audit CreateUser="Administrator" CreateDate="20 JAN 2023" CreateTime="10:28:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="20 JAN 2023" ModifiedTime="12:51:12PM" ModifiedVersionNumber="1"/>
+		<Field Guid="{25c4df59-ce47-481a-8c5c-f6ccc91549e1}" Name="company_name" DataType="STRING" Size="53" ScreenPicture="@s53" ScreenPrompt="company name:" ReportHeading="company name" ReportControl=" STRING(@s53),USE(ImpCo:company_name)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;company name:&apos;),USE(?ImpCo:company_name:Prompt)"/>
+				<Line Text=" ENTRY(@s53),USE(ImpCo:company_name)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="20 JAN 2023" CreateTime="10:28:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="20 JAN 2023" ModifiedTime="10:55:49AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{58848f7f-76f0-49c6-a843-0fe6b51a0e0e}" Name="address1" DataType="STRING" Size="40" ScreenPicture="@s40" ScreenPrompt="address 1:" ReportHeading="address 1" ReportControl=" STRING(@s40),USE(ImpCo:address1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;address 1:&apos;),USE(?ImpCo:address1:Prompt)"/>
+				<Line Text=" ENTRY(@s40),USE(ImpCo:address1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="20 JAN 2023" CreateTime="10:28:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="20 JAN 2023" ModifiedTime="12:34:31PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{d681cc0e-5dbb-41b2-b9f5-f0cf5322de5e}" Name="address2" DataType="STRING" Size="40" ScreenPicture="@s40" ScreenPrompt="address 2:" ReportHeading="address 2" ReportControl=" STRING(@s40),USE(ImpCo:address2)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;address 2:&apos;),USE(?ImpCo:address2:Prompt)"/>
+				<Line Text=" ENTRY(@s40),USE(ImpCo:address2)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="20 JAN 2023" CreateTime="10:28:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="20 JAN 2023" ModifiedTime="12:34:22PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{ad77bdc3-6456-48f5-8628-098796c342a6}" Name="city" DataType="STRING" Size="16" ScreenPicture="@s16" ScreenPrompt="city:" ReportHeading="city" ReportControl=" STRING(@s16),USE(ImpCo:city)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;city:&apos;),USE(?ImpCo:city:Prompt)"/>
+				<Line Text=" ENTRY(@s16),USE(ImpCo:city)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="20 JAN 2023" CreateTime="10:28:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="20 JAN 2023" ModifiedTime="10:55:49AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{8493b62e-90a8-43fe-ba3f-40bc9f99c60d}" Name="state" DataType="STRING" Size="2" ScreenPicture="@s2" ScreenPrompt="state:" ReportHeading="state" ReportControl=" STRING(@s2),USE(ImpCo:state)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;state:&apos;),USE(?ImpCo:state:Prompt)"/>
+				<Line Text=" ENTRY(@s2),USE(ImpCo:state)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="20 JAN 2023" CreateTime="10:28:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="20 JAN 2023" ModifiedTime="10:55:49AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{0ab758f4-61c7-4347-abe7-cef624448917}" Name="zip5" DataType="STRING" Size="5" ScreenPicture="@s5" ScreenPrompt="zip 5:" ReportHeading="zip 5" ReportControl=" STRING(@s5),USE(ImpCo:zip5)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;zip 5:&apos;),USE(?ImpCo:zip5:Prompt)"/>
+				<Line Text=" ENTRY(@s5),USE(ImpCo:zip5)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="20 JAN 2023" CreateTime="10:28:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="20 JAN 2023" ModifiedTime="10:55:49AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{c53e8f32-c77c-4e66-974f-79c6fcc8475c}" Name="zip4" DataType="STRING" Size="4" ScreenPicture="@s4" ScreenPrompt="zip 4:" ReportHeading="zip 4" ReportControl=" STRING(@s4),USE(ImpCo:zip4),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;zip 4:&apos;),USE(?ImpCo:zip4:Prompt)"/>
+				<Line Text=" ENTRY(@s4),USE(ImpCo:zip4),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="20 JAN 2023" CreateTime="10:28:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="20 JAN 2023" ModifiedTime="10:55:49AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{9f850fba-38a4-4a02-93ac-04af578d188f}" Name="county_name" DataType="STRING" Size="15" ScreenPicture="@s15" ScreenPrompt="county name:" ReportHeading="county name" ReportControl=" STRING(@s15),USE(ImpCo:county_name)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;county name:&apos;),USE(?ImpCo:county_name:Prompt)"/>
+				<Line Text=" ENTRY(@s15),USE(ImpCo:county_name)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="20 JAN 2023" CreateTime="10:28:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="20 JAN 2023" ModifiedTime="10:55:49AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{1b9c8824-75b8-4ce0-a041-5780c5ad9431}" Name="employee_size" DataType="USHORT" Size="2" ScreenPicture="@n6" ScreenPrompt="employee size:" ReportHeading="employee size" ReportControl=" STRING(@n6),USE(ImpCo:employee_size)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;employee size:&apos;),USE(?ImpCo:employee_size:Prompt)"/>
+				<Line Text=" ENTRY(@n6),USE(ImpCo:employee_size)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="20 JAN 2023" CreateTime="10:28:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="20 JAN 2023" ModifiedTime="10:55:49AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{5a1d9ddf-2e01-4660-83b6-20cd2fd9ee46}" Name="url" DataType="STRING" Size="35" ScreenPicture="@s35" ScreenPrompt="url:" ReportHeading="url" ReportControl=" STRING(@s35),USE(ImpCo:url)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;url:&apos;),USE(?ImpCo:url:Prompt)"/>
+				<Line Text=" ENTRY(@s35),USE(ImpCo:url)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="20 JAN 2023" CreateTime="10:28:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="20 JAN 2023" ModifiedTime="10:55:49AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{d5bc4e2d-8f6c-4a79-80dd-a223708cbbea}" Name="telephone" DataType="STRING" Size="13" ScreenPicture="@s13" ScreenPrompt="telephone:" ReportHeading="telephone" ReportControl=" STRING(@s13),USE(ImpCo:telephone)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;telephone:&apos;),USE(?ImpCo:telephone:Prompt)"/>
+				<Line Text=" ENTRY(@s13),USE(ImpCo:telephone)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="20 JAN 2023" CreateTime="10:28:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="20 JAN 2023" ModifiedTime="10:55:49AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{4383cc29-9116-4654-bec6-70eb75103d0a}" Name="telephone2" DataType="STRING" Size="13" ScreenPicture="@s13" ScreenPrompt="telephone 2:" ReportHeading="telephone 2" ReportControl=" STRING(@s13),USE(ImpCo:telephone2)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;telephone 2:&apos;),USE(?ImpCo:telephone2:Prompt)"/>
+				<Line Text=" ENTRY(@s13),USE(ImpCo:telephone2)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="20 JAN 2023" CreateTime="10:28:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="20 JAN 2023" ModifiedTime="10:55:49AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{114d726b-73ac-4b7a-bc7e-a41236397f79}" Name="toll_free_number" DataType="STRING" Size="13" ScreenPicture="@s13" ScreenPrompt="toll free number:" ReportHeading="toll free number" ReportControl=" STRING(@s13),USE(ImpCo:toll_free_number)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;toll free number:&apos;),USE(?ImpCo:toll_free_number:Prompt)"/>
+				<Line Text=" ENTRY(@s13),USE(ImpCo:toll_free_number)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="20 JAN 2023" CreateTime="10:28:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="20 JAN 2023" ModifiedTime="10:55:49AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{2341f7af-bfbf-4b14-aa82-0e051f61f999}" Name="contact_name" DataType="STRING" Size="27" ScreenPicture="@s27" ScreenPrompt="contact name:" ReportHeading="contact name" ReportControl=" STRING(@s27),USE(ImpCo:contact_name)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;contact name:&apos;),USE(?ImpCo:contact_name:Prompt)"/>
+				<Line Text=" ENTRY(@s27),USE(ImpCo:contact_name)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="20 JAN 2023" CreateTime="10:28:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="20 JAN 2023" ModifiedTime="10:55:49AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{7cacd017-9904-4435-957a-57bbeeb9b0dc}" Name="prefix" DataType="STRING" Size="3" ScreenPicture="@s3" ScreenPrompt="prefix:" ReportHeading="prefix" ReportControl=" STRING(@s3),USE(ImpCo:prefix)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;prefix:&apos;),USE(?ImpCo:prefix:Prompt)"/>
+				<Line Text=" ENTRY(@s3),USE(ImpCo:prefix)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="20 JAN 2023" CreateTime="10:28:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="20 JAN 2023" ModifiedTime="10:55:49AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{e80cd217-f8b9-49d2-8998-3f403177285c}" Name="first_name" DataType="STRING" Size="9" ScreenPicture="@s9" ScreenPrompt="first name:" ReportHeading="first name" ReportControl=" STRING(@s9),USE(ImpCo:first_name)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;first name:&apos;),USE(?ImpCo:first_name:Prompt)"/>
+				<Line Text=" ENTRY(@s9),USE(ImpCo:first_name)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="20 JAN 2023" CreateTime="10:28:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="20 JAN 2023" ModifiedTime="10:55:49AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{6aacb7ad-ab07-4a79-9e28-b46466a7f756}" Name="middle_name" DataType="STRING" Size="7" ScreenPicture="@s7" ScreenPrompt="middle name:" ReportHeading="middle name" ReportControl=" STRING(@s7),USE(ImpCo:middle_name)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;middle name:&apos;),USE(?ImpCo:middle_name:Prompt)"/>
+				<Line Text=" ENTRY(@s7),USE(ImpCo:middle_name)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="20 JAN 2023" CreateTime="10:28:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="20 JAN 2023" ModifiedTime="10:55:49AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{8c3ccaa6-27ae-420b-b004-7b0c84af881b}" Name="surname" DataType="STRING" Size="14" ScreenPicture="@s14" ScreenPrompt="surname:" ReportHeading="surname" ReportControl=" STRING(@s14),USE(ImpCo:surname)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;surname:&apos;),USE(?ImpCo:surname:Prompt)"/>
+				<Line Text=" ENTRY(@s14),USE(ImpCo:surname)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="20 JAN 2023" CreateTime="10:28:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="20 JAN 2023" ModifiedTime="10:55:49AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{f284d82f-e7ee-404d-a73a-dcebb395a1ff}" Name="suffix" DataType="STRING" Size="2" ScreenPicture="@s2" ScreenPrompt="suffix:" ReportHeading="suffix" ReportControl=" STRING(@s2),USE(ImpCo:suffix)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;suffix:&apos;),USE(?ImpCo:suffix:Prompt)"/>
+				<Line Text=" ENTRY(@s2),USE(ImpCo:suffix)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="20 JAN 2023" CreateTime="10:28:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="20 JAN 2023" ModifiedTime="10:55:49AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{aab23fc9-9c84-4f7c-9f2a-9231cb8d58b4}" Name="gender" DataType="STRING" Size="1" ScreenPicture="@s1" ScreenPrompt="gender:" ReportHeading="gender" ReportControl=" STRING(@s1),USE(ImpCo:gender)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;gender:&apos;),USE(?ImpCo:gender:Prompt)"/>
+				<Line Text=" ENTRY(@s1),USE(ImpCo:gender)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="20 JAN 2023" CreateTime="10:28:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="20 JAN 2023" ModifiedTime="10:55:49AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{df300bcc-730a-43b4-94c1-521f8c7733c5}" Name="contact_address1" DataType="STRING" Size="21" ScreenPicture="@s21" ScreenPrompt="contact address 1:" ReportHeading="contact address 1" ReportControl=" STRING(@s21),USE(ImpCo:contact_address1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;contact address 1:&apos;),USE(?ImpCo:contact_address1:Prompt)"/>
+				<Line Text=" ENTRY(@s21),USE(ImpCo:contact_address1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="20 JAN 2023" CreateTime="10:28:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="20 JAN 2023" ModifiedTime="10:55:49AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{bf90974e-88da-452f-a5a3-4cd3d8470f86}" Name="contact_address2" DataType="STRING" Size="7" ScreenPicture="@s7" ScreenPrompt="contact address 2:" ReportHeading="contact address 2" ReportControl=" STRING(@s7),USE(ImpCo:contact_address2)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;contact address 2:&apos;),USE(?ImpCo:contact_address2:Prompt)"/>
+				<Line Text=" ENTRY(@s7),USE(ImpCo:contact_address2)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="20 JAN 2023" CreateTime="10:28:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="20 JAN 2023" ModifiedTime="10:55:49AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{6090d277-ee88-45f4-8576-cba22dabc4a3}" Name="contact_city" DataType="STRING" Size="13" ScreenPicture="@s13" ScreenPrompt="contact city:" ReportHeading="contact city" ReportControl=" STRING(@s13),USE(ImpCo:contact_city)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;contact city:&apos;),USE(?ImpCo:contact_city:Prompt)"/>
+				<Line Text=" ENTRY(@s13),USE(ImpCo:contact_city)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="20 JAN 2023" CreateTime="10:28:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="20 JAN 2023" ModifiedTime="10:55:49AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{d60ae35e-1d78-4711-80b6-e7756a59e705}" Name="contact_state" DataType="STRING" Size="2" ScreenPicture="@s2" ScreenPrompt="contact state:" ReportHeading="contact state" ReportControl=" STRING(@s2),USE(ImpCo:contact_state)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;contact state:&apos;),USE(?ImpCo:contact_state:Prompt)"/>
+				<Line Text=" ENTRY(@s2),USE(ImpCo:contact_state)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="20 JAN 2023" CreateTime="10:28:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="20 JAN 2023" ModifiedTime="10:55:49AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{e1e4d863-ba3b-4458-a90d-2d78245ce752}" Name="contact_zip5" DataType="STRING" Size="5" ScreenPicture="@s5" ScreenPrompt="contact zip 5:" ReportHeading="contact zip 5" ReportControl=" STRING(@s5),USE(ImpCo:contact_zip5)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;contact zip 5:&apos;),USE(?ImpCo:contact_zip5:Prompt)"/>
+				<Line Text=" ENTRY(@s5),USE(ImpCo:contact_zip5)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="20 JAN 2023" CreateTime="10:28:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="20 JAN 2023" ModifiedTime="12:51:06PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{c9593f7e-dd49-4a69-815c-052f188f11e5}" Name="contact_zip4" DataType="STRING" Size="4" ScreenPicture="@s4" ScreenPrompt="contact zip 4:" ReportHeading="contact zip 4" ReportControl=" STRING(@s4),USE(ImpCo:contact_zip4)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;contact zip 4:&apos;),USE(?ImpCo:contact_zip4:Prompt)"/>
+				<Line Text=" ENTRY(@s4),USE(ImpCo:contact_zip4)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="20 JAN 2023" CreateTime="10:28:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="20 JAN 2023" ModifiedTime="12:51:12PM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{b76c71b6-e349-41f0-b9c3-ebfffcae0b59}" Name="contact_telephone" DataType="DECIMAL" Size="19" ScreenPicture="@n-26.0" ScreenPrompt="contact telephone:" ReportHeading="contact telephone" ReportControl=" STRING(@n-26.0),USE(ImpCo:contact_telephone)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;contact telephone:&apos;),USE(?ImpCo:contact_telephone:Prompt)"/>
+				<Line Text=" ENTRY(@n-26.0),USE(ImpCo:contact_telephone)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="20 JAN 2023" CreateTime="10:28:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="20 JAN 2023" ModifiedTime="10:55:49AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{c9d831ca-78ce-4f6a-97b7-0efa6a54fe15}" Name="orig_title1" DataType="STRING" Size="25" ScreenPicture="@s25" ScreenPrompt="orig title 1:" ReportHeading="orig title 1" ReportControl=" STRING(@s25),USE(ImpCo:orig_title1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;orig title 1:&apos;),USE(?ImpCo:orig_title1:Prompt)"/>
+				<Line Text=" ENTRY(@s25),USE(ImpCo:orig_title1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="20 JAN 2023" CreateTime="10:28:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="20 JAN 2023" ModifiedTime="10:55:49AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+	</Table>
+	<Relation Guid="{0c7cf98b-787a-41d6-a07d-7398b4b2bd9e}" PrimaryTable="{e211317f-ad30-4e1f-a2e4-f4b5fc39489d}" ForeignTable="{d1d9a452-684c-4371-bb51-f6dd48c71945}" PrimaryKey="{1de70678-6d6a-4593-b501-eeb514dbe013}" ForeignKey="{f47735fa-5bc8-4dee-8398-0d9e628a8b61}" Delete="CASCADE">
+		<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:48:44PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:49:48PM" ModifiedVersionNumber="1"/>
+		<ForeignMapping Guid="{57e125d1-23e6-4171-8865-f50f9dec1999}" Field="{5cf1a4af-b2ac-4d53-a325-04a7115636ae}"/>
+		<PrimaryMapping Guid="{47ae6c43-26e5-4171-aa41-617f3418cc59}" Field="{0323c9b0-2246-4900-8161-a00446a56ccc}"/>
+	</Relation>
+	<Relation Guid="{de101dea-22ce-4f37-a9e2-8e6139063e15}" PrimaryTable="{72fd575d-387e-4213-b177-cc3624454367}" ForeignTable="{d1d9a452-684c-4371-bb51-f6dd48c71945}" PrimaryKey="{ecae9765-292e-4a59-be62-c144ebf59ed1}" ForeignKey="{0904e75e-5669-46bb-9925-2ac58623a069}" Delete="RESTRICT">
+		<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:49:30PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:49:30PM" ModifiedVersionNumber="1"/>
+		<ForeignMapping Guid="{5c03cbf1-552a-412d-8744-29e428eb0cd7}" Field="{d4ce3faa-cdf7-4056-b8bf-4a958f50f0fe}"/>
+		<PrimaryMapping Guid="{a955ad2a-8a60-4ea7-8941-576ef8454545}" Field="{6431484b-482e-424f-94e1-f29c6e9ada43}"/>
+	</Relation>
+	<Relation Guid="{287aae26-9e24-4bbe-ad72-c84ef7fab51e}" PrimaryTable="{b284b3f5-57cd-4614-b128-2800c5a459d4}" ForeignTable="{e211317f-ad30-4e1f-a2e4-f4b5fc39489d}" PrimaryKey="{a14f5d78-b2dc-40e9-8264-365eadbbf840}" ForeignKey="{27ee7892-4ef3-42a4-954e-7256a4207286}" Delete="RESTRICT">
+		<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:50:32PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:50:32PM" ModifiedVersionNumber="1"/>
+		<ForeignMapping Guid="{187d7b0a-2a9d-4eac-aba3-229134fb084e}" Field="{d1e08eb7-3f03-4402-8221-4e1aaf215c5b}"/>
+		<PrimaryMapping Guid="{625a067b-6749-4a5f-bba8-ba7e145f61e3}" Field="{431e28f6-ac34-4ad8-a1c2-6740175bc42f}"/>
+	</Relation>
+	<Relation Guid="{0c5404a0-629b-4b42-b132-c216e2e8e4f0}" PrimaryTable="{eadff588-404d-4e3f-a1f8-83ced7a03317}" ForeignTable="{b284b3f5-57cd-4614-b128-2800c5a459d4}" PrimaryKey="{a6a1bb20-9f29-4d81-90ec-9d5d05379904}" ForeignKey="{379f9c53-c4dc-4652-9c5f-7f9f9a15f1e4}" Delete="RESTRICT">
+		<Audit CreateUser="Administrator" CreateDate=" 2 DEC 2022" CreateTime=" 1:51:02PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 2 DEC 2022" ModifiedTime=" 1:51:02PM" ModifiedVersionNumber="1"/>
+		<ForeignMapping Guid="{55ed6770-cb9f-47b6-bf10-2411939e0d88}" Field="{6acb3c22-06b5-4c64-ae43-de67da3e1b8f}"/>
+		<PrimaryMapping Guid="{52b3abd2-4a23-4283-a0da-6ebf8feba0c2}" Field="{27cebba6-2b02-4d21-88d7-3082b3753c2f}"/>
+	</Relation>
+</Dictionary>
+

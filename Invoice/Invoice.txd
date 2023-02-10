@@ -1,0 +1,817 @@
+[VERSION2]
+[DICTIONARY]
+VERSION '1'
+
+
+
+[LONGDESC]
+!Authored by Mike, aided (and occasionally berated) by Bruce and John on Cla
+!rionLive Weekly Webinar #685
+[FILES]
+
+CustomerCompany FILE,DRIVER('SQLite'),OWNER(Glo:Owner),NAME('CustomerCompany'),PRE(CusCom),BINDABLE,CREATE,THREAD  !Default company information
+!!> IDENT(21),USAGE(File)
+GuidKey KEY(CusCom:GUID),NAME('CustomerCompany_GuidKey'),NOCASE,PRIMARY
+CompanyNameKey KEY(CusCom:CompanyName),NAME('CustomerCompany_CompanyNameKey'),NOCASE
+Record                   RECORD
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('GUID:'),USE(?CusCom:GUID:Prompt),TRN
+! ENTRY(@s16),USE(CusCom:GUID),SKIP,TRN,READONLY
+[REPORTCONTROLS]
+! STRING(@s16),USE(CusCom:GUID)
+GUID STRING(16)
+!!>INITIAL('MakeGUID()'),PROMPT('GUID:'),HEADER('GUID'),PICTURE(@s16),DERIVEDFROM('Pool:GUID')
+[SCREENCONTROLS]
+! PROMPT('Company Name:'),USE(?CusCom:CompanyName:Prompt)
+! ENTRY(@s100),USE(CusCom:CompanyName)
+[REPORTCONTROLS]
+! STRING(@s100),USE(CusCom:CompanyName)
+CompanyName STRING(100)
+!!> IDENT(191),PROMPT('Company Name:'),HEADER('Company Name'),PICTURE(@s100)
+[SCREENCONTROLS]
+! PROMPT('&Street:'),USE(?CusCom:Street:Prompt)
+! TEXT,USE(CusCom:Street),MSG('Enter the first line address of customer')
+[REPORTCONTROLS]
+! STRING(@s255),USE(CusCom:Street)
+Street STRING(255)
+!!> IDENT(59),PROMPT('&Street:'),HEADER('Street'),MESSAGE('Enter the first line address of customer'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('&City:'),USE(?CusCom:City:Prompt)
+! ENTRY(@s100),USE(CusCom:City),MSG('Enter  city of customer')
+[REPORTCONTROLS]
+! STRING(@s100),USE(CusCom:City)
+City STRING(100)
+!!> IDENT(60),PROMPT('&City:'),HEADER('City'),MESSAGE('Enter  city of customer'),PICTURE(@s100)
+[SCREENCONTROLS]
+! PROMPT('&State:'),USE(?CusCom:State:Prompt)
+! ENTRY(@s100),USE(CusCom:State),MSG('Enter state of customer')
+[REPORTCONTROLS]
+! STRING(@s100),USE(CusCom:State)
+State STRING(100)
+!!> IDENT(61),PROMPT('&State:'),HEADER('State'),MESSAGE('Enter state of customer'),PICTURE(@s100)
+[SCREENCONTROLS]
+! PROMPT('&Zip Code:'),USE(?CusCom:PostalCode:Prompt)
+! ENTRY(@s100),USE(CusCom:PostalCode),MSG('Enter zipcode of customer'),TIP('Enter zipcode of customer')
+[REPORTCONTROLS]
+! STRING(@s100),USE(CusCom:PostalCode)
+PostalCode STRING(100)
+!!> IDENT(62),PROMPT('&Zip Code:'),HEADER('Postal Code'),MESSAGE('Enter zipcode of customer'),TOOLTIP('Enter zipcode of customer'),PICTURE(@s100)
+[SCREENCONTROLS]
+! PROMPT('Mobile Phone:'),USE(?CusCom:Phone:Prompt)
+! ENTRY(@s100),USE(CusCom:Phone)
+[REPORTCONTROLS]
+! STRING(@s100),USE(CusCom:Phone)
+Phone STRING(100)
+!!> IDENT(125),PROMPT('Mobile Phone:'),HEADER('Phone#'),PICTURE(@s100)
+                         END
+                       END
+
+Product FILE,DRIVER('SQLite'),OWNER(Glo:Owner),NAME('Product'),PRE(Pro),BINDABLE,CREATE,THREAD  !Product's Information
+!!> IDENT(15),USAGE(File)
+GuidKey KEY(Pro:GUID),NAME('Product_GuidKey'),NOCASE,PRIMARY
+ProductCodeKey KEY(Pro:ProductCode),NOCASE
+!!> IDENT(41)
+ProductNameKey KEY(Pro:ProductName),DUP,NAME('Product_ProductNameKey'),NOCASE
+!!> IDENT(33)
+[SCREENCONTROLS]
+! PROMPT('Image Blob:'),USE(?Pro:ImageBlob:Prompt)
+! ENTRY(@s20),USE(Pro:ImageBlob)
+[REPORTCONTROLS]
+! STRING(@s20),USE(Pro:ImageBlob)
+ImageBlob BLOB,BINARY
+!!>PROMPT('Image Blob:'),HEADER('Image Blob'),PICTURE(@s20)
+Record                   RECORD
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('GUID:'),USE(?Pro:GUID:Prompt),TRN
+! ENTRY(@s16),USE(Pro:GUID),SKIP,TRN,READONLY
+[REPORTCONTROLS]
+! STRING(@s16),USE(Pro:GUID)
+GUID STRING(16)
+!!>INITIAL('MakeGUID()'),PROMPT('GUID:'),HEADER('GUID'),PICTURE(@s16),DERIVEDFROM('Pool:GUID')
+[SCREENCONTROLS]
+! PROMPT('Product Code:'),USE(?Pro:ProductCode:Prompt)
+! ENTRY(@s100),USE(Pro:ProductCode),MSG('User defined Product Number'),REQ
+[REPORTCONTROLS]
+! STRING(@s100),USE(Pro:ProductCode)
+ProductCode STRING(100)  !User defined Product Number
+!!> IDENT(89),VALID(NONZERO),PROMPT('Product Code:'),HEADER('Product Code'),MESSAGE('User defined Product Number'),PICTURE(@s100)
+[SCREENCONTROLS]
+! PROMPT('Product Name:'),USE(?Pro:ProductName:Prompt)
+! ENTRY(@s100),USE(Pro:ProductName),REQ
+[REPORTCONTROLS]
+! STRING(@s100),USE(Pro:ProductName)
+ProductName STRING(100)
+!!> IDENT(89),VALID(NONZERO),PROMPT('Product Name:'),HEADER('Product Name'),PICTURE(@s100)
+[SCREENCONTROLS]
+! PROMPT('Description:'),USE(?Pro:Description:Prompt)
+! TEXT,USE(Pro:Description),MSG('Enter Product''s Description'),REQ
+[REPORTCONTROLS]
+! STRING(@s255),USE(Pro:Description)
+Description STRING(255)  !Product's Description
+!!> IDENT(90),VALID(NONZERO),PROMPT('Description:'),HEADER('Description'),MESSAGE('Enter Product''s Description'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('Price:'),USE(?Pro:Price:Prompt)
+! ENTRY(@n15.2),USE(Pro:Price),DECIMAL(12),MSG('Enter Product''s Price')
+[REPORTCONTROLS]
+! STRING(@n15.2),USE(Pro:Price),DECIMAL(12)
+Price DECIMAL(11,2)  !Product's Price
+!!> IDENT(91),PROMPT('Price:'),HEADER('Price'),MESSAGE('Enter Product''s Price'),PICTURE(@n15.2),JUSTIFY(DECIMAL,12)
+[SCREENCONTROLS]
+! PROMPT('Quantity In Stock:'),USE(?Pro:QuantityInStock:Prompt)
+! ENTRY(@n-14),USE(Pro:QuantityInStock),RIGHT(1),MSG('Enter quantity of product in stock')
+[REPORTCONTROLS]
+! STRING(@n-14),USE(Pro:QuantityInStock),RIGHT(1)
+QuantityInStock LONG  !Quantity of product in stock
+!!> IDENT(92),PROMPT('Quantity In Stock:'),HEADER('Quantity In Stock'),MESSAGE('Enter quantity of product in stock'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Reorder Quantity:'),USE(?Pro:ReorderQuantity:Prompt)
+! ENTRY(@n13),USE(Pro:ReorderQuantity),RIGHT(1),MSG('Enter product''s quantity for re-order')
+[REPORTCONTROLS]
+! STRING(@n13),USE(Pro:ReorderQuantity),RIGHT(1)
+ReorderQuantity LONG  !Product's quantity for re-order
+!!> IDENT(93),PROMPT('Reorder Quantity:'),HEADER('Reorder Quantity'),MESSAGE('Enter product''s quantity for re-order'),PICTURE(@n13),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Cost:'),USE(?Pro:Cost:Prompt)
+! ENTRY(@n-15.2),USE(Pro:Cost),MSG('Enter product''s cost')
+[REPORTCONTROLS]
+! STRING(@n-15.2),USE(Pro:Cost)
+Cost DECIMAL(11,2)
+!!> IDENT(94),PROMPT('Cost:'),HEADER('Cost'),MESSAGE('Enter product''s cost'),PICTURE(@n-15.2)
+[SCREENCONTROLS]
+! PROMPT('Image Filename:'),USE(?Pro:ImageFilename:Prompt)
+! ENTRY(@s255),USE(Pro:ImageFilename)
+[REPORTCONTROLS]
+! STRING(@s255),USE(Pro:ImageFilename)
+ImageFilename STRING(255)
+!!> IDENT(180),PROMPT('Image Filename:'),HEADER('Image'),PICTURE(@s255)
+                         END
+                       END
+
+InvoiceDetail FILE,DRIVER('SQLite'),OWNER(Glo:Owner),NAME('InvoiceDetail'),PRE(InvDet),BINDABLE,CREATE,THREAD  !Product-Order detail
+!!> IDENT(13),USAGE(File)
+GuidKey KEY(InvDet:GUID),NAME('InvoiceDetail_GuidKey'),NOCASE,PRIMARY
+InvoiceKey KEY(InvDet:InvoiceGuid,InvDet:LineNumber),NAME('InvoiceDetail_InvoiceKey'),NOCASE
+!!>AUTO
+ProductKey KEY(InvDet:ProductGuid),DUP,NAME('InvoiceDetail_ProductKey'),NOCASE
+Record                   RECORD
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('GUID:'),USE(?InvDet:GUID:Prompt),TRN
+! ENTRY(@s16),USE(InvDet:GUID),SKIP,TRN,READONLY
+[REPORTCONTROLS]
+! STRING(@s16),USE(InvDet:GUID)
+GUID STRING(16)
+!!>INITIAL('MakeGUID()'),PROMPT('GUID:'),HEADER('GUID'),PICTURE(@s16),DERIVEDFROM('Pool:GUID')
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('Invoice Guid:'),USE(?InvDet:InvoiceGuid:Prompt)
+! STRING(@s16),USE(InvDet:InvoiceGuid),DECIMAL(14)
+[REPORTCONTROLS]
+! STRING(@s16),USE(InvDet:InvoiceGuid),DECIMAL(14)
+InvoiceGuid STRING(16)
+!!> IDENT(74),PROMPT('Invoice Guid:'),HEADER('Invoice'),PICTURE(@s16)
+[SCREENCONTROLS]
+! PROMPT('Product Guid:'),USE(?InvDet:ProductGuid:Prompt)
+! ENTRY(@s16),USE(InvDet:ProductGuid),DECIMAL(14)
+[REPORTCONTROLS]
+! STRING(@s16),USE(InvDet:ProductGuid),DECIMAL(14)
+ProductGuid STRING(16)
+!!> IDENT(75),PROMPT('Product Guid:'),HEADER('Product'),PICTURE(@s16)
+[SCREENCONTROLS]
+! PROMPT('Line Number:'),USE(?InvDet:LineNumber:Prompt)
+! STRING(@n-14),USE(InvDet:LineNumber),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(InvDet:LineNumber),RIGHT(1)
+LineNumber LONG  !Line number
+!!> IDENT(76),VALID(INRANGE(1,99999.99)),PROMPT('Line Number:'),HEADER('Line #'),MESSAGE('Line number'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Quantity:'),USE(?InvDet:Quantity:Prompt)
+! SPIN(@n-14),USE(InvDet:Quantity),RIGHT(1),RANGE(1,99999)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(InvDet:Quantity),RIGHT(1)
+Quantity LONG
+!!> IDENT(137),VALID(INRANGE(1,99999)),PROMPT('Quantity:'),HEADER('Quantity'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Price:'),USE(?InvDet:Price:Prompt)
+! ENTRY(@n-15.2),USE(InvDet:Price),DECIMAL(12),MSG('Enter Product''s Price')
+[REPORTCONTROLS]
+! STRING(@n-15.2),USE(InvDet:Price),DECIMAL(12)
+Price DECIMAL(11,2)  !Product's Price
+!!> IDENT(91),PROMPT('Price:'),HEADER('Price'),MESSAGE('Enter Product''s Price'),PICTURE(@n-15.2),JUSTIFY(DECIMAL,12)
+[SCREENCONTROLS]
+! PROMPT('Tax Rate:'),USE(?InvDet:TaxRate:Prompt)
+! ENTRY(@n7.4B),USE(InvDet:TaxRate),MSG('Enter Consumer''s Tax rate')
+[REPORTCONTROLS]
+! STRING(@n7.4B),USE(InvDet:TaxRate)
+TaxRate DECIMAL(6,4)  !Consumer's Tax rate
+!!> IDENT(78),PROMPT('Tax Rate:'),HEADER('Tax Rate'),MESSAGE('Enter Consumer''s Tax rate'),PICTURE(@n7.4B)
+[SCREENCONTROLS]
+! PROMPT('Tax Paid:'),USE(?InvDet:TaxPaid:Prompt)
+! ENTRY(@n-15.2),USE(InvDet:TaxPaid),DECIMAL(12),MSG('Enter Product''s Price')
+[REPORTCONTROLS]
+! STRING(@n-15.2),USE(InvDet:TaxPaid),DECIMAL(12)
+TaxPaid DECIMAL(11,2)
+!!> IDENT(91),PROMPT('Tax Paid:'),HEADER('Tax Paid'),MESSAGE('Enter Product''s Price'),PICTURE(@n-15.2),JUSTIFY(DECIMAL,12)
+[SCREENCONTROLS]
+! PROMPT('Discount Rate:'),USE(?InvDet:DiscountRate:Prompt)
+! ENTRY(@n7.4B),USE(InvDet:DiscountRate),MSG('Enter discount rate')
+[REPORTCONTROLS]
+! STRING(@n7.4B),USE(InvDet:DiscountRate)
+DiscountRate DECIMAL(6,4)  !Special discount rate on product
+!!> IDENT(122),PROMPT('Discount Rate:'),HEADER('Discount Rate'),MESSAGE('Enter discount rate'),PICTURE(@n7.4B)
+[SCREENCONTROLS]
+! PROMPT('Discount:'),USE(?InvDet:Discount:Prompt)
+! ENTRY(@n-15.2),USE(InvDet:Discount),DECIMAL(12),MSG('Enter Product''s Price')
+[REPORTCONTROLS]
+! STRING(@n-15.2),USE(InvDet:Discount),DECIMAL(12)
+Discount DECIMAL(11,2)
+!!> IDENT(91),PROMPT('Discount:'),HEADER('Discount'),MESSAGE('Enter Product''s Price'),PICTURE(@n-15.2),JUSTIFY(DECIMAL,12)
+[SCREENCONTROLS]
+! PROMPT('Total:'),USE(?InvDet:Total:Prompt)
+! STRING(@n-15.2),USE(InvDet:Total)
+[REPORTCONTROLS]
+! STRING(@n-15.2),USE(InvDet:Total)
+Total DECIMAL(11,2)
+!!> IDENT(123),PROMPT('Total:'),HEADER('Total'),PICTURE(@n-15.2)
+[SCREENCONTROLS]
+! PROMPT('Note:'),USE(?InvDet:Note:Prompt)
+! TEXT,USE(InvDet:Note)
+[REPORTCONTROLS]
+! STRING(@s255),USE(InvDet:Note)
+Note STRING(255)
+!!> IDENT(70),PROMPT('Note:'),HEADER('Note'),PICTURE(@s255)
+                         END
+                       END
+
+Invoice FILE,DRIVER('SQLite'),OWNER(Glo:Owner),NAME('Invoice'),PRE(Inv),BINDABLE,CREATE,THREAD  !Customer's Orders
+!!> IDENT(12),USAGE(File)
+GuidKey KEY(Inv:GUID),NAME('Invoice_GuidKey'),NOCASE,PRIMARY
+CustomerKey KEY(Inv:CustomerGuid),DUP,NOCASE
+!!> IDENT(27)
+[QUICKCODE]
+!NOPOPULATE
+InvoiceNumberKey KEY(Inv:InvoiceNumber),NOCASE
+!!> IDENT(57),AUTO
+DateKey KEY(Inv:Date,Inv:InvoiceNumber),DUP,NAME('Invoice_DateKey'),NOCASE
+Record                   RECORD
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('GUID:'),USE(?Inv:GUID:Prompt),TRN
+! ENTRY(@s16),USE(Inv:GUID),SKIP,TRN,READONLY
+[REPORTCONTROLS]
+! STRING(@s16),USE(Inv:GUID)
+GUID STRING(16)
+!!>INITIAL('MakeGUID()'),PROMPT('GUID:'),HEADER('GUID'),PICTURE(@s16),DERIVEDFROM('Pool:GUID')
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('Customer Guid:'),USE(?Inv:CustomerGuid:Prompt)
+! STRING(@s16),USE(Inv:CustomerGuid),DECIMAL(14)
+[REPORTCONTROLS]
+! STRING(@s16),USE(Inv:CustomerGuid),DECIMAL(14)
+CustomerGuid STRING(16)
+!!> IDENT(66),PROMPT('Customer Guid:'),HEADER('Customer Guid'),PICTURE(@s16)
+[SCREENCONTROLS]
+! PROMPT('Invoice Number:'),USE(?Inv:InvoiceNumber:Prompt)
+! ENTRY(@n07),USE(Inv:InvoiceNumber),MSG('Invoice number for each order')
+[REPORTCONTROLS]
+! STRING(@n07),USE(Inv:InvoiceNumber)
+InvoiceNumber LONG  !Invoice number for each order
+!!> IDENT(185),PROMPT('Invoice Number:'),HEADER('Invoice #'),MESSAGE('Invoice number for each order'),PICTURE(@n07)
+[SCREENCONTROLS]
+! PROMPT('Date:'),USE(?Inv:Date:Prompt)
+! ENTRY(@d10),USE(Inv:Date),REQ
+[REPORTCONTROLS]
+! STRING(@d10),USE(Inv:Date)
+Date DATE
+!!> IDENT(69),VALID(NONZERO),INITIAL('TODAY()'),PROMPT('Date:'),HEADER('Date'),PICTURE(@d10)
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('Customer Order Number:'),USE(?Inv:CustomerOrderNumber:Prompt)
+! ENTRY(@s100),USE(Inv:CustomerOrderNumber),REQ
+[REPORTCONTROLS]
+! STRING(@s100),USE(Inv:CustomerOrderNumber),DECIMAL(14)
+CustomerOrderNumber STRING(100)
+!!> IDENT(67),VALID(NONZERO),PROMPT('Customer Order Number:'),HEADER('Customer Order Number'),PICTURE(@s100)
+[SCREENCONTROLS]
+! CHECK('Order Shipped'),USE(Inv:OrderShipped),MSG('Checked if order is shipped')
+[REPORTCONTROLS]
+! CHECK('Order Shipped'),USE(Inv:OrderShipped)
+OrderShipped BYTE  !Checked if order is shipped
+!!> IDENT(135),VALID(BOOLEAN),PROMPT('Order Shipped'),HEADER('Shipped'),MESSAGE('Checked if order is shipped'),PICTURE(@s1)
+[SCREENCONTROLS]
+! PROMPT('&First Name:'),USE(?Inv:FirstName:Prompt)
+! ENTRY(@s100),USE(Inv:FirstName),MSG('Enter the first name of customer'),REQ
+[REPORTCONTROLS]
+! STRING(@s100),USE(Inv:FirstName)
+FirstName STRING(100)
+!!> IDENT(57),VALID(NONZERO),PROMPT('&First Name:'),HEADER('First Name'),MESSAGE('Enter the first name of customer'),PICTURE(@s100)
+[SCREENCONTROLS]
+! PROMPT('&Last Name:'),USE(?Inv:LastName:Prompt)
+! ENTRY(@s100),USE(Inv:LastName),MSG('Enter the last name of customer'),REQ
+[REPORTCONTROLS]
+! STRING(@s100),USE(Inv:LastName)
+LastName STRING(100)
+!!> IDENT(58),VALID(NONZERO),PROMPT('&Last Name:'),HEADER('Last Name'),MESSAGE('Enter the last name of customer'),PICTURE(@s100)
+[SCREENCONTROLS]
+! PROMPT('&Street:'),USE(?Inv:Street:Prompt)
+! TEXT,USE(Inv:Street),MSG('Enter the first line address of customer')
+[REPORTCONTROLS]
+! STRING(@s255),USE(Inv:Street)
+Street STRING(255)
+!!> IDENT(59),PROMPT('&Street:'),HEADER('Street'),MESSAGE('Enter the first line address of customer'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('&City:'),USE(?Inv:City:Prompt)
+! ENTRY(@s100),USE(Inv:City),MSG('Enter  city of customer')
+[REPORTCONTROLS]
+! STRING(@s100),USE(Inv:City)
+City STRING(100)
+!!> IDENT(60),PROMPT('&City:'),HEADER('City'),MESSAGE('Enter  city of customer'),PICTURE(@s100)
+[SCREENCONTROLS]
+! PROMPT('&State:'),USE(?Inv:State:Prompt)
+! ENTRY(@s100),USE(Inv:State),MSG('Enter state of customer')
+[REPORTCONTROLS]
+! STRING(@s100),USE(Inv:State)
+State STRING(100)
+!!> IDENT(61),PROMPT('&State:'),HEADER('State'),MESSAGE('Enter state of customer'),PICTURE(@s100)
+[SCREENCONTROLS]
+! PROMPT('&Zip Code:'),USE(?Inv:PostalCode:Prompt)
+! ENTRY(@s100),USE(Inv:PostalCode),MSG('Enter zipcode of customer'),TIP('Enter zipcode of customer')
+[REPORTCONTROLS]
+! STRING(@s100),USE(Inv:PostalCode)
+PostalCode STRING(100)
+!!> IDENT(62),PROMPT('&Zip Code:'),HEADER('Postal Code'),MESSAGE('Enter zipcode of customer'),TOOLTIP('Enter zipcode of customer'),PICTURE(@s100)
+[SCREENCONTROLS]
+! PROMPT('Mobile Phone:'),USE(?Inv:Phone:Prompt)
+! ENTRY(@s100),USE(Inv:Phone)
+[REPORTCONTROLS]
+! STRING(@s100),USE(Inv:Phone)
+Phone STRING(100)
+!!> IDENT(125),PROMPT('Mobile Phone:'),HEADER('Phone#'),PICTURE(@s100)
+[SCREENCONTROLS]
+! PROMPT('Total:'),USE(?Inv:Total:Prompt)
+! STRING(@n-15.2),USE(Inv:Total)
+[REPORTCONTROLS]
+! STRING(@n-15.2),USE(Inv:Total)
+Total DECIMAL(11,2)  !Roll-up Field
+!!> IDENT(123),PROMPT('Total:'),HEADER('Total'),MESSAGE('Roll-up Field'),TOOLTIP('Roll-up Field'),PICTURE(@n-15.2)
+[SCREENCONTROLS]
+! PROMPT('Note:'),USE(?Inv:Note:Prompt)
+! TEXT,USE(Inv:Note)
+[REPORTCONTROLS]
+! STRING(@s255),USE(Inv:Note)
+Note STRING(255)
+!!> IDENT(70),PROMPT('Note:'),HEADER('Note'),PICTURE(@s255)
+                         END
+                       END
+
+Customer FILE,DRIVER('SQLite'),OWNER(Glo:Owner),NAME('Customer'),PRE(Cus),BINDABLE,CREATE,THREAD  !Customer's Information
+!!> IDENT(11),USAGE(File)
+GuidKey KEY(Cus:GUID),NAME('Customer_GuidKey'),NOCASE,PRIMARY
+CompanyKey KEY(Cus:CompanyGuid),DUP,NAME('Customer_CompanyKey'),NOCASE
+!!> IDENT(25)
+[QUICKCODE]
+!NOPOPULATE
+CustomerNumberKey KEY(Cus:CustomerNumber),NOCASE
+!!> IDENT(24),AUTO
+LastFirstNameKey KEY(Cus:LastName,Cus:FirstName),DUP,NAME('Customer_LastFirstNameKey'),NOCASE
+!!> IDENT(36)
+FirstLastNameKey_Copy KEY(Cus:FirstName,Cus:LastName),DUP,NAME('Customer_FirstLastNameKey'),NOCASE
+!!> IDENT(36)
+PostalCodeKey KEY(Cus:PostalCode),DUP,NAME('Customer_PostalCodeKey'),NOCASE
+!!> IDENT(26)
+StateKey KEY(Cus:State),DUP,NAME('Customer_StateKey'),NOCASE
+!!> IDENT(56)
+Record                   RECORD
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('GUID:'),USE(?Cus:GUID:Prompt),TRN
+! ENTRY(@s16),USE(Cus:GUID),SKIP,TRN,READONLY
+[REPORTCONTROLS]
+! STRING(@s16),USE(Cus:GUID)
+GUID STRING(16)
+!!>INITIAL('MakeGUID()'),PROMPT('GUID:'),HEADER('GUID'),PICTURE(@s16),DERIVEDFROM('Pool:GUID')
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('&Cust Number:'),USE(?Cus:CustomerNumber:Prompt)
+! STRING(@n_7),USE(Cus:CustomerNumber),LEFT
+[REPORTCONTROLS]
+! STRING(@n_7),USE(Cus:CustomerNumber),LEFT
+CustomerNumber LONG
+!!> IDENT(55),VALID(NONZERO),PROMPT('&Cust Number:'),HEADER('Customer Number'),PICTURE(@n_7),JUSTIFY(LEFT)
+[SCREENCONTROLS]
+! PROMPT('&Company:'),USE(?Cus:CompanyGuid:Prompt)
+! ENTRY(@s16),USE(Cus:CompanyGuid),MSG('Enter the customer''s company')
+[REPORTCONTROLS]
+! STRING(@s16),USE(Cus:CompanyGuid)
+CompanyGuid STRING(16)
+!!> IDENT(56),PROMPT('&Company:'),HEADER('Company Guid'),MESSAGE('Enter the customer''s company'),PICTURE(@s16)
+[SCREENCONTROLS]
+! PROMPT('&First Name:'),USE(?Cus:FirstName:Prompt)
+! ENTRY(@s100),USE(Cus:FirstName),MSG('Enter the first name of customer'),REQ
+[REPORTCONTROLS]
+! STRING(@s100),USE(Cus:FirstName)
+FirstName STRING(100)
+!!> IDENT(57),VALID(NONZERO),PROMPT('&First Name:'),HEADER('First Name'),MESSAGE('Enter the first name of customer'),PICTURE(@s100)
+[SCREENCONTROLS]
+! PROMPT('&Last Name:'),USE(?Cus:LastName:Prompt)
+! ENTRY(@s100),USE(Cus:LastName),MSG('Enter the last name of customer'),REQ
+[REPORTCONTROLS]
+! STRING(@s100),USE(Cus:LastName)
+LastName STRING(100)
+!!> IDENT(58),VALID(NONZERO),PROMPT('&Last Name:'),HEADER('Last Name'),MESSAGE('Enter the last name of customer'),PICTURE(@s100)
+[SCREENCONTROLS]
+! PROMPT('&Street:'),USE(?Cus:Street:Prompt)
+! TEXT,USE(Cus:Street),MSG('Enter the first line address of customer')
+[REPORTCONTROLS]
+! STRING(@s255),USE(Cus:Street)
+Street STRING(255)
+!!> IDENT(59),PROMPT('&Street:'),HEADER('Street'),MESSAGE('Enter the first line address of customer'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('&City:'),USE(?Cus:City:Prompt)
+! ENTRY(@s100),USE(Cus:City),MSG('Enter  city of customer')
+[REPORTCONTROLS]
+! STRING(@s100),USE(Cus:City)
+City STRING(100)
+!!> IDENT(60),PROMPT('&City:'),HEADER('City'),MESSAGE('Enter  city of customer'),PICTURE(@s100)
+[SCREENCONTROLS]
+! PROMPT('&State:'),USE(?Cus:State:Prompt)
+! ENTRY(@s100),USE(Cus:State),MSG('Enter state of customer')
+[REPORTCONTROLS]
+! STRING(@s100),USE(Cus:State)
+State STRING(100)
+!!> IDENT(61),PROMPT('&State:'),HEADER('State'),MESSAGE('Enter state of customer'),PICTURE(@s100)
+[SCREENCONTROLS]
+! PROMPT('&Zip Code:'),USE(?Cus:PostalCode:Prompt)
+! ENTRY(@s100),USE(Cus:PostalCode),MSG('Enter zipcode of customer'),TIP('Enter zipcode of customer')
+[REPORTCONTROLS]
+! STRING(@s100),USE(Cus:PostalCode)
+PostalCode STRING(100)
+!!> IDENT(62),PROMPT('&Zip Code:'),HEADER('Postal Code'),MESSAGE('Enter zipcode of customer'),TOOLTIP('Enter zipcode of customer'),PICTURE(@s100)
+[SCREENCONTROLS]
+! PROMPT('Mobile Phone:'),USE(?Cus:Phone:Prompt)
+! ENTRY(@s100),USE(Cus:Phone)
+[REPORTCONTROLS]
+! STRING(@s100),USE(Cus:Phone)
+Phone STRING(100)
+!!> IDENT(125),PROMPT('Mobile Phone:'),HEADER('Phone#'),PICTURE(@s100)
+[SCREENCONTROLS]
+! PROMPT('Mobile Phone:'),USE(?Cus:MobilePhone:Prompt)
+! ENTRY(@s100),USE(Cus:MobilePhone)
+[REPORTCONTROLS]
+! STRING(@s100),USE(Cus:MobilePhone)
+MobilePhone STRING(100)
+!!> IDENT(125),PROMPT('Mobile Phone:'),HEADER('Phone#'),PICTURE(@s100)
+[SCREENCONTROLS]
+! PROMPT('Email:'),USE(?Cus:Email:Prompt)
+! ENTRY(@s100),USE(Cus:Email)
+[REPORTCONTROLS]
+! STRING(@s100),USE(Cus:Email)
+Email STRING(100)
+!!>PROMPT('Email:'),HEADER('Email'),PICTURE(@s100)
+                         END
+                       END
+
+Pool FILE,DRIVER('TOPSPEED'),PRE(Pool)
+!!>USAGE(Pool)
+Record                   RECORD
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('GUID:'),USE(?Pool:GUID:Prompt)
+! ENTRY(@s16),USE(Pool:GUID),SKIP,TRN,READONLY
+[REPORTCONTROLS]
+! STRING(@s16),USE(Pool:GUID)
+GUID STRING(16)
+!!>INITIAL('MakeGUID()'),PROMPT('GUID:'),HEADER('GUID'),PICTURE(@s16)
+                         END
+                       END
+
+Configuration FILE,DRIVER('SQLite'),OWNER(Glo:Owner),NAME('Configuration'),PRE(Cfg),BINDABLE,CREATE,THREAD  !Program settings and such
+!!> IDENT(21),USAGE(File)
+GuidKey KEY(Cfg:GUID),NAME('CustomerCompany_GuidKey'),NOCASE,PRIMARY
+Record                   RECORD
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('GUID:'),USE(?Cfg:GUID:Prompt),TRN
+! ENTRY(@s16),USE(Cfg:GUID),SKIP,TRN,READONLY
+[REPORTCONTROLS]
+! STRING(@s16),USE(Cfg:GUID)
+GUID STRING(16)
+!!>INITIAL('MakeGUID()'),PROMPT('GUID:'),HEADER('GUID'),PICTURE(@s16),DERIVEDFROM('Pool:GUID')
+[SCREENCONTROLS]
+! PROMPT('Company Name:'),USE(?Cfg:CompanyName:Prompt)
+! ENTRY(@s100),USE(Cfg:CompanyName)
+[REPORTCONTROLS]
+! STRING(@s100),USE(Cfg:CompanyName)
+CompanyName STRING(100)
+!!> IDENT(191),PROMPT('Company Name:'),HEADER('Company Name'),PICTURE(@s100)
+[SCREENCONTROLS]
+! PROMPT('&Street:'),USE(?Cfg:Street:Prompt)
+! TEXT,USE(Cfg:Street),MSG('Enter the first line address of customer')
+[REPORTCONTROLS]
+! STRING(@s255),USE(Cfg:Street)
+Street STRING(255)
+!!> IDENT(59),PROMPT('&Street:'),HEADER('Street'),MESSAGE('Enter the first line address of customer'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('&City:'),USE(?Cfg:City:Prompt)
+! ENTRY(@s100),USE(Cfg:City),MSG('Enter  city of customer')
+[REPORTCONTROLS]
+! STRING(@s100),USE(Cfg:City)
+City STRING(100)
+!!> IDENT(60),PROMPT('&City:'),HEADER('City'),MESSAGE('Enter  city of customer'),PICTURE(@s100)
+[SCREENCONTROLS]
+! PROMPT('&State:'),USE(?Cfg:State:Prompt)
+! ENTRY(@s100),USE(Cfg:State),MSG('Enter state of customer')
+[REPORTCONTROLS]
+! STRING(@s100),USE(Cfg:State)
+State STRING(100)
+!!> IDENT(61),PROMPT('&State:'),HEADER('State'),MESSAGE('Enter state of customer'),PICTURE(@s100)
+[SCREENCONTROLS]
+! PROMPT('&Zip Code:'),USE(?Cfg:PostalCode:Prompt)
+! ENTRY(@s100),USE(Cfg:PostalCode),MSG('Enter zipcode of customer'),TIP('Enter zipcode of customer')
+[REPORTCONTROLS]
+! STRING(@s100),USE(Cfg:PostalCode)
+PostalCode STRING(100)
+!!> IDENT(62),PROMPT('&Zip Code:'),HEADER('Postal Code'),MESSAGE('Enter zipcode of customer'),TOOLTIP('Enter zipcode of customer'),PICTURE(@s100)
+[SCREENCONTROLS]
+! PROMPT('Mobile Phone:'),USE(?Cfg:Phone:Prompt)
+! ENTRY(@s100),USE(Cfg:Phone)
+[REPORTCONTROLS]
+! STRING(@s100),USE(Cfg:Phone)
+Phone STRING(100)
+!!> IDENT(125),PROMPT('Mobile Phone:'),HEADER('Phone#'),PICTURE(@s100)
+                         END
+                       END
+
+Global FILE,DRIVER('TOPSPEED'),PRE(Glo)
+!!>USAGE(Global)
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('Owner:'),USE(?Glo:Owner:Prompt)
+! ENTRY(@s255),USE(Glo:Owner)
+[REPORTCONTROLS]
+! STRING(@s255),USE(Glo:Owner)
+Owner STRING(255)
+!!>INITIAL('Invoice.sqlite'),PROMPT('Owner:'),HEADER('Owner'),PICTURE(@s255)
+                         END
+                       END
+
+TestCompanyCSV FILE,DRIVER('BASIC','/FIRSTROWHEADER=ON'),NAME('TestCompanyCSV.csv'),PRE(ImpCo),BINDABLE,THREAD
+!!>USAGE(File)
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('company name:'),USE(?ImpCo:company_name:Prompt)
+! ENTRY(@s53),USE(ImpCo:company_name)
+[REPORTCONTROLS]
+! STRING(@s53),USE(ImpCo:company_name)
+company_name STRING(53)
+!!>PROMPT('company name:'),HEADER('company name'),PICTURE(@s53)
+[SCREENCONTROLS]
+! PROMPT('address 1:'),USE(?ImpCo:address1:Prompt)
+! ENTRY(@s40),USE(ImpCo:address1)
+[REPORTCONTROLS]
+! STRING(@s40),USE(ImpCo:address1)
+address1 STRING(40)
+!!>PROMPT('address 1:'),HEADER('address 1'),PICTURE(@s40)
+[SCREENCONTROLS]
+! PROMPT('address 2:'),USE(?ImpCo:address2:Prompt)
+! ENTRY(@s40),USE(ImpCo:address2)
+[REPORTCONTROLS]
+! STRING(@s40),USE(ImpCo:address2)
+address2 STRING(40)
+!!>PROMPT('address 2:'),HEADER('address 2'),PICTURE(@s40)
+[SCREENCONTROLS]
+! PROMPT('city:'),USE(?ImpCo:city:Prompt)
+! ENTRY(@s16),USE(ImpCo:city)
+[REPORTCONTROLS]
+! STRING(@s16),USE(ImpCo:city)
+city STRING(16)
+!!>PROMPT('city:'),HEADER('city'),PICTURE(@s16)
+[SCREENCONTROLS]
+! PROMPT('state:'),USE(?ImpCo:state:Prompt)
+! ENTRY(@s2),USE(ImpCo:state)
+[REPORTCONTROLS]
+! STRING(@s2),USE(ImpCo:state)
+state STRING(2)
+!!>PROMPT('state:'),HEADER('state'),PICTURE(@s2)
+[SCREENCONTROLS]
+! PROMPT('zip 5:'),USE(?ImpCo:zip5:Prompt)
+! ENTRY(@s5),USE(ImpCo:zip5)
+[REPORTCONTROLS]
+! STRING(@s5),USE(ImpCo:zip5)
+zip5 STRING(5)
+!!>PROMPT('zip 5:'),HEADER('zip 5'),PICTURE(@s5)
+[SCREENCONTROLS]
+! PROMPT('zip 4:'),USE(?ImpCo:zip4:Prompt)
+! ENTRY(@s4),USE(ImpCo:zip4),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@s4),USE(ImpCo:zip4),RIGHT(1)
+zip4 STRING(4)
+!!>PROMPT('zip 4:'),HEADER('zip 4'),PICTURE(@s4)
+[SCREENCONTROLS]
+! PROMPT('county name:'),USE(?ImpCo:county_name:Prompt)
+! ENTRY(@s15),USE(ImpCo:county_name)
+[REPORTCONTROLS]
+! STRING(@s15),USE(ImpCo:county_name)
+county_name STRING(15)
+!!>PROMPT('county name:'),HEADER('county name'),PICTURE(@s15)
+[SCREENCONTROLS]
+! PROMPT('employee size:'),USE(?ImpCo:employee_size:Prompt)
+! ENTRY(@n6),USE(ImpCo:employee_size)
+[REPORTCONTROLS]
+! STRING(@n6),USE(ImpCo:employee_size)
+employee_size USHORT
+!!>PROMPT('employee size:'),HEADER('employee size'),PICTURE(@n6)
+[SCREENCONTROLS]
+! PROMPT('url:'),USE(?ImpCo:url:Prompt)
+! ENTRY(@s35),USE(ImpCo:url)
+[REPORTCONTROLS]
+! STRING(@s35),USE(ImpCo:url)
+url STRING(35)
+!!>PROMPT('url:'),HEADER('url'),PICTURE(@s35)
+[SCREENCONTROLS]
+! PROMPT('telephone:'),USE(?ImpCo:telephone:Prompt)
+! ENTRY(@s13),USE(ImpCo:telephone)
+[REPORTCONTROLS]
+! STRING(@s13),USE(ImpCo:telephone)
+telephone STRING(13)
+!!>PROMPT('telephone:'),HEADER('telephone'),PICTURE(@s13)
+[SCREENCONTROLS]
+! PROMPT('telephone 2:'),USE(?ImpCo:telephone2:Prompt)
+! ENTRY(@s13),USE(ImpCo:telephone2)
+[REPORTCONTROLS]
+! STRING(@s13),USE(ImpCo:telephone2)
+telephone2 STRING(13)
+!!>PROMPT('telephone 2:'),HEADER('telephone 2'),PICTURE(@s13)
+[SCREENCONTROLS]
+! PROMPT('toll free number:'),USE(?ImpCo:toll_free_number:Prompt)
+! ENTRY(@s13),USE(ImpCo:toll_free_number)
+[REPORTCONTROLS]
+! STRING(@s13),USE(ImpCo:toll_free_number)
+toll_free_number STRING(13)
+!!>PROMPT('toll free number:'),HEADER('toll free number'),PICTURE(@s13)
+[SCREENCONTROLS]
+! PROMPT('contact name:'),USE(?ImpCo:contact_name:Prompt)
+! ENTRY(@s27),USE(ImpCo:contact_name)
+[REPORTCONTROLS]
+! STRING(@s27),USE(ImpCo:contact_name)
+contact_name STRING(27)
+!!>PROMPT('contact name:'),HEADER('contact name'),PICTURE(@s27)
+[SCREENCONTROLS]
+! PROMPT('prefix:'),USE(?ImpCo:prefix:Prompt)
+! ENTRY(@s3),USE(ImpCo:prefix)
+[REPORTCONTROLS]
+! STRING(@s3),USE(ImpCo:prefix)
+prefix STRING(3)
+!!>PROMPT('prefix:'),HEADER('prefix'),PICTURE(@s3)
+[SCREENCONTROLS]
+! PROMPT('first name:'),USE(?ImpCo:first_name:Prompt)
+! ENTRY(@s9),USE(ImpCo:first_name)
+[REPORTCONTROLS]
+! STRING(@s9),USE(ImpCo:first_name)
+first_name STRING(9)
+!!>PROMPT('first name:'),HEADER('first name'),PICTURE(@s9)
+[SCREENCONTROLS]
+! PROMPT('middle name:'),USE(?ImpCo:middle_name:Prompt)
+! ENTRY(@s7),USE(ImpCo:middle_name)
+[REPORTCONTROLS]
+! STRING(@s7),USE(ImpCo:middle_name)
+middle_name STRING(7)
+!!>PROMPT('middle name:'),HEADER('middle name'),PICTURE(@s7)
+[SCREENCONTROLS]
+! PROMPT('surname:'),USE(?ImpCo:surname:Prompt)
+! ENTRY(@s14),USE(ImpCo:surname)
+[REPORTCONTROLS]
+! STRING(@s14),USE(ImpCo:surname)
+surname STRING(14)
+!!>PROMPT('surname:'),HEADER('surname'),PICTURE(@s14)
+[SCREENCONTROLS]
+! PROMPT('suffix:'),USE(?ImpCo:suffix:Prompt)
+! ENTRY(@s2),USE(ImpCo:suffix)
+[REPORTCONTROLS]
+! STRING(@s2),USE(ImpCo:suffix)
+suffix STRING(2)
+!!>PROMPT('suffix:'),HEADER('suffix'),PICTURE(@s2)
+[SCREENCONTROLS]
+! PROMPT('gender:'),USE(?ImpCo:gender:Prompt)
+! ENTRY(@s1),USE(ImpCo:gender)
+[REPORTCONTROLS]
+! STRING(@s1),USE(ImpCo:gender)
+gender STRING(1)
+!!>PROMPT('gender:'),HEADER('gender'),PICTURE(@s1)
+[SCREENCONTROLS]
+! PROMPT('contact address 1:'),USE(?ImpCo:contact_address1:Prompt)
+! ENTRY(@s21),USE(ImpCo:contact_address1)
+[REPORTCONTROLS]
+! STRING(@s21),USE(ImpCo:contact_address1)
+contact_address1 STRING(21)
+!!>PROMPT('contact address 1:'),HEADER('contact address 1'),PICTURE(@s21)
+[SCREENCONTROLS]
+! PROMPT('contact address 2:'),USE(?ImpCo:contact_address2:Prompt)
+! ENTRY(@s7),USE(ImpCo:contact_address2)
+[REPORTCONTROLS]
+! STRING(@s7),USE(ImpCo:contact_address2)
+contact_address2 STRING(7)
+!!>PROMPT('contact address 2:'),HEADER('contact address 2'),PICTURE(@s7)
+[SCREENCONTROLS]
+! PROMPT('contact city:'),USE(?ImpCo:contact_city:Prompt)
+! ENTRY(@s13),USE(ImpCo:contact_city)
+[REPORTCONTROLS]
+! STRING(@s13),USE(ImpCo:contact_city)
+contact_city STRING(13)
+!!>PROMPT('contact city:'),HEADER('contact city'),PICTURE(@s13)
+[SCREENCONTROLS]
+! PROMPT('contact state:'),USE(?ImpCo:contact_state:Prompt)
+! ENTRY(@s2),USE(ImpCo:contact_state)
+[REPORTCONTROLS]
+! STRING(@s2),USE(ImpCo:contact_state)
+contact_state STRING(2)
+!!>PROMPT('contact state:'),HEADER('contact state'),PICTURE(@s2)
+[SCREENCONTROLS]
+! PROMPT('contact zip 5:'),USE(?ImpCo:contact_zip5:Prompt)
+! ENTRY(@s5),USE(ImpCo:contact_zip5)
+[REPORTCONTROLS]
+! STRING(@s5),USE(ImpCo:contact_zip5)
+contact_zip5 STRING(5)
+!!>PROMPT('contact zip 5:'),HEADER('contact zip 5'),PICTURE(@s5)
+[SCREENCONTROLS]
+! PROMPT('contact zip 4:'),USE(?ImpCo:contact_zip4:Prompt)
+! ENTRY(@s4),USE(ImpCo:contact_zip4)
+[REPORTCONTROLS]
+! STRING(@s4),USE(ImpCo:contact_zip4)
+contact_zip4 STRING(4)
+!!>PROMPT('contact zip 4:'),HEADER('contact zip 4'),PICTURE(@s4)
+[SCREENCONTROLS]
+! PROMPT('contact telephone:'),USE(?ImpCo:contact_telephone:Prompt)
+! ENTRY(@n-26.0),USE(ImpCo:contact_telephone)
+[REPORTCONTROLS]
+! STRING(@n-26.0),USE(ImpCo:contact_telephone)
+contact_telephone DECIMAL(19)
+!!>PROMPT('contact telephone:'),HEADER('contact telephone'),PICTURE(@n-26.0)
+[SCREENCONTROLS]
+! PROMPT('orig title 1:'),USE(?ImpCo:orig_title1:Prompt)
+! ENTRY(@s25),USE(ImpCo:orig_title1)
+[REPORTCONTROLS]
+! STRING(@s25),USE(ImpCo:orig_title1)
+orig_title1 STRING(25)
+!!>PROMPT('orig title 1:'),HEADER('orig title 1'),PICTURE(@s25)
+                         END
+                       END
+[RELATIONS]
+              RELATION,ONE:MANY,DELETE(RESTRICT)
+CustomerCompany          FILE(CusCom:GuidKey)
+Customer          RELATED_FILE(Cus:CompanyKey)
+          FILE_TO_RELATED_KEY
+            FIELD(CusCom:GUID,Cus:CompanyGuid)
+          END
+          RELATED_FILE_TO_KEY
+            FIELD(Cus:CompanyGuid,CusCom:GUID)
+          END
+        END
+
+              RELATION,ONE:MANY,DELETE(RESTRICT)
+Product          FILE(Pro:GuidKey)
+InvoiceDetail          RELATED_FILE(InvDet:ProductKey)
+          FILE_TO_RELATED_KEY
+            FIELD(Pro:GUID,InvDet:ProductGuid)
+          END
+          RELATED_FILE_TO_KEY
+            FIELD(InvDet:ProductGuid,Pro:GUID)
+          END
+        END
+
+              RELATION,ONE:MANY,DELETE(CASCADE)
+Invoice          FILE(Inv:GuidKey)
+InvoiceDetail          RELATED_FILE(InvDet:InvoiceKey)
+          FILE_TO_RELATED_KEY
+            FIELD(Inv:GUID,InvDet:InvoiceGuid)
+            FIELD(NOLINK,InvDet:LineNumber)
+          END
+          RELATED_FILE_TO_KEY
+            FIELD(InvDet:InvoiceGuid,Inv:GUID)
+          END
+        END
+
+              RELATION,ONE:MANY,DELETE(RESTRICT)
+Customer          FILE(Cus:GuidKey)
+Invoice          RELATED_FILE(Inv:CustomerKey)
+          FILE_TO_RELATED_KEY
+            FIELD(Cus:GUID,Inv:CustomerGuid)
+          END
+          RELATED_FILE_TO_KEY
+            FIELD(Inv:CustomerGuid,Cus:GUID)
+          END
+        END
+

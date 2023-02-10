@@ -34,7 +34,7 @@ GuidKey                  KEY(CusCom:GUID),NAME('CustomerCompany_GuidKey'),NOCASE
 CompanyNameKey           KEY(CusCom:CompanyName),NAME('CustomerCompany_CompanyNameKey'),NOCASE !                     
 Record                   RECORD,PRE()
 GUID                        STRING(16)                     !                     
-CompanyName                 STRING(100)                    !                     
+CompanyName                 STRING(100),NAME('CompanyName | SELECTNAME=CompanyName COLLATE NOCASE') !                     
 Street                      STRING(255)                    !                     
 City                        STRING(100)                    !                     
 State                       STRING(100)                    !                     
@@ -63,7 +63,7 @@ ImageFilename               STRING(255)                    !
 
 InvoiceDetail        FILE,DRIVER('SQLite'),OWNER(Glo:Owner),NAME('InvoiceDetail'),PRE(InvDet),BINDABLE,CREATE,THREAD ! Product-Order detail
 GuidKey                  KEY(InvDet:GUID),NAME('InvoiceDetail_GuidKey'),NOCASE,PRIMARY !                     
-InvoiceKey               KEY(InvDet:InvoiceGuid,InvDet:LineNumber),NAME('InvoiceDetail_InvoiceKey'),NOCASE !                     
+InvoiceKey               KEY(InvDet:InvoiceGuid,InvDet:LineNumber),DUP,NAME('InvoiceDetail_InvoiceKey'),NOCASE !                     
 ProductKey               KEY(InvDet:ProductGuid),DUP,NAME('InvoiceDetail_ProductKey'),NOCASE !                     
 Record                   RECORD,PRE()
 GUID                        STRING(16)                     !                     
@@ -117,12 +117,12 @@ Record                   RECORD,PRE()
 GUID                        STRING(16)                     !                     
 CustomerNumber              LONG                           !                     
 CompanyGuid                 STRING(16)                     !                     
-FirstName                   STRING(100)                    !                     
-LastName                    STRING(100)                    !                     
-Street                      STRING(255)                    !                     
+FirstName                   STRING(100),NAME('FirstName | SELECTNAME=FirstName COLLATE NOCASE') !                     
+LastName                    STRING(100),NAME('LastName | SELECTNAME=LastName COLLATE NOCASE') !                     
+Street                      STRING(255),NAME('Street | SELECTNAME=Street COLLATE NOCASE') !                     
 City                        STRING(100)                    !                     
-State                       STRING(100)                    !                     
-PostalCode                  STRING(100)                    !                     
+State                       STRING(100),NAME('State | SELECTNAME=State COLLATE NOCASE') !                     
+PostalCode                  STRING(100),NAME('PostalCode | SELECTNAME=PostalCode COLLATE NOCASE') !                     
 Phone                       STRING(100)                    !                     
 MobilePhone                 STRING(100)                    !                     
 Email                       STRING(100)                    !                     
@@ -139,6 +139,7 @@ City                        STRING(100)                    !
 State                       STRING(100)                    !                     
 PostalCode                  STRING(100)                    !                     
 Phone                       STRING(100)                    !                     
+TaxRate                     DECIMAL(6,4)                   ! Default Tax rate    
                          END
                      END                       
 

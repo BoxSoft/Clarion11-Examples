@@ -127,6 +127,12 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = ?Browse
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
+  BIND('Cus:LastName',Cus:LastName)                        ! Added by: BrowseBox(ABC)
+  BIND('Cus:FirstName',Cus:FirstName)                      ! Added by: BrowseBox(ABC)
+  BIND('CusCom:CompanyName',CusCom:CompanyName)            ! Added by: BrowseBox(ABC)
+  BIND('Cus:Street',Cus:Street)                            ! Added by: BrowseBox(ABC)
+  BIND('Cus:State',Cus:State)                              ! Added by: BrowseBox(ABC)
+  BIND('Cus:PostalCode',Cus:PostalCode)                    ! Added by: BrowseBox(ABC)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
   SELF.AddItem(Toolbar)
