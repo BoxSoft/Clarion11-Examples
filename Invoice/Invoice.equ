@@ -1,0 +1,2 @@
+App:DontShowMessage           EQUATE(FALSE)
+App:ShowMessage               EQUATE(TRUE)

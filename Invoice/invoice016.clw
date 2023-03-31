@@ -119,9 +119,9 @@ ReturnValue          BYTE,AUTO
   BIND('Cus:Street',Cus:Street)                            ! Added by: BrowseBox(ABC)
   BIND('Cus:State',Cus:State)                              ! Added by: BrowseBox(ABC)
   BIND('Cus:PostalCode',Cus:PostalCode)                    ! Added by: BrowseBox(ABC)
+  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
-  SELF.AddItem(Toolbar)
   IF SELF.Request = SelectRecord
      SELF.AddItem(?Close,RequestCancelled)                 ! Add the close control to the window manger
   ELSE

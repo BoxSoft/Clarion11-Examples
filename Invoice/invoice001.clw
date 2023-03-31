@@ -93,9 +93,9 @@ ReturnValue          BYTE,AUTO
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
   ! Restore preserved local variables from non-volatile store
   LastMenu = INIMgr.TryFetch('Main_PreservedVars','LastMenu')
+  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
-  SELF.AddItem(Toolbar)
   Relate:CustomerCompany.Open()                            ! File CustomerCompany used by this procedure, so make sure it's RelationManager is open
   SELF.FilesOpened = True
   SELF.Open(AppFrame)                                      ! Open window

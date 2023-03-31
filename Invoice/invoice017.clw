@@ -24,6 +24,22 @@ UpdateInvoice PROCEDURE
 TakeCustomerSelected            PROCEDURE
                               END
 
+InvoiceDetailView   VIEW(InvoiceDetail)
+                      JOIN(Pro:GuidKey,InvDet:ProductGuid)
+                      END
+                    END
+
+InvoiceDetailReader           CLASS,TYPE
+Error                           STRING(256)
+ErrorCode                       LONG
+FileError                       STRING(256)
+FileErrorCode                   LONG
+Process                         PROCEDURE
+ClearErrors                     PROCEDURE
+SetErrors                       PROCEDURE
+TakeRecord                      PROCEDURE,VIRTUAL
+                              END
+
 InvoiceDetailCache  CLASS
 AssignQueueToRecord   PROCEDURE
 AssignRecordToQueue   PROCEDURE
@@ -34,6 +50,14 @@ ChangeRecord          PROCEDURE
 DeleteRecord          PROCEDURE
 CallUpdateForm        PROCEDURE(LONG pRequest),LONG
                     END
+
+LoadDetailReader    CLASS(InvoiceDetailReader)
+TakeRecord            PROCEDURE,DERIVED
+                    END
+
+SaveDetailReader    CLASS(InvoiceDetailReader)
+TakeRecord            PROCEDURE,DERIVED
+                    END
 DummyColumn          STRING(1)                             ! 
 CurrentTab           STRING(80)                            ! 
 ActionMessage        CSTRING(40)                           ! 
@@ -42,10 +66,11 @@ ProductCode          LIKE(Pro:ProductCode)                 !
 ProductName          LIKE(Pro:ProductName)                 ! 
 Quantity             LIKE(InvDet:Quantity)                 ! 
 Price                LIKE(InvDet:Price)                    ! 
-TaxRate              LIKE(InvDet:TaxRate)                  ! 
-TaxPaid              LIKE(InvDet:TaxPaid)                  ! 
 DiscountRate         LIKE(InvDet:DiscountRate)             ! 
 Discount             LIKE(InvDet:Discount)                 ! 
+Subtotal             LIKE(InvDet:Subtotal)                 ! 
+TaxRate              LIKE(InvDet:TaxRate)                  ! 
+TaxPaid              LIKE(InvDet:TaxPaid)                  ! 
 Total                LIKE(InvDet:Total)                    ! 
 Note                 LIKE(InvDet:Note)                     ! 
 GUID                 LIKE(InvDet:GUID)                     ! 
@@ -53,10 +78,11 @@ ProductGuid          LIKE(InvDet:ProductGuid)              !
 LineNumber           LIKE(InvDet:LineNumber)               ! 
                      END                                   ! 
 History::Inv:Record  LIKE(Inv:RECORD),THREAD
-Window               WINDOW('Invoice'),AT(,,562,288),FONT('Segoe UI',10,COLOR:Black,FONT:regular,CHARSET:DEFAULT), |
+Window               WINDOW('Invoice'),AT(,,577,277),FONT('Segoe UI',10,COLOR:Black,FONT:regular,CHARSET:DEFAULT), |
   RESIZE,AUTO,CENTER,IMM,MDI,SYSTEM
                        PROMPT('Invoice Number:'),AT(9,3),USE(?Inv:InvoiceNumber:Prompt)
-                       ENTRY(@n07),AT(68,3,60,10),USE(Inv:InvoiceNumber),MSG('Invoice number for each order')
+                       ENTRY(@n07),AT(68,3,60,10),USE(Inv:InvoiceNumber),MSG('Invoice number for each order'),READONLY, |
+  SKIP,TRN
                        PROMPT('Date:'),AT(9,16),USE(?Inv:Date:Prompt)
                        ENTRY(@d10),AT(68,17,60,10),USE(Inv:Date),REQ
                        PROMPT('&First Name:'),AT(9,30),USE(?Inv:FirstName:Prompt)
@@ -65,28 +91,29 @@ Window               WINDOW('Invoice'),AT(,,562,288),FONT('Segoe UI',10,COLOR:Bl
                        PROMPT('&Last Name:'),AT(9,44),USE(?Inv:LastName:Prompt)
                        ENTRY(@s100),AT(68,44,176,10),USE(Inv:LastName),MSG('Enter the last name of customer'),REQ
                        PROMPT('&Street:'),AT(254,2),USE(?Inv:Street:Prompt)
-                       TEXT,AT(313,3,240,37),USE(Inv:Street),MSG('Enter the first line address of customer')
+                       TEXT,AT(313,3,257,37),USE(Inv:Street),MSG('Enter the first line address of customer')
                        PROMPT('&City:'),AT(254,42),USE(?Inv:City:Prompt)
-                       ENTRY(@s100),AT(313,43,240,10),USE(Inv:City),MSG('Enter  city of customer')
+                       ENTRY(@s100),AT(313,43,257,10),USE(Inv:City),MSG('Enter  city of customer')
                        PROMPT('&State:'),AT(254,56),USE(?Inv:State:Prompt)
-                       ENTRY(@s100),AT(313,56,240,10),USE(Inv:State),MSG('Enter state of customer')
+                       ENTRY(@s100),AT(313,56,257,10),USE(Inv:State),MSG('Enter state of customer')
                        PROMPT('&Zip Code:'),AT(254,69),USE(?Inv:PostalCode:Prompt)
-                       ENTRY(@s100),AT(313,70,240,10),USE(Inv:PostalCode),MSG('Enter zipcode of customer'),TIP('Enter zipc' & |
+                       ENTRY(@s100),AT(313,70,257,10),USE(Inv:PostalCode),MSG('Enter zipcode of customer'),TIP('Enter zipc' & |
   'ode of customer')
                        PROMPT('Mobile Phone:'),AT(254,83),USE(?Inv:Phone:Prompt)
-                       ENTRY(@s100),AT(313,84,240,10),USE(Inv:Phone)
+                       ENTRY(@s100),AT(313,84,257,10),USE(Inv:Phone)
                        PROMPT('Customer Order Number:'),AT(254,97,55,16),USE(?Inv:CustomerOrderNumber:Prompt)
-                       ENTRY(@s100),AT(313,97,240,10),USE(Inv:CustomerOrderNumber),REQ
+                       ENTRY(@s100),AT(313,97,257,10),USE(Inv:CustomerOrderNumber)
                        CHECK('Order Shipped'),AT(175,3),USE(Inv:OrderShipped),MSG('Checked if order is shipped')
-                       LIST,AT(10,116,543,123),USE(?InvoiceDetailList),FORMAT('50L(2)|M~Product Code~C(0)@s100' & |
+                       LIST,AT(10,116,560,123),USE(?InvoiceDetailList),FORMAT('50L(2)|M~Product Code~C(0)@s100' & |
   '@100L(2)|M~Product Name~C(0)@s100@50R(2)|M~Quantity~C(0)@n-14@50R(2)|M~Price~C(0)@n-' & |
-  '15.2@50R(2)|M~Tax Rate~C(0)@n7.4B@50R(2)|M~Tax Paid~C(0)@n-15.2@50R(2)|M~Discount Ra' & |
-  'te~C(0)@n7.4B@50R(2)|M~Discount~C(0)@n-15.2@50R(2)|M~Total~C(0)@n-15.2@4L(2)|M@p p@'),FROM(InvoiceDetailQueue)
-                       BUTTON('Insert'),AT(397,242,50,14),USE(?InsertInvoiceDetail),KEY(InsertKey)
-                       BUTTON('Change'),AT(451,242,50),USE(?ChangeInvoiceDetail),KEY(EnterKey)
-                       BUTTON('Delete'),AT(503,242,50,14),USE(?DeleteInvoiceDetail),KEY(DeleteKey)
-                       BUTTON('&OK'),AT(451,259,50,14),USE(?OK),DEFAULT
-                       BUTTON('&Cancel'),AT(503,259,50,14),USE(?Cancel)
+  '15.2@50R(2)|M~Discount %~C(0)@n7.4B@50R(2)|M~Discount~C(0)@n-15.2@50R(2)|M~Subtotal~' & |
+  'C(0)@n-15.2@50R(2)|M~Tax %~C(0)@n7.4B@50R(2)|M~Tax Paid~C(0)@n-15.2@50R(2)|M~Total~C' & |
+  '(0)@n-15.2@4L(2)|M@p p@'),FROM(InvoiceDetailQueue)
+                       BUTTON('Insert'),AT(415,242,50,14),USE(?InsertInvoiceDetail),KEY(InsertKey)
+                       BUTTON('Change'),AT(469,242,50),USE(?ChangeInvoiceDetail),KEY(EnterKey)
+                       BUTTON('Delete'),AT(521,242,50,14),USE(?DeleteInvoiceDetail),KEY(DeleteKey)
+                       BUTTON('&OK'),AT(469,259,50,14),USE(?OK),DEFAULT
+                       BUTTON('&Cancel'),AT(521,259,50,14),USE(?Cancel)
                      END
 
 ThisWindow           CLASS(WindowManager)
@@ -95,6 +122,7 @@ Init                   PROCEDURE(),BYTE,PROC,DERIVED
 Kill                   PROCEDURE(),BYTE,PROC,DERIVED
 Run                    PROCEDURE(),BYTE,PROC,DERIVED
 TakeAccepted           PROCEDURE(),BYTE,PROC,DERIVED
+TakeCompleted          PROCEDURE(),BYTE,PROC,DERIVED
                      END
 
 Toolbar              ToolbarClass
@@ -287,6 +315,28 @@ Looped BYTE
   RETURN ReturnValue
 
 
+ThisWindow.TakeCompleted PROCEDURE
+
+ReturnValue          BYTE,AUTO
+
+Looped BYTE
+  CODE
+  LOOP
+    IF Looped
+      RETURN Level:Notify
+    ELSE
+      Looped = 1
+    END
+  ReturnValue = PARENT.TakeCompleted()
+    If ReturnValue = Level:Benign
+      InvoiceDetailCache.SaveDetail()
+    End
+    RETURN ReturnValue
+  END
+  ReturnValue = Level:Fatal
+  RETURN ReturnValue
+
+
 Resizer.Init PROCEDURE(BYTE AppStrategy=AppStrategy:Resize,BYTE SetWindowMinSize=False,BYTE SetWindowMaxSize=False)
 
 
@@ -294,6 +344,7 @@ Resizer.Init PROCEDURE(BYTE AppStrategy=AppStrategy:Resize,BYTE SetWindowMinSize
   PARENT.Init(AppStrategy,SetWindowMinSize,SetWindowMaxSize)
   SELF.SetParentDefaults()                                 ! Calculate default control parent-child relationships based upon their positions on the window
 
+!==============================================================================
 TakeCustomerSelected          PROCEDURE
   CODE
   Inv:CustomerGuid = Cus:GUID
@@ -305,13 +356,52 @@ TakeCustomerSelected          PROCEDURE
   Inv:PostalCode   = Cus:PostalCode
   Inv:Phone        = Cus:Phone
 
+!==============================================================================
+!==============================================================================
+InvoiceDetailReader.Process   PROCEDURE
+  CODE
+  SELF.ClearErrors()
+
+  OPEN(InvoiceDetailView)
+  InvoiceDetailView{PROP:Filter} = 'UPPER(InvDet:InvoiceGuid) = <39>'& UPPER(Inv:Guid) &'<39>'
+  SET(InvoiceDetailView)
+  LOOP WHILE SELF.Errorcode = NoError
+    NEXT(InvoiceDetailView)
+    IF ERRORCODE() <> NoError THEN BREAK.
+    SELF.TakeRecord()
+  END
+  CLOSE(InvoiceDetailView)
+  
+InvoiceDetailReader.TakeRecord    PROCEDURE
+  CODE
+  !Empty Virtual
+
+InvoiceDetailReader.ClearErrors   PROCEDURE
+  CODE
+  SELF.Error         = ''
+  SELF.ErrorCode     = NoError
+  SELF.FileError     = ''
+  SELF.FileErrorCode = 0
+
+InvoiceDetailReader.SetErrors PROCEDURE
+  CODE
+  SELF.Error         = GlobalErrors.GetError    (ErrClarion)
+  SELF.ErrorCode     = GlobalErrors.GetErrorCode(ErrClarion)
+  SELF.FileError     = GlobalErrors.GetError    (ErrFile)
+  SELF.FileErrorCode = GlobalErrors.GetErrorCode(ErrFile)
+  Trace('SetErrors: '& SELF.ErrorCode & ' - '& Clip(SELF.Error) &' - '& SELF.FileErrorCode &' - '& Clip(SELF.FileError))
+  
+!==============================================================================
+!==============================================================================
 InvoiceDetailCache.AssignQueueToRecord    PROCEDURE
   CODE
   CLEAR(InvoiceDetail)
-  InvDet:Record  :=: InvoiceDetailQueue
-  Pro:ProductCode = InvDetQ:ProductCode
-  Pro:ProductName = InvDetQ:ProductName
+  InvDet:Record     :=: InvoiceDetailQueue
+  InvDet:InvoiceGuid = Inv:GUID
+  Pro:ProductCode    = InvDetQ:ProductCode
+  Pro:ProductName    = InvDetQ:ProductName
 
+!==============================================================================
 InvoiceDetailCache.AssignRecordToQueue    PROCEDURE
   CODE
   CLEAR(InvoiceDetailQueue)
@@ -319,30 +409,87 @@ InvoiceDetailCache.AssignRecordToQueue    PROCEDURE
   InvDetQ:ProductCode = Pro:ProductCode
   InvDetQ:ProductName = Pro:ProductName
 
+!==============================================================================
 InvoiceDetailCache.LoadDetail PROCEDURE
-InvoiceDetailView               VIEW(InvoiceDetail)
-                                  JOIN(Pro:GuidKey,InvDet:ProductGuid)
-                                  END
-                                END
   CODE
   FREE(InvoiceDetailQueue)
-  OPEN(InvoiceDetailView)
-  InvoiceDetailView{PROP:Filter} = 'UPPER(InvDet:InvoiceGuid) = <39>'& UPPER(Inv:Guid) &'<39>'
-  SET(InvoiceDetailView)
-  LOOP
-    NEXT(InvoiceDetailView)
-    IF ERRORCODE() <> NoError THEN BREAK.
-    SELF.AssignRecordToQueue()
-    ADD(InvoiceDetailQueue) !ADD(Queue) never fails, except when your computer is about to crash anyway!!!!
-  END
-  CLOSE(InvoiceDetailView)
+  LoadDetailReader.Process()
 
-InvoiceDetailCache.SaveDetail            PROCEDURE
+LoadDetailReader.TakeRecord   PROCEDURE
   CODE
+  InvoiceDetailCache.AssignRecordToQueue()
+  ADD(InvoiceDetailQueue) !ADD(Queue) never fails, except when your computer is about to crash anyway!!!!
   
+!==============================================================================
+InvoiceDetailCache.SaveDetail PROCEDURE
+  CODE
+  LOGOUT(5, InvoiceDetail)
+  IF ERRORCODE() <> NoError
+    MESSAGE('Cannot begin transaction!|' |
+        &     '|Error #'& ERRORCODE()     &' - '& CLIP(ERROR()) | 
+        &'|File Error #'& FILEERRORCODE() &' - '& CLIP(FILEERROR()) | 
+        ,'Error!', ICON:Exclamation)
+    RETURN
+  END
+  SaveDetailReader.Process()
+  !Trace('InvoiceDetailCache.SaveDetail: After Process: '& SaveDetailReader.Errorcode &' - Records='& RECORDS(InvoiceDetailQueue))
+  IF SaveDetailReader.Errorcode = NoError
+    LOOP WHILE RECORDS(InvoiceDetailQueue)
+      GET(InvoiceDetailQueue, 1)
+      InvoiceDetailCache.AssignQueueToRecord()
+      InvDet:InvoiceGuid = Inv:GUID
+      !Trace('Before TryInsert')
+      IF Access:InvoiceDetail.TryInsert() <> Level:Benign
+        SaveDetailReader.SetErrors()
+        BREAK
+      END
+      DELETE(InvoiceDetailQueue)
+    END
+  END
+  IF SaveDetailReader.Errorcode = NoError
+    COMMIT()
+    Trace('Error: '& ERRORCODE() &'-'& ERROR() &', '& FILEERRORCODE() &'-'& FILEERROR())
+  ELSE
+    ROLLBACK()
+    MESSAGE('Unexpected error!|' |
+        &     '|Error #'& SaveDetailReader.ErrorCode     &' - '& CLIP(SaveDetailReader.Error) | 
+        &'|File Error #'& SaveDetailReader.FileErrorCode &' - '& CLIP(SaveDetailReader.FileError) | 
+        ,'Error!', ICON:Exclamation)
+  END
+
+SaveDetailReader.TakeRecord   PROCEDURE
+QueueBuffer                     STRING(SIZE(InvoiceDetailQueue))
+  CODE
+  InvoiceDetailQueue.GUID = InvDet:GUID
+  GET(InvoiceDetailQueue, InvoiceDetailQueue.GUID)
+  IF ERRORCODE() <> NoError
+    IF Access:InvoiceDetail.TryFetch(InvDet:GuidKey) = Level:Benign
+      IF Access:InvoiceDetail.DeleteRecord(False) <> Level:Benign
+        SELF.SetErrors()
+      END
+    END
+  ELSE
+    QueueBuffer = InvoiceDetailQueue
+    InvoiceDetailCache.AssignRecordToQueue()
+    If InvoiceDetailQueue = QueueBuffer
+      DELETE(InvoiceDetailQueue)
+    ELSE
+      IF Access:InvoiceDetail.TryFetch(InvDet:GuidKey) = Level:Benign
+        InvoiceDetailQueue = QueueBuffer
+        InvoiceDetailCache.AssignQueueToRecord()
+        !Trace('SaveDetailReader.TakeRecord: InvDet:GUID='& InvDet:GUID &' - InvDet:InvoiceGuid='& InvDet:InvoiceGuid &' - InvDet:ProductGuid='& InvDet:ProductGuid)
+        IF Access:InvoiceDetail.TryUpdate() <> Level:Benign
+          SELF.SetErrors()
+        END
+      END
+    END  
+  END
+
+!==============================================================================
 InvoiceDetailCache.InsertRecord   PROCEDURE
   CODE
   Clear(InvoiceDetail)
+  Clear(Product)
   IF Access:InvoiceDetail.PrimeRecord() = Level:Benign
     IF SELF.CallUpdateForm(InsertRecord) = RequestCompleted
       SELF.AssignRecordToQueue()
@@ -351,6 +498,7 @@ InvoiceDetailCache.InsertRecord   PROCEDURE
     END
   END
   
+!==============================================================================
 InvoiceDetailCache.ChangeRecord   PROCEDURE
   CODE
   GET(InvoiceDetailQueue, Choice(?InvoiceDetailList))
@@ -363,11 +511,21 @@ InvoiceDetailCache.ChangeRecord   PROCEDURE
     SELECT(?InvoiceDetailList)
   END
   
+!==============================================================================
 InvoiceDetailCache.DeleteRecord   PROCEDURE
   CODE
+  GET(InvoiceDetailQueue, Choice(?InvoiceDetailList))
+  IF ERRORCODE() = NoError
+    IF MESSAGE('Are you sure you want to delete this item?', 'Delete Item?', ICON:Question, BUTTON:Yes+BUTTON:No, BUTTON:No) = BUTTON:Yes
+      DELETE(InvoiceDetailQueue)
+    END
+    SELECT(?InvoiceDetailList)
+  END
   
+!==============================================================================
 InvoiceDetailCache.CallUpdateForm PROCEDURE(LONG pRequest)
   CODE
   GlobalRequest = pRequest
   UpdateInvoiceDetail()
   Return GlobalResponse
+  

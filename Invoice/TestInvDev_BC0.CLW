@@ -41,7 +41,6 @@ Init                   PROCEDURE(),DERIVED
 Kill                   PROCEDURE(),DERIVED
 PrimeFields            PROCEDURE(),PROC,DERIVED
 UseFile                PROCEDURE(BYTE UseType = UseType:Uses),BYTE,PROC,DERIVED
-ValidateFieldServer    PROCEDURE(UNSIGNED Id,BYTE HandleErrors),BYTE,PROC,DERIVED
                      END
 
 
@@ -375,37 +374,6 @@ ReturnValue          BYTE,AUTO
   END
                                                            !SELF.InUseFile will be set to False in PARENT
   ReturnValue = PARENT.UseFile(UseType)
-  RETURN ReturnValue
-
-
-Hide:Access:InvoiceDetail.ValidateFieldServer PROCEDURE(UNSIGNED Id,BYTE HandleErrors)
-
-ReturnValue          BYTE,AUTO
-
-  CODE
-  ReturnValue = PARENT.ValidateFieldServer(Id,HandleErrors)
-  CASE Id
-  OF 4
-    GlobalErrors.SetField('Line number')
-    IF NOT INRANGE(InvDet:LineNumber,1,99999.99)
-      ReturnValue = Level:Notify
-    END
-    IF ReturnValue <> Level:Benign
-      IF HandleErrors
-        ReturnValue = GlobalErrors.ThrowMessage(Msg:FieldOutOfRange,'1 .. 99999.99')
-      END
-    END
-  OF 5
-    GlobalErrors.SetField('InvDet:Quantity')
-    IF NOT INRANGE(InvDet:Quantity,1,99999)
-      ReturnValue = Level:Notify
-    END
-    IF ReturnValue <> Level:Benign
-      IF HandleErrors
-        ReturnValue = GlobalErrors.ThrowMessage(Msg:FieldOutOfRange,'1 .. 99999')
-      END
-    END
-  END
   RETURN ReturnValue
 
 

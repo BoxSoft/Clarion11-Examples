@@ -1363,23 +1363,21 @@ AddDetailsRtn ROUTINE
         InvDet:Quantity     = RANDOM(1,20)
         InvDet:Price        = Pro:Price
 
-        SubTotal            = InvDet:Quantity * InvDet:Price
+        InvDet:SubTotal     = InvDet:Quantity * InvDet:Price
 
         InvDet:DiscountRate = RANDOM(0,5) * 2 
-        InvDet:Discount     = ROUND(SubTotal * InvDet:DiscountRate / 100,.01)
-        SubTotal -= InvDet:Discount
+        InvDet:Discount     = ROUND(InvDet:SubTotal * InvDet:DiscountRate / 100,.01)
+        InvDet:SubTotal    -= InvDet:Discount
         
         InvDet:TaxRate      = 0
         CASE Inv:State
-        OF 'IL' ; InvDet:TaxRate = 6.5
-        OF 'CA' ; InvDet:TaxRate = 8
-        OF 'WA' ; InvDet:TaxRate = 5.5
+          ;OF 'IL' ; InvDet:TaxRate = 6.5
+          ;OF 'CA' ; InvDet:TaxRate = 8
+          ;OF 'WA' ; InvDet:TaxRate = 5.5
         END
         
-        InvDet:TaxPaid      = ROUND(SubTotal * InvDet:TaxRate / 100,.01)
-        SubTotal -= InvDet:TaxPaid
-        
-        InvDet:Total        = SubTotal      !Not sure what was intended for this 
+        InvDet:TaxPaid      = ROUND(InvDet:SubTotal * InvDet:TaxRate / 100,.01)
+        InvDet:Total        = InvDet:SubTotal + InvDet:TaxPaid
         
         InvDet:Note         = TestDataLorem(RANDOM(20,200))
 

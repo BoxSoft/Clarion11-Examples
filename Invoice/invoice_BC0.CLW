@@ -41,7 +41,6 @@ Init                   PROCEDURE(),DERIVED
 Kill                   PROCEDURE(),DERIVED
 PrimeFields            PROCEDURE(),PROC,DERIVED
 UseFile                PROCEDURE(BYTE UseType = UseType:Uses),BYTE,PROC,DERIVED
-ValidateFieldServer    PROCEDURE(UNSIGNED Id,BYTE HandleErrors),BYTE,PROC,DERIVED
                      END
 
 
@@ -53,8 +52,10 @@ Kill                   PROCEDURE(),DERIVED
 
 Hide:Access:Invoice  CLASS(FileManager),TYPE               ! FileManager for Invoice
 Init                   PROCEDURE(),DERIVED
+Insert                 PROCEDURE(),BYTE,PROC,DERIVED
 Kill                   PROCEDURE(),DERIVED
 PrimeFields            PROCEDURE(),PROC,DERIVED
+TryInsert              PROCEDURE(),BYTE,PROC,DERIVED
 UseFile                PROCEDURE(BYTE UseType = UseType:Uses),BYTE,PROC,DERIVED
                      END
 
@@ -358,37 +359,6 @@ ReturnValue          BYTE,AUTO
   RETURN ReturnValue
 
 
-Hide:Access:InvoiceDetail.ValidateFieldServer PROCEDURE(UNSIGNED Id,BYTE HandleErrors)
-
-ReturnValue          BYTE,AUTO
-
-  CODE
-  ReturnValue = PARENT.ValidateFieldServer(Id,HandleErrors)
-  CASE Id
-  OF 4
-    GlobalErrors.SetField('Line number')
-    IF NOT INRANGE(InvDet:LineNumber,1,99999.99)
-      ReturnValue = Level:Notify
-    END
-    IF ReturnValue <> Level:Benign
-      IF HandleErrors
-        ReturnValue = GlobalErrors.ThrowMessage(Msg:FieldOutOfRange,'1 .. 99999.99')
-      END
-    END
-  OF 5
-    GlobalErrors.SetField('InvDet:Quantity')
-    IF NOT INRANGE(InvDet:Quantity,1,99999)
-      ReturnValue = Level:Notify
-    END
-    IF ReturnValue <> Level:Benign
-      IF HandleErrors
-        ReturnValue = GlobalErrors.ThrowMessage(Msg:FieldOutOfRange,'1 .. 99999')
-      END
-    END
-  END
-  RETURN ReturnValue
-
-
 Hide:Relate:InvoiceDetail.DeferedAddRelations PROCEDURE
 
   CODE
@@ -429,6 +399,20 @@ Hide:Access:Invoice.Init PROCEDURE
   Access:Invoice &= SELF
 
 
+Hide:Access:Invoice.Insert PROCEDURE
+
+ReturnValue          BYTE,AUTO
+
+  CODE
+  IF LogoutInvoice(App:ShowMessage) <> Level:Benign
+    RETURN Level:Notify
+  END
+  Inv:InvoiceNumber = NextInvoiceNumber()
+  ReturnValue = PARENT.Insert()
+  COMMIT
+  RETURN ReturnValue
+
+
 Hide:Access:Invoice.Kill PROCEDURE
 
   CODE
@@ -442,6 +426,20 @@ Hide:Access:Invoice.PrimeFields PROCEDURE
   Inv:GUID = MakeGUID()                                    ! Assign initial field value
   Inv:Date = TODAY()                                       ! Assign initial field value
   PARENT.PrimeFields
+
+
+Hide:Access:Invoice.TryInsert PROCEDURE
+
+ReturnValue          BYTE,AUTO
+
+  CODE
+  IF LogoutInvoice(App:DontShowMessage) <> Level:Benign
+    RETURN Level:Notify
+  END
+  Inv:InvoiceNumber = NextInvoiceNumber()
+  ReturnValue = PARENT.TryInsert()
+  COMMIT
+  RETURN ReturnValue
 
 
 Hide:Access:Invoice.UseFile PROCEDURE(BYTE UseType = UseType:Uses)

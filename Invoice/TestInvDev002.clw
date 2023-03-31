@@ -110,9 +110,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = ?Browse:1
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
-  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
+  SELF.AddItem(Toolbar)
   IF SELF.Request = SelectRecord
      SELF.AddItem(?Close,RequestCancelled)                 ! Add the close control to the window manger
   ELSE
@@ -294,20 +294,20 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = ?InvDet:LineNumber:Prompt
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
-  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
+  SELF.AddItem(Toolbar)
   SELF.HistoryKey = CtrlH
   SELF.AddHistoryFile(InvDet:Record,History::InvDet:Record)
   SELF.AddHistoryField(?InvDet:LineNumber,4)
   SELF.AddHistoryField(?InvDet:Quantity,5)
   SELF.AddHistoryField(?InvDet:Price,6)
-  SELF.AddHistoryField(?InvDet:TaxRate,7)
-  SELF.AddHistoryField(?InvDet:TaxPaid,8)
-  SELF.AddHistoryField(?InvDet:DiscountRate,9)
-  SELF.AddHistoryField(?InvDet:Discount,10)
-  SELF.AddHistoryField(?InvDet:Total,11)
-  SELF.AddHistoryField(?InvDet:Note,12)
+  SELF.AddHistoryField(?InvDet:TaxRate,10)
+  SELF.AddHistoryField(?InvDet:TaxPaid,11)
+  SELF.AddHistoryField(?InvDet:DiscountRate,7)
+  SELF.AddHistoryField(?InvDet:Discount,8)
+  SELF.AddHistoryField(?InvDet:Total,12)
+  SELF.AddHistoryField(?InvDet:Note,13)
   SELF.AddHistoryField(?InvDet:GUID,1)
   SELF.AddHistoryField(?InvDet:InvoiceGuid,2)
   SELF.AddHistoryField(?InvDet:ProductGuid,3)
@@ -389,32 +389,6 @@ Looped BYTE
     END
   ReturnValue = PARENT.TakeAccepted()
     CASE ACCEPTED()
-    OF ?InvDet:LineNumber
-      IF Access:InvoiceDetail.TryValidateField(4)          ! Attempt to validate InvDet:LineNumber in InvoiceDetail
-        SELECT(?InvDet:LineNumber)
-        QuickWindow{PROP:AcceptAll} = False
-        CYCLE
-      ELSE
-        FieldColorQueue.Feq = ?InvDet:LineNumber
-        GET(FieldColorQueue, FieldColorQueue.Feq)
-        IF ERRORCODE() = 0
-          ?InvDet:LineNumber{PROP:FontColor} = FieldColorQueue.OldColor
-          DELETE(FieldColorQueue)
-        END
-      END
-    OF ?InvDet:Quantity
-      IF Access:InvoiceDetail.TryValidateField(5)          ! Attempt to validate InvDet:Quantity in InvoiceDetail
-        SELECT(?InvDet:Quantity)
-        QuickWindow{PROP:AcceptAll} = False
-        CYCLE
-      ELSE
-        FieldColorQueue.Feq = ?InvDet:Quantity
-        GET(FieldColorQueue, FieldColorQueue.Feq)
-        IF ERRORCODE() = 0
-          ?InvDet:Quantity{PROP:FontColor} = FieldColorQueue.OldColor
-          DELETE(FieldColorQueue)
-        END
-      END
     OF ?OK
       ThisWindow.Update()
       IF SELF.Request = ViewRecord AND NOT SELF.BatchProcessing THEN
@@ -537,9 +511,9 @@ ReturnValue          BYTE,AUTO
   BIND('Cus:Street',Cus:Street)                            ! Added by: BrowseBox(ABC)
   BIND('Cus:State',Cus:State)                              ! Added by: BrowseBox(ABC)
   BIND('Cus:PostalCode',Cus:PostalCode)                    ! Added by: BrowseBox(ABC)
-  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
+  SELF.AddItem(Toolbar)
   IF SELF.Request = SelectRecord
      SELF.AddItem(?Close,RequestCancelled)                 ! Add the close control to the window manger
   ELSE
@@ -745,9 +719,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = ?Inv:InvoiceNumber:Prompt
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
-  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
+  SELF.AddItem(Toolbar)
   SELF.HistoryKey = CtrlH
   SELF.AddHistoryFile(Inv:Record,History::Inv:Record)
   SELF.AddHistoryField(?Inv:InvoiceNumber,3)
@@ -955,9 +929,9 @@ ReturnValue          BYTE,AUTO
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
   BIND('CusCom:CompanyName',CusCom:CompanyName)            ! Added by: BrowseBox(ABC)
-  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
+  SELF.AddItem(Toolbar)
   IF SELF.Request = SelectRecord
      SELF.AddItem(?Close,RequestCancelled)                 ! Add the close control to the window manger
   ELSE
@@ -1137,9 +1111,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = ?Cus:Guid:Prompt
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
-  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
+  SELF.AddItem(Toolbar)
   SELF.HistoryKey = CtrlH
   SELF.AddHistoryFile(Cus:Record,History::Cus:Record)
   SELF.AddHistoryField(?Cus:GUID,1)
@@ -1346,9 +1320,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = ?Cfg:CompanyName:Prompt
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
-  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
+  SELF.AddItem(Toolbar)
   SELF.HistoryKey = CtrlH
   SELF.AddHistoryFile(Cfg:Record,History::Cfg:Record)
   SELF.AddHistoryField(?Cfg:CompanyName,2)
@@ -1552,9 +1526,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = ?Browse:1
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
-  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
+  SELF.AddItem(Toolbar)
   IF SELF.Request = SelectRecord
      SELF.AddItem(?Close,RequestCancelled)                 ! Add the close control to the window manger
   ELSE
@@ -1737,9 +1711,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = ?CusCom:CompanyName:Prompt
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
-  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
+  SELF.AddItem(Toolbar)
   SELF.HistoryKey = CtrlH
   SELF.AddHistoryFile(CusCom:Record,History::CusCom:Record)
   SELF.AddHistoryField(?CusCom:CompanyName,2)
@@ -1950,9 +1924,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = ?Pro:ProductCode:Prompt
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
-  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
+  SELF.AddItem(Toolbar)
   SELF.HistoryKey = CtrlH
   SELF.AddHistoryFile(Pro:Record,History::Pro:Record)
   SELF.AddHistoryField(?Pro:ProductCode,2)

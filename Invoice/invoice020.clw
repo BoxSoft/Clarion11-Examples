@@ -104,9 +104,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = ?Cfg:CompanyName:Prompt
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
+  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
-  SELF.AddItem(Toolbar)
   SELF.HistoryKey = CtrlH
   SELF.AddHistoryFile(Cfg:Record,History::Cfg:Record)
   SELF.AddHistoryField(?Cfg:CompanyName,2)

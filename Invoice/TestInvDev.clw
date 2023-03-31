@@ -79,10 +79,11 @@ ProductGuid                 STRING(16)                     !
 LineNumber                  LONG                           ! Line number         
 Quantity                    LONG                           !                     
 Price                       DECIMAL(11,2)                  ! Product's Price     
-TaxRate                     DECIMAL(6,4)                   ! Consumer's Tax rate 
-TaxPaid                     DECIMAL(11,2)                  !                     
 DiscountRate                DECIMAL(6,4)                   ! Special discount rate on product
 Discount                    DECIMAL(11,2)                  !                     
+Subtotal                    DECIMAL(11,2)                  !                     
+TaxRate                     DECIMAL(6,4)                   ! Consumer's Tax rate 
+TaxPaid                     DECIMAL(11,2)                  !                     
 Total                       DECIMAL(11,2)                  !                     
 Note                        STRING(255)                    !                     
                          END

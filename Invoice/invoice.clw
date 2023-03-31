@@ -10,6 +10,7 @@
    INCLUDE('KEYCODES.CLW'),ONCE
    INCLUDE('SPECIALFOLDER.INC'),ONCE
    INCLUDE('ABFUZZY.INC'),ONCE
+   INCLUDE('Invoice.equ'),ONCE
 
    MAP
      MODULE('INVOICE_BC.CLW')
@@ -22,7 +23,13 @@ Main                   PROCEDURE   !
      END
      MODULE('INVOICE021.CLW')
 MakeGUID               FUNCTION(),STRING   !
+LogoutInvoice          FUNCTION(BOOL ShowErrorMessage=App:ShowMessage),LONG   !
+NextInvoiceNumber      FUNCTION(),LONG   !
+Trace                  PROCEDURE(STRING DebugMessage)   !
      END
+         MODULE('Windows API')
+           appOutputDebugString(*CSTRING DebugMessage),RAW,PASCAL,NAME('OutputDebugStringA'),DLL(1)
+         END
    END
 
 Glo:Owner            STRING('Invoice.sqlite {241}')
@@ -72,10 +79,11 @@ ProductGuid                 STRING(16)                     !
 LineNumber                  LONG                           ! Line number         
 Quantity                    LONG                           !                     
 Price                       DECIMAL(11,2)                  ! Product's Price     
-TaxRate                     DECIMAL(6,4)                   ! Consumer's Tax rate 
-TaxPaid                     DECIMAL(11,2)                  !                     
 DiscountRate                DECIMAL(6,4)                   ! Special discount rate on product
 Discount                    DECIMAL(11,2)                  !                     
+Subtotal                    DECIMAL(11,2)                  !                     
+TaxRate                     DECIMAL(6,4)                   ! Consumer's Tax rate 
+TaxPaid                     DECIMAL(11,2)                  !                     
 Total                       DECIMAL(11,2)                  !                     
 Note                        STRING(255)                    !                     
                          END

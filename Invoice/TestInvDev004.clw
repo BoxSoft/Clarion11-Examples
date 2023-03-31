@@ -159,9 +159,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = ?ImpCo:company_name:Prompt
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
-  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
+  SELF.AddItem(Toolbar)
   SELF.HistoryKey = CtrlH
   SELF.AddHistoryFile(ImpCo:Record,History::ImpCo:Record)
   SELF.AddHistoryField(?ImpCo:company_name,1)
@@ -398,9 +398,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = ?Browse:1
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
-  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
+  SELF.AddItem(Toolbar)
   IF SELF.Request = SelectRecord
      SELF.AddItem(?Close,RequestCancelled)                 ! Add the close control to the window manger
   ELSE
@@ -781,9 +781,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = ?OkButton
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
-  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
+  SELF.AddItem(Toolbar)
   Relate:Customer.Open()                                   ! File Customer used by this procedure, so make sure it's RelationManager is open
   Access:CustomerCompany.UseFile()                         ! File referenced in 'Other Files' so need to inform it's FileManager
   SELF.FilesOpened = True
