@@ -19,7 +19,7 @@ DctKill     PROCEDURE                                      ! Kills the dictionar
      END
 !--- Application Global and Exported Procedure Definitions --------------------------------------------
      MODULE('INVOICE001.CLW')
-Main                   PROCEDURE   !
+Main                   PROCEDURE   !See comments within this module for references to webinars
      END
      MODULE('INVOICE021.CLW')
 MakeGUID               FUNCTION(),STRING   !
@@ -189,6 +189,8 @@ Destruct               PROCEDURE
   svSpecialFolder.CreateDirIn(SV:CSIDL_PERSONAL, 'SoftVelocity Examples' & '\' & 'Invoice' )
   INIMgr.Init(svSpecialFolder.GetDir(SV:CSIDL_PERSONAL, 'SoftVelocity Examples' & '\' & 'Invoice') & '\' & 'invoice.INI', NVD_INI)
   DctInit()
+  SYSTEM{PROP:Icon} = 'Application.ico'
+    SYSTEM{PROP:Icon} = '~Application.ico'
   Main
   INIMgr.Update
   INIMgr.Kill                                              ! Destroy INI manager

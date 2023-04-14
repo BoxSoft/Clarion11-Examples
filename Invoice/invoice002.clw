@@ -46,7 +46,7 @@ ViewPosition           STRING(1024)                   !Entry's view position
 QuickWindow          WINDOW('Browse Customer Companies'),AT(,,358,198),FONT('Segoe UI',10,COLOR:Black,FONT:regular, |
   CHARSET:DEFAULT),RESIZE,CENTER,ICON('company.ico'),IMM,MDI,SYSTEM
                        LIST,AT(8,9,342,145),USE(?Browse:1),HVSCROLL,FORMAT('80L(2)|M~Company~@s100@80L(2)|M~St' & |
-  'reet~@s255@80L(2)|M~City~@s100@80L(2)|M~State~@s100@80L(2)|M~Postal Code~@s100@80L(2' & |
+  'reet~@s255@80L(2)|M~City~@s100@21L(2)|M~State~@s100@80L(2)|M~Postal Code~@s100@80L(2' & |
   ')|M~Phone~@s100@'),FROM(Queue:Browse:1),IMM,MSG('Browsing the CustomerCompany file')
                        BUTTON('&Insert'),AT(192,158,50,14),USE(?Insert)
                        BUTTON('&Change'),AT(246,158,50,14),USE(?Change),DEFAULT

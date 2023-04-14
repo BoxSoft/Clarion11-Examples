@@ -5,6 +5,7 @@
                      MAP
                        INCLUDE('INVOICE021.INC'),ONCE        !Local module procedure declarations
                        INCLUDE('INVOICE006.INC'),ONCE        !Req'd for module callout resolution
+                       INCLUDE('INVOICE020.INC'),ONCE        !Req'd for module callout resolution
                      END
 
 
@@ -114,3 +115,40 @@ szMsg                   CSTRING(size(DebugMessage)+7),AUTO
   appOutputDebugString(szMsg)
   POPERRORS()
   
+!!! <summary>
+!!! Generated from procedure template - Source
+!!! </summary>
+CallUpdateConfiguration PROCEDURE                          ! Declare Procedure
+FilesOpened     BYTE(0)
+
+  CODE
+  DO OpenFiles
+  
+  IF RECORDS(Configuration) = 0
+    Access:Configuration.PrimeRecord()
+    !Any other field defaults
+    IF Access:Configuration.Insert() <> Level:Benign
+      DO CloseFiles
+      RETURN
+    END
+  END
+  
+  SET(Configuration)
+  WATCH(Configuration)
+  IF Access:Configuration.Next() <> Level:Benign
+    MESSAGE('Cannot fetch Configuration')
+  ELSE
+    GlobalRequest = ChangeRecord
+    UpdateConfiguration()
+  END
+  
+  DO CloseFiles
+  
+!--------------------------------------
+OpenFiles  ROUTINE
+  FilesOpened = True
+!--------------------------------------
+CloseFiles ROUTINE
+  IF FilesOpened THEN
+     FilesOpened = False
+  END

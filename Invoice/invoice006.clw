@@ -30,7 +30,6 @@ ClearSelectedCustomer           PROCEDURE
 CustomerGuid         STRING(16)                            ! 
 CustomerName         STRING(255)                           ! 
 BRW1::View:Browse    VIEW(Invoice)
-                       PROJECT(Inv:GUID)
                        PROJECT(Inv:InvoiceNumber)
                        PROJECT(Inv:Date)
                        PROJECT(Inv:OrderShipped)
@@ -40,29 +39,31 @@ BRW1::View:Browse    VIEW(Invoice)
                        PROJECT(Inv:City)
                        PROJECT(Inv:State)
                        PROJECT(Inv:PostalCode)
+                       PROJECT(Inv:GUID)
                        PROJECT(Inv:CustomerGuid)
                      END
 InvoiceQueue         QUEUE                            !Queue declaration for browse/combo box using ?InvoiceList
-Inv:GUID               LIKE(Inv:GUID)                 !List box control field - type derived from field
 Inv:InvoiceNumber      LIKE(Inv:InvoiceNumber)        !List box control field - type derived from field
 Inv:Date               LIKE(Inv:Date)                 !List box control field - type derived from field
 Inv:OrderShipped       LIKE(Inv:OrderShipped)         !List box control field - type derived from field
+Inv:OrderShipped_Icon  LONG                           !Entry's icon ID
 Inv:FirstName          LIKE(Inv:FirstName)            !List box control field - type derived from field
 Inv:LastName           LIKE(Inv:LastName)             !List box control field - type derived from field
 Inv:Street             LIKE(Inv:Street)               !List box control field - type derived from field
 Inv:City               LIKE(Inv:City)                 !List box control field - type derived from field
 Inv:State              LIKE(Inv:State)                !List box control field - type derived from field
 Inv:PostalCode         LIKE(Inv:PostalCode)           !List box control field - type derived from field
+Inv:GUID               LIKE(Inv:GUID)                 !Primary key field - type derived from field
 Inv:CustomerGuid       LIKE(Inv:CustomerGuid)         !Browse key field - type derived from field
 Mark                   BYTE                           !Entry's marked status
 ViewPosition           STRING(1024)                   !Entry's view position
                      END
 QuickWindow          WINDOW('Browse the Invoice file'),AT(,,355,193),FONT('Segoe UI',10,COLOR:Black,FONT:regular, |
   CHARSET:DEFAULT),RESIZE,CENTER,ICON('INVOICE.ICO'),GRAY,IMM,MDI,HLP('BrowseInvoice'),SYSTEM
-                       LIST,AT(8,20,342,135),USE(?InvoiceList),HVSCROLL,FORMAT('64R(2)|M~GUID~C(0)@s16@40R(2)|' & |
-  'M~Invoice~C(0)@n07@80R(2)|M~Date~C(0)@d10@32L(2)|M~Shipped~@s1@80L(2)|M~First Name~@' & |
-  's100@80L(2)|M~Last Name~@s100@80L(2)|M~Street~@s255@80L(2)|M~City~@s100@80L(2)|M~Sta' & |
-  'te~@s100@80L(2)|M~Postal Code~@s100@'),FROM(InvoiceQueue),IMM,MSG('Browsing the Invoice file')
+                       LIST,AT(8,20,342,135),USE(?InvoiceList),HVSCROLL,FORMAT('40R(2)|M~Invoice~C(0)@n07@50R(' & |
+  '2)|M~Date~C(0)@d10@32L(2)|MJ~Shipped~@n3~Yes~b@80L(2)|M~First Name~@s100@80L(2)|M~La' & |
+  'st Name~@s100@80L(2)|M~Street~@s255@80L(2)|M~City~@s100@80L(2)|M~State~@s100@80L(2)|' & |
+  'M~Postal Code~@s100@'),FROM(InvoiceQueue),IMM,MSG('Browsing the Invoice file')
                        BUTTON('Insert'),AT(192,158,50,14),USE(?Insert)
                        BUTTON('Change'),AT(246,158,50,14),USE(?Change),DEFAULT
                        BUTTON('Delete'),AT(300,158,50,14),USE(?Delete)
@@ -94,6 +95,7 @@ InvoiceBrowse        CLASS(BrowseClass)                    ! Browse using ?Invoi
 Q                      &InvoiceQueue                  !Reference to browse queue
 Init                   PROCEDURE(SIGNED ListBox,*STRING Posit,VIEW V,QUEUE Q,RelationManager RM,WindowManager WM)
 ResetSort              PROCEDURE(BYTE Force),BYTE,PROC,DERIVED
+SetQueueRecord         PROCEDURE(),DERIVED
 SetSort                PROCEDURE(BYTE NewOrder,BYTE Force),BYTE,PROC,DERIVED
                      END
 
@@ -162,7 +164,8 @@ ReturnValue          BYTE,AUTO
   InvoiceBrowse.AddLocator(BRW1::Sort0:Locator)            ! Browse has a locator for sort order 2
   BRW1::Sort0:Locator.Init(,Inv:Date,1,InvoiceBrowse)      ! Initialize the browse locator using  using key: Inv:DateKey , Inv:Date
   InvoiceBrowse.AddResetField(CustomerGuid)                ! Apply the reset field
-  InvoiceBrowse.AddField(Inv:GUID,InvoiceBrowse.Q.Inv:GUID) ! Field Inv:GUID is a hot field or requires assignment from browse
+  ?InvoiceList{PROP:IconList,1} = '~BOXCHECK.ICO'
+  ?InvoiceList{PROP:IconList,2} = '~BOXEMPTY.ICO'
   InvoiceBrowse.AddField(Inv:InvoiceNumber,InvoiceBrowse.Q.Inv:InvoiceNumber) ! Field Inv:InvoiceNumber is a hot field or requires assignment from browse
   InvoiceBrowse.AddField(Inv:Date,InvoiceBrowse.Q.Inv:Date) ! Field Inv:Date is a hot field or requires assignment from browse
   InvoiceBrowse.AddField(Inv:OrderShipped,InvoiceBrowse.Q.Inv:OrderShipped) ! Field Inv:OrderShipped is a hot field or requires assignment from browse
@@ -172,6 +175,7 @@ ReturnValue          BYTE,AUTO
   InvoiceBrowse.AddField(Inv:City,InvoiceBrowse.Q.Inv:City) ! Field Inv:City is a hot field or requires assignment from browse
   InvoiceBrowse.AddField(Inv:State,InvoiceBrowse.Q.Inv:State) ! Field Inv:State is a hot field or requires assignment from browse
   InvoiceBrowse.AddField(Inv:PostalCode,InvoiceBrowse.Q.Inv:PostalCode) ! Field Inv:PostalCode is a hot field or requires assignment from browse
+  InvoiceBrowse.AddField(Inv:GUID,InvoiceBrowse.Q.Inv:GUID) ! Field Inv:GUID is a hot field or requires assignment from browse
   InvoiceBrowse.AddField(Inv:CustomerGuid,InvoiceBrowse.Q.Inv:CustomerGuid) ! Field Inv:CustomerGuid is a hot field or requires assignment from browse
   Resizer.Init(AppStrategy:Surface,Resize:SetMinSize)      ! Controls like list boxes will resize, whilst controls like buttons will move
   SELF.AddItem(Resizer)                                    ! Add resizer to window manager
@@ -314,6 +318,18 @@ ReturnValue          BYTE,AUTO
   END
   ReturnValue = PARENT.ResetSort(Force)
   RETURN ReturnValue
+
+
+InvoiceBrowse.SetQueueRecord PROCEDURE
+
+  CODE
+  PARENT.SetQueueRecord
+  
+  IF (Inv:OrderShipped)
+    SELF.Q.Inv:OrderShipped_Icon = 1                       ! Set icon from icon list
+  ELSE
+    SELF.Q.Inv:OrderShipped_Icon = 2                       ! Set icon from icon list
+  END
 
 
 InvoiceBrowse.SetSort PROCEDURE(BYTE NewOrder,BYTE Force)

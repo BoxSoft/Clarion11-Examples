@@ -58,9 +58,6 @@
     <Compile Include="invoice009.clw">
       <Generated>true</Generated>
     </Compile>
-    <Compile Include="invoice010.clw">
-      <Generated>true</Generated>
-    </Compile>
     <Compile Include="invoice011.clw">
       <Generated>true</Generated>
     </Compile>
@@ -100,6 +97,9 @@
     <Compile Include="invoice_BC0.CLW">
       <Generated>true</Generated>
     </Compile>
+    <Library Include="BOXCHECK.ICO" />
+    <Library Include="BOXEMPTY.ICO" />
+    <Library Include="invoice.EXE.manifest" />
   </ItemGroup>
   <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
 </Project>

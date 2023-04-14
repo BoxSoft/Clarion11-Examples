@@ -15,16 +15,20 @@
                        INCLUDE('INVOICE007.INC'),ONCE        !Req'd for module callout resolution
                        INCLUDE('INVOICE008.INC'),ONCE        !Req'd for module callout resolution
                        INCLUDE('INVOICE009.INC'),ONCE        !Req'd for module callout resolution
-                       INCLUDE('INVOICE010.INC'),ONCE        !Req'd for module callout resolution
                        INCLUDE('INVOICE021.INC'),ONCE        !Req'd for module callout resolution
                      END
 
 
 !!! <summary>
 !!! Generated from procedure template - Frame
+!!! See comments within this module for references to webinars
 !!! </summary>
 Main PROCEDURE 
 
+!=====================
+! ClarionLive Webinars describing this process
+! #123 - Link
+!=====================
 LastMenu             LONG                                  ! 
 AppFrame             APPLICATION('Invoice Example'),AT(,,505,318),FONT('Segoe UI',10,COLOR:Black,FONT:regular,CHARSET:DEFAULT), |
   RESIZE,TILED,CENTER,ICON('Application.ico'),MAX,SYSTEM,WALLPAPER('White.png'),IMM
@@ -93,9 +97,9 @@ ReturnValue          BYTE,AUTO
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
   ! Restore preserved local variables from non-volatile store
   LastMenu = INIMgr.TryFetch('Main_PreservedVars','LastMenu')
-  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
+  SELF.AddItem(Toolbar)
   Relate:CustomerCompany.Open()                            ! File CustomerCompany used by this procedure, so make sure it's RelationManager is open
   SELF.FilesOpened = True
   SELF.Open(AppFrame)                                      ! Open window
@@ -158,7 +162,7 @@ Looped BYTE
     OF ?Button:Report:Product
       START(ReportProductByPro:ProductCodeKey, 25000)
     OF ?Button:Settings:Configuration
-      START(BrowseConfiguration, 25000)
+      START(CallUpdateConfiguration, 25000)
     END
     RETURN ReturnValue
   END

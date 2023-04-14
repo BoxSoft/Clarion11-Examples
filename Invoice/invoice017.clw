@@ -364,6 +364,7 @@ InvoiceDetailReader.Process   PROCEDURE
 
   OPEN(InvoiceDetailView)
   InvoiceDetailView{PROP:Filter} = 'UPPER(InvDet:InvoiceGuid) = <39>'& UPPER(Inv:Guid) &'<39>'
+  InvoiceDetailView{PROP:Order } = 'InvDet:LineNumber'
   SET(InvoiceDetailView)
   LOOP WHILE SELF.Errorcode = NoError
     NEXT(InvoiceDetailView)
@@ -423,6 +424,7 @@ LoadDetailReader.TakeRecord   PROCEDURE
 !==============================================================================
 InvoiceDetailCache.SaveDetail PROCEDURE
   CODE
+  DO RenumberQueue
   LOGOUT(5, InvoiceDetail)
   IF ERRORCODE() <> NoError
     MESSAGE('Cannot begin transaction!|' |
@@ -456,6 +458,16 @@ InvoiceDetailCache.SaveDetail PROCEDURE
         &'|File Error #'& SaveDetailReader.FileErrorCode &' - '& CLIP(SaveDetailReader.FileError) | 
         ,'Error!', ICON:Exclamation)
   END
+  
+RenumberQueue                 ROUTINE
+  DATA
+LineNumber   LONG
+  CODE
+  LOOP LineNumber = 1 TO RECORDS(InvoiceDetailQueue)
+    GET(InvoiceDetailQueue, LineNumber)
+    InvDetQ:LineNumber = LineNumber
+    PUT(InvoiceDetailQueue)
+  END
 
 SaveDetailReader.TakeRecord   PROCEDURE
 QueueBuffer                     STRING(SIZE(InvoiceDetailQueue))
@@ -480,6 +492,8 @@ QueueBuffer                     STRING(SIZE(InvoiceDetailQueue))
         !Trace('SaveDetailReader.TakeRecord: InvDet:GUID='& InvDet:GUID &' - InvDet:InvoiceGuid='& InvDet:InvoiceGuid &' - InvDet:ProductGuid='& InvDet:ProductGuid)
         IF Access:InvoiceDetail.TryUpdate() <> Level:Benign
           SELF.SetErrors()
+        ELSE
+          DELETE(InvoiceDetailQueue)  !Carl added
         END
       END
     END  
