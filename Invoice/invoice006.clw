@@ -10,13 +10,6 @@
    INCLUDE('ABWINDOW.INC'),ONCE
    INCLUDE('BRWEXT.INC'),ONCE
 
-                     MAP
-                       INCLUDE('INVOICE006.INC'),ONCE        !Local module procedure declarations
-                       INCLUDE('INVOICE016.INC'),ONCE        !Req'd for module callout resolution
-                       INCLUDE('INVOICE017.INC'),ONCE        !Req'd for module callout resolution
-                     END
-
-
 !!! <summary>
 !!! Generated from procedure template - Window
 !!! Browse the Invoice file (with select)

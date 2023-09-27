@@ -6,11 +6,6 @@
    INCLUDE('ABBROWSE.INC'),ONCE
    INCLUDE('ABREPORT.INC'),ONCE
 
-                     MAP
-                       INCLUDE('INVOICE007.INC'),ONCE        !Local module procedure declarations
-                     END
-
-
 !!! <summary>
 !!! Generated from procedure template - Report
 !!! Print the Invoice File by Inv:DateKey
@@ -144,7 +139,6 @@ ReturnValue          BYTE,AUTO
   !Setting the LineHeight for every control of type LIST/DROP or COMBO in the window using the global setting.
   Do DefineListboxStyle
   INIMgr.Fetch('ReportInvoiceByInv:DateKey',ProgressWindow) ! Restore window settings from non-volatile store
-  ProgressWindow{PROP:Timer} = 10                          ! Assign timer interval
   ProgressMgr.Init(ScrollSort:AllowNumeric,)
   ThisReport.Init(Process:View, Relate:Invoice, ?Progress:PctText, Progress:Thermometer, ProgressMgr, Inv:Date)
   ThisReport.AddSortOrder(Inv:DateKey)
@@ -152,6 +146,7 @@ ReturnValue          BYTE,AUTO
   SELF.Init(ThisReport,Report,Previewer)
   ?Progress:UserString{PROP:Text} = ''
   Relate:Invoice.SetQuickScan(1,Propagate:OneMany)
+  ProgressWindow{PROP:Timer} = 10                          ! Assign timer interval
   SELF.SkipPreview = False
   Previewer.SetINIManager(INIMgr)
   Previewer.AllowUserZoom = True

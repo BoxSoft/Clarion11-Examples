@@ -6,19 +6,6 @@
    INCLUDE('ABTOOLBA.INC'),ONCE
    INCLUDE('ABWINDOW.INC'),ONCE
 
-                     MAP
-                       INCLUDE('INVOICE001.INC'),ONCE        !Local module procedure declarations
-                       INCLUDE('INVOICE002.INC'),ONCE        !Req'd for module callout resolution
-                       INCLUDE('INVOICE003.INC'),ONCE        !Req'd for module callout resolution
-                       INCLUDE('INVOICE004.INC'),ONCE        !Req'd for module callout resolution
-                       INCLUDE('INVOICE005.INC'),ONCE        !Req'd for module callout resolution
-                       INCLUDE('INVOICE007.INC'),ONCE        !Req'd for module callout resolution
-                       INCLUDE('INVOICE008.INC'),ONCE        !Req'd for module callout resolution
-                       INCLUDE('INVOICE009.INC'),ONCE        !Req'd for module callout resolution
-                       INCLUDE('INVOICE021.INC'),ONCE        !Req'd for module callout resolution
-                     END
-
-
 !!! <summary>
 !!! Generated from procedure template - Frame
 !!! See comments within this module for references to webinars
@@ -97,9 +84,9 @@ ReturnValue          BYTE,AUTO
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
   ! Restore preserved local variables from non-volatile store
   LastMenu = INIMgr.TryFetch('Main_PreservedVars','LastMenu')
+  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
-  SELF.AddItem(Toolbar)
   Relate:CustomerCompany.Open()                            ! File CustomerCompany used by this procedure, so make sure it's RelationManager is open
   SELF.FilesOpened = True
   SELF.Open(AppFrame)                                      ! Open window

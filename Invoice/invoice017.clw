@@ -7,13 +7,6 @@
    INCLUDE('ABTOOLBA.INC'),ONCE
    INCLUDE('ABWINDOW.INC'),ONCE
 
-                     MAP
-                       INCLUDE('INVOICE017.INC'),ONCE        !Local module procedure declarations
-                       INCLUDE('INVOICE015.INC'),ONCE        !Req'd for module callout resolution
-                       INCLUDE('INVOICE016.INC'),ONCE        !Req'd for module callout resolution
-                     END
-
-
 !!! <summary>
 !!! Generated from procedure template - Window
 !!! Form Invoice

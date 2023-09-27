@@ -7,11 +7,6 @@
    INCLUDE('ABTOOLBA.INC'),ONCE
    INCLUDE('ABWINDOW.INC'),ONCE
 
-                     MAP
-                       INCLUDE('INVOICE011.INC'),ONCE        !Local module procedure declarations
-                     END
-
-
 !!! <summary>
 !!! Generated from procedure template - Window
 !!! Form CustomerCompany

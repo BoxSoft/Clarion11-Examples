@@ -17,15 +17,70 @@
 DctInit     PROCEDURE                                      ! Initializes the dictionary definition module
 DctKill     PROCEDURE                                      ! Kills the dictionary definition module
      END
-!--- Application Global and Exported Procedure Definitions --------------------------------------------
      MODULE('INVOICE001.CLW')
 Main                   PROCEDURE   !See comments within this module for references to webinars
      END
+     MODULE('INVOICE002.CLW')
+BrowseCustomerCompany  PROCEDURE   !Browse the CustomerCompany file
+     END
+     MODULE('INVOICE003.CLW')
+ReportCustomerCompanyByCusCom:CompanyNameKey PROCEDURE   !Print the CustomerCompany File by CusCom:CompanyNameKey
+     END
+     MODULE('INVOICE004.CLW')
+BrowseProduct          PROCEDURE   !Browse the Product file
+     END
+     MODULE('INVOICE005.CLW')
+ReportProductByPro:ProductCodeKey PROCEDURE   !Print the Product File by Pro:ProductCodeKey
+     END
+     MODULE('INVOICE006.CLW')
+BrowseInvoice:Window   PROCEDURE(<STRING pCustomerGuid>)   !Browse the Invoice file (with select)
+     END
+     MODULE('INVOICE007.CLW')
+ReportInvoiceByInv:DateKey PROCEDURE   !Print the Invoice File by Inv:DateKey
+     END
+     MODULE('INVOICE008.CLW')
+BrowseCustomer         PROCEDURE   !Browse the Customer file (with select)
+     END
+     MODULE('INVOICE009.CLW')
+ReportCustomerByCus:LastFirstNameKey PROCEDURE   !Print the Customer File by Cus:LastFirstNameKey
+     END
+     MODULE('INVOICE011.CLW')
+UpdateCustomerCompany  PROCEDURE   !Form CustomerCompany
+     END
+     MODULE('INVOICE012.CLW')
+UpdateProduct          PROCEDURE   !Form Product
+     END
+     MODULE('INVOICE013.CLW')
+SelectInvoice          PROCEDURE   !Select a Invoice Record
+     END
+     MODULE('INVOICE014.CLW')
+SelectProduct          PROCEDURE   !Select a Product Record
+     END
+     MODULE('INVOICE015.CLW')
+UpdateInvoiceDetail    PROCEDURE   !Edit InvoiceDetail. Does not use regular OkButton
+     END
+     MODULE('INVOICE016.CLW')
+SelectCustomer         PROCEDURE   !Select a Customer Record
+     END
+     MODULE('INVOICE017.CLW')
+UpdateInvoice          PROCEDURE   !Form Invoice
+     END
+     MODULE('INVOICE018.CLW')
+SelectCustomerCompany  PROCEDURE   !Select a CustomerCompany Record
+     END
+     MODULE('INVOICE019.CLW')
+UpdateCustomer         PROCEDURE   !Form Customer
+     END
+     MODULE('INVOICE020.CLW')
+UpdateConfiguration    PROCEDURE   !Form Configuration
+     END
      MODULE('INVOICE021.CLW')
 MakeGUID               FUNCTION(),STRING   !
+BrowseInvoice          PROCEDURE   !
 LogoutInvoice          FUNCTION(BOOL ShowErrorMessage=App:ShowMessage),LONG   !
 NextInvoiceNumber      FUNCTION(),LONG   !
 Trace                  PROCEDURE(STRING DebugMessage)   !
+CallUpdateConfiguration PROCEDURE   !
      END
          MODULE('Windows API')
            appOutputDebugString(*CSTRING DebugMessage),RAW,PASCAL,NAME('OutputDebugStringA'),DLL(1)

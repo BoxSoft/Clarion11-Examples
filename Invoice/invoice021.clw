@@ -2,13 +2,6 @@
 
    MEMBER('invoice.clw')                                   ! This is a MEMBER module
 
-                     MAP
-                       INCLUDE('INVOICE021.INC'),ONCE        !Local module procedure declarations
-                       INCLUDE('INVOICE006.INC'),ONCE        !Req'd for module callout resolution
-                       INCLUDE('INVOICE020.INC'),ONCE        !Req'd for module callout resolution
-                     END
-
-
 !!! <summary>
 !!! Generated from procedure template - Source
 !!! </summary>

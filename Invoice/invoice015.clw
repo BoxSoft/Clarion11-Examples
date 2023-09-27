@@ -7,12 +7,6 @@
    INCLUDE('ABTOOLBA.INC'),ONCE
    INCLUDE('ABWINDOW.INC'),ONCE
 
-                     MAP
-                       INCLUDE('INVOICE015.INC'),ONCE        !Local module procedure declarations
-                       INCLUDE('INVOICE014.INC'),ONCE        !Req'd for module callout resolution
-                     END
-
-
 !!! <summary>
 !!! Generated from procedure template - Window
 !!! Edit InvoiceDetail. Does not use regular OkButton

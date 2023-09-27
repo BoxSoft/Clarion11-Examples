@@ -10,11 +10,6 @@
    INCLUDE('ABWINDOW.INC'),ONCE
    INCLUDE('BRWEXT.INC'),ONCE
 
-                     MAP
-                       INCLUDE('INVOICE016.INC'),ONCE        !Local module procedure declarations
-                     END
-
-
 !!! <summary>
 !!! Generated from procedure template - Window
 !!! Select a Customer Record
